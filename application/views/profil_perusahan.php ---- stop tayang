@@ -1,0 +1,788 @@
+<!-- WRAPPER -->
+		<div id="wrapper">
+			<!-- PAGE TITLE -->
+			<section id="profilusaha" class="container">
+				<div class="row">
+                	<!-- Prifil Perusahaan -->
+                    <div class="col-md-8" style='text-align:justify'>
+                    <br><h1> <style3>Sekilas Perusahaan</style3></h1>
+                    <p>Trip Cargo adalah perusahaan expedisi yang bergerak di bidang <b>transportasi pengiriman barang atau jasa kurir dan jasa pengiriman domestik.</b> 
+                    <br>Trip Cargo menjadi salah satu pilihan expedisi yang bisa dihandalkan dengan pengiriman yang cepat, amanah dan tarif yang murah.
+                    <br>Berawal dari pengalaman kerja yang profesional dalam menangani pengiriman barang disetiap harinya serta didukung dari team yang solid dan handal,
+                        kami percaya diri untuk bisa memberikan pelayanaan yang terbaik dialam aktifitas kami dalam penanganan pengiriman barang dan packing barang serta hendeling cargo yang kapasitas besar. 
+                    <br>Trip Cargo dengan besar harapannya bisa memberikan kepuasan kepada pelanggannya dalam hal pengiriman barang. Keunggulan kami jaringan transportasi yang luas dan menyebar di seluruh wilayah Indonesia di setiap kota-kota besar. 
+                    <br>Trip Cargo dapat dijadikan mitra yang handal dalam pengiriman barang-barang dari pelanggan setia kami.
+                    <br>Dengan semangat untuk terus maju maka kami akhirnya akan memperkuat merk dan rebranding perusahaan kami yang terprentasi dengan nama besar kami <b>"Trip Cargo"</b> merupakan merk dari PT.Insan Cargo Depok.
+                    <br>Kami dalam menerapkan spesialis pengiriman rute Bali, Jawa, Sumatera, Makassar, Balikpapan, Pontianak, Banjarmasin dan Indonesia Bagian Timur. 
+                    <br>
+                    <br>Dengan optimisme dalam mengarungi persaingan dan turut membantu meningkatkan perekonomian nasional.
+                    <br>Berbagai program yang kami berikan kepada pelanggan setia kami, diapresiasi dengan baik karena mereka dapat memperoleh pelayanan yang memuaskan memenuhi kebutuhan logistik atau distribusi barang-barang mereka.</br>
+                    <br>Keyakinan dari kami serta kesetia pelanggan kami lah yang memberikan kami semangat untuk terus berinovasi tiada henti dengan memberikan pelayanan secara maksimal. 
+                    <br>Kepercayaan dari pelanggan yang diberikan kepada kami dalam menangani pengriman barang partai kecil hingga proyek-proyek angkutan skala besar.
+                    <br>Motivasi yang kami kedepankan adalah melayani dan menyediakan jasa berkualitas dengan harga yang kompetitif. 
+                    <br>Oleh karenanya, kami selalu memberikan layanan terbaik dan maksimal dengan terus melakukan peningkatan kualitas pelayanan secara terus menerus. 
+                    <br>Pengalaman kami yang cukup lama dalam bisnis ini telah menumbuhkan semangat untuk tumbuh bersama dan menjadi perusahaan terdepan dan menjadi pilihan utama dikonsumen kami.
+                    </p>
+                    </div>
+                
+                    <div class="col-md-4">
+                        <br><H2><style2>LEGALITAS</style2></H2>
+                        <ul>    
+                        <li>Akta PT.INSAN CARGO DEPOK Tgl. l9 Januari 2022</li>
+                        <li>Tanda Daftar Perusahaan No.0901220010585</li>
+                        <li>Pengesahaan Perseroan dari Menkumham No.AHU.-001079.AH.01.30 Tahun 2022</li>
+                        <li>Pengukuhan Pengusaha Kena Pajak No. 53.892.352.5-412.000</li>
+                        <li>SK DOMISILI PERUSAHAAN NO.470/72/II/2022 Kec.Sukmajaya, Kota Depok.</li>
+                        </ul>
+                        <ul>  
+                        <br><H5><strong>JASA LAYANAN PERUSAHAAN</strong></H5>
+                        <li>Jasa pengiriman barang</li>
+                        <li>Jasa Pindahan Rumah</li>
+                        <li>Jasa Pindahan Kantor</li>
+                        <li>Kirim Motor</li>
+                        <li>Kirim Mobil</li>
+                        <li>Sewa truck bak dan truck box</li>
+                        <li>Jasa Paking Barang</li>
+                        <li>Jasa Distribusikan Barang</li>
+                        </ul>
+                    </div>
+                <!--div class='PCOnly'>    
+                    <div class="divider"><!-- divider -->
+					<!--i class="fa fa-star"></i>
+				    </div>
+				    
+                    <div class="col-md-12">
+                        
+                        <div class="container">	
+                	<div class="col-md-12 col-md-offset-0">
+                		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+                			<div class="carousel-inner" role="listbox">
+                				<div class="item active">
+                				    <b>Laporan Pendapan Perbulan 2024</b>
+                        <div class="diagram">
+                              <!-- Frekuensi -->
+                              <!--div class="frekuensi"><span>90 jt</span></div>
+                              <div class="frekuensi"><span>80 jt</span></div>
+                              <div class="frekuensi"><span>70 jt</span></div>
+                              <div class="frekuensi"><span>60 jt</span></div>
+                              <div class="frekuensi"><span>50 jt</span></div>
+                              <div class="frekuensi"><span>40 jt</span></div>
+                              <div class="frekuensi"><span>30 jt</span></div>
+                              <div class="frekuensi"><span>20 jt</span></div>
+                              <div class="frekuensi"><span>10 jt</span></div>
+                              <div class="frekuensi"><span>0 jt</span></div>
+                              <div class="frekuensi"></div>
+                              <!-- Tambahkan ID unik pada setiap balok agar gampang mengatur tingginya nanti -->
+                              <!--div id="balok-a" class="balok a">28</div>
+                              <div id="balok-b" class="balok b">29</div>
+                              <div id="balok-c" class="balok c">53</div>
+                              <div id="balok-d" class="balok d">31</div>
+                              <div id="balok-e" class="balok e">28</div>
+                              <div id="balok-f" class="balok f">17</div>
+                              <div id="balok-g" class="balok g">18</div>
+                              <div id="balok-h" class="balok h">25</div>
+                              <div id="balok-i" class="balok i">7</div>
+                              <div id="balok-j" class="balok j">18</div>
+                              <div id="balok-k" class="balok k">14</div>
+                              <div id="balok-l" class="balok l">1</div>
+                              <div class="data a">Jan</div>
+                              <div class="data b">Feb</div>
+                              <div class="data c">Mat</div>
+                              <div class="data d">Apr</div>
+                              <div class="data e">Mei</div>
+                              <div class="data f">Jun</div>
+                              <div class="data g">Jul</div>
+                              <div class="data h">Agt</div>
+                              <div class="data i">Sep</div>
+                              <div class="data j">Okt</div>
+                              <div class="data k">Nov</div>
+                              <div class="data l">Des</div>
+                        </div>
+                				</div>
+                				<div class="item">
+                				<b>Laporan Pendapan Perbulan 2023</b>
+                        <div class="diagram2023">
+                              <!-- Frekuensi -->
+                              <!--div class="frekuensi2023"><span>90 jt</span></div>
+                              <div class="frekuensi2023"><span>80 jt</span></div>
+                              <div class="frekuensi2023"><span>70 jt</span></div>
+                              <div class="frekuensi2023"><span>60 jt</span></div>
+                              <div class="frekuensi2023"><span>50 jt</span></div>
+                              <div class="frekuensi2023"><span>40 jt</span></div>
+                              <div class="frekuensi2023"><span>30 jt</span></div>
+                              <div class="frekuensi2023"><span>20 jt</span></div>
+                              <div class="frekuensi2023"><span>10 jt</span></div>
+                              <div class="frekuensi2023"><span>0 jt</span></div>
+                              <div class="frekuensi2023"></div>
+                              <!-- Tambahkan ID unik pada setiap balok agar gampang mengatur tingginya nanti -->
+                              <!--div id="balok-a2023" class="balok a2023">60</div>
+                              <div id="balok-b2023" class="balok b2023">70</div>
+                              <div id="balok-c2023" class="balok c2023">80</div>
+                              <div id="balok-d2023" class="balok d2023">100</div>
+                              <div id="balok-e2023" class="balok e2023">70</div>
+                              <div id="balok-f2023" class="balok f2023">100</div>
+                              <div id="balok-g2023" class="balok g2023">80</div>
+                              <div id="balok-h2023" class="balok h2023">70</div>
+                              <div id="balok-i2023" class="balok i2023">40</div>
+                              <div id="balok-j2023" class="balok j2023">50</div>
+                              <div id="balok-k2023" class="balok k2023">60</div>
+                              <div id="balok-l2023" class="balok l2023">35</div>
+                              <div class="data a2023">Jan</div>
+                              <div class="data b2023">Feb</div>
+                              <div class="data c2023">Mat</div>
+                              <div class="data d2023">Apr</div>
+                              <div class="data e2023">Mei</div>
+                              <div class="data f2023">Jun</div>
+                              <div class="data g2023">Jul</div>
+                              <div class="data h2023">Agt</div>
+                              <div class="data i2023">Sep</div>
+                              <div class="data j2023">Okt</div>
+                              <div class="data k2023">Nov</div>
+                              <div class="data l2023">Des</div>
+                        </div>
+                				
+                				</div>
+                				<div class="item">
+                				<b>Laporan Pendapan Perbulan 2022</b>
+                        <div class="diagram2022">
+                              <!-- Frekuensi -->
+                              <!--div class="frekuensi2022"><span>90 jt</span></div>
+                              <div class="frekuensi2022"><span>80 jt</span></div>
+                              <div class="frekuensi2022"><span>70 jt</span></div>
+                              <div class="frekuensi2022"><span>60 jt</span></div>
+                              <div class="frekuensi2022"><span>50 jt</span></div>
+                              <div class="frekuensi2022"><span>40 jt</span></div>
+                              <div class="frekuensi2022"><span>30 jt</span></div>
+                              <div class="frekuensi2022"><span>20 jt</span></div>
+                              <div class="frekuensi2022"><span>10 jt</span></div>
+                              <div class="frekuensi2022"><span>0 jt</span></div>
+                              <div class="frekuensi2022"></div>
+                              <!-- Tambahkan ID unik pada setiap balok agar gampang mengatur tingginya nanti -->
+                              <!--div id="balok-a2022" class="balok a2022">100</div>
+                              <div id="balok-b2022" class="balok b2022">70</div>
+                              <div id="balok-c2022" class="balok c2022">60</div>
+                              <div id="balok-d2022" class="balok d2022">70</div>
+                              <div id="balok-e2022" class="balok e2022">80</div>
+                              <div id="balok-f2022" class="balok f2022">90</div>
+                              <div id="balok-g2022" class="balok g2022">75</div>
+                              <div id="balok-h2022" class="balok h2022">98</div>
+                              <div id="balok-i2022" class="balok i2022">68</div>
+                              <div id="balok-j2022" class="balok j2022">75</div>
+                              <div id="balok-k2022" class="balok k2022">73</div>
+                              <div id="balok-l2022" class="balok l2022">82</div>
+                              <div class="data a2022">Jan</div>
+                              <div class="data b2022">Feb</div>
+                              <div class="data c2022">Mat</div>
+                              <div class="data d2022">Apr</div>
+                              <div class="data e2022">Mei</div>
+                              <div class="data f2022">Jun</div>
+                              <div class="data g2022">Jul</div>
+                              <div class="data h2022">Agt</div>
+                              <div class="data i2022">Sep</div>
+                              <div class="data j2022">Okt</div>
+                              <div class="data k2022">Nov</div>
+                              <div class="data l2022">Des</div>
+                        </div>
+                				
+                				</div>				
+                			</div>
+                		</div>
+                	</div>
+                   </div>
+                        
+                        <!--b>Laporan Pendapan Perbulan 2024</b>
+                        <div class="diagram">
+                              <!-- Frekuensi -->
+                              <!--div class="frekuensi"><span>90 jt</span></div>
+                              <div class="frekuensi"><span>80 jt</span></div>
+                              <div class="frekuensi"><span>70 jt</span></div>
+                              <div class="frekuensi"><span>60 jt</span></div>
+                              <div class="frekuensi"><span>50 jt</span></div>
+                              <div class="frekuensi"><span>40 jt</span></div>
+                              <div class="frekuensi"><span>30 jt</span></div>
+                              <div class="frekuensi"><span>20 jt</span></div>
+                              <div class="frekuensi"><span>10 jt</span></div>
+                              <div class="frekuensi"><span>0 jt</span></div>
+                              <div class="frekuensi"></div>
+                              <!-- Tambahkan ID unik pada setiap balok agar gampang mengatur tingginya nanti -->
+                              <!--div id="balok-a" class="balok a">28</div>
+                              <div id="balok-b" class="balok b">29</div>
+                              <div id="balok-c" class="balok c">53</div>
+                              <div id="balok-d" class="balok d">31</div>
+                              <div id="balok-e" class="balok e">28</div>
+                              <div id="balok-f" class="balok f">17</div>
+                              <div id="balok-g" class="balok g">18</div>
+                              <div id="balok-h" class="balok h">25</div>
+                              <div id="balok-i" class="balok i">7</div>
+                              <div id="balok-j" class="balok j">18</div>
+                              <div id="balok-k" class="balok k">14</div>
+                              <div id="balok-l" class="balok l">1</div>
+                              <div class="data a">Jan</div>
+                              <div class="data b">Feb</div>
+                              <div class="data c">Mat</div>
+                              <div class="data d">Apr</div>
+                              <div class="data e">Mei</div>
+                              <div class="data f">Jun</div>
+                              <div class="data g">Jul</div>
+                              <div class="data h">Agt</div>
+                              <div class="data i">Sep</div>
+                              <div class="data j">Okt</div>
+                              <div class="data k">Nov</div>
+                              <div class="data l">Des</div>
+                        </div-->
+                    <!--/div>
+                <!--/div>
+                
+                <!--/div--->
+            </div>
+		</div>
+				
+<style>
+.diagram {
+  display: grid;
+  /* "grid-template-columns" digunakan untuk mengatur jumlah dan ukuran kolom */
+  grid-template-columns: 50px 70px 70px 70px 70px 70px 70px 70px 70px 70px 70px 70px 70px;
+  /* "grid-template-rows" digunakan untuk mengatur jumlah dan ukuran baris */
+  grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
+  width: 540px;
+  height: 390px;
+  margin: 30px;
+}
+
+.frekuensi,
+.balok,
+.data {
+  padding: 0;
+}
+
+.frekuensi {
+  grid-column: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.frekuensi:not(:nth-child(11)) {
+  border-right: solid .2em #2c1544;
+}
+
+.frekuensi:not(:nth-child(11)):after {
+  content: "";
+  display: block;
+  border-bottom: solid .1em #2c1544;
+  width: 0.3em;
+  transform: translateY(0.1em);
+}
+
+.frekuensi span {
+  transform: translate(-0.2em, 0.5em);
+}
+
+.balok {
+  grid-row: 2 / span 9;
+  background-color: #fddd4e;
+  margin: 0 10px;
+  display: flex;
+  align-self: flex-end;
+}
+
+.data {
+  margin-left: -.2em;
+  border-top: solid .2em #2c1544;
+  grid-row: 18;
+  text-align: center;
+}
+
+.balok.a,
+.data.a {
+  grid-column: 2;
+}
+
+.balok.b,
+.data.b {
+  grid-column: 3;
+}
+
+.balok.c,
+.data.c {
+  grid-column: 4;
+}
+
+.balok.d,
+.data.d {
+  grid-column: 5;
+}
+
+.balok.e,
+.data.e {
+  grid-column: 6;
+}
+
+.balok.f,
+.data.f {
+  grid-column: 7;
+}
+
+.balok.g,
+.data.g {
+  grid-column: 8;
+}
+
+.balok.h,
+.data.h {
+  grid-column: 9;
+}
+
+.balok.i,
+.data.i {
+  grid-column: 10;
+}
+.balok.j,
+.data.j {
+  grid-column: 11;
+}
+
+.balok.k,
+.data.k {
+  grid-column: 12;
+}
+
+.balok.l,
+.data.l {
+  grid-column: 13;
+}
+
+.balok.m,
+.data.m {
+  grid-column: 14;
+}
+
+.balok.n,
+.data.n {
+  grid-column: 15;
+}
+
+/*  Atur Tinggi Balok */
+/*   januari */
+#balok-a {
+  height: 28%;
+}
+/* februari */
+#balok-b {
+  height: 29%;
+}
+/* maret */
+#balok-c {
+  height: 53%;
+}
+/* april */
+#balok-d {
+  height: 31%;
+}
+/* mei */
+#balok-e {
+  height: 28%;
+}
+/* juni */
+#balok-f {
+  height: 17%;
+}
+/* juli */
+#balok-g {
+  height: 18%;
+}
+
+/* agustus */
+#balok-h {
+  height: 25%;
+}
+
+/* september */
+#balok-i {
+  height: 7%;
+}
+
+/* oktober */
+#balok-j {
+  height: 18%;
+}
+
+/* novenber */
+#balok-k {
+  height: 14%;
+}
+
+/* desember */
+#balok-l {
+  height: 1%;
+}
+</style>				    
+
+<!--2023-->		
+<style> 
+.diagram2023 {
+  display: grid;
+  /* "grid-template-columns" digunakan untuk mengatur jumlah dan ukuran kolom */
+  grid-template-columns: 50px 70px 70px 70px 70px 70px 70px 70px 70px 70px 70px 70px 70px;
+  /* "grid-template-rows" digunakan untuk mengatur jumlah dan ukuran baris */
+  grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
+  width: 540px;
+  height: 390px;
+  margin: 30px;
+}
+
+.frekuensi2023,
+.balok,
+.data {
+  padding: 0;
+}
+
+.frekuensi2023 {
+  grid-column: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.frekuensi2023:not(:nth-child(11)) {
+  border-right: solid .2em #2c1544;
+}
+
+.frekuensi2023:not(:nth-child(11)):after {
+  content: "";
+  display: block;
+  border-bottom: solid .1em #2c1544;
+  width: 0.3em;
+  transform: translateY(0.1em);
+}
+
+.frekuensi2023 span {
+  transform: translate(-0.2em, 0.5em);
+}
+
+.balok2023 {
+  grid-row: 2 / span 9;
+  background-color: #fddd4e;
+  margin: 0 10px;
+  display: flex;
+  align-self: flex-end;
+}
+
+.data2023 {
+  margin-left: -.2em;
+  border-top: solid .2em #2c1544;
+  grid-row: 18;
+  text-align: center;
+}
+
+.balok.a2023,
+.data.a2023 {
+  grid-column: 2;
+}
+
+.balok.b2023,
+.data.b2023 {
+  grid-column: 3;
+}
+
+.balok.c2023,
+.data.c2023 {
+  grid-column: 4;
+}
+
+.balok.d2023,
+.data.d2023 {
+  grid-column: 5;
+}
+
+.balok.e2023,
+.data.e2023 {
+  grid-column: 6;
+}
+
+.balok.f2023,
+.data.f2023 {
+  grid-column: 7;
+}
+
+.balok.g2023,
+.data.g2023 {
+  grid-column: 8;
+}
+
+.balok.h2023,
+.data.h2023 {
+  grid-column: 9;
+}
+
+.balok.i2023,
+.data.i2023 {
+  grid-column: 10;
+}
+.balok.j2023,
+.data.j2023 {
+  grid-column: 11;
+}
+
+.balok.k2023,
+.data.k2023 {
+  grid-column: 12;
+}
+
+.balok.l2023,
+.data.l2023 {
+  grid-column: 13;
+}
+
+.balok.m2023,
+.data.m2023 {
+  grid-column: 14;
+}
+
+.balok.n2023,
+.data.n2023 {
+  grid-column: 15;
+}
+
+/*  Atur Tinggi Balok */
+/*   januari */
+#balok-a2023 {
+  height: 70%;
+}
+/* februari */
+#balok-b2023 {
+  height: 80%;
+}
+/* maret */
+#balok-c2023 {
+  height: 90%;
+}
+/* april */
+#balok-d2023 {
+  height: 100%;
+}
+/* mei */
+#balok-e2023 {
+  height: 80%;
+}
+/* juni */
+#balok-f2023 {
+  height: 100%;
+}
+/* juli */
+#balok-g2023 {
+  height: 90%;
+}
+
+/* agustus */
+#balok-h2023 {
+  height: 80%;
+}
+
+/* september */
+#balok-i2023 {
+  height: 50%;
+}
+
+/* oktober */
+#balok-j2023 {
+  height: 60%;
+}
+
+/* novenber */
+#balok-k2023 {
+  height: 70%;
+}
+
+/* desember */
+#balok-l2023 {
+  height: 45%;
+}
+</style>		
+		
+<!--2022-->		
+<style> 
+.diagram2022 {
+  display: grid;
+  /* "grid-template-columns" digunakan untuk mengatur jumlah dan ukuran kolom */
+  grid-template-columns: 50px 70px 70px 70px 70px 70px 70px 70px 70px 70px 70px 70px 70px;
+  /* "grid-template-rows" digunakan untuk mengatur jumlah dan ukuran baris */
+  grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
+  width: 540px;
+  height: 390px;
+  margin: 30px;
+}
+
+.frekuensi2022,
+.balok,
+.data {
+  padding: 0;
+}
+
+.frekuensi2022 {
+  grid-column: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.frekuensi2022:not(:nth-child(11)) {
+  border-right: solid .2em #2c1544;
+}
+
+.frekuensi2022:not(:nth-child(11)):after {
+  content: "";
+  display: block;
+  border-bottom: solid .1em #2c1544;
+  width: 0.3em;
+  transform: translateY(0.1em);
+}
+
+.frekuensi2022 span {
+  transform: translate(-0.2em, 0.5em);
+}
+
+.balok2022 {
+  grid-row: 2 / span 9;
+  background-color: #fddd4e;
+  margin: 0 10px;
+  display: flex;
+  align-self: flex-end;
+}
+
+.data2022 {
+  margin-left: -.2em;
+  border-top: solid .2em #2c1544;
+  grid-row: 18;
+  text-align: center;
+}
+
+.balok.a2022,
+.data.a2022 {
+  grid-column: 2;
+}
+
+.balok.b2022,
+.data.b2022 {
+  grid-column: 3;
+}
+
+.balok.c2022,
+.data.c2022 {
+  grid-column: 4;
+}
+
+.balok.d2022,
+.data.d2022 {
+  grid-column: 5;
+}
+
+.balok.e2022,
+.data.e2022 {
+  grid-column: 6;
+}
+
+.balok.f2022,
+.data.f2022 {
+  grid-column: 7;
+}
+
+.balok.g2022,
+.data.g2022 {
+  grid-column: 8;
+}
+
+.balok.h2022,
+.data.h2022 {
+  grid-column: 9;
+}
+
+.balok.i2022,
+.data.i2022 {
+  grid-column: 10;
+}
+.balok.j2022,
+.data.j2022 {
+  grid-column: 11;
+}
+
+.balok.k2022,
+.data.k2022 {
+  grid-column: 12;
+}
+
+.balok.l2022,
+.data.l2022 {
+  grid-column: 13;
+}
+
+.balok.m2022,
+.data.m2022 {
+  grid-column: 14;
+}
+
+.balok.n2022,
+.data.n2022 {
+  grid-column: 15;
+}
+
+/*  Atur Tinggi Balok */
+/*   januari */
+#balok-a2022 {
+  height: 100%;
+}
+/* februari */
+#balok-b2022 {
+  height: 70%;
+}
+/* maret */
+#balok-c2022 {
+  height: 60%;
+}
+/* april */
+#balok-d2022 {
+  height: 70%;
+}
+/* mei */
+#balok-e2022 {
+  height: 80%;
+}
+/* juni */
+#balok-f2022 {
+  height: 90%;
+}
+/* juli */
+#balok-g2022 {
+  height: 75%;
+}
+
+/* agustus */
+#balok-h2022 {
+  height: 98%;
+}
+
+/* september */
+#balok-i2022 {
+  height: 68%;
+}
+
+/* oktober */
+#balok-j2022 {
+  height: 75%;
+}
+
+/* novenber */
+#balok-k2022 {
+  height: 73%;
+}
+
+/* desember */
+#balok-l2022 {
+  height: 82%;
+}
+</style>		
+				
+		
+				<style>    
+				    .col-md-6 li{border-left:0px solid #cc3d3d;padding-left: 10px;list-style:none;margin-bottom:5px;style='text-align:justify}
+				</style>

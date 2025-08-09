@@ -1,0 +1,97 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">	
+<title>Cargo, Murah ke Lampung</title>
+<meta name="description" content="Trip Cargo memberikan layanan pengiriman barang ke seluruh wilayah Indonesia <?php echo $_SERVER['HTTP_HOST'];?> yang amanah, aman dan dapat di akses secara reale time serta dengan harga yang bersaing.">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://cdn01.rumahweb.com/under-construction/style.css" rel="stylesheet">
+</head>
+<body>
+	<div style="background: #014CA0;color:#fff;padding:10px;">
+		<div class="container text-center" style="font-size:14px;font-weight:600;line-height: 20px;">Trip Cargo memberikan layanan pengiriman barang ke seluruh wilayah Indonesia yang amanah, aman dan dapat di akses secara reale time serta dengan harga yang bersaing.
+
+.</div>
+	</div>
+	<section class="hero">
+		<div style="background-image:url('https://cdn01.rumahweb.com/under-construction/img/dot.png');background-repeat:no-repeat;margin: -60px 0;padding: 60px 0;background-position: 30px 50px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7">
+						<p class="top1">Service cargo di Trip Cargo lebih hemat</p>
+						<p class="top2"><b style="color: #FFC546;">Trip Cargo.co.id</b><br>tarif murah</p>
+						<p class="top3">Cargo kami melayani pendistribusian barang-barang (paket ringan, medium atau atau berat) ke seluruh wilayah Indonesia dengan harga murah dan diasuransikan</p>
+					</div>
+					<div class="col-md-5"><img src="https://3.bp.blogspot.com/-7qciuPhPQnc/XG-BrcME_dI/AAAAAAAAEGM/Pbzhn5XyXYs4u5DW6tdT8KscT2LVVCeQACLcBGAs/s320/Service%2BReping%2BInsan%2BCargo%2BDepok.jpg" alt="<?php echo ucfirst($_SERVER['HTTP_HOST']);?>" width="auto"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="steps" style="padding: 80px 0;">
+		<div class="container">
+			<h1 class="text-center" style="font-size:36px; font-weight:600;color:#0D145A;line-height:50px;margin-bottom: 40px;">Ketika Kebutuhan mendesak solusi cepat akan kami berikan</h1>
+		</div>
+	</section>
+	<section class="bantuan">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h3 style="font-size: 48px;line-height:65px;color: #0D145A;margin-top: 40px;font-weight: 600;">Anda Butuh Bantuan?</h3>
+					<p style="font-size: 24px;line-height: 36px;color:#8689AC;font-weight: 200;">Kami akan selalu ada kapanpun (24 x 7)</p>
+				</div>
+				<div class="col-md-6 text-center"><!--img src="https://www.inTrip Cargodepok.com/assets/atropos/images/demo/revolution_slider/cs.png" alt="Anda butuh bantuan?" class="img-responsive"--></div>
+			</div>
+			&nbsp;
+			<div class="row" style="margin-top:40px">
+				<div class="col">
+					<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAmVBMVEVHcEwg32Al1WUl02cl1GYl02Ul02Ym02Yl0mUg12Ao12Al1Gcm02Yl02Yl1GUl1GUl02Yk02Ygz2goz2gl1Gcl1GYk1GYl1WUl02cgz3Am1WYl1GYm02Ygz2Ak02Ql0mYk0WYj0mYl02Uo02Ql0mYn0WYn1GYm0mYm0mUq1Wom0WYj02Um0mYl02Yl0mYlz2Un0WQq1WUj02cilIlXAAAAM3RSTlMAEGCQz+//r2AgIJ9/78+/0IAgIN/fcDDQEH+PgBBAoIBQv0DvcHBQsDCAkKDPjzBwMJAU6DEhAAABZElEQVR4AWTTBbajUBBF0YsdiBAixN1d5z+4/vBYb0Gzo8DFqgrJclzPDyDww6ihuqYXYNGqRdr55rgThklMPdLsAnGvr9wgSoFhKdEcQjxSSRaJx+Xtk74qBmEp0YXJVP/rwdBRZgbpVHUhzPMTBMT97HcRqWKZwkrSGjbFhaxUsYWdpCGpTA5PVQk42kNLfw5A7KjiCCctiiOTOatiAC1dwNGfIZD2VXVgqA5DZRbAVarqEGtYBJYHuKl+lTagCBjXA/lRjLvtYMMGiPUAR8YT4kjSi3Cv3IGdjuDKWD6BTjQD2DmSxuBlXztb/TuWY6p7NvUsD4qRynbhWNS6PG6mZDNoFQVwVPL+LPLiN4ucDviqMf3P5tS2s76d0PTUNNFRxX5oBzEBZ//ZBeUnpbnGDvoS4oDc7rN3JOf72QH8pnbwcjEVqZ3PNdDxtlNFCVYSyUo8dypjul20kqT1byABBAAASawYPAmTfuIAAAAASUVORK5CYII="></p>
+					<h4>LiveChat</h4>
+					<p>Cara paling cepat dan efektif untuk mendapatkan bantuan.</p>
+					<p><a href="https://wa.me/6281289897359" class="btn btn-md btn-orange livechat">Whatsapp</a></p>
+				</div>
+				<div class="col">
+					<p><img src="https://cdn01.rumahweb.com/under-construction/img/email.svg"></p>
+					<h4>Email &amp;</h4>
+					<p>Direkomendasikan untuk kendala yang penyelesaiannya membutuhkan waktu.<br></p>
+					<p><b>Sales &amp; Informasi Umum:</b><br><a href="mailto:cs.Trip Cargo@gmail.com" title="Kirim email ke cs.sancargo@gmail.com">cs.sancargo@gmail.com</a></p>
+				</div>
+				<div class="col">
+					<p><img src="https://cdn01.rumahweb.com/under-construction/img/telepon.svg"></p>
+					<h4>Telepon</h4>
+					<p>Anda juga dapat menghubungi kami melalui telepon 24 x 7.</p>
+
+					<p><b>Telepon:</b><br><a href="tel:+62-2127612134">021 27612134</a></p>
+					<p><b>Telkomsel:</b>
+					    <br><a href="tel:+6281289897359" >081289897359</a>
+					    <br><a href="tel:+6285289400025" >085289400025</a></p>
+					<p><b>Indosat:</b><br><a href="tel:+62816887959">0816887959</a></p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="container">
+		<p class="text-center" style="font-size:24px;line-height: 32px;color: #0D145A;margin:80px 0 30px 0">Copyright © 2024 Trip Cargo. All Rights Reserved.</a></p>
+	</div>
+	</footer>
+</div>
+</body>
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/64e0f07994cf5d49dc6b5bbb/1h87ammrl';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</html>
