@@ -83,8 +83,8 @@
 <div align="left" style=" margin-top: -60px;">
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="https://tripcargoid.com/">Home</a></li>
-     <li class="breadcrumb-item"><a href="https://tripcargoid.com/web/Terms">Syarat dan ketentuan</a></li>
+    <li class="breadcrumb-item"><a href="https://tripcargo.test/">Home</a></li>
+     <li class="breadcrumb-item"><a href="https://tripcargo.test/web/Terms">Syarat dan ketentuan</a></li>
     <li class="breadcrumb-item active" aria-current="page">Asuransi Barang</li>
   </ol>
 </nav>

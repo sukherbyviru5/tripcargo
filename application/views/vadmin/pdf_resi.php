@@ -65,7 +65,7 @@ $pdf->Image($barcodePath, 14.0, 0.8, 5);
 
 // QR Code
 require_once APPPATH . 'libraries/qrcode/qrlib.php';
-$resi = "https://tripcargoid.com/web/cari?k=" . $d->resi;
+$resi = "https://tripcargo.test/web/cari?k=" . $d->resi;
 $qrPath = FCPATH . 'assets/barcode/qr_' . $code . '.png';
 QRcode::png($resi, $qrPath, 'L', 2, 1);
 if (!file_exists($qrPath)) {

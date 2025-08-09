@@ -112,14 +112,14 @@ button:hover, a:hover {
   ?-->
   
   <!---Penambahan tampilan foto User ID --->
-  <img src="https://tripcargoid.com/assets/upload/<?php foreach($record  as $row){?><?php echo $row->foto;?><?php }?> " width="165px" class="img-circle img-responsive" > 
+  <img src="https://tripcargo.test/assets/upload/<?php foreach($record  as $row){?><?php echo $row->foto;?><?php }?> " width="165px" class="img-circle img-responsive" > 
   
   </div>
   <h1><?php foreach($record  as $row){?><?php echo $row->namalengkap;?><?php }?></h1>
   <p class="title1"><?php foreach($record  as $row){?><?php echo $row->jabatan;?><?php }?></p>
   <p>PT.INSAN CARGO DEPOK</p>
   <div style="margin: 24px 0;">
-    <a href="https://tripcargoid.com/" target="_blank">&nbsp; <a1><i class="fa fa-dribbble"></i></a></a>&nbsp;&nbsp;
+    <a href="https://tripcargo.test/" target="_blank">&nbsp; <a1><i class="fa fa-dribbble"></i></a></a>&nbsp;&nbsp;
     <a href="https://twitter.com/insan_depok" target="_blank"><a1><i class="fa fa-twitter"></i></a></a> &nbsp; 
     <!--a1 href="#"><i class="fa fa-linkedin"></i></a>  &nbsp;-->
     <a href="https://www.facebook.com/profile.php?id=61567164029974" target="_blank"><a1><i class="fa fa-facebook"></i></a></a> &nbsp; 

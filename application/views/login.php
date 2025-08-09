@@ -86,7 +86,7 @@
 	<!-- MAIN CONTENT -->
 	<div class="container">
 			<div class="col-11 col-sm-10 col-md-4" style="margin-top: 50px;">
-			    <span id="logo"><img src="https://tripcargoid.com/assets/img/Logo Sancargo oke.png" alt="Trip Cargo" style="
+			    <span id="logo"><img src="https://tripcargo.test/assets/img/Logo Sancargo oke.png" alt="Trip Cargo" style="
                     width: 300px;">
                     <br>
                     </span>
@@ -135,9 +135,9 @@
 						
     						<footer>
     						    <div>
-    						    <!--a href="https://tripcargoid.com/login" data-toggle="dropdown"> lupa kata sandi</a>
+    						    <!--a href="https://tripcargo.test/login" data-toggle="dropdown"> lupa kata sandi</a>
     						    <br>
-    						    <a id="" href="https://tripcargoid.com/login" data-toggle="dropdown"><span class="hidden-xs"> Regristrasi</span></a-->
+    						    <a id="" href="https://tripcargo.test/login" data-toggle="dropdown"><span class="hidden-xs"> Regristrasi</span></a-->
     							<a class="btn btn-link" href="https://api.whatsapp.com/send/?phone=6281289897359&text=anda+lupa+kata+sandi+atau+password+(+ketik+user+id+)+&+nomor+hanpone+%3F+&type=phone_number&app_absent=0" role="button">Forgot password?</a>
     							<button type="submit" class="btn btn-primary" onclick="submit">Sign In</button>
     							<!--button type="reset" class="btn btn-default"  onclick="reset">Daftar</button-->

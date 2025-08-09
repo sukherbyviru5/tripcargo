@@ -28,6 +28,9 @@ class Pdf extends FPDF {
 /* Setting zona waktu */
 date_default_timezone_set('Asia/Jakarta');
 
+// Mulai output buffering
+ob_start();
+
 $pdf = new Pdf();
 $pdf->SetMargins(0.7, 0.7, 0.7);
 $pdf->AliasNbPages();
@@ -36,14 +39,29 @@ $pdf->SetLineWidth(0.02);
 
 // Data preparation
 $hasil = [];
+if (empty($rs) || !isset($rs[0])) {
+    log_message('error', 'Data $rs kosong atau tidak valid');
+    $pdf->Output('LEBEL_error.pdf', 'I');
+    exit;
+}
 foreach ($rs as $d) {
     $hasil[] = $d;
+}
+$d = $hasil[0]; // Pastikan $d diambil dari $hasil[0] untuk menghindari undefined variable
+
+// Validasi $d->resi
+if (empty($d->resi) || !is_string($d->resi)) {
+    log_message('error', 'Nomor resi tidak valid: ' . var_export($d->resi, true));
+    $pdf->Output('LEBEL_error.pdf', 'I');
+    exit;
 }
 
 // Logo Perusahaan
 $logoPath = FCPATH . 'assets/images/logo-sancargo.png';
 if (!file_exists($logoPath)) {
-    die('File logo tidak ditemukan: ' . $logoPath);
+    log_message('error', 'File logo tidak ditemukan: ' . $logoPath);
+    $pdf->Output('LEBEL_error.pdf', 'I');
+    exit;
 }
 $pdf->Image($logoPath, 0.7, 0.7, 2.5, 1.2); // Increased logo width to 2.5 cm, kept height at 1.2 cm
 
@@ -72,9 +90,11 @@ $pdf->Cell(12.3, 0.8, $d->resi, 'LTRB', 1, 'C', true);
 // Barcode QR
 require_once FCPATH . 'application/libraries/qrcode/qrlib.php';
 $qrPath = FCPATH . 'assets/barcode/qr_' . $d->resi . '.png';
-QRcode::png($d->resi, $qrPath, QR_ECLEVEL_H, 5, 2);
+QRcode::png($d->resi, $qrPath, QR_ECLEVEL_H, (int)5, 2); // Pastikan $size adalah integer
 if (!file_exists($qrPath)) {
-    die('File QR code tidak ditemukan: ' . $qrPath);
+    log_message('error', 'File QR code tidak ditemukan: ' . $qrPath);
+    $pdf->Output('LEBEL_error.pdf', 'I');
+    exit;
 }
 $pdf->Image($qrPath, 10.7, 3.4, 2.3, 2.3);
 $pdf->Ln(0.4); // Spacing below QR code
@@ -82,13 +102,13 @@ $pdf->Ln(0.4); // Spacing below QR code
 // Service
 $pdf->SetXY(0.7, 3.6);
 $pdf->SetFont('Helvetica', 'B', 10);
-$pdf->Cell(6.0, 0.5, 'SERVICE: ' . substr($d->layan, 0, 20), 'LTRB', 1, 'C');
+$pdf->Cell(6.0, 0.5, 'SERVICE: ' . substr($d->layan ?? '', 0, 20), 'LTRB', 1, 'C');
 
 // Koli dan Berat
 $pdf->SetXY(0.7, 4.2);
 $pdf->SetFont('Helvetica', 'B', 10);
-$pdf->Cell(3.0, 0.5, $d->koli . ' Koli', 'LTRB', 0, 'C');
-$pdf->Cell(3.0, 0.5, $d->berat . ' Kg', 'LTRB', 1, 'C');
+$pdf->Cell(3.0, 0.5, ($d->koli ?? 0) . ' Koli', 'LTRB', 0, 'C');
+$pdf->Cell(3.0, 0.5, ($d->berat ?? 0) . ' Kg', 'LTRB', 1, 'C');
 
 // Informasi Penerima
 $pdf->SetXY(0.7, 4.9);
@@ -96,43 +116,43 @@ $pdf->SetFont('Helvetica', 'B', 10);
 $pdf->Cell(0, 0.5, 'Penerima:', 0, 1, 'L');
 $pdf->SetFont('Helvetica', '', 8);
 $pdf->SetXY(0.7, 5.3);
-$pdf->MultiCell(12.3, 0.4, substr($d->penerima, 0, 50), 0, 'L');
+$pdf->MultiCell(12.3, 0.4, substr($d->penerima ?? '', 0, 50), 0, 'L');
 $pdf->SetXY(0.7, 5.7);
-$pdf->MultiCell(12.3, 0.4, substr($d->dept2, 0, 50), 0, 'L');
+$pdf->MultiCell(12.3, 0.4, substr($d->dept2 ?? '', 0, 50), 0, 'L');
 $pdf->SetXY(0.7, 6.1);
-$pdf->MultiCell(12.3, 0.4, substr($d->alamat, 0, 100), 0, 'L');
+$pdf->MultiCell(12.3, 0.4, substr($d->alamat ?? '', 0, 100), 0, 'L');
 $pdf->SetXY(0.7, 7.3);
-$pdf->Cell(0, 0.4, 'Telp: **********' . substr($d->telp, 8, 5), 0, 1, 'L');
+$pdf->Cell(0, 0.4, 'Telp: **********' . substr($d->telp ?? '', 8, 5), 0, 1, 'L');
 
 // Pembayaran
 $pdf->SetXY(10.7, 7.3);
 $pdf->SetFont('Helvetica', 'I', 8);
-$pdf->Cell(0, 0.4, substr($d->metode, 0, 20), 0, 1, 'R');
+$pdf->Cell(0, 0.4, substr($d->metode ?? '', 0, 20), 0, 1, 'R');
 
 // Kota/Kabupaten
 $pdf->SetXY(0.7, 7.9);
 $pdf->SetFont('Helvetica', 'B', 12);
-$pdf->Cell(12.3, 0.6, $this->app_model->find_kokab(substr($d->kec_id, 0, 4)), 'LTRB', 1, 'C', true);
+$pdf->Cell(12.3, 0.6, $this->app_model->find_kokab(substr($d->kec_id ?? '0000', 0, 4)), 'LTRB', 1, 'C', true);
 
 // Informasi Pengirim
 if ($d->p_nama == null) {
-    $nama = $this->app_model->find_nama_pel($d->pel_id);
-    $dept = $d->dept;
-    $telp = $this->app_model->find_telp_pel($d->pel_id);
-    $alamat = $d->alamat_pel;
-    $kec = $this->app_model->find_kec($d->kec);
-    $kokab = $this->app_model->find_kokab($d->kokab);
-    $prov = $this->app_model->find_prov($d->prov);
-    $email = $d->p_email;
+    $nama = $this->app_model->find_nama_pel($d->pel_id ?? '');
+    $dept = $d->dept ?? '';
+    $telp = $this->app_model->find_telp_pel($d->pel_id ?? '');
+    $alamat = $d->alamat_pel ?? '';
+    $kec = $this->app_model->find_kec($d->kec ?? '');
+    $kokab = $this->app_model->find_kokab($d->kokab ?? '');
+    $prov = $this->app_model->find_prov($d->prov ?? '');
+    $email = $d->p_email ?? '';
 } else {
-    $nama = $d->p_nama;
-    $dept = $d->p_dept;
-    $telp = $d->p_telp;
-    $alamat = $d->p_alamat;
-    $kec = $this->app_model->find_kec($d->p_kec_id);
-    $kokab = $this->app_model->find_kokab($d->p_kokab_id);
-    $prov = $this->app_model->find_prov($d->p_prov_id);
-    $email = $d->p_email;
+    $nama = $d->p_nama ?? '';
+    $dept = $d->p_dept ?? '';
+    $telp = $d->p_telp ?? '';
+    $alamat = $d->p_alamat ?? '';
+    $kec = $this->app_model->find_kec($d->p_kec_id ?? '');
+    $kokab = $this->app_model->find_kokab($d->p_kokab_id ?? '');
+    $prov = $this->app_model->find_prov($d->p_prov_id ?? '');
+    $email = $d->p_email ?? '';
 }
 
 $pdf->SetXY(0.7, 8.7);
@@ -146,11 +166,11 @@ $pdf->Cell(0, 0.4, substr($dept, 0, 50), 0, 1, 'L');
 
 // Deskripsi
 $pdf->SetXY(0.7, 10.1);
-$pdf->Cell(0, 0.4, 'Isi: ' . substr($d->deskripsi, 0, 70), 0, 1, 'L');
+$pdf->Cell(0, 0.4, 'Isi: ' . substr($d->deskripsi ?? '', 0, 70), 0, 1, 'L');
 
 // Tanggal Kirim
 $pdf->SetXY(0.7, 10.6);
-$pdf->Cell(0, 0.4, date('d M Y H:i:s', strtotime($d->tglkirim)), 0, 1, 'L');
+$pdf->Cell(0, 0.4, date('d M Y H:i:s', strtotime($d->tglkirim ?? 'now')), 0, 1, 'L');
 
 // Website
 $pdf->SetXY(0.7, 11.1);
@@ -167,9 +187,14 @@ if (!is_dir($image_dir)) {
 }
 imagejpeg($image_resource, $image_dir . $image_name);
 if (!file_exists($image_dir . $image_name)) {
-    die('File barcode tidak ditemukan: ' . $image_dir . $image_name);
+    log_message('error', 'File barcode tidak ditemukan: ' . $image_dir . $image_name);
+    $pdf->Output('LEBEL_error.pdf', 'I');
+    exit;
 }
 $pdf->Image($image_dir . $image_name, 3.7, 11.7, 5.5, 1.3);
+
+// Bersihkan output buffer sebelum mengeluarkan PDF
+ob_end_clean();
 
 // Output PDF
 $pdf->Output('LEBEL:' . $d->resi . '.pdf', 'I');

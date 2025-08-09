@@ -460,7 +460,7 @@ document.getElementById("tanggalwaktu").innerHTML = hariarray[hari]+" "+tanggal+
         <li class="card">
         <div class="gallery">
             <!--iframe style="margin-top: 23px;" width="853" height="480"  src="https://www.youtube.com/embed/aJhiX83BYVQ" title="DJ Selembut Salju - Full Santuy || OASHU id [OFFICIAL video lirik]" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe-->
-            <img src="https://tripcargoid.com/assets/atropos/images/mengirim%20barang.gif" alt="img" draggable="false" ></img>
+            <img src="https://tripcargo.test/assets/atropos/images/mengirim%20barang.gif" alt="img" draggable="false" ></img>
             <div class="desc3">
                     <div style="height: auto; width: 100%;" class="fullwidthbanner-container roundedcorners">
                     <div class="desc5">
@@ -481,7 +481,7 @@ document.getElementById("tanggalwaktu").innerHTML = hariarray[hari]+" "+tanggal+
         </li>
         <li class="card">
           <div class="gallery">
-            <img src="https://tripcargoid.com/assets/atropos/images/gb_service2.jpg" alt="img" draggable="false" ></img>
+            <img src="https://tripcargo.test/assets/atropos/images/gb_service2.jpg" alt="img" draggable="false" ></img>
             <!--img src="https://png.pngtree.com/png-clipart/20230410/ourmid/pngtree-special-promo-png-image_6699279.png" alt="img" draggable="false"></img-->
             <div class="desc3">
                     <div style="height: auto; width: 100%;" class="fullwidthbanner-container roundedcorners">
@@ -525,7 +525,7 @@ document.getElementById("tanggalwaktu").innerHTML = hariarray[hari]+" "+tanggal+
         </li>
         <li class="card">
           <div class="gallery">
-            <img src="https://tripcargoid.com/assets/atropos/images/gb_service3.jpg" alt="img" draggable="false" ></img>
+            <img src="https://tripcargo.test/assets/atropos/images/gb_service3.jpg" alt="img" draggable="false" ></img>
             <!--img src="https://png.pngtree.com/png-clipart/20230410/ourmid/pngtree-special-promo-png-image_6699279.png" alt="img" draggable="false"></img-->
             <div class="desc3">
                     <div style="height: auto; width: 100%;" class="fullwidthbanner-container roundedcorners">
@@ -818,7 +818,7 @@ wrapper.addEventListener("mouseleave", autoPlay);
                 <!-- iklan 1--->
         <div>
             <!-- render the button and direct it to wa.me -->
-                <a href="https://wa.me/6281289897359?text=Kirim paket di *Trip Cargo* dapatkan promo spesial dengan tarif super murah caranya cukup screenshot iklan ini lalu kirim ke wa kami, ayo buruan clam segera!!!  https://tripcargoid.com/promo" class="floating1" target="_blank">
+                <a href="https://wa.me/6281289897359?text=Kirim paket di *Trip Cargo* dapatkan promo spesial dengan tarif super murah caranya cukup screenshot iklan ini lalu kirim ke wa kami, ayo buruan clam segera!!!  https://tripcargo.test/promo" class="floating1" target="_blank">
                 +6281289897359
                 </a>
                 <!-- add your custom CSS -->
@@ -860,7 +860,7 @@ wrapper.addEventListener("mouseleave", autoPlay);
 <!-- /FOOTER CONTACT INFO -->
 					</div>
 				    <hr>
-					<div style="margin-top: 5px; text-align: center; color: black; padding: 5px 1px 10px 0px;" class="copyright">&copy; Copyright @ 2025 <a style="color:black;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat" target="_blank">Trip Cargo</a>. All right reserved</div>
+					<div style="margin-top: 5px; text-align: center; color: black; padding: 5px 1px 10px 0px;" class="copyright">&copy; Copyright @ 2025 <a style="color:black;" href="https://tripcargo.test/web/Tarif_Kargo_Hemat" target="_blank">Trip Cargo</a>. All right reserved</div>
         			</div>
 		<!-- /FOOTER -->
 				  
