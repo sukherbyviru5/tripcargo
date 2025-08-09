@@ -39,7 +39,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<meta charset="utf-8" />
 		<title>Trip Cargo &#9553; Cek Resi </title>
 		<meta name="description" content="Produk dan Layanan">
-		<meta property="og:url" content="https://tripcargo.test/">
+		<meta property="og:url" content="https://tripcargoid.com/">
 		
 		<meta property="og:updated_time" content=" backup-10.9.2020_02-48-23_icd2018.tar.gz (Fri Oct 9 02:48:23 2020)">
 		
@@ -184,18 +184,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				 <div class="pull-left nav hidden-xs">
                 		<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000"style=" padding: 0px 10px 0px 10px; font-family: monospace;">
                 			<div class="carousel-inner" role="listbox">
-                				<div class="item active"><a style="color: #000;" href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - LAMPUNG: 3.000 / kg </b></a></div>
-                					<div class="item "><a style="color: #000;" href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - PALEMBANG: 4.000 / kg </b></a></div>
-                				    <div class="item "><a style="color: #000;" href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - JAMBI: 4.500 / kg </b></a></div>
-                				    <div class="item "><a style="color: #000;" href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - PADANG: 5.000 / kg </b></a></div>
-                				    <div class="item "><a style="color: #000;" href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - BENGKULU: 6.000 / kg </b></a></div>
-                				    <div class="item "><a style="color: #000;" href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - PEKANBARU: 5.000 / kg </b></a></div>
-                				    <div class="item "><a style="color: #000;" href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - MEDAN: 5.500 / kg </b></a></div>
+                				<div class="item active"><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - LAMPUNG: 3.000 / kg </b></a></div>
+                					<div class="item "><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - PALEMBANG: 4.000 / kg </b></a></div>
+                				    <div class="item "><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - JAMBI: 4.500 / kg </b></a></div>
+                				    <div class="item "><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - PADANG: 5.000 / kg </b></a></div>
+                				    <div class="item "><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - BENGKULU: 6.000 / kg </b></a></div>
+                				    <div class="item "><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - PEKANBARU: 5.000 / kg </b></a></div>
+                				    <div class="item "><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - MEDAN: 5.500 / kg </b></a></div>
                 				    
-                				<div class="item "><a style="color: #000;" href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - PONTIANAK: 4.500 / kg </b></a></div>
-                				<div class="item "><a style="color: #000;" href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - MAKASSAR: 5.000 / kg </b></a></div>
-                				<div class="item "><a style="color: #000;" href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - BALIKPAPAN: 7.000 / kg </b></a></div>
-                				<div class="item "><a style="color: #000;" href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - SAMARINDA: 7.000 / kg </b></a></div>
+                				<div class="item "><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - PONTIANAK: 4.500 / kg </b></a></div>
+                				<div class="item "><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - MAKASSAR: 5.000 / kg </b></a></div>
+                				<div class="item "><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - BALIKPAPAN: 7.000 / kg </b></a></div>
+                				<div class="item "><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - SAMARINDA: 7.000 / kg </b></a></div>
                 				
                 			</div>
                 		</div>
@@ -267,7 +267,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				</button>
 
 				<!-- Logo text or image -->
-				<a class="logo"href="<?php echo base_url();?>"><img src="https://tripcargo.test/assets/atropos/images/logo-trip-white.png" alt="Trip Cargo" style="width: 150px;"></a>
+				<a class="logo"href="<?php echo base_url();?>"><img src="https://tripcargoid.com/assets/atropos/images/logo-trip-white.png" alt="Trip Cargo" style="width: 150px;"></a>
 
 				<!-- Top Nav -->
 				<div class="navbar-collapse nav-main-collapse collapse pull-right">
@@ -420,7 +420,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 								</ul>
 						</div>	
 						<!--div class="column col-sm-2 text-right" style="margin-left: 80px;">
-								<form method="get" action="https://tripcargo.test/web/cari" class="input-group pull-right">
+								<form method="get" action="https://tripcargoid.com/web/cari" class="input-group pull-right">
 									<input type="text" value="" data-msg-required="Please enter your name." maxlength="11" class="form-control" name="k" id="k" value=" ">
 									<span class="input-group-btn">
 										<button class="btn btn-primary notransition"><i class="fa fa-search"></i></button>

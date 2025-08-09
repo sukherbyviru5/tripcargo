@@ -714,11 +714,11 @@
             <p>Kami bangga menjadi mitra logistik bagi perusahaan-perusahaan terkemuka di berbagai industri.</p>
         </div>
         <div class="customer-grid">
-            <div class="customer-card"><img src="https://tripcargo.test/assets/atropos/images/demo/customer/doku.png" alt="Logo Doku"></div>
-            <div class="customer-card"><img src="https://tripcargo.test/assets/atropos/images/demo/customer/mitsubishi.png" alt="Logo Mitsubishi"></div>
-            <div class="customer-card"><img src="https://tripcargo.test/assets/atropos/images/demo/customer/panasonic.png" alt="Logo Panasonic"></div>
-            <div class="customer-card"><img src="https://tripcargo.test/assets/atropos/images/demo/customer/oxone.png" alt="Logo Oxone"></div>
-            <div class="customer-card"><img src="https://tripcargo.test/assets/atropos/images/demo/customer/tunas.png" alt="Logo Tunas"></div>
+            <div class="customer-card"><img src="https://tripcargoid.com/assets/atropos/images/demo/customer/doku.png" alt="Logo Doku"></div>
+            <div class="customer-card"><img src="https://tripcargoid.com/assets/atropos/images/demo/customer/mitsubishi.png" alt="Logo Mitsubishi"></div>
+            <div class="customer-card"><img src="https://tripcargoid.com/assets/atropos/images/demo/customer/panasonic.png" alt="Logo Panasonic"></div>
+            <div class="customer-card"><img src="https://tripcargoid.com/assets/atropos/images/demo/customer/oxone.png" alt="Logo Oxone"></div>
+            <div class="customer-card"><img src="https://tripcargoid.com/assets/atropos/images/demo/customer/tunas.png" alt="Logo Tunas"></div>
         </div>
     </div>
 </section>

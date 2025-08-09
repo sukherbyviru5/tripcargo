@@ -86,7 +86,7 @@ class Users extends CI_Controller {
 			'</div>'.
 			'</div>';
 			
-			$row[] = '<img src="https://tripcargo.test/assets/upload/'.$users->foto.'" class="img-thumbnail" alt="Cinque Terre" width="100" height="100" img-responsive title="'.$users->foto.'">'.'<br>';
+			$row[] = '<img src="https://tripcargoid.com/assets/upload/'.$users->foto.'" class="img-thumbnail" alt="Cinque Terre" width="100" height="100" img-responsive title="'.$users->foto.'">'.'<br>';
 			//$row[] = '<div style= widht:auto>  '.$users->password.'</div>';
 			//$row[] = '<div style= width:auto;> '.$users->namalengkap.'</div>';
 			//$row[] = '<div style= width:auto;> '.$users->level.'</div>';
