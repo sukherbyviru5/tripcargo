@@ -307,7 +307,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 									<br>
 									<li>
 									<div class="footer-sprite phone">
-										<a href="tel://02127612134">0881-080-899-678</a> - <a href="https://api.whatsapp.com/send?phone=6281289897359" target="_blank">0881080899678</a>
+										<a href="tel://02127612134">0881-080-899-678</a> - <a href="https://api.whatsapp.com/send?phone=62881080899678" target="_blank">0881080899678</a>
 										<!--div class='PCOnly'>
 										<a href="tel://62816887359" target="_blank">0816 88 7359</a> - <a href="tel://628128107359" target="_blank">0812 810 7359</a>
 										</div-->
@@ -315,7 +315,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 									<br>
 									<li>
 									<div class="footer-sprite email">
-										<a href="mailto:insan.depok@gmail.com"> insan.depok@gmail.com</a>
+										<a href="mailto:cs@tripcargoid.com"> cs@tripcargoid.com</a>
 									</li>
 								</ul>
 							</address>
@@ -390,7 +390,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 										<i class="fa fa-twitter-square" style="font-size:36px"></i></a>  
 										<a style='background-color: #fff0'; href="https://www.facebook.com/profile.php?id=61567164029974" target="_blank" class="btn btn-info btn-circle">
 										<i class="fa fa-facebook-square" style="font-size:36px"></i></a>
-										<a style='background-color: #fff0'; href="https://api.whatsapp.com/send?phone=6281289897359" target="_blank" class="btn btn-info btn-circle">
+										<a style='background-color: #fff0'; href="https://api.whatsapp.com/send?phone=62881080899678" target="_blank" class="btn btn-info btn-circle">
 										<i class="fa fa-whatsapp" style="font-size:36px"> </i></a>
 									</li>
 								</ul>

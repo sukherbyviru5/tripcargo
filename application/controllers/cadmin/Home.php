@@ -18,6 +18,10 @@ class Home extends CI_Controller {
 		$this->load->model('updatecargo_model','updatecargo');
 		$this->load->model('manifast_model','manifast');
 		$this->load->model('manifast_temp_model','manifast_temp');
+		$this->load->model('Introduction_model');
+        $this->load->model('Visi_misi_model');
+        $this->load->model('Services_model');
+        $this->load->model('Customers_model');
 		$this->load->library('session');
 	}
 	public function index()
@@ -1866,6 +1870,295 @@ class Home extends CI_Controller {
 							 "12"=>"Des");
 		return $month_array[$month];
 	}
+
+	// introduction
+
+	// Halaman Setting Introduction (termasuk Visi Misi)
+    public function introduction()
+    {
+        $data['introduction'] = $this->Introduction_model->get_all();
+        $data['visi_misi'] = $this->Visi_misi_model->get_all();
+        
+        $this->load->view('vadmin/setting_introduction', $data);
+    }
+
+    // Update: Memperbarui data introduction (hanya update, tidak ada store)
+    public function update_introduction($id)
+    {
+        $data = [
+            'description' => $this->input->post('description')
+        ];
+
+        if ($this->Introduction_model->update($id, $data)) {
+            $response = [
+                'status' => 'success',
+                'message' => 'Introduction updated successfully'
+            ];
+        } else {
+            $response = [
+                'status' => 'error',
+                'message' => 'Failed to update introduction'
+            ];
+        }
+
+        $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode($response));
+    }
+
+    // Update: Memperbarui data visi_misi (hanya update, tidak ada create/delete)
+    public function update_visi_misi($id)
+    {
+        $data = [
+            'type' => $this->input->post('type'),
+            'title' => $this->input->post('title'),
+            'description' => $this->input->post('description'),
+            'icon' => $this->input->post('icon')
+        ];
+
+        if ($this->Visi_misi_model->update($id, $data)) {
+            $response = [
+                'status' => 'success',
+                'message' => 'Visi/Misi updated successfully'
+            ];
+        } else {
+            $response = [
+                'status' => 'error',
+                'message' => 'Failed to update visi/misi'
+            ];
+        }
+
+        $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode($response));
+    }
+
+    // Ubah fungsi ini untuk memuat view yang baru
+    public function customer()
+    {
+        $this->load->view('vadmin/setting_customer'); 
+    }
+
+    public function get_customers_ajax()
+    {
+        $this->load->model('Customers_model');
+        $list = $this->Customers_model->get_datatables();
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $customer) {
+            $no++;
+            $row = array();
+            $row['no'] = $no;
+            $row['name'] = $customer->name;
+
+            if($customer->logo && file_exists('./uploads/' . $customer->logo)) {
+                $row['logo'] = '<img src="'.base_url('uploads/'.$customer->logo).'" class="img-responsive" style="max-height: 50px;"/>';
+            } else {
+                $row['logo'] = '(No Logo)';
+            }
+
+            $row['action'] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="editCustomer('.$customer->id.')"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                              <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="deleteCustomer('.$customer->id.')"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+            
+            $data[] = $row;
+        }
+
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->Customers_model->count_all(),
+            "recordsFiltered" => $this->Customers_model->count_filtered(),
+            "data" => $data,
+        );
+        
+        echo json_encode($output);
+    }
+    
+    // Endpoint untuk mengambil data customer by ID
+    public function get_customer_by_id($id)
+    {
+        $data = $this->Customers_model->get_by_id($id);
+        echo json_encode($data);
+    }
+
+    // Menyimpan data customer baru dengan UPLOAD
+    public function store_customer()
+    {
+        $data = ['name' => $this->input->post('name')];
+        $response = array('status' => false, 'message' => 'Gagal membuat customer.');
+
+        if (!empty($_FILES['logo']['name'])) {
+            $config['upload_path']   = './uploads/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['max_size']      = 2048; 
+            $config['encrypt_name']  = TRUE;
+			$this->load->library('upload', $config);
+
+            $this->upload->initialize($config);
+
+            if ($this->upload->do_upload('logo')) {
+                $upload_data = $this->upload->data();
+                $data['logo'] = $upload_data['file_name'];
+            } else {
+                $response['message'] = $this->upload->display_errors('', '');
+                echo json_encode($response);
+                return;
+            }
+        }
+
+        if ($this->Customers_model->create($data)) {
+            $response = ['status' => true, 'message' => 'Customer berhasil dibuat!'];
+        }
+
+        echo json_encode($response);
+    }
+
+    public function update_customer()
+	{
+		$id = $this->input->post('id');
+		$data = ['name' => $this->input->post('name')];
+		$response = array('status' => false, 'message' => 'Gagal memperbarui customer.');
+
+		if (!empty($_FILES['logo']['name'])) {
+			// Hapus file lama
+			$old_customer = $this->Customers_model->get_by_id($id);
+			if ($old_customer->logo && file_exists('./uploads/' . $old_customer->logo)) {
+				unlink('./uploads/' . $old_customer->logo);
+			}
+
+			// Upload file baru
+			$config['upload_path']   = './uploads/';
+			$config['allowed_types'] = 'gif|jpg|png|jpeg';
+			$config['max_size']      = 2048; 
+			$config['encrypt_name']  = TRUE;
+
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+
+			if ($this->upload->do_upload('logo')) {
+				$upload_data = $this->upload->data();
+				$data['logo'] = $upload_data['file_name'];
+			} else {
+				$response['message'] = $this->upload->display_errors('', '');
+				echo json_encode($response);
+				return;
+			}
+		}
+
+		if ($this->Customers_model->update($id, $data)) {
+			$response = ['status' => true, 'message' => 'Customer berhasil diperbarui!'];
+		}
+
+		echo json_encode($response);
+	}
+
+    
+    // Menghapus data customer
+    public function delete_customer($id)
+    {
+        $customer = $this->Customers_model->get_by_id($id);
+        if ($customer->logo && file_exists('./uploads/' . $customer->logo)) {
+            unlink('./uploads/' . $customer->logo);
+        }
+
+        $this->Customers_model->delete($id);
+        echo json_encode(array("status" => TRUE));
+    }
+
+    public function service()
+    {
+        // Memuat view untuk halaman service
+        $this->load->view('vadmin/setting_service');
+    }
+
+    // Endpoint AJAX untuk DataTables Service
+    public function get_services_ajax()
+    {
+        $this->load->model('Services_model');
+        $list = $this->Services_model->get_datatables();
+        $data = array();
+        $no = isset($_POST['start']) ? $_POST['start'] : 0;
+        foreach ($list as $service) {
+            $no++;
+            $row = array();
+            $row['no'] = $no;
+            $row['title'] = $service->title;
+            $row['description'] = $service->description;
+
+            // Menampilkan ikon Font Awesome
+            $row['icon'] = '<i class="fa ' . htmlspecialchars($service->icon, ENT_QUOTES, 'UTF-8') . ' fa-2x"></i>';
+
+            // Tombol Aksi
+            $row['action'] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="editService('.$service->id.')"><i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                              <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="deleteService('.$service->id.')"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+            
+            $data[] = $row;
+        }
+
+        $output = array(
+            "draw" => isset($_POST['draw']) ? $_POST['draw'] : 0,
+            "recordsTotal" => $this->Services_model->count_all(),
+            "recordsFiltered" => $this->Services_model->count_filtered(),
+            "data" => $data,
+        );
+        
+        echo json_encode($output);
+    }
+    
+    // Endpoint untuk mengambil data service by ID
+    public function get_service_by_id($id)
+    {
+        $this->load->model('Services_model');
+        $data = $this->Services_model->get_by_id($id);
+        echo json_encode($data);
+    }
+
+    // Menyimpan data service baru
+    public function store_service()
+    {
+        $this->load->model('Services_model');
+        $data = [
+            'title' => $this->input->post('title'),
+            'description' => $this->input->post('description'),
+            'icon' => $this->input->post('icon') // Mengambil kelas ikon dari form
+        ];
+
+        if ($this->Services_model->create($data)) {
+            $response = ['status' => true, 'message' => 'Service berhasil dibuat!'];
+        } else {
+            $response = ['status' => false, 'message' => 'Gagal membuat service.'];
+        }
+        echo json_encode($response);
+    }
+
+    // Memperbarui data service
+    public function update_service()
+    {
+        $this->load->model('Services_model');
+        $id = $this->input->post('id');
+        $data = [
+            'title' => $this->input->post('title'),
+            'description' => $this->input->post('description'),
+            'icon' => $this->input->post('icon')
+        ];
+        
+        if ($this->Services_model->update($id, $data)) {
+            $response = ['status' => true, 'message' => 'Service berhasil diperbarui!'];
+        } else {
+            $response = ['status' => false, 'message' => 'Gagal memperbarui service.'];
+        }
+        echo json_encode($response);
+    }
+    
+    // Menghapus data service
+    public function delete_service($id)
+    {
+        $this->load->model('Services_model');
+        if ($this->Services_model->delete($id)) {
+            echo json_encode(["status" => TRUE]);
+        } else {
+            echo json_encode(["status" => FALSE]);
+        }
+    }
 }
 
 /* End of file welcome.php */

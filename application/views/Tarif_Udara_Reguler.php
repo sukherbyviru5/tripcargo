@@ -454,7 +454,7 @@ function myFunction() {
 </script>
 <div class="ccw_plugin chatbot" style="bottom:10px; right:10px;">
     <div class="ccw_style9 animated no-animation ccw-no-hover-an">
-        <a target="_blank" href="https://web.whatsapp.com/send?phone=6281289897359&amp;text=Hi, saya mau tanya mengenai produk yang ini: https://www.insancargodepok.com/web/Tarif_Udara_Reguler" rel="noreferrer" class="img-icon-a nofocus">   
+        <a target="_blank" href="https://web.whatsapp.com/send?phone=62881080899678&amp;text=Hi, saya mau tanya mengenai produk yang ini: https://www.insancargodepok.com/web/Tarif_Udara_Reguler" rel="noreferrer" class="img-icon-a nofocus">   
             <img class="img-icon ccw-analytics" id="style-9" data-ccw="style-9" style="height: 48px;" src="https://blog.waroengweb.co.id/wp-content/plugins/click-to-chat-for-whatsapp/./new/inc/assets/img/whatsapp-icon-square.svg" alt="WhatsApp chat">
         </a>
     </div>

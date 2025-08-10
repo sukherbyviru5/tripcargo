@@ -150,7 +150,7 @@ function __construct($orientation='P', $unit='cm', $size='A4')
 	$pdf->Ln(2.0);
     $pdf->SetFont('Helvetica','',9); //set ulang font
 	$pdf->Cell(0.1,1.5,'','','DD');
-	$pdf->MultiCell(18.0,0.9,'Costumer service: 081289897359 - Email: insan.depok@gmail.com','','DD');
+	$pdf->MultiCell(18.0,0.9,'Costumer service: 081289897359 - Email: cs@tripcargoid.com','','DD');
 	//-------------------------------------------------------------------------
 
 	

@@ -219,7 +219,31 @@
 						    </li>
 						</ul>    
 					</li>
-	<!---admin-->				
+
+					<li>
+						<a href="#" title="Settings">
+							<i class="fa fa-cog"></i>
+							<span class="menu-item-parent">Settings</span>
+						</a>
+						<ul>
+							<li class="<?php echo $this->app_model->status_menu($akt, 'introduction'); ?>">
+								<a href="<?php echo base_url('cadmin/home/introduction'); ?>" title="Introduction & Visi Misi">
+									Introduction & Visi Misi
+								</a>
+							</li>
+							<li class="<?php echo $this->app_model->status_menu($akt, 'customer'); ?>">
+								<a href="<?php echo base_url('cadmin/home/customer'); ?>" title="Customer">
+									Customer
+								</a>
+							</li>
+							<li class="<?php echo $this->app_model->status_menu($akt, 'service'); ?>">
+								<a href="<?php echo base_url('cadmin/home/service'); ?>" title="Service">
+									Service
+								</a>
+							</li>
+						</ul>
+					</li>
+				<!---admin-->				
 					
 					
 				<?php }elseif($level=="admin"){ ?>
@@ -328,7 +352,7 @@
 							        <a target="" title="">CSO </a>
 							    <ul>
 							        <li>
-							            <a target="_blank" href="https://api.whatsapp.com/send?phone=6281289897359" title="CSO">081289897359</a>
+							            <a target="_blank" href="https://api.whatsapp.com/send?phone=62881080899678" title="CSO">081289897359</a>
 							        </li>
 							    </ul>
 							
@@ -339,7 +363,7 @@
 							        <a target="" title="">SAP</a>
 							    </div>
 							    <ul>
-							        <li><a target="_blank" href="https://api.whatsapp.com/send?phone=6281289897359" title="Pelabuhan Tanjung Priuk">SAP / Ahmad fouzi </a></li>
+							        <li><a target="_blank" href="https://api.whatsapp.com/send?phone=62881080899678" title="Pelabuhan Tanjung Priuk">SAP / Ahmad fouzi </a></li>
 						        	<li><a target="_blank" href="https://api.whatsapp.com/send?phone=6282252664988" title="+62 822-5266-4988">SAP MAKASSAR <br> Andi Trian</a></li>
 							    </ul>
 							</li>
@@ -666,9 +690,9 @@
 						<i class="fa fa-whatsapp" aria-hidden="true"></i>
 						<span class="menu-item-parent">WA </span>	</a>
 						<ul>
-							<li class="<?php echo $this->app_model->status_menu($akt,'lpengiriman');?>"><a target="_blank" href="https://api.whatsapp.com/send?phone=6281289897359" title="Hubungi Admin">Hubungi Admin </a></li>
+							<li class="<?php echo $this->app_model->status_menu($akt,'lpengiriman');?>"><a target="_blank" href="https://api.whatsapp.com/send?phone=62881080899678" title="Hubungi Admin">Hubungi Admin </a></li>
 							<!--li class="<?php echo $this->app_model->status_menu($akt,'linvoice');?>"><a target="_blank" href="https://api.whatsapp.com/send?phone=62816887359" title="Manager Area">Manager </a></li-->
-							<!--li class="<?php echo $this->app_model->status_menu($akt,'lpenerimaan');?>"><a target="_blank" href="https://api.whatsapp.com/send?phone=6281289897359" title="Kurir Pickup">Kurir Pickup </a></li-->
+							<!--li class="<?php echo $this->app_model->status_menu($akt,'lpenerimaan');?>"><a target="_blank" href="https://api.whatsapp.com/send?phone=62881080899678" title="Kurir Pickup">Kurir Pickup </a></li-->
 						</ul>
 					</li>
 					

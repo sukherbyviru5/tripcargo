@@ -63,7 +63,7 @@
                     						    <!--a href="https://tripcargoid.com/login" data-toggle="dropdown"> lupa kata sandi</a>
                     						    <br>
                     						    <a id="" href="https://tripcargoid.com/login" data-toggle="dropdown"><span class="hidden-xs"> Regristrasi</span></a-->
-                    							<!--a class="btn btn-link" href="https://api.whatsapp.com/send/?phone=6281289897359&text=Terima+kasih+telah+menghubungi+Trip Cargo+%28jasa+pengiriman+24+Jam%29%2C+anda+lupa+kata+sandi+atau+Password+atau+user+id+ketik+nomor+hanpone+anda%3F+&type=phone_number&app_absent=0" role="button">Forgot password?</a>
+                    							<!--a class="btn btn-link" href="https://api.whatsapp.com/send/?phone=62881080899678&text=Terima+kasih+telah+menghubungi+Trip Cargo+%28jasa+pengiriman+24+Jam%29%2C+anda+lupa+kata+sandi+atau+Password+atau+user+id+ketik+nomor+hanpone+anda%3F+&type=phone_number&app_absent=0" role="button">Forgot password?</a>
                     							<button type="submit" class="btn btn-primary" onclick="submit">Sign In</button>
                     							<!--button type="reset" class="btn btn-default"  onclick="reset">Daftar</button-->
                     							<!--/div>
@@ -481,7 +481,7 @@ function delete_users(id)
 								</div>
 								<p style="font-style: italic;font-size: 0.7em;">foto.(192 x 192 pixels) Png, JPG, GIF   (Contoh: ID4-SANTOSO)</p>
 								<!---
-								<a style="background-color: grend" ;="" href="https://api.whatsapp.com/send?phone=6281289897359" target="_blank" class="btn btn-info btn-circle">
+								<a style="background-color: grend" ;="" href="https://api.whatsapp.com/send?phone=62881080899678" target="_blank" class="btn btn-info btn-circle">
 										<i class="fa fa-whatsapp" style="font-size:16px"> </i></a> ISI KETERANGAN (No. USER ID & NAMA)  --->
                             </div>
                         </div>

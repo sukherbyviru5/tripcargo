@@ -818,8 +818,8 @@ wrapper.addEventListener("mouseleave", autoPlay);
                 <!-- iklan 1--->
         <div>
             <!-- render the button and direct it to wa.me -->
-                <a href="https://wa.me/6281289897359?text=Kirim paket di *Trip Cargo* dapatkan promo spesial dengan tarif super murah caranya cukup screenshot iklan ini lalu kirim ke wa kami, ayo buruan clam segera!!!  https://tripcargoid.com/promo" class="floating1" target="_blank">
-                +6281289897359
+                <a href="https://wa.me/62881080899678?text=Kirim paket di *Trip Cargo* dapatkan promo spesial dengan tarif super murah caranya cukup screenshot iklan ini lalu kirim ke wa kami, ayo buruan clam segera!!!  https://tripcargoid.com/promo" class="floating1" target="_blank">
+                +62881080899678
                 </a>
                 <!-- add your custom CSS -->
                 <style>

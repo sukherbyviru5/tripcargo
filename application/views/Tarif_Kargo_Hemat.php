@@ -1233,7 +1233,7 @@
         
         <div>
             <!-- render the button and direct it to wa.me -->
-                <a href="https://wa.me/6281289897359?text=Halo! Trip Cargo" class="floating" target="_blank">
+                <a href="https://wa.me/62881080899678?text=Halo! Trip Cargo" class="floating" target="_blank">
                 <i class="fa fa-whatsapp" style="margin-top: 12px;"></i>
                 </a>
                 <!-- add your custom CSS -->

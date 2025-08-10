@@ -498,7 +498,7 @@ div.taxt-line3 {
 								data-easing="Elastic.easeInOut"
 								data-endspeed="500"
 								data-endeasing="Power1.easeIn"
-								style="z-index: 4"><div class="badge badge-light">KIRIM<a target="_blank"  href="https://wa.me/6281289897359?text=Ayo...!%20Segera%20ambil%20Promonya%20%0AJAKARTA%20ke%20MAKSASSAR%20%0AMinimum%20Berat%20100%20kg%20%0ARp.%204000%20%2F%20kg%0A%0A%0APromo%20tarif%20kirim%20ke%20daerah%20lainnya%20bisa%20hubungi%3A%20%0Atlp.%2002127612134%0Acso.%20081289897359%0Acso.%2008128107359%0Acso.%200816887359%0AWww.Insancargodepok.com"...> <class="badge badge-light"><span class="blink">KLIK DI SINI</span></a></div>
+								style="z-index: 4"><div class="badge badge-light">KIRIM<a target="_blank"  href="https://wa.me/62881080899678?text=Ayo...!%20Segera%20ambil%20Promonya%20%0AJAKARTA%20ke%20MAKSASSAR%20%0AMinimum%20Berat%20100%20kg%20%0ARp.%204000%20%2F%20kg%0A%0A%0APromo%20tarif%20kirim%20ke%20daerah%20lainnya%20bisa%20hubungi%3A%20%0Atlp.%2002127612134%0Acso.%20081289897359%0Acso.%2008128107359%0Acso.%200816887359%0AWww.Insancargodepok.com"...> <class="badge badge-light"><span class="blink">KLIK DI SINI</span></a></div>
 							</div>
 							<!-- LAYER NR. 2 -->
 							<div class="tp-caption large_bold_grey skewfromrightshort customout"
