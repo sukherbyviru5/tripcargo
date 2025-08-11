@@ -22,6 +22,7 @@ class Home extends CI_Controller {
         $this->load->model('Visi_misi_model');
         $this->load->model('Services_model');
         $this->load->model('Customers_model');
+        $this->load->model('Setting_contact_model');
 		$this->load->library('session');
 	}
 	public function index()
@@ -2119,7 +2120,7 @@ class Home extends CI_Controller {
         $data = [
             'title' => $this->input->post('title'),
             'description' => $this->input->post('description'),
-            'icon' => $this->input->post('icon') // Mengambil kelas ikon dari form
+            'icon' => $this->input->post('icon')
         ];
 
         if ($this->Services_model->create($data)) {
@@ -2159,6 +2160,58 @@ class Home extends CI_Controller {
             echo json_encode(["status" => FALSE]);
         }
     }
+
+
+	#contack
+	public function setting_contact()
+	{
+		$cek = $this->session->userdata('logged_in');
+		if(!empty($cek)){
+			$d['judul'] = $this->config->item('judul');
+			$d['nama_perusahaan'] = $this->config->item('nama_perusahaan');
+			$d['alamat_perusahaan'] = $this->config->item('alamat_perusahaan');
+			$d['lisensi'] = $this->config->item('lisensi_app');
+			
+			$d['jam_now'] = $this->app_model->Jam_Now(); 
+			$d['hari_now'] = $this->app_model->Hari_Bulan_Indo(); 
+			$d['tgl_now'] = $this->app_model->tgl_now_indo();
+			$id=$this->session->userdata('username');
+			
+			$sesi=$this->session->userdata('session_id');
+			$d['sesi'] = $this->model->get_ci_sesi($sesi);
+			$d['contact'] = $this->Setting_contact_model->get_all();
+			$d['isi'] = $this->load->view('vadmin/setting_contact', $d, true);
+			
+			$this->load->view('vadmin/media',$d);
+		}else{
+			$this->session->set_flashdata('result_login', '<font color="red">Sesi login habis atau terhapuskan.</font>');
+			redirect('./cadmin/home/logout/','refresh');
+		}
+	}
+
+	public function setting_contact_update($id)
+	{
+		$cek = $this->session->userdata('logged_in');
+		if (empty($cek)) {
+			echo json_encode(['status' => false, 'message' => 'Sesi login habis.']);
+			return;
+		}
+
+		$data = [
+			'alamat'    => $this->input->post('alamat', TRUE),
+			'jam_kerja' => $this->input->post('jam_kerja', TRUE),
+			'maps_link' => $this->input->post('maps_link', TRUE),
+			'no_hp'     => $this->input->post('no_hp', TRUE),
+			'email'     => $this->input->post('email', TRUE)
+		];
+
+		if ($this->Setting_contact_model->update($id, $data)) {
+			echo json_encode(['status' => true, 'message' => 'Data contact berhasil diperbarui.']);
+		} else {
+			echo json_encode(['status' => false, 'message' => 'Gagal memperbarui data.']);
+		}
+	}
+
 }
 
 /* End of file welcome.php */

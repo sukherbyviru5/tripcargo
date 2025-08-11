@@ -279,6 +279,9 @@
                             <li class="<?php echo $this->app_model->status_menu($akt, 'service'); ?>">
                                 <a href="<?php echo base_url('cadmin/home/service'); ?>" title="Service">Service</a>
                             </li>
+                            <li class="<?php echo $this->app_model->status_menu($akt, 'setting_contact'); ?>">
+                                <a href="<?php echo base_url('cadmin/home/setting_contact'); ?>" title="Contact">Contact</a>
+                            </li>
                         </ul>
                     </li>
                 <?php } elseif ($level == 'admin') { ?>

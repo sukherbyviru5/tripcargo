@@ -378,9 +378,7 @@
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
         }
 
-        .feature-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
+        
 
         .feature-icon {
             flex-shrink: 0;
@@ -617,55 +615,6 @@
                 flex-direction: column;
             }
 
-            .feature-item {
-                display: flex;
-                gap: 40px;
-                align-items: normal;
-                background-color: var(--color-white);
-                padding: 30px;
-                border-radius: var(--border-radius);
-                box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
-            }
-
-            .feature-item:nth-child(even) {
-                flex-direction: row-reverse;
-            }
-
-            .feature-icon {
-                flex-shrink: 0;
-                width: 120px;
-                height: 120px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                margin: auto;
-                background-color: var(--color-light-bg);
-                border-radius: 50%;
-            }
-
-            .feature-icon .fa {
-                font-size: 3.5rem;
-                color: var(--color-accent-red);
-                align-items: center;
-            }
-
-            .feature-content h3 {
-                font-size: 1.8rem;
-                font-weight: 600;
-                color: var(--color-dark-blue);
-                margin: 0 0 10px 0;
-                text-align: center;
-                align-items: center;
-
-            }
-
-            .feature-content p {
-                line-height: 1.7;
-                margin: 0;
-                color: var(--color-text);
-                text-align: left !important;
-            }
         }
 
     </style>
@@ -707,7 +656,7 @@
                             <div class="feature-icon"><i class="fa <?php echo htmlspecialchars($service->icon, ENT_QUOTES, 'UTF-8'); ?>"></i></div>
                             <div class="feature-content">
                                 <h3><?php echo htmlspecialchars($service->title, ENT_QUOTES, 'UTF-8'); ?></h3>
-                                <p style="text-align: left !important;"><?php echo htmlspecialchars($service->description, ENT_QUOTES, 'UTF-8'); ?></p>
+                                <p><?php echo htmlspecialchars($service->description, ENT_QUOTES, 'UTF-8'); ?></p>
                             </div>
                         </div>
                     <?php endforeach; ?>
