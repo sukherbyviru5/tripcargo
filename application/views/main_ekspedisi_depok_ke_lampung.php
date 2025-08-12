@@ -89,9 +89,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 		<!-- REVOLUTION SLIDER -->
 		<link href="<?php echo base_url();?>assets/atropos/plugins/slider.revolution.v4/css/settings.css" rel="stylesheet" type="text/css" />
-		<!-- FAVICONS -->
-		<link rel="shortcut icon" href="<?php echo base_url();?>assets/img/favicon/sancargo.ico" type="image/x-icon"> <!---?php echo base_url();?>assets/img/Logo-Sancargo-white.png" type="image/x-icon"-->
-		<link rel="icon" href="<?php echo base_url();?>assets/img/favicon/sancargo.png" type="image/x-icon">
+		<link rel="shortcut icon" href="<?php echo base_url();?>assets/img/icon-trip.png" type="image/x-icon"> <!---?php echo base_url();?>assets/img/Logo-Sancargo-white.png" type="image/x-icon"-->
+		<link rel="icon" href="<?php echo base_url();?>assets/img/icon-trip.png" type="image/x-icon">
 		
 		<!-- THEME CSS -->
 		<link href="<?php echo base_url();?>assets/atropos/css/essentials.css" rel="stylesheet" type="text/css" />
@@ -283,6 +282,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			echo $isi;
 		?>
             
+		<?php
+			$CI =& get_instance();
+			$CI->load->model('Setting_contact_model');
+			$contact_data = $CI->Setting_contact_model->get_all();
+			$contact = !empty($contact_data) ? $contact_data[0] : [];
+		?>
+
+            
 		<!-- FOOTER -->
 		<footer>
 		    <svg style="width: 100%; margin-bottom: -9px;  z-index: 0;"  viewBox="0 0 5950 394" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -301,21 +308,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 								<ul>
 								    <li>
 									<div class="footer-sprite address">
-									    <a href='https://goo.gl/maps/mzjvCYhofUC75QWg9' target='_blank'>
-										Kawasan ruko 1000, Jl. Taman Palem Lestari No.18 Blok V, Cengkareng Barat, Kec. Cengkareng, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11730</a>
+									    <a target='_blank'>
+											<?= $contact['alamat'] ?>
+										</a>
 									</li>
 									<br>
 									<li>
 									<div class="footer-sprite phone">
-										<a href="tel://02127612134">0881-080-899-678</a> - <a href="https://api.whatsapp.com/send?phone=62881080899678" target="_blank">0881080899678</a>
-										<!--div class='PCOnly'>
-										<a href="tel://62816887359" target="_blank">0816 88 7359</a> - <a href="tel://628128107359" target="_blank">0812 810 7359</a>
-										</div-->
-									</li>
+										<?php
+										$nomor_array = explode(',', $contact['no_hp']);
+										foreach ($nomor_array as $i => $no) {
+											$no_bersih = trim($no);
+
+											$no_wa = preg_replace('/^0/', '62', $no_bersih);
+											echo '<a href="https://api.whatsapp.com/send?phone=' . htmlspecialchars($no_wa) . '" target="_blank">' . htmlspecialchars($no_bersih) . '</a>';
+
+											if ($i < count($nomor_array) - 1) {
+												echo ' - ';
+											}
+										}
+										?>
+									</div>
+
 									<br>
 									<li>
 									<div class="footer-sprite email">
-										<a href="mailto:cs@tripcargoid.com"> cs@tripcargoid.com</a>
+										<a href="mailto:<?= $contact['email'] ?>"> <?= $contact['email'] ?></a>
 									</li>
 								</ul>
 							</address>
@@ -348,7 +366,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 							<h3><b>PRODUK & LAYANAN</b></h3>
 							<address class="font-opensans">
 							    <li>
-							        <a href="<?php echo base_url();?>reguler">Reguler</a>
+							        <a href="<?php echo base_url();?>reguler"> Reguler</a>
 							    </li>
 								<li>
 								    <a href="<?php echo base_url();?>cargo"> Cargo</a>
@@ -379,22 +397,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 									</li>
 								</ul>
 						</div>	
-						<!-- FOOTER CONTACT INFO -->
-						<div class="col-md-12" style="text-align:center">
-							<h3><b>Ikuti aktivitas kami di media sosial</b></h3>
-							<address class="font-opensans">
-							  
-								<ul> 
-									<li>
-										<a style='background-color: #fff0'; href="https://twitter.com/insan_depok" target="_blank" class="btn btn-info btn-circle">
-										<i class="fa fa-twitter-square" style="font-size:36px"></i></a>  
-										<a style='background-color: #fff0'; href="https://www.facebook.com/profile.php?id=61567164029974" target="_blank" class="btn btn-info btn-circle">
-										<i class="fa fa-facebook-square" style="font-size:36px"></i></a>
-										<a style='background-color: #fff0'; href="https://api.whatsapp.com/send?phone=62881080899678" target="_blank" class="btn btn-info btn-circle">
-										<i class="fa fa-whatsapp" style="font-size:36px"> </i></a>
-									</li>
-								</ul>
-						</div>	
+						
 						<!--div class="column col-sm-2 text-right" style="margin-left: 80px;">
 								<form method="get" action="https://tripcargoid.com/web/cari" class="input-group pull-right">
 									<input type="text" value="" data-msg-required="Please enter your name." maxlength="11" class="form-control" name="k" id="k" value=" ">

@@ -8,6 +8,7 @@ class contact extends CI_Controller {
 		parent::__construct();
 		$this->load->model('app_model','person');
 		$this->load->model('users_model','users');
+		$this->load->model('Setting_contact_model');
 		// $this->load->model('Listcontent_model','content');
 	}
 
@@ -18,6 +19,7 @@ class contact extends CI_Controller {
 		$d['judul'] = $this->config->item('judul');
 		$d['nama_perusahaan'] = $this->config->item('nama_perusahaan');
 		$d['alamat_perusahaan'] = $this->config->item('alamat_perusahaan');
+		$d['contact'] = $this->Setting_contact_model->get_all();
 		$d['lisensi'] = $this->config->item('lisensi_app');
 		// $d['record'] = $this->content->get_berkas();
 		$d['isi'] = $this->load->view('contact', $d, true);

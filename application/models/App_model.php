@@ -980,6 +980,67 @@ public function money_format($format, $number)
 		return $query->result();
 	}
 
+	function get_tarif($limit = null)
+	{
+		$this->db->select('*'); 
+		$this->db->from('tarif');
+		$this->db->order_by('RAND()');
+		if ($limit !== null) {
+			$this->db->limit($limit);
+		}
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	function first_promo()
+	{
+		$this->db->select('*');
+		$this->db->from('promo');
+		$this->db->where('status', 'active');
+		$this->db->limit(1); 
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+	function first_promo_is_active()
+	{
+		$this->db->select('*');
+		$this->db->from('promo');
+		$this->db->limit(1); 
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+	public function update_promo($id, $data)
+    {
+        $this->db->where('id', $id);
+        return $this->db->update('promo', $data);
+    }
+
+	function get_tarif_grouped()
+	{
+		$query = $this->db->order_by('asal', 'ASC')
+                      ->order_by('id', 'ASC')
+                      ->get('tarif');
+
+		$result = $query->result_array();
+
+		$tarif = [];
+		foreach ($result as $row) {
+			$tarif[$row['asal']][$row['id']] = [
+				'harga'    => $row['harga'],
+				'tujuan'   => $row['tujuan'],
+				'asal'     => $row['asal'],
+				'estimasi' => $row['estimasi'],
+				'layanan'  => $row['layanan']
+			];
+		}
+
+		return $tarif;
+	}
+
+	
+
 	function area_kec_list(){
 	
 		$q=$this->db->query("SELECT * from kec order by kec_id desc");

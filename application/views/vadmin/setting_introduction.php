@@ -546,6 +546,68 @@
         <div id="content">
             <section id="widget-grid" class="">
                 <div class="row">
+                    <!-- promo Widget -->
+                   <article class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="jarviswidget" id="wid-id-0" data-widget-colorbutton="false" data-widget-editbutton="false">
+                            <header>
+                                <span class="widget-icon"><i class="fa fa-edit"></i></span>
+                                <h2>Edit promo</h2>
+                            </header>
+                            <div>
+                                <div class="jarviswidget-editbox"></div>
+                                <div class="widget-body">
+                                    <form id="form-promo" class="form-horizontal">
+                                        <fieldset>
+                                            <legend>Promo</legend>
+
+                                            <!-- Input Nama Promo -->
+                                            <div class="form-group has-success">
+                                                <label class="col-md-2 control-label">Promo Name</label>
+                                                <div class="col-md-8">
+                                                    <div class="input-group">
+                                                        <input type="hidden" name="id" value="<?php echo isset($promo->id) ? $promo->id : ''; ?>">
+                                                        <input type="text" class="form-control" placeholder="Promo Name" name="name" maxlength="255"
+                                                            value="<?php echo isset($promo->name) ? $promo->name : ''; ?>">
+                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Dropdown Status -->
+                                            <div class="form-group has-success">
+                                                <label class="col-md-2 control-label">Status</label>
+                                                <div class="col-md-8">
+                                                    <select class="form-control" name="status">
+                                                        <option value="active" <?php echo (isset($promo->status) && $promo->status === 'active') ? 'selected' : ''; ?>>
+                                                            Active
+                                                        </option>
+                                                        <option value="inactive" <?php echo (isset($promo->status) && $promo->status === 'inactive') ? 'selected' : ''; ?>>
+                                                            Inactive
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                        </fieldset>
+
+                                        <!-- Tombol Simpan -->
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <button type="button" class="btn btn-primary" onclick="savePromo()">
+                                                        <i class="fa fa-floppy-o"></i> Simpan <span id="loading"></span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
                     <!-- Introduction Widget -->
                     <article class="col-sm-12 col-md-12 col-lg-12">
                         <div class="jarviswidget" id="wid-id-0" data-widget-colorbutton="false" data-widget-editbutton="false">
@@ -707,111 +769,152 @@
 
     <script>
         $(document).ready(function() {
-            // Page Setup
-            pageSetUp();
+        // Page Setup
+        pageSetUp();
 
-            // Initialize jQuery UI Dialog
-            $('#dialog_simple').dialog({
-                autoOpen: false,
-                width: 300,
-                resizable: false,
-                modal: true,
-                title: "Konfirmasi Simpan",
-                buttons: [{
-                    html: "<i class='fa fa-floppy-o'></i>&nbsp; Ya, Simpan",
-                    "class": "btn btn-primary",
-                    click: function() {
-                        $(this).dialog("close");
-                        if (window.currentFormId) {
-                            saveVisiMisi(window.currentFormId);
-                        } else {
-                            saveIntroduction();
-                        }
+        // Initialize jQuery UI Dialog
+        $('#dialog_simple').dialog({
+            autoOpen: false,
+            width: 300,
+            resizable: false,
+            modal: true,
+            title: "Konfirmasi Simpan",
+            buttons: [{
+                html: "<i class='fa fa-floppy-o'></i>&nbsp; Ya, Simpan",
+                "class": "btn btn-primary",
+                click: function() {
+                    $(this).dialog("close");
+                    if (window.currentFormType === 'promo') {
+                        savePromo();
+                    } else if (window.currentFormType === 'introduction') {
+                        saveIntroduction();
+                    } else if (window.currentFormType === 'visi_misi') {
+                        saveVisiMisi(window.currentFormId);
                     }
-                }, {
-                    html: "<i class='fa fa-times'></i>&nbsp; Batal",
-                    "class": "btn btn-default",
-                    click: function() {
-                        $(this).dialog("close");
-                    }
-                }]
-            });
-
-            // Save Introduction
-            function saveIntroduction() {
-                var form = $('#form-introduction');
-                var id = form.find('input[name="id"]').val();
-                var url = "<?php echo base_url('cadmin/home/update_introduction/'); ?>" + id;
-
-                var loading = $('#loading');
-
-                loading.html("<img src='<?php echo base_url('assets/img/loading.gif'); ?>' />");
-                $.ajax({
-                    url: url,
-                    type: "POST",
-                    data: form.serialize(),
-                    dataType: "JSON",
-                    beforeSend: function() {
-                        loading.fadeIn();
-                    },
-                    success: function(data) {
-                        if (data.status) {
-                            alert('Introduction updated successfully');
-                        } else {
-                            alert('Error: ' + data.message);
-                        }
-                        loading.fadeOut();
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        alert('Error updating introduction');
-                        loading.fadeOut();
-                    }
-                });
-            }
-
-            // Save Visi Misi
-            function saveVisiMisi(id) {
-                var form = $('#form-visi-misi-' + id);
-                var url = "<?php echo base_url('cadmin/home/update_visi_misi/'); ?>" + id;
-                var loading = $('#loading-' + id);
-
-                loading.html("<img src='<?php echo base_url('assets/img/loading.gif'); ?>' />");
-                $.ajax({
-                    url: url,
-                    type: "POST",
-                    data: form.serialize(),
-                    dataType: "JSON",
-                    beforeSend: function() {
-                        loading.fadeIn();
-                    },
-                    success: function(data) {
-                        if (data.status) {
-                            alert('Visi/Misi updated successfully');
-                        } else {
-                            alert('Error: ' + data.message);
-                        }
-                        loading.fadeOut();
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        alert('Error updating visi/misi');
-                        loading.fadeOut();
-                    }
-                });
-            }
-
-            // Bind Save Buttons
-            $('#form-introduction button').click(function() {
-                $('#dialog_simple').dialog('open');
-                window.currentFormId = null;
-            });
-
-            <?php foreach ($visi_misi as $vm): ?>
-                $('#form-visi-misi-<?php echo $vm['id']; ?> button').click(function() {
-                    $('#dialog_simple').dialog('open');
-                    window.currentFormId = <?php echo $vm['id']; ?>;
-                });
-            <?php endforeach; ?>
+                }
+            }, {
+                html: "<i class='fa fa-times'></i>&nbsp; Batal",
+                "class": "btn btn-default",
+                click: function() {
+                    $(this).dialog("close");
+                }
+            }]
         });
+
+        // Save Promo
+        function savePromo() {
+            console.log('tes');
+            var form = $('#form-promo');
+            var id = form.find('input[name="id"]').val();
+            var url = "<?php echo base_url('cadmin/home/update_promo/'); ?>" + id;
+
+            var loading = $('#loading');
+
+            loading.html("<img src='<?php echo base_url('assets/img/loading.gif'); ?>' />");
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: form.serialize(),
+                dataType: "JSON",
+                beforeSend: function() {
+                    loading.fadeIn();
+                },
+                success: function(data) {
+                    if (data.status) {
+                        alert('Promo updated successfully');
+                    } else {
+                        alert('Error: ' + data.message);
+                    }
+                    loading.fadeOut();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert('Error updating promo');
+                    loading.fadeOut();
+                }
+            });
+        }
+
+        // Save Introduction
+        function saveIntroduction() {
+            var form = $('#form-introduction');
+            var id = form.find('input[name="id"]').val();
+            var url = "<?php echo base_url('cadmin/home/update_introduction/'); ?>" + id;
+
+            var loading = $('#loading');
+
+            loading.html("<img src='<?php echo base_url('assets/img/loading.gif'); ?>' />");
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: form.serialize(),
+                dataType: "JSON",
+                beforeSend: function() {
+                    loading.fadeIn();
+                },
+                success: function(data) {
+                    if (data.status) {
+                        alert('Introduction updated successfully');
+                    } else {
+                        alert('Error: ' + data.message);
+                    }
+                    loading.fadeOut();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert('Error updating introduction');
+                    loading.fadeOut();
+                }
+            });
+        }
+
+        // Save Visi Misi
+        function saveVisiMisi(id) {
+            var form = $('#form-visi-misi-' + id);
+            var url = "<?php echo base_url('cadmin/home/update_visi_misi/'); ?>" + id;
+            var loading = $('#loading-' + id);
+
+            loading.html("<img src='<?php echo base_url('assets/img/loading.gif'); ?>' />");
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: form.serialize(),
+                dataType: "JSON",
+                beforeSend: function() {
+                    loading.fadeIn();
+                },
+                success: function(data) {
+                    if (data.status) {
+                        alert('Visi/Misi updated successfully');
+                    } else {
+                        alert('Error: ' + data.message);
+                    }
+                    loading.fadeOut();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert('Error updating visi/misi');
+                    loading.fadeOut();
+                }
+            });
+        }
+
+        // Bind Save Buttons
+        $('#form-promo button').click(function() {
+            $('#dialog_simple').dialog('open');
+            window.currentFormType = 'promo';
+        });
+
+        $('#form-introduction button').click(function() {
+            $('#dialog_simple').dialog('open');
+            window.currentFormType = 'introduction';
+        });
+
+        <?php foreach ($visi_misi as $vm): ?>
+            $('#form-visi-misi-<?php echo $vm['id']; ?> button').click(function() {
+                $('#dialog_simple').dialog('open');
+                window.currentFormType = 'visi_misi';
+                window.currentFormId = <?php echo $vm['id']; ?>;
+            });
+        <?php endforeach; ?>
+    });
     </script>
 </body>
 </html>

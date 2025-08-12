@@ -422,7 +422,7 @@ s0.parentNode.insertBefore(s1,s0);
                                     <br>
                                     <li>
                                         <div class="footer-sprite email">
-                                            <a href="mailto:cs@tripcargoid.com"> cs@tripcargoid.com</a>
+                                            <a href="mailto:<?= $contact['email'] ?>"> <?= $contact['email'] ?></a>
                                     </li>
                                 </ul>
                             </address>

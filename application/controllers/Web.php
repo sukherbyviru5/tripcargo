@@ -165,7 +165,6 @@ class Web extends CI_Controller {
 	}---*/
 	
 	public function Tarif_Kargo_Hemat()
-	
 	{
 		$this->load->helper('url');
 		$d['judul'] 			= $this->config->item('judul');
@@ -174,6 +173,7 @@ class Web extends CI_Controller {
 		$d['telp']              = $this->config->item('telp_perusahaan');
 		$d['lisensi'] 			= $this->config->item('lisensi_app');
 		$d['kota']				= $this->web->get_kotatujuan();
+		$d['tarif']				= $this->web->get_tarif_grouped();
 		$d['isi'] 				= $this->load->view('Tarif_Kargo_Hemat', $d, true);
 		$this->load->view('mainweb', $d);
 	}

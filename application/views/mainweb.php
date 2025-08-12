@@ -55,21 +55,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		
 		<meta name="keywords" content="HTML5,CSS3,Template" />
 		<meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-179642767-1"></script>
-<meta name="google-site-verification" content="vf8sDjznf4_XdpZKaQJwXLCKYJ3W1VXNX8bxC9NATEA" />
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-179642767-1"></script>
+		<meta name="google-site-verification" content="vf8sDjznf4_XdpZKaQJwXLCKYJ3W1VXNX8bxC9NATEA" />
 
-<!--meta name="google-site-verification" content="S5uqZXPRG-dRMgJmaHMsljnV4oj4iBd2YA4oYZ6Puec"/-->
-<!-- google-site-verification: google7e7da2a92805bf5b.html-->
-<!-- Google tag (gtag.js) -->
+		<!--meta name="google-site-verification" content="S5uqZXPRG-dRMgJmaHMsljnV4oj4iBd2YA4oYZ6Puec"/-->
+		<!-- google-site-verification: google7e7da2a92805bf5b.html-->
+		<!-- Google tag (gtag.js) -->
 
-<!-- URL Theme Color untuk Chrome, Firefox OS, Opera dan Vivaldi -->
-<meta content='#cc3d3d' name='theme-color'/>
-<!-- URL Theme Color untuk Windows Phone -->
-<meta content='#cc3d3d' name='msapplication-navbutton-color'/>
-<!-- URL Theme Color untuk iOS Safari -->
-<meta content='yes' name='apple-mobile-web-app-capable'/>
-<meta content='#cc3d3d' name='apple-mobile-web-app-status-bar-style'/>
+		<!-- URL Theme Color untuk Chrome, Firefox OS, Opera dan Vivaldi -->
+		<meta content='#cc3d3d' name='theme-color'/>
+		<!-- URL Theme Color untuk Windows Phone -->
+		<meta content='#cc3d3d' name='msapplication-navbutton-color'/>
+		<!-- URL Theme Color untuk iOS Safari -->
+		<meta content='yes' name='apple-mobile-web-app-capable'/>
+		<meta content='#cc3d3d' name='apple-mobile-web-app-status-bar-style'/>
 
 		<!-- mobile settings -->
 		<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
@@ -90,8 +90,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<!-- REVOLUTION SLIDER -->
 		<link href="<?php echo base_url();?>assets/atropos/plugins/slider.revolution.v4/css/settings.css" rel="stylesheet" type="text/css" />
 		<!-- FAVICONS -->
-		<link rel="shortcut icon" href="<?php echo base_url();?>assets/img/favicon/sancargo.ico" type="image/x-icon"> <!---?php echo base_url();?>assets/img/Logo-Sancargo-white.png" type="image/x-icon"-->
-		<link rel="icon" href="<?php echo base_url();?>assets/img/favicon/sancargo.png" type="image/x-icon">
+		<link rel="shortcut icon" href="<?php echo base_url();?>assets/img/icon-trip.png" type="image/x-icon"> <!---?php echo base_url();?>assets/img/Logo-Sancargo-white.png" type="image/x-icon"-->
+		<link rel="icon" href="<?php echo base_url();?>assets/img/icon-trip.png" type="image/x-icon">
 		
 		<!-- THEME CSS -->
 		<link href="<?php echo base_url();?>assets/atropos/css/essentials.css" rel="stylesheet" type="text/css" />
@@ -174,32 +174,56 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				</div--->
 				<!-- /LANGUAGE -->
 				
-				
-				<!-- /Tarif hemat slideshow -->
-				<div class="pull-left nav hidden-xs" 
-				style=" padding: 0px 10px 0px 10px;
-                        margin-left: 0px;">
-				    PROMO TARIF HEMAT <span class="blink"><img style=" width:50px;" src="https://png.pngtree.com/png-clipart/20230410/ourmid/pngtree-special-promo-png-image_6699279.png"></img></span> <!--img  style=" width:100%;" src="<?php echo base_url();?>assets/atropos/images/Nusantara Baru Indonesia Maju copy.png" alt=""-->
-				 </div>
-				 <div class="pull-left nav hidden-xs">
-                		<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000"style=" padding: 0px 10px 0px 10px; font-family: monospace;">
-                			<div class="carousel-inner" role="listbox">
-                				<div class="item active"><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - LAMPUNG: 3.000 / kg </b></a></div>
-                					<div class="item "><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - PALEMBANG: 4.000 / kg </b></a></div>
-                				    <div class="item "><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - JAMBI: 4.500 / kg </b></a></div>
-                				    <div class="item "><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - PADANG: 5.000 / kg </b></a></div>
-                				    <div class="item "><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - BENGKULU: 6.000 / kg </b></a></div>
-                				    <div class="item "><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - PEKANBARU: 5.000 / kg </b></a></div>
-                				    <div class="item "><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - MEDAN: 5.500 / kg </b></a></div>
-                				    
-                				<div class="item "><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - PONTIANAK: 4.500 / kg </b></a></div>
-                				<div class="item "><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - MAKASSAR: 5.000 / kg </b></a></div>
-                				<div class="item "><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - BALIKPAPAN: 7.000 / kg </b></a></div>
-                				<div class="item "><a style="color: #000;" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - SAMARINDA: 7.000 / kg </b></a></div>
-                				
-                			</div>
-                		</div>
-                 </div>
+				<?php
+					$CI =& get_instance();
+					$CI->load->model('app_model');
+					$daftar_tarif = $CI->app_model->get_tarif(50);
+					$promo = $CI->app_model->first_promo();
+				?>
+
+				<?php if (!empty($promo)): ?>
+					<!-- /Tarif hemat slideshow -->
+					<div class="pull-left nav hidden-xs" 
+					style=" padding: 0px 10px 0px 10px;
+							margin-left: 0px;">
+						<?php echo $promo->name; ?> <span class="blink"><img style=" width:50px;" src="https://png.pngtree.com/png-clipart/20230410/ourmid/pngtree-special-promo-png-image_6699279.png"></img></span> <!--img  style=" width:100%;" src="<?php echo base_url();?>assets/atropos/images/Nusantara Baru Indonesia Maju copy.png" alt=""-->
+					</div>
+				<?php endif; ?>
+
+				<div class="pull-left nav hidden-xs">
+					<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000" style="padding: 0px 10px; font-family: monospace;">
+						<div class="carousel-inner" role="listbox">
+
+							<?php
+							if (!empty($daftar_tarif) && is_array($daftar_tarif)) {
+								
+								$is_first = true; 
+
+								foreach ($daftar_tarif as $tarif) {
+									
+									$item_class = $is_first ? 'item active' : 'item';
+							?>
+
+									<div class="<?php echo $item_class; ?>">
+										<a style="color: #000;" href="<?php echo base_url('web/Tarif_Kargo_Hemat'); ?>">
+											<b>
+												<?php echo strtoupper(htmlspecialchars($tarif->tujuan)); ?>: 
+												<?php echo number_format($tarif->harga, 0, ',', '.'); ?> / kg
+											</b>
+										</a>
+									</div>
+							
+							<?php
+									$is_first = false; 
+								}
+							} 
+							?>
+
+						</div>
+					</div>
+				</div>
+
+
 				<!-- SIGN IN -->
 				<div class="pull-right nav signin-dd hidden-xs" style="padding: 0px 30px 0px 5px;">
 					<a id="quick_sign_in" href="<?php echo base_url();?>login" data-toggle="dropdown"><i class="fa fa-key"></i><span class="hidden-xs"> Sign In</span></a>
@@ -306,6 +330,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		<?php 
 			echo $isi;
 		?>
+		
+		<?php
+			$CI =& get_instance();
+			$CI->load->model('Setting_contact_model');
+			$contact_data = $CI->Setting_contact_model->get_all();
+			$contact = !empty($contact_data) ? $contact_data[0] : [];
+		?>
+
             
 		<!-- FOOTER -->
 		<footer>
@@ -325,21 +357,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 								<ul>
 								    <li>
 									<div class="footer-sprite address">
-									    <a href='https://goo.gl/maps/mzjvCYhofUC75QWg9' target='_blank'>
-										Kawasan ruko 1000, Jl. Taman Palem Lestari No.18 Blok V, Cengkareng Barat, Kec. Cengkareng, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11730</a>
+									    <a target='_blank'>
+											<?= $contact['alamat'] ?>
+										</a>
 									</li>
 									<br>
 									<li>
 									<div class="footer-sprite phone">
-										<a href="tel://02127612134">0881-080-899-678</a> - <a href="https://api.whatsapp.com/send?phone=62881080899678" target="_blank">0881080899678</a>
-										<!--div class='PCOnly'>
-										<a href="tel://62816887359" target="_blank">0816 88 7359</a> - <a href="tel://628128107359" target="_blank">0812 810 7359</a>
-										</div-->
-									</li>
+										<?php
+										$nomor_array = explode(',', $contact['no_hp']);
+										foreach ($nomor_array as $i => $no) {
+											$no_bersih = trim($no);
+
+											$no_wa = preg_replace('/^0/', '62', $no_bersih);
+											echo '<a href="https://api.whatsapp.com/send?phone=' . htmlspecialchars($no_wa) . '" target="_blank">' . htmlspecialchars($no_bersih) . '</a>';
+
+											if ($i < count($nomor_array) - 1) {
+												echo ' - ';
+											}
+										}
+										?>
+									</div>
+
 									<br>
 									<li>
 									<div class="footer-sprite email">
-										<a href="mailto:cs@tripcargoid.com"> cs@tripcargoid.com</a>
+										<a href="mailto:<?= $contact['email'] ?>"> <?= $contact['email'] ?></a>
 									</li>
 								</ul>
 							</address>
@@ -403,22 +446,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 									</li>
 								</ul>
 						</div>	
-						<!-- FOOTER CONTACT INFO -->
-						<div class="col-md-12" style="text-align:center">
-							<h3><b>Ikuti aktivitas kami di media sosial</b></h3>
-							<address class="font-opensans">
-							  
-								<ul> 
-									<li>
-										<a style='background-color: #fff0'; href="https://twitter.com/insan_depok" target="_blank" class="btn btn-info btn-circle">
-										<i class="fa fa-twitter-square" style="font-size:36px"></i></a>  
-										<a style='background-color: #fff0'; href="https://www.facebook.com/profile.php?id=61567164029974" target="_blank" class="btn btn-info btn-circle">
-										<i class="fa fa-facebook-square" style="font-size:36px"></i></a>
-										<a style='background-color: #fff0'; href="https://api.whatsapp.com/send?phone=62881080899678" target="_blank" class="btn btn-info btn-circle">
-										<i class="fa fa-whatsapp" style="font-size:36px"> </i></a>
-									</li>
-								</ul>
-						</div>	
+						
 						<!--div class="column col-sm-2 text-right" style="margin-left: 80px;">
 								<form method="get" action="https://tripcargoid.com/web/cari" class="input-group pull-right">
 									<input type="text" value="" data-msg-required="Please enter your name." maxlength="11" class="form-control" name="k" id="k" value=" ">

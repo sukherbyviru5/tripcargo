@@ -1879,6 +1879,7 @@ class Home extends CI_Controller {
     {
         $data['introduction'] = $this->Introduction_model->get_all();
         $data['visi_misi'] = $this->Visi_misi_model->get_all();
+		$data['promo'] = $this->model->first_promo_is_active();
         
         $this->load->view('vadmin/setting_introduction', $data);
     }
@@ -2179,6 +2180,7 @@ class Home extends CI_Controller {
 			
 			$sesi=$this->session->userdata('session_id');
 			$d['sesi'] = $this->model->get_ci_sesi($sesi);
+			$d['record'] = $this->model->get_users($id);
 			$d['contact'] = $this->Setting_contact_model->get_all();
 			$d['isi'] = $this->load->view('vadmin/setting_contact', $d, true);
 			
@@ -2212,6 +2214,20 @@ class Home extends CI_Controller {
 		}
 	}
 
+	public function update_promo($id)
+    {
+        // Contoh data update
+        $data_update = [
+            'name'   => $this->input->post('name', TRUE),
+            'status' => $this->input->post('status', TRUE)
+        ];
+
+        if ($this->app_model->update_promo($id, $data_update)) {
+            echo json_encode(['status' => true, 'message' => 'Data berhasil diperbarui.']);
+        } else {
+			echo json_encode(['status' => true, 'message' => 'Gagal update promo.']);
+        }
+    }
 }
 
 /* End of file welcome.php */
