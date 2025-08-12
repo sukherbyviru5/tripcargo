@@ -29,8 +29,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url('assets/css/demo.min.css'); ?>">
 
     <!-- Favicon and Apple Touch Icons -->
-    <link rel="shortcut icon" href="<?php echo base_url('assets/img/favicon/sancargo1.png'); ?>" type="image/x-icon">
-    <link rel="icon" href="<?php echo base_url('assets/img/favicon/sancargo1.png'); ?>" type="image/x-icon">
+   <link rel="shortcut icon" href="<?php echo base_url();?>assets/img/icon-trip.png" type="image/x-icon"> <!---?php echo base_url();?>assets/img/Logo-Sancargo-white.png" type="image/x-icon"-->
+		<link rel="icon" href="<?php echo base_url();?>assets/img/icon-trip.png" type="image/x-icon">
     <link rel="apple-touch-icon" href="<?php echo base_url('assets/img/splash/sptouch-icon-iphone.png'); ?>">
     <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/img/splash/touch-icon-ipad.png'); ?>">
     <link rel="apple-touch-icon" sizes="120x120" href="<?php echo base_url('assets/img/splash/touch-icon-iphone-retina.png'); ?>">
