@@ -26,7 +26,7 @@
 </p>
 <li>
 <b>Barang apa saja yang dapat dikirim melalui Trip Cargo?</b><br>
-<p>Semua jenis barang seperti paket, dokumen dan Cargo berat dapat kami kirimkan kecuali barang-barang yang berbahaya dan dilarang seperti: binatang, emas, perak, uang, bahan peledak dan barang-barang mudah terbakar, senjata api dan amunisi, petasan, perhiasan logam mulia dan batu berharga, narkotika, alkohol, makanan dan minuman yang tidak disahkan oleh Departemen Kesehatan RI dan barang-barang ilegal lainnya. Untuk selengkapnya silakan baca di halaman <a href="https://tripcargo.test/web/Terms">Syarat & Ketentuan</a>.</li><br>
+<p>Semua jenis barang seperti paket, dokumen dan Cargo berat dapat kami kirimkan kecuali barang-barang yang berbahaya dan dilarang seperti: binatang, emas, perak, uang, bahan peledak dan barang-barang mudah terbakar, senjata api dan amunisi, petasan, perhiasan logam mulia dan batu berharga, narkotika, alkohol, makanan dan minuman yang tidak disahkan oleh Departemen Kesehatan RI dan barang-barang ilegal lainnya. Untuk selengkapnya silakan baca di halaman <a href="https://tripcargoid.com/web/Terms">Syarat & Ketentuan</a>.</li><br>
 </p>
 <li>
 <b>Kota/daerah mana saja yang dapat dijangkau oleh layanan Trip Cargo?</b></br>
@@ -36,7 +36,7 @@
 <p>Sampai saat ini Trip Cargo memiliki cabang Jawa, Bali, Sumatera perwakilan yang tersebar di seluruh Indonesia, dan akan terus bertambah. Silakan cek di daftar kantor kami di sini.</p></li><br>
 <li>
 <b>Berapa lama waktu yang dibutuhkan untuk mengirim barang?</b><br>
-<p>Waktu yang dibutuhkan untuk pengiriman sangat tergantung (Kota asal) dan tujuan akhir dari paket atau kondisi lain yang menyebabkan pengiriman tertunda dari estimasi dibawah berikut ini tertera pada tampilan <a href="https://tripcargo.test/web/cektarif">Disini</p></a>
+<p>Waktu yang dibutuhkan untuk pengiriman sangat tergantung (Kota asal) dan tujuan akhir dari paket atau kondisi lain yang menyebabkan pengiriman tertunda dari estimasi dibawah berikut ini tertera pada tampilan <a href="https://tripcargoid.com/web/cektarif">Disini</p></a>
  </li><br>
 <li>
 <b>Bagaimana cara mengetahui status pengiriman barang?</b><br>

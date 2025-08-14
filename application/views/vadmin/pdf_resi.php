@@ -67,7 +67,7 @@ $pdf->Image($barcodePath, 14.0, 0.8, 5);
 // QR Code -- MODIFIED SECTION
 // ===================================================================
 // Data for the QR code
-$qrData = "https://tripcargo.test/web/cari?k=" . $d->resi;
+$qrData = "https://tripcargoid.com/web/cari?k=" . $d->resi;
 
 // Construct the full API URL, ensuring the data is properly URL-encoded
 $qrApiUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" . urlencode($qrData);

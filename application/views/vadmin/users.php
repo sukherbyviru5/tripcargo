@@ -60,9 +60,9 @@
                 						
                     	<footer>
                     	<div>
-                    						    <!--a href="https://tripcargo.test/login" data-toggle="dropdown"> lupa kata sandi</a>
+                    						    <!--a href="https://tripcargoid.com/login" data-toggle="dropdown"> lupa kata sandi</a>
                     						    <br>
-                    						    <a id="" href="https://tripcargo.test/login" data-toggle="dropdown"><span class="hidden-xs"> Regristrasi</span></a-->
+                    						    <a id="" href="https://tripcargoid.com/login" data-toggle="dropdown"><span class="hidden-xs"> Regristrasi</span></a-->
                     							<!--a class="btn btn-link" href="https://api.whatsapp.com/send/?phone=62881080899678&text=Terima+kasih+telah+menghubungi+Trip Cargo+%28jasa+pengiriman+24+Jam%29%2C+anda+lupa+kata+sandi+atau+Password+atau+user+id+ketik+nomor+hanpone+anda%3F+&type=phone_number&app_absent=0" role="button">Forgot password?</a>
                     							<button type="submit" class="btn btn-primary" onclick="submit">Sign In</button>
                     							<!--button type="reset" class="btn btn-default"  onclick="reset">Daftar</button-->

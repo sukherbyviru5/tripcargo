@@ -5,7 +5,7 @@
 		<br>	<div align="Center">
         <h1>KARGO MURAH <br>JAKARTA PALEMBANG KARGO MURAH</h1>
 <div class='breadcrumb'>
-<a href=''>Home</a> / <a href='https://tripcargo.test/web/Produk_dan_Layanan'>Layanan</a> / <a href='https://tripcargo.test/web/Reguler'>Reguler</a> / <a href='https://tripcargo.test/web/Palembang'>Palembang</a>
+<a href=''>Home</a> / <a href='https://tripcargoid.com/web/Produk_dan_Layanan'>Layanan</a> / <a href='https://tripcargoid.com/web/Reguler'>Reguler</a> / <a href='https://tripcargoid.com/web/Palembang'>Palembang</a>
 </div>
 <li>
 	<a target="_blank" href="<?php echo base_url();?>assets/atropos/images/tarif.jpg" alt="" title="tarif hemat">tarif.jpg </a>
