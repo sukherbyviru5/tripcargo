@@ -1,0 +1,1 @@
+2025-08-15 00:19:13: Ukuran target gambar tidak valid: lebar atau tinggi <= 0

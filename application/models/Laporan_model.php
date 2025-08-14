@@ -7,6 +7,7 @@ class Laporan_model extends CI_Model {
 	{
 		parent::__construct();
 		$this->load->database();
+		$this->load->model('Setting_contact_model');
 	}
 	public function cetak_manifast() 
 	{
@@ -150,8 +151,10 @@ class Laporan_model extends CI_Model {
 		$d['tgl1']				= $tgla;
 		$d['tgl2']				= $tglb;
 		$d['area']				= $area;
-		$d['user_id']				= $user_id;
-		
+		$d['contact'] = $this->Setting_contact_model->get_all();
+		$d['user_id']			= $user_id;
+
+				
 		$this->load->view('vadmin/cetak_invoice', $d);
 	}
 	//----->edit santoso akhir----//

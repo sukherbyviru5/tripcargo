@@ -845,7 +845,7 @@ class Home extends CI_Controller {
 				    
 				    <a class="btn btn-sm btn-default" href="javascript:void(0)" title="Resi (F4/3)" onclick="cetak2('."'".$cargo->id."'".')"><i class="glyphicon glyphicon-print"></i></a>
 				<!--<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Penolakan Asuransi" onclick="penolakan_asuransi('."'".$cargo->id."'".')"><i class="glyphicon glyphicon-print"></i></a> --->
-					<a class="btn btn-sm btn-warning" href="javascript:void(0)" title="Edit" onclick="edit('."'".$cargo->id."'".')" ><i class="glyphicon glyphicon-pencil"></i></a>
+					<a class="btn btn-sm btn-warning" href="javascript:void(0)" title="Edit" onclick="edit('."'".$cargo->id."'".')" ><i class="glyphicon glyphicon-eye-open"></i></a>
 				<!--<a class="btn btn-sm btn-info" href="javascript:void(0)" title="Download pdf" onclick="cetak('."'".$cargo->id."'".')"><i class="glyphicon glyphicon-cloud-download"></i></a> --->
 					<div style="display:none">
 				<!--<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="hapus('."'".$cargo->id."'".')"><i class="glyphicon glyphicon-trash"></i></a> --->

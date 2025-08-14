@@ -86,7 +86,7 @@ class Users extends CI_Controller {
 			'</div>'.
 			'</div>';
 			
-			$row[] = '<img src="https://tripcargoid.com/assets/upload/'.$users->foto.'" class="img-thumbnail" alt="Cinque Terre" width="100" height="100" img-responsive title="'.$users->foto.'">'.'<br>';
+			$row[] = '<img src="https://tripcargo.test/assets/upload/'.$users->foto.'" class="img-thumbnail" alt="Cinque Terre" width="100" height="100" img-responsive title="'.$users->foto.'">'.'<br>';
 			//$row[] = '<div style= widht:auto>  '.$users->password.'</div>';
 			//$row[] = '<div style= width:auto;> '.$users->namalengkap.'</div>';
 			//$row[] = '<div style= width:auto;> '.$users->level.'</div>';
@@ -236,38 +236,27 @@ class Users extends CI_Controller {
 	public function getResi(){
 		$this->load->model('m_db');
 		$dateymd = date("Y-m-d");
-		$data = $this->m_db->get_like('paket','tglkirim',$dateymd); /* bulan;tanggal */
-		$tahun = $this->m_db->get_like('paket','tglkirim',$dateymd); /* tahun */
-		$totaldata = count($data)+1;
-		$tData = strlen($totaldata);
-		if($tData == '1'){
-			$urut = '00'.$totaldata;
-		}else if($tData == '2'){
-			$urut = '0'.$totaldata;
-		}else{
-			$urut = $totaldata;
-		}
+		$code_area = $this->session->userdata('area'); /* code area: DPK, CGK, BDG, etc */
 		
-		/////////////////////////////////////////////
-		//menjelaskan nomor urut id (3 digit) 
-		$tData = strlen($this->session->userdata('user_id'));
-		//$tData = strlen($totaldata);
-		if($tData == '1'){
-			$urut_id = '00'.$this->session->userdata('user_id'); // 2 digit
-		}else if($tData == '2'){
-			$urut_id = '000'.$this->session->userdata('user_id'); // 3 digit	
-		}else{
-			$urut_id = $this->session->userdata('user_id');
-		}
-		/////////////////////////////////////////////
+		// Replace DPK with JKT if applicable
+		$code_area = $code_area == 'DPK' ? 'JKT' : $code_area;
 		
-		$user_id = $this->session->userdata('user_id'); /* No Reg. User ID */
-		$code_area = $this->session->userdata('area'); /* code area: DPK, CGK, BDG, dll */
-		$date = date('md');
-		$tahun = date('y');
-		$tahun1 = substr($tahun,1);/* tahun: 2 digit tahun dibuang 1 digit */
-		$resi = $code_area.$tahun1.$date.$urut; //.$urut_id  code ini menambahkan nomor urut user_id
-		echo $resi; /* Resi: code aera(3 huruf), tahun (1 digit), bulan (2 digit), tanggal (2 digit), urrutan nomor pembuatan per harinya(3 digit). misal: DPK40119001 ada 11  digit */
+		// Get count of transactions for this area code on current date
+		$data = $this->m_db->get_like('paket', 'tglkirim', $dateymd, ['area' => $code_area]);
+		$totaldata = count($data) + 1;
+		
+		// Format sequence number to 4 digits
+		$urut = str_pad($totaldata, 4, '0', STR_PAD_LEFT);
+		
+		// Get date components
+		$year = date('y'); // Last 2 digits of year
+		$month = date('m'); // 2 digits month
+		$day = date('d'); // 2 digits day
+		
+		// Construct resi number
+		$resi = $code_area . $year . $month . $day . $urut;
+		
+		echo $resi; /* Resi format: JKT2508140001 (JKT + 2 digit year + 2 digit month + 2 digit day + 4 digit sequence) */
 	}
 	
 	

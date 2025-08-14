@@ -1,10 +1,30 @@
-<div span id="judul"></span><br> <div  style="text-align: right";><?php echo"<img src='".base_url()."assets/images/logo-sancargo.png' width='210' height='50px'>";?></div></div>
-<div span id="perusahaan"><p><b>Trip Cargo</b><br>Jl. Kp. Parung Serab No. 33-F, Rt.03 Rw.05 Tirtajaya, Sukmajaya, Depok<br>
-    Tlp. (021) 27612134 - 081289897359<br>www.Trip Cargo.co.id</p></span></div>
+<div id="judul"></div>
+<br>
+<br>
+<br>
+<br>
+<div style="display: flex; justify-content: space-between; align-items: flex-start;">
+    <div id="perusahaan" style="max-width: 60%;">
+        <p>
+            <b>Trip Cargo</b><br>
+            <?php echo $contact[0]['alamat']; ?><br>
+            Tlp. <?php echo $contact[0]['no_hp']; ?><br>
+            https://tripcargoid.com
+        </p>
+    </div>
+    <div style="text-align: right;">
+        <img src="<?php echo base_url(); ?>assets/images/logo-sancargo.png" width="210" height="50px">
+    </div>
+</div>
+
 	<style>
     div.a {text-align: left;}
     </style>
-<div span id="judul2"><STRONG>INVOICE</STRONG></span></div>    
+	<br>
+	<br>
+	<br>
+	<br>
+<div span id="judul2"><STRONG>Laporan Pengiriman Paket</STRONG></span></div>    
     
     <hr style="margin-top: 25px";>
 <div span id="pereode">
@@ -104,42 +124,7 @@
 		</tr>
 		<br/><br/>
 	</table><br/>
-<?php	
-echo"<div id=ttd>";
-	echo "$area, ".date("d F Y")."<br/>"; 
-	echo"Admin &ensp;".  '(id'. "$user_id)";
-	echo"<br/>";
-	echo"<br/>";
-	echo"<br/>";
-	$user=$this->session->userdata('username');
-	$nama=$this->app_model->find_nama_admin($user);
-	echo "".$nama;
-	echo"</div>";
-?>
 
-<?php	
-
-echo"<div id=Bank>";
-    echo"<br/>";
-	echo"<br/>";
-	echo"<br/>";
-	echo"<br/>";
-	echo"<br/>";
-		echo"";
-	
-echo"</div>";
-?>
-
-<?php	
-echo"<div id=ttd>";
-    echo"<b>Account Bank:</b><br/>";
-	echo"Bank BCA     : 8693767359<br/>";
-	echo"an. PT. Insan Cargo Depok<br/>";
-	echo"<br/>";
-	echo"";
-echo"</div> "; 
-?>
-<style>
 <style>
 td p{
 	line-height:8px;

@@ -63,15 +63,20 @@ if (!file_exists($barcodePath)) {
 }
 $pdf->Image($barcodePath, 14.0, 0.8, 5);
 
-// QR Code
-require_once APPPATH . 'libraries/qrcode/qrlib.php';
-$resi = "https://tripcargoid.com/web/cari?k=" . $d->resi;
-$qrPath = FCPATH . 'assets/barcode/qr_' . $code . '.png';
-QRcode::png($resi, $qrPath, 'L', 2, 1);
-if (!file_exists($qrPath)) {
-    die('File QR code tidak ditemukan: ' . $qrPath);
-}
-$pdf->Image($qrPath, 17.5, 9.0, 2);
+// ===================================================================
+// QR Code -- MODIFIED SECTION
+// ===================================================================
+// Data for the QR code
+$qrData = "https://tripcargo.test/web/cari?k=" . $d->resi;
+
+// Construct the full API URL, ensuring the data is properly URL-encoded
+$qrApiUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" . urlencode($qrData);
+
+// Embed the QR code image directly from the URL into the PDF
+// The last parameter 'PNG' specifies the image type.
+$pdf->Image($qrApiUrl, 17.5, 9.0, 2, 0, 'PNG');
+// ===================================================================
+
 $pdf->Ln(0.8); // Added spacing below QR code
 
 // Header Table

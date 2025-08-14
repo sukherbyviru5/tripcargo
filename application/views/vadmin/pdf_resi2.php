@@ -71,7 +71,7 @@ $pdf->Cell(12.3, 0.8, $d->resi, 'LTRB', 1, 'C', true);
 
 // Barcode QR
 require_once FCPATH . 'application/libraries/qrcode/qrlib.php';
-$qrPath = FCPATH . 'assets/barcode/qr_' . $d->resi . '.png';
+$qrPath = FCPATH . 'assets/barcode/' . $d->resi . '.png';
 QRcode::png($d->resi, $qrPath, QR_ECLEVEL_H, 5, 2);
 if (!file_exists($qrPath)) {
     die('File QR code tidak ditemukan: ' . $qrPath);

@@ -63,6 +63,7 @@ if (!file_exists($logoPath)) {
     $pdf->Output('LEBEL_error.pdf', 'I');
     exit;
 }
+
 $pdf->Image($logoPath, 0.7, 0.7, 2.5, 1.2); // Increased logo width to 2.5 cm, kept height at 1.2 cm
 
 // Nama Perusahaan
@@ -89,13 +90,31 @@ $pdf->Cell(12.3, 0.8, $d->resi, 'LTRB', 1, 'C', true);
 
 // Barcode QR
 require_once FCPATH . 'application/libraries/qrcode/qrlib.php';
-$qrPath = FCPATH . 'assets/barcode/qr_' . $d->resi . '.png';
-QRcode::png($d->resi, $qrPath, QR_ECLEVEL_H, (int)5, 2); // Pastikan $size adalah integer
-if (!file_exists($qrPath)) {
-    log_message('error', 'File QR code tidak ditemukan: ' . $qrPath);
+// Barcode QR (menggunakan API eksternal)
+$qrPath = FCPATH . 'assets/barcode/' . $d->resi . '.png';
+$dataToEncode = urlencode($d->resi);
+$apiUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" . $dataToEncode;
+
+// Ambil gambar dari API
+$qrImageData = @file_get_contents($apiUrl);
+
+// Jika berhasil mengambil data gambar, simpan ke file
+if ($qrImageData !== false) {
+    file_put_contents($qrPath, $qrImageData);
+} else {
+    // Jika API gagal diakses, catat error dan keluar
+    log_message('error', 'Gagal mengakses API QR Code: ' . $apiUrl);
     $pdf->Output('LEBEL_error.pdf', 'I');
     exit;
 }
+
+// Cek apakah file berhasil dibuat sebelum menambahkannya ke PDF
+if (!file_exists($qrPath)) {
+    log_message('error', 'File QR code gagal disimpan ke path: ' . $qrPath);
+    $pdf->Output('LEBEL_error.pdf', 'I');
+    exit;
+}
+
 $pdf->Image($qrPath, 10.7, 3.4, 2.3, 2.3);
 $pdf->Ln(0.4); // Spacing below QR code
 

@@ -40,7 +40,7 @@
 							
 							echo"<td>";
 							echo'<div class="text-left">
-									<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Pilih tarif" onclick="pilih_tarif('."'".$harga."'".')"><i class="glyphicon glyphicon-check"></i></a></div>';
+									<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Pilih tarif" onclick="pilih_tarif(\''.$harga.'\')"><i class="glyphicon glyphicon-check"></i></a></div>';
 							echo"</td>
 							</tr></tbody>";
 					}

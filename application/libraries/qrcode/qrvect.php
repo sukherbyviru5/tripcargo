@@ -103,8 +103,8 @@
             // position the center of the coordinate system
             
             $output .= $outerFrame.' '.$outerFrame.' translate'."\n";
-           
-           
+            
+            
             
             
             // redefine the 'rectfill' operator to shorten the syntax
@@ -137,7 +137,8 @@
         }
         
         //----------------------------------------------------------------------
-        public static function svg($frame, $filename = false, $pixelPerPoint = 4, $outerFrame = 4,$saveandprint=FALSE, $back_color, $fore_color) 
+        // FUNGSI INI YANG DIPERBAIKI
+        public static function svg($frame, $back_color, $fore_color, $filename = false, $pixelPerPoint = 4, $outerFrame = 4,$saveandprint=FALSE) 
         {
             $vect = self::vectSVG($frame, $pixelPerPoint, $outerFrame, $back_color, $fore_color);
             
@@ -171,7 +172,7 @@
             $output = 
             '<?xml version="1.0" encoding="utf-8"?>'."\n".
             '<svg version="1.1" baseProfile="full"  width="'.$imgW * $pixelPerPoint.'" height="'.$imgH * $pixelPerPoint.'" viewBox="0 0 '.$imgW * $pixelPerPoint.' '.$imgH * $pixelPerPoint.'"
-             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events">'."\n".
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events">'."\n".
             '<desc></desc>'."\n";
 
             $output =
@@ -209,5 +210,3 @@
             return $output;
         }
     }
-    
-    

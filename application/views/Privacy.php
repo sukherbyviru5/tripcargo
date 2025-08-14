@@ -27,7 +27,7 @@ Privacy policy ini menjelaskan komitmen kami akan kerahasiaan dan keamanan data 
 
 <h3><strong>Hubungi Kami</strong></h3>
 
-<p style="color: black; text-align:left ;font-size: 1.2em; line-height:25px">Jika Anda memiliki pertanyaan, saran, dan masukan mengenai privacy policy ini, silahkan menghubungi kami. <a href="https://tripcargoid.com/contact">disini</a></p>
+<p style="color: black; text-align:left ;font-size: 1.2em; line-height:25px">Jika Anda memiliki pertanyaan, saran, dan masukan mengenai privacy policy ini, silahkan menghubungi kami. <a href="https://tripcargo.test/contact">disini</a></p>
 </div>
        </div>   </div></div></div>
        

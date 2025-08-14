@@ -72,7 +72,7 @@
 				-->
 				<header>
 					<span class="widget-icon"> <i class="fa fa-list"></i> </span>
-					<h2>INVOICE</h2>
+					<h2>Laporan Pengiriman Paket</h2>
 				</header>
 
 				<!-- widget div-->
