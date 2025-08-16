@@ -70,11 +70,28 @@ $pdf->SetFillColor(245, 245, 245);
 $pdf->Cell(12.3, 0.8, $d->resi, 'LTRB', 1, 'C', true);
 
 // Barcode QR
-require_once FCPATH . 'application/libraries/qrcode/qrlib.php';
 $qrPath = FCPATH . 'assets/barcode/' . $d->resi . '.png';
-QRcode::png($d->resi, $qrPath, QR_ECLEVEL_H, 5, 2);
+// Check if QR code file exists; if not, fetch from QRServer API
 if (!file_exists($qrPath)) {
-    die('File QR code tidak ditemukan: ' . $qrPath);
+    // Ensure the barcode directory exists
+    $barcodeDir = FCPATH . 'assets/barcode/';
+    if (!is_dir($barcodeDir)) {
+        mkdir($barcodeDir, 0777, true);
+    }
+    // Fetch QR code from QRServer API
+    $qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' . urlencode($d->resi);
+    $qrContent = @file_get_contents($qrUrl);
+    if ($qrContent === false) {
+        die('Failed to fetch QR code from QRServer API for resi: ' . $d->resi);
+    }
+    // Save QR code to file
+    if (!file_put_contents($qrPath, $qrContent)) {
+        die('Failed to save QR code at: ' . $qrPath);
+    }
+}
+// Verify the file exists after attempting to fetch
+if (!file_exists($qrPath)) {
+    die('QR code file not found after fetching: ' . $qrPath);
 }
 $pdf->Image($qrPath, 10.7, 3.4, 2.3, 2.3);
 $pdf->Ln(0.4); // Spacing below QR code
