@@ -768,121 +768,35 @@
                                                     </span>
 
                                                     <hr />
-
-
-                                                    <script>
-                                                        function updateTotals() {
-                                                            // Ambil nilai input
-                                                            let harga_tujuan = parseInt(document.getElementById('harga').value) || 0;
-                                                            let diskon_persen = parseInt(document.getElementById('diskon').value) || 0;
-
-                                                            // Perhitungan Diskon
-                                                            let nilai_diskon = harga_tujuan * (diskon_persen / 100);
-                                                            document.getElementById('nilai_diskon').value = nilai_diskon;
-
-                                                            // Perhitungan Total Tarif (Tarif Tujuan - Diskon)
-                                                            let total_tarif = harga_tujuan - nilai_diskon;
-                                                            document.getElementById('total_tarif').value = total_tarif;
-                                                        }
-
-                                                        // Tambahkan event listener untuk memanggil fungsi updateTotals saat nilai berubah
-                                                        document.getElementById('harga').addEventListener('input', updateTotals);
-                                                        document.getElementById('diskon').addEventListener('input', updateTotals);
-                                                    </script>
-
-
                                                     <div class="form-group has-warning">
-                                                        <label class="col-md-2 control-label">Asuransi dan biaya
-                                                            tambahan</label>
-                                                        <div class="col-md-3">
+                                                        <label class="col-md-2 control-label">Asuransi (jika
+                                                            ada)</label>
 
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><i
-                                                                        class="fa fa-money fa-fw"></i></span>
-                                                                <input class="form-control"
-                                                                    placeholder="Nilai Barang di Asuransikan (Rp)"
-                                                                    type="number" name="harga6" id="harga6"
-                                                                    onblur="hitung();"
-                                                                    onkeypress="return isNumberKey(event)">
-                                                                <span class="input-group-addon"><i
-                                                                        class="fa fa-dollar"></i></span>
-                                                            </div>
-                                                        </div>
                                                         <div class="col-md-3">
                                                             <div class="input-group">
-                                                                <span class="input-group-addon"><i
-                                                                        class="fa fa-money fa-fw"></i></span>
-                                                                <input class="form-control"
-                                                                    placeholder="Asuransi (Rp)" readonly
-                                                                    type="text" name="harga4" id="harga4"
-                                                                    onkeyup="hitung();"
-                                                                    onkeypress="return isNumberKey(event)">
-                                                                <span class="input-group-addon"><i
-                                                                        class="fa fa-dollar"></i></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><i
-                                                                        class="fa fa-money fa-fw"></i></span>
-                                                                <input class="form-control"
-                                                                    placeholder="Paking / Vendor / Lain-lain (Rp)"
-                                                                    type="number" name="harga5" id="harga5"
-                                                                    onblur="hitung();"
-                                                                    onkeypress="return isNumberKey(event)">
-                                                                <span class="input-group-addon"><i
-                                                                        class="fa fa-dollar"></i></span>
+                                                                <span class="input-group-addon">Rp</span>
+                                                                <input class="form-control" placeholder="Nilai Barang"
+                                                                    type="text" name="nilai_barang"
+                                                                    id="nilai_barang">
                                                             </div>
                                                         </div>
 
-
-
+                                                        <div class="col-md-4">
+                                                            <div class="input-group">
+                                                                <input class="form-control" placeholder="Persen"
+                                                                    type="text" name="persen_asuransi"
+                                                                    id="persen_asuransi" style="width: 70px;">
+                                                                <span class="input-group-addon">%</span>
+                                                                <span class="input-group-addon">Rp</span>
+                                                                <input class="form-control"
+                                                                    placeholder="Nilai Asuransi" type="text"
+                                                                    name="nilai_asuransi" id="nilai_asuransi"
+                                                                    readonly>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <br>
-                                                    <div class="form-group has-warning">
-                                                        <label class="col-md-2 control-label">Biaya Kirim</label>
-                                                        <span class="hidden-xs"><!--tidak tampil di hp-->
-                                                            <div class="col-md-3">
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon"><i
-                                                                            class="fa fa-money fa-fw"></i></span>
-                                                                    <input class="form-control" placeholder="COD (Rp)"
-                                                                        readonly type="number" name="harga1"
-                                                                        id="harga1" onblur="hitung();"
-                                                                        onkeypress="return isNumberKey(event)">
-                                                                    <span class="input-group-addon"><i
-                                                                            class="fa fa-dollar"></i></span>
-                                                                </div>
-                                                            </div>
-                                                        </span>
-                                                        <div class="col-md-3">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon"><i
-                                                                        class="fa fa-money fa-fw"></i></span>
-                                                                <input class="form-control"
-                                                                    placeholder="Biaya Kirim (Rp)" type="number"
-                                                                    name="harga2" id="harga2" onblur="hitung();"
-                                                                    onkeypress="return isNumberKey(event)">
-                                                                <span class="input-group-addon"><i
-                                                                        class="fa fa-dollar"></i></span>
-                                                            </div>
-                                                        </div>
-                                                        <span class="hidden-xs"> <!--tidak tampil di hp-->
-                                                            <div class="col-md-3">
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon"><i
-                                                                            class="fa fa-money fa-fw"></i></span>
-                                                                    <input class="form-control"
-                                                                        placeholder="Hari yg sama (Rp)" readonly
-                                                                        type="number" name="harga3" id="harga3"
-                                                                        onblur="hitung();"
-                                                                        onkeypress="return isNumberKey(event)">
-                                                                    <span class="input-group-addon"><i
-                                                                            class="fa fa-dollar"></i></span>
-                                                                </div>
-                                                            </div>
-                                                        </span>
-                                                    </div>
+
                                                     <hr>
                                                     <div class="form-group has-warning">
                                                         <label class="col-md-2 control-label">Total Biaya </label>
@@ -938,37 +852,64 @@
                                             </div>
 
                                             <script>
-                                                // Fungsi format angka ribuan dengan titik dan pembulatan
-                                                function formatRibuan(angka) {
-                                                    let num = parseFloat(angka);
-                                                    if (isNaN(num)) return '';
-                                                    num = Math.round(num); // bulatkan ke integer terdekat
-                                                    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                                                function hitungSemua() {
+                                                    const tarifTujuan = ambilAngka('harga');
+                                                    const diskonPersen = ambilAngka('diskon');
+                                                    const nilaiBarang = ambilAngka('nilai_barang');
+                                                    const persenAsuransi = ambilAngka('persen_asuransi', true);
+                                                    const nilaiDiskon = tarifTujuan * (diskonPersen / 100);
+                                                    const totalTarif = tarifTujuan - nilaiDiskon;
+                                                    const nilaiAsuransi = nilaiBarang * (persenAsuransi / 100);
+                                                    const totalBiaya = totalTarif + nilaiAsuransi;
+
+                                                    tampilkanAngka('nilai_diskon', nilaiDiskon);
+                                                    tampilkanAngka('total_tarif', totalTarif);
+                                                    tampilkanAngka('nilai_asuransi', nilaiAsuransi);
+                                                    tampilkanAngka('total', totalBiaya);
                                                 }
 
-                                                // Pasang listener untuk semua field rupiah
-                                                function initRupiahFields() {
-                                                    const rupiahFields = [
-                                                        'harga', 'nilai_diskon', 'total_tarif',
-                                                        'harga6', 'harga4', 'harga5',
-                                                        'harga1', 'harga2', 'harga3',
-                                                        'total'
-                                                    ];
+                                                function ambilAngka(id, isDecimal = false) {
+                                                    const elemen = document.getElementById(id);
+                                                    if (!elemen || elemen.value === "") return 0;
 
-                                                    rupiahFields.forEach(function(id) {
-                                                        let field = document.getElementById(id);
-                                                        if (field) {
-                                                            field.addEventListener('input', function() {
-                                                                let cleanValue = field.value.replace(/\./g, '');
-                                                                if (cleanValue) {
-                                                                    field.value = formatRibuan(cleanValue);
+                                                    let nilaiBersih = elemen.value.replace(/[^0-9,.]/g, ''); // Keep digits, commas, and periods
+                                                    if (isDecimal) {
+                                                        // Replace comma with period for decimal numbers (e.g., 2,50 -> 2.50)
+                                                        nilaiBersih = nilaiBersih.replace(',', '.');
+                                                    } else {
+                                                        // Remove all commas and periods for non-decimal numbers
+                                                        nilaiBersih = nilaiBersih.replace(/[,.]/g, '');
+                                                    }
+                                                    return parseFloat(nilaiBersih) || 0;
+                                                }
+
+                                                function tampilkanAngka(id, nilai) {
+                                                    const elemen = document.getElementById(id);
+                                                    if (!elemen) return;
+                                                    const nilaiBulat = Math.round(nilai);
+                                                    elemen.value = nilaiBulat.toLocaleString('id-ID');
+                                                }
+
+                                                document.addEventListener('DOMContentLoaded', function() {
+                                                    const inputPemicu = ['harga', 'diskon', 'nilai_barang', 'persen_asuransi'];
+                                                    inputPemicu.forEach(function(id) {
+                                                        const elemen = document.getElementById(id);
+                                                        if (elemen) {
+                                                            elemen.addEventListener('keyup', function() {
+                                                                if (id === 'harga' || id === 'nilai_barang') {
+                                                                    const nilaiAngka = ambilAngka(id);
+                                                                    const pos = this.selectionStart;
+                                                                    const panjangAsli = this.value.length;
+                                                                    this.value = nilaiAngka.toLocaleString('id-ID');
+                                                                    const panjangBaru = this.value.length;
+                                                                    this.setSelectionRange(pos + (panjangBaru - panjangAsli), pos + (
+                                                                        panjangBaru - panjangAsli));
                                                                 }
+                                                                hitungSemua();
                                                             });
                                                         }
                                                     });
-                                                }
-
-                                                document.addEventListener('DOMContentLoaded', initRupiahFields);
+                                                });
                                             </script>
 
                                             <div class="tab-pane" id="tab4">
@@ -979,35 +920,35 @@
                                                             class="fa fa-check fa-lg"></i> Complete</strong></h1>
                                                 <div id="update-process">
                                                     <h4 class="text-center">Click Simpan to menyelesaikan</h4>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <center>
-                                                            <button type="reset" name="rest" value="reset"
-                                                                class="btn btn-danger">
-                                                                <i class="fa fa-refresh"></i> Reset
-                                                            </button>
-                                                            <input type="hidden" name="id">
-                                                            <input type="hidden" name="simpan">
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <center>
+                                                                <button type="reset" name="rest" value="reset"
+                                                                    class="btn btn-danger">
+                                                                    <i class="fa fa-refresh"></i> Reset
+                                                                </button>
+                                                                <input type="hidden" name="id">
+                                                                <input type="hidden" name="simpan">
 
-                                                            <!-- di tambahkan audio--->
-                                                            <!--button autoplay="true">
-                <a type="button" id="btnSave"  onclick="save()" >
-                <audio autoplay="true">
-                            <source src="/assets/sound/voice_on.mp3" type="video/mp4" />
-                            </audio>
-                <i class="fa fa-floppy-o"></i> Simpan <span id="loading"></span>
-                </a>
-                </button---><!--/// 23/4/25 ini setelah diuji ada kendala pada fungsi reset ada tampilan mengulang keseluruhan.--->
+                                                                <!-- di tambahkan audio--->
+                                                                <!--button autoplay="true">
+                                                            <a type="button" id="btnSave"  onclick="save()" >
+                                                            <audio autoplay="true">
+                                                                        <source src="/assets/sound/voice_on.mp3" type="video/mp4" />
+                                                                        </audio>
+                                                            <i class="fa fa-floppy-o"></i> Simpan <span id="loading"></span>
+                                                            </a>
+                                                            </button---><!--/// 23/4/25 ini setelah diuji ada kendala pada fungsi reset ada tampilan mengulang keseluruhan.--->
 
-                                                            <button type="button" id="btnSave" onclick="save()"
-                                                                class="btn btn-primary">
-                                                                <i class="fa fa-floppy-o"></i> Simpan <span
-                                                                    id="loading"></span>
-                                                            </button>
-                                                        </center>
+                                                                <button type="button" id="btnSave"
+                                                                    onclick="save()" class="btn btn-primary">
+                                                                    <i class="fa fa-floppy-o"></i> Simpan <span
+                                                                        id="loading"></span>
+                                                                </button>
+                                                            </center>
+                                                        </div>
                                                     </div>
-                                                </div>
                                                 </div>
                                                 <br>
                                             </div>
@@ -1410,17 +1351,7 @@
 		</div>
   			  `;
 
-    // $('#add_koli').on('click',function(){
-    // 	var koli = $('#iKoli').val();
-    // 	$('#col_koli').append([{id:koli}].map(Item).join(''));
-    // 	if(koli > 1){
-    // 		var delkoli = koli-1;
 
-    // 	}
-    // 	koli++;
-    // 	$('#iKoli').val(koli);
-    // 	updateTotal();
-    // });
     updateTotal();
     $('#add_koli').on('click', function() {
         var koli = $('#iKoli').val();
@@ -1707,9 +1638,9 @@
 
     function pilih_tarif(harga) {
         let formattedHarga = Number(harga).toLocaleString('id-ID');
-        $('[name="harga"]').val(formattedHarga);
+        $('#harga').val(formattedHarga); // Update to use ID selector since 'harga' is an ID in your code
         $('#modal_form').modal('hide');
-
+        hitungSemua(); // Trigger the calculation
     }
 
     function load_harga() {
