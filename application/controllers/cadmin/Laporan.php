@@ -7,6 +7,8 @@ class Laporan extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('laporan_model','laporan');
+		$this->load->model('Pelanggan_model','pelanggan');
+		$this->load->model('Kab_model','area');
 		$this->load->model('app_model','model');
 		$this->load->library('fpdf'); // Load library	
 		$this->load->library('zend');
@@ -120,6 +122,30 @@ class Laporan extends CI_Controller {
 			redirect('./cadmin/home/logout/','refresh');
 		}
 	}
+	public function lmanifast_area()
+	{
+		$cek = $this->session->userdata('logged_in');
+		$level = $this->session->userdata('level');
+		if(!empty($cek)){
+			$d['judul'] = $this->config->item('judul');
+			$d['nama_perusahaan'] = $this->config->item('nama_perusahaan');
+			$d['alamat_perusahaan'] = $this->config->item('alamat_perusahaan');
+			$d['lisensi'] = $this->config->item('lisensi_app');
+			
+			$d['jam_now'] = $this->app_model->Jam_Now(); 
+			$d['hari_now'] = $this->app_model->Hari_Bulan_Indo(); 
+			$d['tgl_now'] = $this->app_model->tgl_now_indo();
+			$id=$this->session->userdata('username');
+			$d['record'] = $this->model->get_users($id);
+			$d['isi'] = $this->load->view('vadmin/lpmanifast', $d, true);
+			
+			$this->load->view('vadmin/media',$d);
+		}else{
+			$this->session->set_flashdata('result_login', '<font color="red">Sesi login habis atau terhapuskan.</font>');
+			redirect('./cadmin/home/logout/','refresh');
+		}
+	}
+
 	public function cetak_penerimaan()
 	{
 		$cek = $this->session->userdata('logged_in');
@@ -145,6 +171,8 @@ class Laporan extends CI_Controller {
 			$d['hari_now'] = $this->app_model->Hari_Bulan_Indo(); 
 			$d['tgl_now'] = $this->app_model->tgl_now_indo();
 			$id=$this->session->userdata('username');
+			$d['pelanggan'] = $this->pelanggan->get_all();
+			$d['area'] = $this->area->get_all();
 			$d['record'] = $this->model->get_users($id);
 			$d['isi'] = $this->load->view('vadmin/view_invoice', $d, true);
 			

@@ -214,6 +214,7 @@ class App_Model extends CI_Model {
 						$sess_data['kec_id'] = $qad->kec_id;
 						$sess_data['area'] = $qad->area;
 						$sess_data['level'] = 'superadmin';
+						$sess_data['menu_user'] = true;
 						$sess_data['logdate'] = date("Y-m-d H:i:s");
 						$this->session->set_userdata($sess_data);
 						header('location:'.base_url().'cadmin/home/dashboard');
@@ -225,7 +226,20 @@ class App_Model extends CI_Model {
 						$sess_data['nama_pengguna'] = $qad->namalengkap;
 						$sess_data['kec_id'] = $qad->kec_id;
 						$sess_data['area'] = $qad->area;
-						$sess_data['level'] = 'admin';
+						$sess_data['level'] = 'superadmin';
+						$sess_data['menu_user'] = false;
+						$sess_data['logdate'] = date("Y-m-d H:i:s");
+						$this->session->set_userdata($sess_data);
+						header('location:'.base_url().'cadmin/home/dashboard');
+						//$this->load->cont('content');	
+					}elseif($qad->level=="admin2"){
+						$sess_data['logged_in'] = 'yesGetMeLogin';
+						$sess_data['username'] = $qad->user_id;
+						$sess_data['user_id'] = $qad->id;
+						$sess_data['nama_pengguna'] = $qad->namalengkap;
+						$sess_data['kec_id'] = $qad->kec_id;
+						$sess_data['area'] = $qad->area;
+						$sess_data['level'] = 'admin2';
 						$sess_data['logdate'] = date("Y-m-d H:i:s");
 						$this->session->set_userdata($sess_data);
 						header('location:'.base_url().'cadmin/home/dashboard');

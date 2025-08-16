@@ -90,6 +90,15 @@ class Pelanggan_model extends CI_Model {
 		return $query->row();
 	}
 
+	public function get_all()
+	{
+		$this->db->select('pel_id, nama');
+		$this->db->from($this->table);
+		$query = $this->db->get();
+
+		return $query->result();
+	}
+
 	
 
 	public function delete_by_id($id)

@@ -103,8 +103,10 @@ class Laporan_model extends CI_Model {
 	//------>edit Aldiyan@kotabiru.com-2020-12-10----//
     public function cetak_invoice() 
 	{
+		$pengirim	=$this->input->post('pengirim',true);
+		$tujuan	=$this->input->post('tujuan',true);
+		$payment_type	=$this->input->post('payment_type',true);
 		$id = urldecode($this->uri->segment(4)  ?? '');
-		$pel_id	=$this->input->post('pel_id',true);
 		$user	=$this->input->post('user_id',true);
 		$tgla	=$this->input->post('tgl1',true);
 		$tglb	=$this->input->post('tgl2',true);
@@ -121,6 +123,7 @@ class Laporan_model extends CI_Model {
 					and a.tglkirim between '$tgl1' and '$tgl2'
 					group by a.resi
 					order by a.tglkirim asc")->result();
+				
 			}else{
 				$q = $this->db->query("SELECT DATE_FORMAT(a.tglkirim, '%Y-%m-%d')  as tglkirim, a.* 
 				from paket as a
@@ -141,6 +144,7 @@ class Laporan_model extends CI_Model {
 			group by a.resi
 			order by a.tglkirim asc")->result();
 		}
+		
 						
 		$d['rs'] 				= $q;
 		$d['judul'] 			= $this->config->item('judul');
@@ -151,6 +155,9 @@ class Laporan_model extends CI_Model {
 		$d['tgl1']				= $tgla;
 		$d['tgl2']				= $tglb;
 		$d['area']				= $area;
+		$d['pengirim']				= $pengirim;
+		$d['payment_type']				= $payment_type;
+		$d['tujuan']				= $tujuan;
 		$d['contact'] = $this->Setting_contact_model->get_all();
 		$d['user_id']			= $user_id;
 

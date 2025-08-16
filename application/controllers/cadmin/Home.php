@@ -1353,71 +1353,60 @@ class Home extends CI_Controller {
 		}
 	}
 	public function manifast_ajax_list()
-	{   
-		$level= $this->session->userdata('level');
-		$list = $this->manifast->get_datatables();
-		$data = array();
-		$no = $_POST['start'];
-		foreach ($list as $manifast) {
-			$no++;
-			$row = array();
-			$row[] = '<div class="text-center">'.$no.'</div>';
-			$row[] = $manifast->nom;
-			$row[] = date('d M Y', strtotime($manifast->tgl));
-			$row[] = $manifast->driver;
-			$row[] = $manifast->tlpdriver;
-			$row[] = $manifast->tujuan;
-			$row[] = $manifast->remake .' '. $manifast->sortir; //creator //users_id // ditambahkan tgl 12 des 24
-			$row[] = ''.$manifast->creator.' ['.$manifast->users_id.']'; //creator //users_id // ditambahkan tgl 28 non 24
-			//add html for action
-			$level=$this->session->userdata('level');
-			if($level=="driver" ||$level=="umum"){
-			//add html for action
-			//<span class="badge inbox-badge bg-color-redLight hidden-mobile">Disabled</span>
-			$row[]='<div class="text-center">
-					<span class="badge inbox-badge bg-color-redLight hidden-mobile">Disabled</span>
-							</div>';
-			} else{
-			    $row[] = '<div class="text-center";view="dsible">
-			        <a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Cetak" onclick="cetak('."'".$manifast->id."'".')"><i class="glyphicon glyphicon-print"></i></a>
-				  </div>';
-					
-				}
-				  
-			$data[] = $row;
-		}
-			
-			
-			
-			//if($level=="superadmin" ||$level=="admin" || $level=="driver" ||$level=="umum"){
-				//$row[] = '<div class="text-center">
-					//<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Cetak" onclick="cetak('."'".$manifast->id."'".')"><i class="glyphicon glyphicon-print"></i></a>
-				  //</div>';
-			//}else{
-			//$row[] = '<div class="text-center">
-					//<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Cetak" onclick="cetak('."'".$manifast->id."'".')"><i class="glyphicon glyphicon-print"></i></a>
-					//<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="hapus('."'".$manifast->id."'".')"><i class="glyphicon glyphicon-trash"></i></a>
-				  //</div>';
-		//	$row[]='<div class="text-center">
-				//	<span class="badge inbox-badge bg-color-redLight hidden-mobile">Disabled</span>
-				//	</div>';
-				  
-		//	}
-		//	$data[] = $row;
-			
-			
-			
-	//	}
+{
+    $level = $this->session->userdata('level');
+    
+    // Get date range parameters from POST
+    $start_date = $this->input->post('start_date');
+    $end_date = $this->input->post('end_date');
 
-		$output = array(
-						"draw" => $_POST['draw'],
-						"recordsTotal" 		=> $this->manifast->count_all(),
-						"recordsFiltered" 	=> $this->manifast->count_filtered(),
-						"data" => $data,
-				);
-		//output to json format
-		echo json_encode($output);
-	}
+    // Pass date range to the model
+    $list = $this->manifast->get_datatables($start_date, $end_date);
+    
+    $data = array();
+    $no = $this->input->post('start');
+    foreach ($list as $manifast) {
+        $no++;
+        $row = array();
+        $row[] = '<div class="text-center">' . $no . '</div>';
+        $row[] = $manifast->nom;
+        $row[] = date('d M Y', strtotime($manifast->tgl));
+        $row[] = $manifast->driver;
+        $row[] = $manifast->tlpdriver;
+        $row[] = $manifast->tujuan;
+        $row[] = $manifast->remake . ' ' . $manifast->sortir;
+        $row[] = $manifast->creator . ' [' . $manifast->users_id . ']';
+        
+        // Conditional action column based on user level
+        if ($level == "driver" || $level == "umum") {
+            $row[] = '<div class="text-center">
+                        <span class="badge inbox-badge bg-color-redLight hidden-mobile">Disabled</span>
+                      </div>';
+        } else {
+            $row[] = '<div class="text-center" ;view="dsible">
+                        <a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Cetak" onclick="cetak(\'' . $manifast->id . '\')">
+                            <i class="glyphicon glyphicon-print"></i>
+                        </a>
+                      </div>';
+        }
+        
+        $data[] = $row;
+    }
+
+    // Get total records for DataTable
+    $total_records = $this->manifast->count_all();
+    $filtered_records = $this->manifast->count_filtered($start_date, $end_date);
+
+    // Prepare response
+    $output = array(
+        "draw" => $this->input->post('draw'),
+        "recordsTotal" => $total_records,
+        "recordsFiltered" => $filtered_records,
+        "data" => $data
+    );
+
+    echo json_encode($output);
+}
 	
 	public function manifast_add_temp_barcode() //fungsi create
 	{

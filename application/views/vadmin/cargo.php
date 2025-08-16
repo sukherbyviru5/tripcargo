@@ -776,8 +776,8 @@
                                                             <div class="input-group">
                                                                 <span class="input-group-addon">Rp</span>
                                                                 <input class="form-control" placeholder="Nilai Barang"
-                                                                    type="text" name="nilai_barang"
-                                                                    id="nilai_barang">
+                                                                    type="text" name="harga6"
+                                                                    id="harga6">
                                                             </div>
                                                         </div>
 
@@ -790,7 +790,7 @@
                                                                 <span class="input-group-addon">Rp</span>
                                                                 <input class="form-control"
                                                                     placeholder="Nilai Asuransi" type="text"
-                                                                    name="nilai_asuransi" id="nilai_asuransi"
+                                                                    name="harga4" id="harga4"
                                                                     readonly>
                                                             </div>
                                                         </div>
@@ -855,7 +855,7 @@
                                                 function hitungSemua() {
                                                     const tarifTujuan = ambilAngka('harga');
                                                     const diskonPersen = ambilAngka('diskon');
-                                                    const nilaiBarang = ambilAngka('nilai_barang');
+                                                    const nilaiBarang = ambilAngka('harga6');
                                                     const persenAsuransi = ambilAngka('persen_asuransi', true);
                                                     const nilaiDiskon = tarifTujuan * (diskonPersen / 100);
                                                     const totalTarif = tarifTujuan - nilaiDiskon;
@@ -864,7 +864,7 @@
 
                                                     tampilkanAngka('nilai_diskon', nilaiDiskon);
                                                     tampilkanAngka('total_tarif', totalTarif);
-                                                    tampilkanAngka('nilai_asuransi', nilaiAsuransi);
+                                                    tampilkanAngka('harga4', nilaiAsuransi);
                                                     tampilkanAngka('total', totalBiaya);
                                                 }
 
@@ -891,12 +891,12 @@
                                                 }
 
                                                 document.addEventListener('DOMContentLoaded', function() {
-                                                    const inputPemicu = ['harga', 'diskon', 'nilai_barang', 'persen_asuransi'];
+                                                    const inputPemicu = ['harga', 'diskon', 'harga6', 'persen_asuransi'];
                                                     inputPemicu.forEach(function(id) {
                                                         const elemen = document.getElementById(id);
                                                         if (elemen) {
                                                             elemen.addEventListener('keyup', function() {
-                                                                if (id === 'harga' || id === 'nilai_barang') {
+                                                                if (id === 'harga' || id === 'harga6') {
                                                                     const nilaiAngka = ambilAngka(id);
                                                                     const pos = this.selectionStart;
                                                                     const panjangAsli = this.value.length;
@@ -1581,53 +1581,53 @@
 
     }
 
-    function hitung() {
-        var harga1 = $('[name="harga1"]').val();
-        var harga2 = $('[name="harga2"]').val();
-        var harga3 = $('[name="harga3"]').val();
-        var harga4 = $('[name="harga4"]').val();
-        var harga5 = $('[name="harga5"]').val();
-        var harga6 = $('[name="harga6"]').val();
-        var diskon = $('[name="diskon"]').val();
-        if (harga1 == '') {
-            harga1 = 0;
-        }
-        if (harga2 == '') {
-            harga2 = 0;
-        }
-        if (harga3 == '') {
-            harga3 = 0;
-        }
-        if (harga4 == '') {
-            harga4 = 0;
-        }
-        if (harga5 == '') {
-            harga5 = 0;
-        }
-        if (harga6 == '') {
-            harga6 = 0;
-        }
-        if (diskon == '') {
-            diskon = 0;
-        }
+    // function hitung() {
+    //     var harga1 = $('[name="harga1"]').val();
+    //     var harga2 = $('[name="harga2"]').val();
+    //     var harga3 = $('[name="harga3"]').val();
+    //     var harga4 = $('[name="harga4"]').val();
+    //     var harga5 = $('[name="harga5"]').val();
+    //     var harga6 = $('[name="harga6"]').val();
+    //     var diskon = $('[name="diskon"]').val();
+    //     if (harga1 == '') {
+    //         harga1 = 0;
+    //     }
+    //     if (harga2 == '') {
+    //         harga2 = 0;
+    //     }
+    //     if (harga3 == '') {
+    //         harga3 = 0;
+    //     }
+    //     if (harga4 == '') {
+    //         harga4 = 0;
+    //     }
+    //     if (harga5 == '') {
+    //         harga5 = 0;
+    //     }
+    //     if (harga6 == '') {
+    //         harga6 = 0;
+    //     }
+    //     if (diskon == '') {
+    //         diskon = 0;
+    //     }
 
-        var disc = (parseInt(harga6) * 0.004);
-        if (parseInt(harga6) == 0) {
-            var disc = (parseInt(harga6) * 0.004 + 35000);
-        } else {
-            var disc = (parseInt(harga6) * 0.004 + 35000);
-        }
+    //     var disc = (parseInt(harga6) * 0.004);
+    //     if (parseInt(harga6) == 0) {
+    //         var disc = (parseInt(harga6) * 0.004 + 35000);
+    //     } else {
+    //         var disc = (parseInt(harga6) * 0.004 + 35000);
+    //     }
 
-        if (harga6 != "" || harga6 != 0) {
-            $('[name="harga4"]').val(disc);
-        } else {
-            $('[name="harga4"]').val('0');
-        }
-        var c = parseInt(harga1) + parseInt(harga2) + parseInt(harga3)
-        var d = c - (parseInt(diskon) / 100 * c) + parseInt(harga4) + parseInt(harga5);;
-        $('[name="total"]').val(d);
+    //     if (harga6 != "" || harga6 != 0) {
+    //         $('[name="harga4"]').val(disc);
+    //     } else {
+    //         $('[name="harga4"]').val('0');
+    //     }
+    //     var c = parseInt(harga1) + parseInt(harga2) + parseInt(harga3)
+    //     var d = c - (parseInt(diskon) / 100 * c) + parseInt(harga4) + parseInt(harga5);;
+    //     $('[name="total"]').val(d);
 
-    }
+    // }
 </script>
 <script type="text/javascript">
     // DO NOT REMOVE : GLOBAL FUNCTIONS!

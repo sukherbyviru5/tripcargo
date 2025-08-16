@@ -44,80 +44,16 @@ class Users extends CI_Controller {
 		foreach ($list as $users) {
 			$no++;
 			$row = array();
-			//$row[] = '<div class="text-center">'.$no.'</div>';
-			//$row[] = '<div class="text-center" style= width:auto;> '.$users->id .'</div>';
-			
-			$row[] = //'<div style= width:auto;>No. : '.$no.
-			'' . 'Reg. ID: '.'<a style="color: black"; title="'.$users->level.' &#124; '.$users->user_id.'">'.'' .$users->id.'</a>'.
-			//'<b>' .' Reg. ID: '.$users->id .'</b>'.
-			//'<br>'.'<span class="hidden-xs"> '. 'Username: '.'</span>'.$users->user_id.
-			//'<br>'   .$users->password.
-		
-			'<br>'.'<span class="hidden-xs"> '. 'Nama: '.'</span>'.'<a style="color: black"; title="'.$users->jabatan.' &#124; '.$users->performa.'">'.'' .$users->namalengkap.'</a>'.
-			
-			//'<br>'.'<span class="hidden-xs"> '. 'Level: '.'</span>'.''.$users->level.
-			//'<br>AREA: '.$users->area.
-			//'<br>Kec: '.$this->app_model->find_kec($users->kec_id).
-     		// '<br>nomor_hp: '.'<a>'.$users->nomor_hp.'</a>'.
-			//'<br>jabatan: '.$users->jabatan.
-			//'<br>tgl_regristrasi: '.$users->tgl_regristrasi.
-			//'<br>kecamatan: '.$users->kecamatan.
-			//'<br>alamat_tinggal: '.$users->alamat_tinggal.
-			//'<br>nomor_ktp: '.$users->nomor_ktp.
-			//'<br>kontak_darurat: '.$users->kontak_darurat.
-			//'<br>account_bank: '.$users->account_bank.
-			//'<br>referensi_dari: '.$users->referensi_dari.
-			//'<br>tempat_tanggal_lahir: '.$users->tempat_tanggal_lahir.
-			//'<br>kendaraan: '.$users->kendaraan.
-			//'<br>nomor_polisi: '.$users->nomor_polisi.
-			//'<br>keterangan_tambahan: '.$users->keterangan_tambahan.
-			//'<br>'.'<span class="hidden-xs"> '. 'Performa: '.'</span>'.''.$users->performa.
-			//'<br>email: '.$users->email.
-			
-			'<br>'.'<a href="https://api.whatsapp.com/send?phone='.$users->nomor_hp.'" target="_blank">'.$users->nomor_hp.'</a>'.
-			
-			'<br>'.
-			'<div style="display: none;">'
-			.'<span class="hidden-xs"> 
-			        <a href="tel://'.$users->nomor_hp.'" target="_blank"><i class="fa fa-phone" style="font-size:1.3em"> </i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-			        <a href="https://api.whatsapp.com/send?phone='.$users->nomor_hp.'" target="_blank"><i class="fa fa-whatsapp" style="font-size:1.3em"> </i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-			        
-					</span>'.
-			'</div>'.
-			'</div>';
-			
-			$row[] = '<img src="https://tripcargoid.com/assets/upload/'.$users->foto.'" class="img-thumbnail" alt="Cinque Terre" width="100" height="100" img-responsive title="'.$users->foto.'">'.'<br>';
-			//$row[] = '<div style= widht:auto>  '.$users->password.'</div>';
-			//$row[] = '<div style= width:auto;> '.$users->namalengkap.'</div>';
-			//$row[] = '<div style= width:auto;> '.$users->level.'</div>';
-			//$row[] = '<div style= width:auto;> '.$users->area.' '.$users->kec_id.'<br>'.'<span class="hidden-xs">'.'<a href="https://www.google.com/maps/place/'.$users->alamat_tinggal.'" target="_blank">'.$users->alamat_tinggal.'</a>'.'</span>'.'<br>'.'</a>'.'<a href="https://www.google.com/maps/place/'.$this->app_model->find_kec($users->kec_id).'" target="_blank">'.$this->app_model->find_kec($users->kec_id).''.'</a>'.'</div>';
-			//$row[] = '<div style= width:auto;> '.$this->app_model->find_kec($users->kec_id).'</div>';
-					//add html for action
-			//$row[] = '<div class="text-center">
-			//add html for action
-		
-			$level = $this->session->userdata('level');
-			if($level=='superadmin'){
-			$row[] = 
-			
-			      '<div style= width:auto;> '.$users->area.' '.$users->kec_id.'<br>'.'<span class="hidden-xs">'.'<a href="https://www.google.com/maps/place/'.$users->alamat_tinggal.'" target="_blank">'.$users->alamat_tinggal.'</a>'.'</span>'.'<br>'.'</a>'.'<a href="https://www.google.com/maps/place/'.$this->app_model->find_kec($users->kec_id).'" target="_blank">'.$this->app_model->find_kec($users->kec_id).''.'</a>'.'</div>'.
-			      '<br>'.
-			      '<a class="btn btn-sm btn-success" onclick="add_users()"><i class="glyphicon glyphicon-plus"></i> </button> </a>
-			      <a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_users('."'".$users->id."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
-				  <span class="hidden-xs">
-				  <a style="display: none;" class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_users('."'".$users->id."'".')"><i class="glyphicon glyphicon-trash"></i></a>
-				  </span>
-				  </div>'.'</span>';
-				  
-		    }else{
-				$row[] = 
-				'<div style= width:auto;> '.$users->area.' '.$users->kec_id.'<br>'.'<span class="hidden-xs">'.'<a href="https://www.google.com/maps/place/'.$users->alamat_tinggal.'" target="_blank">'.$users->alamat_tinggal.'</a>'.'</span>'.'<br>'.'</a>'.'<a href="https://www.google.com/maps/place/'.$this->app_model->find_kec($users->kec_id).'" target="_blank">'.$this->app_model->find_kec($users->kec_id).''.'</a>'.'</div>'.
-				'<a class="btn btn-sm btn-success" onclick="add_users()"><i class="glyphicon glyphicon-plus"></i> </button> </a>'.
-				'<span class="hidden-xs">'.'<div style="display: none;" class="text-center">
-						<span class="badge inbox-badge bg-color-redLight hidden-mobile">Disabled</span>
-				  </div>'.'</span>';
-			}
-				  
+			$row[] = 'Reg. ID: <a style="color: black"; title="' . $users->level . ' &#124; ' . $users->user_id . '">' . $users->id . '</a>' .
+					'<br><span class="hidden-xs"> Nama: </span><a style="color: black"; title="' . $users->jabatan . ' &#124; ' . $users->performa . '">' . $users->namalengkap . '</a>' .
+					'<br><a href="https://api.whatsapp.com/send?phone=' . $users->nomor_hp . '" target="_blank">' . $users->nomor_hp . '</a>' .
+					'<br><div style="display: none;"><span class="hidden-xs">' .
+					'<a href="tel://' . $users->nomor_hp . '" target="_blank"><i class="fa fa-phone" style="font-size:1.3em"> </i></a>&nbsp;&nbsp;&nbsp;&nbsp;' .
+					'<a href="https://api.whatsapp.com/send?phone=' . $users->nomor_hp . '" target="_blank"><i class="fa fa-whatsapp" style="font-size:1.3em"> </i></a>&nbsp;&nbsp;&nbsp;&nbsp;</span></div>';
+			$row[] = '<img src="https://tripcargoid.com/assets/upload/' . $users->foto . '" class="img-thumbnail" alt="Cinque Terre" width="100" height="100" img-responsive title="' . $users->foto . '"><br>';
+			$row[] = '<div style="width:auto;">' . $users->area . ' ' . $users->kec_id . '<br><span class="hidden-xs"><a href="https://www.google.com/maps/place/' . $users->alamat_tinggal . '" target="_blank">' . $users->alamat_tinggal . '</a></span><br><a href="https://www.google.com/maps/place/' . $this->app_model->find_kec($users->kec_id) . '" target="_blank">' . $this->app_model->find_kec($users->kec_id) . '</a></div>' .
+					'<br><a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_users(\'' . $users->id . '\')"><i class="glyphicon glyphicon-pencil"></i></a>' .
+					'<span class="hidden-xs"> <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_users(\'' . $users->id . '\')"><i class="glyphicon glyphicon-trash"></i></a></span>';
 			$data[] = $row;
 		}
 

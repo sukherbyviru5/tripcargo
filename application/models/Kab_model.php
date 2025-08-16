@@ -85,6 +85,16 @@ class Kab_model extends CI_Model {
 		return $query->row();
 	}
 
+	public function get_all()
+	{
+		$this->db->select('kokab_id, kab');
+		$this->db->from('kokab');
+		$query = $this->db->get();
+
+		return $query->result();
+	}
+
+
 	function area_kab_add(){
 		$simpan=$this->input->post('simpan',true);
 		$id=$this->input->post('id',true);

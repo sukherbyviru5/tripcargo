@@ -110,306 +110,291 @@ class Cargo_model extends CI_Model {
 		
 	}
 
-	function cargo_add(){
-		$simpan=$this->input->post('simpan',true);
-		$id=$this->input->post('resi',true);
-		$regkirim=$this->input->post('regkirim',true);
-		date_default_timezone_set("Asia/Jakarta");
-		$return = "";
-		if($simpan=="add"){
-			//entri ke pelanggan
-			//cek pelanggan
-			$pel = $this->app_model->cek_pelanggan($regkirim);
-			if($pel>0){
-				// $this->db->where('pel_id', $regkirim);
-				// $this->db->update('pelanggan',array(
-				// 	'nama'=>$this->input->post('nama',true),
-				// 	'dept'=>$this->input->post('dept',true),
-				// 	'alamat'=>$this->input->post('alamat',true),
-				// 	'kec_id'=>$this->input->post('kec',true),
-				// 	'kokab_id'=>$this->input->post('kab',true),
-				// 	'prov_id'=>$this->input->post('prov',true),
-				// 	'telp'=>$this->input->post('telp',true),
-				// 	'email'=>$this->input->post('email',true)
-				// ));
-			}else{
-				$this->db->insert('pelanggan',array(
-					'nama'=>$this->input->post('nama',true),
-					'dept'=>$this->input->post('dept',true),
-					'alamat'=>$this->input->post('alamat',true),
-					'kec_id'=>$this->input->post('kec',true),
-					'kokab_id'=>$this->input->post('kab',true),
-					'prov_id'=>$this->input->post('prov',true),
-					'telp'=>$this->input->post('telp',true),
-					'email'=>$this->input->post('email',true),
-					'user_id' => $this->session->userdata('username'),
-					'users_id' => $this->session->userdata('user_id')
-				)); 
-			}
-			//entri barang
-				$ps = $this->input->post('ps');
-				$ls = $this->input->post('ls');
-				$ts = $this->input->post('ts');
-				$vols = $this->input->post('vols');
-				$berats = $this->input->post('berats');
-				$kolis = $this->input->post('kolis');
-				$notes = $this->input->post('notes');
-				if($ps){
-					foreach($ps as $key=>$row){
-						$filename = "";
-						$upload_path = './uploads/barang/'; 
-						if(!empty($_FILES['images']['name'][$key])){
-							$now = date('YmdHis');
-							$_FILES['file']['name'] = $_FILES['images']['name'][$key];
-							$_FILES['file']['type'] = $_FILES['images']['type'][$key];
-							$_FILES['file']['tmp_name'] = $_FILES['images']['tmp_name'][$key];
-							$_FILES['file']['error'] = $_FILES['images']['error'][$key];
-							$_FILES['file']['size'] = $_FILES['images']['size'][$key];
-							$config['upload_path'] = $upload_path; 
-							$config['allowed_types'] = 'jpg|jpeg|png|gif';
-							//$config['max_size'] = '10000';
-							$config['file_name'] = $now.'-'.$_FILES['images']['name'][$key];
-							$return = $now.'-'.$_FILES['images']['name'][$key];
-							$this->load->library('upload',$config);
-							$this->upload->initialize($config);
-							if($this->upload->do_upload('file')){
-								$uploadData = $this->upload->data();
-								//var_dump($uploadData);
-								$filename = $now.'-'.$_FILES['images']['name'][$key];
-								if($uploadData['image_height'] > 500){
-									$this->load->library('image_lib');
-									$config_resize['image_library'] = 'gd2';	
-									$config_resize['create_thumb'] = FALSE;
-									$config_resize['maintain_ratio'] = TRUE;
-									$config_resize['master_dim'] = 'height';
-									$config_resize['quality'] = "100%";
-									$config_resize['source_image'] =  $upload_path.$filename;
-									$config_resize['height'] = 500;
-									$config_resize['width'] = 1;
-									$this->image_lib->initialize($config_resize);
-									$this->image_lib->resize();
-								
-								}
-								//$return = $filename;
-							}
-						}
-						
-						$this->db->insert('barang',array(
-							'resi' => $id,
-							'notes' => $notes[$key],
-							'p' => $ps[$key],
-							'l' => $ls[$key],
-							't' => $ts[$key],
-							'berat' => $berats[$key],
-							'koli' => $kolis[$key],
-							'image' => $filename
-						));
-						$id_barang = $this->db->insert_id();
-					}	
-				}
-				
-				// $data = [];
+	function cargo_add() {
+        $simpan = $this->input->post('simpan', true);
+        $id = $this->input->post('resi', true);
+        $regkirim = $this->input->post('regkirim', true);
+        date_default_timezone_set("Asia/Jakarta");
+        $return = "";
+        
+        if ($simpan == "add") {
+            $pelanggan_data = array(
+                'nama' => $this->input->post('nama', true),
+                'dept' => $this->input->post('dept', true),
+                'alamat' => $this->input->post('alamat', true),
+                'kec_id' => $this->input->post('kec', true),
+                'kokab_id' => $this->input->post('kab', true),
+                'prov_id' => $this->input->post('prov', true),
+                'telp' => $this->input->post('telp', true),
+                'email' => $this->input->post('email', true),
+                'user_id' => $this->session->userdata('username'),
+                'users_id' => $this->session->userdata('user_id')
+            );
+            
+            $pel = $this->app_model->cek_pelanggan($regkirim);
+            if ($pel > 0) {
+                log_message('debug', 'Pelanggan exists for regkirim: ' . $regkirim . ', skipping update');
+            } else {
+                log_message('debug', 'Inserting pelanggan: ' . json_encode($pelanggan_data));
+                $this->db->insert('pelanggan', $pelanggan_data); 
+            }
 
-			//
-			
-			//entri ke tujuan pengiriman 
-			
-			return $this->db->insert('paket',array(
-				'resi'		=>$this->input->post('resi',true),
-				'deskripsi'	=>$this->input->post('deskripsi',true),
-				'vol'		=>$this->input->post('vol',true),
-				'p'			=>$this->input->post('p',true),
-				'l'			=>$this->input->post('l',true),
-				't'			=>$this->input->post('t',true),
-				
-				'berat'		=>$this->input->post('berat',true),
-				'koli'		=>$this->input->post('koli',true),
-				'totalbayar'=>$this->input->post('total',true),
-				
-				'p_nama'    =>$this->input->post('nama',true), 
-				'p_dept'    =>$this->input->post('dept',true),
-				'p_alamat'  =>$this->input->post('alamat',true),
-				'p_kec_id'  =>$this->input->post('kec',true),
-				'p_kokab_id'=>$this->input->post('kab',true),
-				'p_prov_id' =>$this->input->post('prov',true),
-				'p_telp'    =>$this->input->post('telp',true),
-				'p_email'   =>$this->input->post('email',true),
-				
-				'penerima'	=>$this->input->post('penerima',true),
-				'dept2'	    =>$this->input->post('dept2',true),
-				'pel_id'	=>$this->app_model->getID_Pel(),
-				'alamat'	=>$this->input->post('alamat2',true),
-				
-				'kec_id'	=>$this->input->post('kec2',true),
-				'kokab_id'	=>$this->input->post('kab2',true),
-				'prov_id'	=>$this->input->post('prov2',true),
-				
-				'telp'		=>$this->input->post('telp2',true),
-				'regkirim'	=>$this->input->post('regkirim',true),
-				'regterima'	=>$this->input->post('regterima',true),
-				'harga'		=>$this->input->post('harga',true),
-				'diskon'	=>$this->input->post('diskon',true),
-				'harga1'	=>$this->input->post('harga1',true),
-				'harga2'	=>$this->input->post('harga2',true),
-				'harga3'	=>$this->input->post('harga3',true),
-				'harga4'	=>$this->input->post('harga4',true),
-				'harga5'	=>$this->input->post('harga5',true),
-				'harga6'	=>$this->input->post('harga6',true),
-				'layan'		=>$this->input->post('layan',true),
-				'metode'	=>$this->input->post('metode',true),
-				'catatan'	=>$this->input->post('catatan',true),
-				'user_id'	=>$this->session->userdata('username'),
-				'tglkirim'	=>date("Y-m-d H:i:s")
-			));
-		}elseif($simpan=="update"){
-			$id=$this->input->post('id',true);
-			$kec=$this->input->post('kec',true);
-			$kec2=$this->input->post('kec2',true);
-			$pel_id=$this->app_model->find_pel_id($id);
-			if($kec){
-				$kec=$this->input->post('kec',true);
-			}else{
-				$kec=$this->app_model->find_kec1_paket($pel_id);
-			}
-			if($kec2){
-				$kec2=$this->input->post('kec2',true);
-			}else{
-				$kec2=$this->app_model->find_kec2_paket($id);
-			}
-			
-			$del_item = $this->input->post('del_item');
-			if($del_item){
-				foreach($del_item as $key=>$row){
-					$this->db->delete('barang', array('id' => $del_item[$key])); 
-				}	
-			}			
-			// $this->db->where('pel_id', $pel_id);
-			// $this->db->update('pelanggan',array(
-			// 	'nama'=>$this->input->post('nama',true),
-			// 	'dept'=>$this->input->post('dept',true),
-			// 	'alamat'=>$this->input->post('alamat',true),
-			// 	'kec_id'=>$kec,
-			// 	'kec_id'=>$this->input->post('kec',true),
-			// 	'kokab_id'=>$this->input->post('kab',true),
-			// 	'prov_id'=>$this->input->post('prov',true),
-			// 	'telp'=>$this->input->post('telp',true),
-			// 	'email'=>$this->input->post('email',true)
-			// ));
+            $ps = $this->input->post('ps');
+            $ls = $this->input->post('ls');
+            $ts = $this->input->post('ts');
+            $vols = $this->input->post('vols');
+            $berats = $this->input->post('berats');
+            $kolis = $this->input->post('kolis');
+            $notes = $this->input->post('notes');
+            if ($ps) {
+                foreach ($ps as $key => $row) {
+                    $filename = "";
+                    $upload_path = './Uploads/barang/'; 
+                    if (!empty($_FILES['images']['name'][$key])) {
+                        $now = date('YmdHis');
+                        $_FILES['file']['name'] = $_FILES['images']['name'][$key];
+                        $_FILES['file']['type'] = $_FILES['images']['type'][$key];
+                        $_FILES['file']['tmp_name'] = $_FILES['images']['tmp_name'][$key];
+                        $_FILES['file']['error'] = $_FILES['images']['error'][$key];
+                        $_FILES['file']['size'] = $_FILES['images']['size'][$key];
+                        $config['upload_path'] = $upload_path; 
+                        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+                        $config['file_name'] = $now . '-' . $_FILES['images']['name'][$key];
+                        $return = $now . '-' . $_FILES['images']['name'][$key];
+                        $this->load->library('upload', $config);
+                        $this->upload->initialize($config);
+                        if ($this->upload->do_upload('file')) {
+                            $uploadData = $this->upload->data();
+                            $filename = $now . '-' . $_FILES['images']['name'][$key];
+                            if ($uploadData['image_height'] > 500) {
+                                $this->load->library('image_lib');
+                                $config_resize['image_library'] = 'gd2';	
+                                $config_resize['create_thumb'] = FALSE;
+                                $config_resize['maintain_ratio'] = TRUE;
+                                $config_resize['master_dim'] = 'height';
+                                $config_resize['quality'] = "100%";
+                                $config_resize['source_image'] = $upload_path . $filename;
+                                $config_resize['height'] = 500;
+                                $config_resize['width'] = 1;
+                                $this->image_lib->initialize($config_resize);
+                                $this->image_lib->resize();
+                            }
+                        } else {
+                            log_message('error', 'Failed to upload image for barang: ' . $this->upload->display_errors());
+                        }
+                    }
+                    
+                    $barang_data = array(
+                        'resi' => $id,
+                        'notes' => $notes[$key],
+                        'p' => $ps[$key],
+                        'l' => $ls[$key],
+                        't' => $ts[$key],
+                        'berat' => $berats[$key],
+                        'koli' => $kolis[$key],
+                        'image' => $filename
+                    );
+                    log_message('debug', 'Inserting barang: ' . json_encode($barang_data));
+                    $this->db->insert('barang', $barang_data);
+                    $id_barang = $this->db->insert_id();
+                }	
+            }
 
+            $totalbayar = str_replace('.', '', $this->input->post('total', true));
+            $harga = str_replace('.', '', $this->input->post('total_tarif', true));
+            $diskon = str_replace('.', '', $this->input->post('diskon', true));
+            $harga1 = $this->input->post('harga1', true) ? str_replace('.', '', $this->input->post('harga1', true)) : null;
+            $harga2 = $this->input->post('harga2', true) ? str_replace('.', '', $this->input->post('harga2', true)) : null;
+            $harga3 = $this->input->post('harga3', true) ? str_replace('.', '', $this->input->post('harga3', true)) : null;
+            $harga4 = $this->input->post('harga4', true) ? str_replace('.', '', $this->input->post('harga4', true)) : null;
+            $harga5 = $this->input->post('harga5', true) ? str_replace('.', '', $this->input->post('harga5', true)) : null;
+            $harga6 = $this->input->post('harga6', true) ? str_replace('.', '', $this->input->post('harga6', true)) : null;
 
-			//entri barang
-			
-			$ps = $this->input->post('ps');
-			$ls = $this->input->post('ls');
-			$ts = $this->input->post('ts');
-			$vols = $this->input->post('vols');
-			$berats = $this->input->post('berats');
-			$kolis = $this->input->post('kolis');
-			$notes = $this->input->post('notes');
-			if($ps){
-				foreach($ps as $key=>$row){
-					$filename = "";
-					$upload_path = './uploads/barang/'; 
-					if(!empty($_FILES['images']['name'][$key])){
-						$now = date('YmdHis');
-						$_FILES['file']['name'] = $_FILES['images']['name'][$key];
-						$_FILES['file']['type'] = $_FILES['images']['type'][$key];
-						$_FILES['file']['tmp_name'] = $_FILES['images']['tmp_name'][$key];
-						$_FILES['file']['error'] = $_FILES['images']['error'][$key];
-						$_FILES['file']['size'] = $_FILES['images']['size'][$key];
-						$config['upload_path'] = $upload_path; 
-						$config['allowed_types'] = 'jpg|jpeg|png|gif';
-						//$config['max_size'] = '10000';
-						$config['file_name'] = $now.'-'.$_FILES['images']['name'][$key];
-						$return = $now.'-'.$_FILES['images']['name'][$key];
-						$this->load->library('upload',$config);
-						$this->upload->initialize($config);
-						if($this->upload->do_upload('file')){
-							$uploadData = $this->upload->data();
-							//var_dump($uploadData);
-							$filename = $now.'-'.$_FILES['images']['name'][$key];
-							if($uploadData['image_height'] > 500){
-								$this->load->library('image_lib');
-								$config_resize['image_library'] = 'gd2';	
-								$config_resize['create_thumb'] = FALSE;
-								$config_resize['maintain_ratio'] = TRUE;
-								$config_resize['master_dim'] = 'height';
-								$config_resize['quality'] = "100%";
-								$config_resize['source_image'] =  $upload_path.$filename;
-								$config_resize['height'] = 500;
-								$config_resize['width'] = 1;
-								$this->image_lib->initialize($config_resize);
-								$this->image_lib->resize();
-							
-							}
-							//$return = $filename;
-						}
-					}
-					
-					$this->db->insert('barang',array(
-						'resi' =>  $this->input->post('resi',true),
-						'notes' => $notes[$key],
-						'p' => $ps[$key],
-						'l' => $ls[$key],
-						't' => $ts[$key],
-						'berat' => $berats[$key],
-						'koli' => $kolis[$key],
-						'image' => $filename
-					));
-					$id_barang = $this->db->insert_id();
-				}	
-			}
-			
-			
-			$this->db->where('id', $id);
-			return $this->db->update('paket',[
-				'resi'		=>$this->input->post('resi',true),
-				'deskripsi'	=>$this->input->post('deskripsi',true),
-				'vol'		=>$this->input->post('vol',true),
-				'p'			=>$this->input->post('p',true),
-				'l'			=>$this->input->post('l',true),
-				't'			=>$this->input->post('t',true),
-				'berat'		=>$this->input->post('berat',true),
-				'koli'		=>$this->input->post('koli',true),
-				'totalbayar'=>$this->input->post('total',true),
-				
-				'p_nama'    =>$this->input->post('nama',true), 
-				'p_dept'    =>$this->input->post('dept',true),
-				'p_alamat'  =>$this->input->post('alamat',true),
-				'p_kec_id'  =>$this->input->post('kec',true),
-				'p_kokab_id'=>$this->input->post('kab',true),
-				'p_prov_id' =>$this->input->post('prov',true),
-				'p_telp'    =>$this->input->post('telp',true),
-				'p_email'   =>$this->input->post('email',true),
-				
-				'penerima'	=>$this->input->post('penerima',true),
-				'dept2'	    =>$this->input->post('dept2',true),
-				'alamat'	=>$this->input->post('alamat2',true),
-				'kec_id'	=>$kec2,
-				
-				'kec_id'	=>$this->input->post('kec2',true),
-				'kokab_id'	=>$this->input->post('kab2',true),
-				'prov_id'	=>$this->input->post('prov2',true),
-				
-				'telp'		=>$this->input->post('telp2',true),
-				'regkirim'	=>$this->input->post('regkirim',true),
-				'regterima'	=>$this->input->post('regterima',true),
-				'harga'	=>$this->input->post('harga',true),
-				'diskon'	=>$this->input->post('diskon',true),
-				'harga1'	=>$this->input->post('harga1',true),
-				'harga2'	=>$this->input->post('harga2',true),
-				'harga3'	=>$this->input->post('harga3',true),
-				'harga4'	=>$this->input->post('harga4',true),
-				'harga5'	=>$this->input->post('harga5',true),
-				'harga6'	=>$this->input->post('harga6',true),
-				'layan'		=>$this->input->post('layan',true),
-				'metode'	=>$this->input->post('metode',true),
-				'catatan'	=>$this->input->post('catatan',true),
-				//'user_id'	=>$this->session->userdata('username'),
-			]);
-		}
-		return $return;
-	}
+            // entri ke tujuan pengiriman
+            $paket_data = array(
+                'resi' => $this->input->post('resi', true),
+                'deskripsi' => $this->input->post('deskripsi', true),
+                'vol' => $this->input->post('vol', true),
+                'p' => $this->input->post('p', true),
+                'l' => $this->input->post('l', true),
+                't' => $this->input->post('t', true),
+                'berat' => $this->input->post('berat', true),
+                'koli' => $this->input->post('koli', true),
+                'totalbayar' => (int)$totalbayar,
+                'p_nama' => $this->input->post('nama', true),
+                'p_dept' => $this->input->post('dept', true),
+                'p_alamat' => $this->input->post('alamat', true),
+                'p_kec_id' => $this->input->post('kec', true),
+                'p_kokab_id' => $this->input->post('kab', true),
+                'p_prov_id' => $this->input->post('prov', true),
+                'p_telp' => $this->input->post('telp', true),
+                'p_email' => $this->input->post('email', true),
+                'penerima' => $this->input->post('penerima', true),
+                'dept2' => $this->input->post('dept2', true),
+                'pel_id' => $this->app_model->getID_Pel(),
+                'alamat' => $this->input->post('alamat2', true),
+                'kec_id' => $this->input->post('kec2', true),
+                'kokab_id' => $this->input->post('kab2', true),
+                'prov_id' => $this->input->post('prov2', true),
+                'telp' => $this->input->post('telp2', true),
+                'regkirim' => $this->input->post('regkirim', true),
+                'regterima' => $this->input->post('regterima', true),
+                'harga' => (int)$harga,
+                'diskon' => (int)$diskon,
+                'harga1' => $harga1 ? (int)$harga1 : null,
+                'harga2' => $harga2 ? (int)$harga2 : null,
+                'harga3' => $harga3 ? (int)$harga3 : null,
+                'harga4' => $harga4 ? (int)$harga4 : null,
+                'harga5' => $harga5 ? (int)$harga5 : null,
+                'harga6' => $harga6 ? (int)$harga6 : null,
+                'layan' => $this->input->post('layan', true),
+                'metode' => $this->input->post('metode', true),
+                'catatan' => $this->input->post('catatan', true),
+                'user_id' => $this->session->userdata('username'),
+                'tglkirim' => date("Y-m-d H:i:s")
+            );
+            log_message('debug', 'Inserting paket: ' . json_encode($paket_data));
+            return $this->db->insert('paket', $paket_data);
+        } elseif ($simpan == "update") {
+            $id = $this->input->post('id', true);
+            $kec = $this->input->post('kec', true);
+            $kec2 = $this->input->post('kec2', true);
+            $pel_id = $this->app_model->find_pel_id($id);
+            if ($kec) {
+                $kec = $this->input->post('kec', true);
+            } else {
+                $kec = $this->app_model->find_kec1_paket($pel_id);
+            }
+            if ($kec2) {
+                $kec2 = $this->input->post('kec2', true);
+            } else {
+                $kec2 = $this->app_model->find_kec2_paket($id);
+            }
+
+            $del_item = $this->input->post('del_item');
+            if ($del_item) {
+                foreach ($del_item as $key => $row) {
+                    log_message('debug', 'Deleting barang with id: ' . $del_item[$key]);
+                    $this->db->delete('barang', array('id' => $del_item[$key])); 
+                }	
+            }
+
+            $ps = $this->input->post('ps');
+            $ls = $this->input->post('ls');
+            $ts = $this->input->post('ts');
+            $vols = $this->input->post('vols');
+            $berats = $this->input->post('berats');
+            $kolis = $this->input->post('kolis');
+            $notes = $this->input->post('notes');
+            if ($ps) {
+                foreach ($ps as $key => $row) {
+                    $filename = "";
+                    $upload_path = './Uploads/barang/'; 
+                    if (!empty($_FILES['images']['name'][$key])) {
+                        $now = date('YmdHis');
+                        $_FILES['file']['name'] = $_FILES['images']['name'][$key];
+                        $_FILES['file']['type'] = $_FILES['images']['type'][$key];
+                        $_FILES['file']['tmp_name'] = $_FILES['images']['tmp_name'][$key];
+                        $_FILES['file']['error'] = $_FILES['images']['error'][$key];
+                        $_FILES['file']['size'] = $_FILES['images']['size'][$key];
+                        $config['upload_path'] = $upload_path; 
+                        $config['allowed_types'] = 'jpg|jpeg|png|gif';
+                        $config['file_name'] = $now . '-' . $_FILES['images']['name'][$key];
+                        $return = $now . '-' . $_FILES['images']['name'][$key];
+                        $this->load->library('upload', $config);
+                        $this->upload->initialize($config);
+                        if ($this->upload->do_upload('file')) {
+                            $uploadData = $this->upload->data();
+                            $filename = $now . '-' . $_FILES['images']['name'][$key];
+                            if ($uploadData['image_height'] > 500) {
+                                $this->load->library('image_lib');
+                                $config_resize['image_library'] = 'gd2';	
+                                $config_resize['create_thumb'] = FALSE;
+                                $config_resize['maintain_ratio'] = TRUE;
+                                $config_resize['master_dim'] = 'height';
+                                $config_resize['quality'] = "100%";
+                                $config_resize['source_image'] = $upload_path . $filename;
+                                $config_resize['height'] = 500;
+                                $config_resize['width'] = 1;
+                                $this->image_lib->initialize($config_resize);
+                                $this->image_lib->resize();
+                            }
+                        } else {
+                            log_message('error', 'Failed to upload image for barang: ' . $this->upload->display_errors());
+                        }
+                    }
+                    
+                    $barang_data = array(
+                        'resi' => $this->input->post('resi', true),
+                        'notes' => $notes[$key],
+                        'p' => $ps[$key],
+                        'l' => $ls[$key],
+                        't' => $ts[$key],
+                        'berat' => $berats[$key],
+                        'koli' => $kolis[$key],
+                        'image' => $filename
+                    );
+                    log_message('debug', 'Inserting barang (update mode): ' . json_encode($barang_data));
+                    $this->db->insert('barang', $barang_data);
+                    $id_barang = $this->db->insert_id();
+                }	
+            }
+
+            $totalbayar = str_replace('.', '', $this->input->post('total', true));
+            $harga = str_replace('.', '', $this->input->post('harga', true));
+            $diskon = str_replace('.', '', $this->input->post('diskon', true));
+            $harga1 = $this->input->post('harga1', true) ? str_replace('.', '', $this->input->post('harga1', true)) : null;
+            $harga2 = $this->input->post('harga2', true) ? str_replace('.', '', $this->input->post('harga2', true)) : null;
+            $harga3 = $this->input->post('harga3', true) ? str_replace('.', '', $this->input->post('harga3', true)) : null;
+            $harga4 = $this->input->post('harga4', true) ? str_replace('.', '', $this->input->post('harga4', true)) : null;
+            $harga5 = $this->input->post('harga5', true) ? str_replace('.', '', $this->input->post('harga5', true)) : null;
+            $harga6 = $this->input->post('harga6', true) ? str_replace('.', '', $this->input->post('harga6', true)) : null;
+
+            $paket_data = array(
+                'resi' => $this->input->post('resi', true),
+                'deskripsi' => $this->input->post('deskripsi', true),
+                'vol' => $this->input->post('vol', true),
+                'p' => $this->input->post('p', true),
+                'l' => $this->input->post('l', true),
+                't' => $this->input->post('t', true),
+                'berat' => $this->input->post('berat', true),
+                'koli' => $this->input->post('koli', true),
+                'totalbayar' => (int)$totalbayar,
+                'p_nama' => $this->input->post('nama', true),
+                'p_dept' => $this->input->post('dept', true),
+                'p_alamat' => $this->input->post('alamat', true),
+                'p_kec_id' => $this->input->post('kec', true),
+                'p_kokab_id' => $this->input->post('kab', true),
+                'p_prov_id' => $this->input->post('prov', true),
+                'p_telp' => $this->input->post('telp', true),
+                'p_email' => $this->input->post('email', true),
+                'penerima' => $this->input->post('penerima', true),
+                'dept2' => $this->input->post('dept2', true),
+                'alamat' => $this->input->post('alamat2', true),
+                'kec_id' => $kec2,
+                'kokab_id' => $this->input->post('kab2', true),
+                'prov_id' => $this->input->post('prov2', true),
+                'telp' => $this->input->post('telp2', true),
+                'regkirim' => $this->input->post('regkirim', true),
+                'regterima' => $this->input->post('regterima', true),
+                'harga' => (int)$harga,
+                'diskon' => (int)$diskon,
+                'harga1' => $harga1 ? (int)$harga1 : null,
+                'harga2' => $harga2 ? (int)$harga2 : null,
+                'harga3' => $harga3 ? (int)$harga3 : null,
+                'harga4' => $harga4 ? (int)$harga4 : null,
+                'harga5' => $harga5 ? (int)$harga5 : null,
+                'harga6' => $harga6 ? (int)$harga6 : null,
+                'layan' => $this->input->post('layan', true),
+                'metode' => $this->input->post('metode', true),
+                'catatan' => $this->input->post('catatan', true)
+            );
+            log_message('debug', 'Updating paket with id: ' . $id . ', data: ' . json_encode($paket_data));
+            $this->db->where('id', $id);
+            return $this->db->update('paket', $paket_data);
+        }
+        return $return;
+    }
 	
 	public function upload_barang(){
 		$data = [];
