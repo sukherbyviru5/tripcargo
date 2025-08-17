@@ -1,8 +1,5 @@
 <?php
-// Log the start of the view rendering
-log_message('info', 'Rendering laporan_invoice_view');
 
-// Initialize variables for totals
 $no = 1;
 $tkoli = 0;
 $tberat = 0;
@@ -14,7 +11,6 @@ $tharga3 = 0; // Hari yang sama
 $tdiskon = 0;
 $tt = 0;
 
-// Initialize filtered row count
 $filtered_rows = 0;
 ?>
 
@@ -53,7 +49,7 @@ $filtered_rows = 0;
     <span id="judul"></span>
     <td>Periode tgl: &ensp;&ensp; </td>
     <td><?php echo $tgl1 . '&ensp;  s/d &ensp;  ' . $tgl2; ?></td>
-	<br> <br>
+    <br> <br>
 </div>
 <table id="info_table" style="font-size:0.9em" class="table table-hover table-responsive-sm table-condensed">
     <thead>
@@ -77,36 +73,27 @@ $filtered_rows = 0;
     <tbody>
         <?php foreach ($rs as $k): ?>
         <?php
-                // Get pengirim name
-                $nama_pengirim = $k->p_nama ?: $this->app_model->find_nama_pel($k->pel_id);
-                $nama_pengirim_display = substr($nama_pengirim, 0, 20) . (strlen($nama_pengirim) > 20 ? '...' : '');
+        // Get pengirim name
+        $nama_pengirim = $k->p_nama ?: $this->app_model->find_nama_pel($k->pel_id);
+        $nama_pengirim_display = substr($nama_pengirim, 0, 20) . (strlen($nama_pengirim) > 20 ? '...' : '');
 
-                // Get kota tujuan
-                $kota_tujuan = $this->app_model->find_kokab(substr($k->kec_id, 0, 4));
+        // Get kota tujuan
+        $kota_tujuan = $this->app_model->find_kokab(substr($k->kec_id, 0, 4));
 
-                // Apply filters
-                $show_row = true;
-                if ($pengirim && $nama_pengirim != $pengirim) {
-                    $show_row = false;
-                }
-                if ($tujuan && $kota_tujuan != $tujuan) {
-                    $show_row = false;
-                }
-                if ($payment_type && $k->metode != $payment_type) {
-                    $show_row = false;
-                }
-
-                // Log filtering decision
-                log_message('debug', 'Row resi=' . $k->resi . 
-                           ', pengirim=' . $nama_pengirim . 
-                           ', tujuan=' . $kota_tujuan . 
-                           ', payment_type=' . $k->metode . 
-                           ', show_row=' . ($show_row ? 'true' : 'false'));
-
-                // Output row if it passes filters
-                if ($show_row):
-                    $filtered_rows++;
-                ?>
+        // Apply filters
+        $show_row = true;
+        if ($pengirim && $nama_pengirim != $pengirim) {
+            $show_row = false;
+        }
+        if ($tujuan && substr($k->resi, 0, 3) != $tujuan) {
+            $show_row = false;
+        }
+        if ($payment_type && $k->metode != $payment_type) {
+            $show_row = false;
+        }
+        if ($show_row):
+            $filtered_rows++;
+    ?>
         <tr>
             <td align="center" style="font-size:0.9em;"><?php echo $no; ?></td>
             <td align="center" style="font-size:0.9em;"><?php echo $k->resi; ?></td>
@@ -138,10 +125,7 @@ $filtered_rows = 0;
         ?>
         <?php endif; ?>
         <?php endforeach; ?>
-        <?php
-        // Log the number of filtered rows
-        log_message('info', 'Filtered ' . $filtered_rows . ' rows for display');
-        ?>
+
         <!-- Total row -->
         <?php if ($filtered_rows > 0): ?>
         <tr style="font-weight:bold;">

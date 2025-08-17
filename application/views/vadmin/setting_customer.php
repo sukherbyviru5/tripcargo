@@ -243,11 +243,10 @@
                     <li>
                         <a href="#" title="Tarif"><i class="fa fa-money"></i> <span class="menu-item-parent">Tarif</span></a>
                         <ul>
-                            <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/tarif.pdf'); ?>" title="Daftar Tarif">Daftar Tarif</a></li>
-                            <li><a target="_blank" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat" title="Tarif Hemat">IKLAN Tarif Hemat</a></li>
-                            <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/TARIF SANCARGO-A 2025.pdf'); ?>" title="TARIF A 2025">TARIF A 2025.pdf</a></li>
-                            <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/TARIF SANCARGO-B 2025.pdf'); ?>" title="TARIF B 2025">TARIF B 2025.pdf</a></li>
-                        </ul>
+                        <li class="hidden-xs">
+                            <a  href="<?php echo base_url() . 'cadmin/laporan/'; ?>tarif" alt="" title="tarif.pdf">Cetak Tarif</a>
+                        </li>
+                    </ul>
                     </li>
                     <!-- Pajak -->
                     <li>

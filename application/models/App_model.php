@@ -923,6 +923,60 @@ public function money_format($format, $number)
 		$query = $this->db->get();
 		return $query->result();
 	}
+	public function get_area_by_paket($full = false)
+	{
+		$this->db->select('resi');
+		$this->db->from('paket');
+		$query = $this->db->get();
+		$results = $query->result();
+		$output = [];
+
+		foreach ($results as $row) {
+			$prefix = substr($row->resi, 0, 3); 
+			if ($full) {
+				$output[$prefix][] = $row->resi;
+			} else {
+				$output[$prefix] = true;
+			}
+		}
+
+		return $full ? $output : array_keys($output);
+	}
+
+	public function asal_group()
+	{
+		$this->db->select('asal');
+		$this->db->distinct();
+		$this->db->from('tarif');
+		$query = $this->db->get();
+		$results = $query->result();
+		$output = [];
+
+		foreach ($results as $row) {
+			$prefix = $row->asal; 
+			$output[$prefix] = true;
+		}
+
+		return array_keys($output);
+	}
+	
+	public function tujuan_group()
+	{
+		$this->db->select('tujuan');
+		$this->db->distinct();
+		$this->db->from('tarif');
+		$query = $this->db->get();
+		$results = $query->result();
+		$output = [];
+
+		foreach ($results as $row) {
+			$prefix = $row->tujuan; 
+			$output[$prefix] = true;
+		}
+
+		return array_keys($output);
+	}
+
 	public function get_prov()
 	{
 		$this->db->select('*');

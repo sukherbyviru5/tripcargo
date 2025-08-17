@@ -19,10 +19,9 @@ if ($paket->num_rows() > 0) {
             $email = $k->p_email;
         }
         echo "<br>";
-        echo "<div class='alert alert fade in'>
+        echo "<div style='padding:15px; margin-bottom:20px; border:1px solid #bce8f1; border-radius:4px; background-color:#d9edf7; color:#31708f;'>
                 Status : <strong>" . $this->app_model->find_status_paket($k->resi) . "</strong>
               </div>";
-        echo "<br>";
         echo "<table id='dt_basic' class='table table-striped table-bordered table-hover' width='100%'>
                 <thead>
                     <tr>
@@ -88,17 +87,7 @@ if ($paket->num_rows() > 0) {
                     <td style='font-weight: normal'>";
 
             if (isset($r->ket) && !empty($r->ket)) {
-                if (substr($r->ket, 4, 20) == "On Proses" && substr($r->ket, 4, 20) != "Proses") {
-                    if (isset($manifast) && !empty($manifast)) {
-                        echo $manifast[0]['nom'] . " / " . $manifast[0]['sortir'] . " / " . $manifast[0]['users_id'] . " / " . $manifast[0]['creator'] . "<br>";
-                        echo "Tujuan: " . $manifast[0]['tujuan'] . "<br>";
-                        echo "Catatan: " . $manifast[0]['remake'] . "<br>";
-                    }
-                }
-                if (substr($r->ket, 4, 20) == "Delivered") {
-                    echo $this->app_model->find_status_paket($k->resi) . "<br>";
-                    echo substr($r->diterima ?? '', 0, 20);
-                }
+                echo $r->catatan;
             }
             echo "</td></tr>";
             $no++;

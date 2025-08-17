@@ -824,11 +824,7 @@
                                                                     title="Gopay, Dana, Walet, OVO, Debit, Transfer">
                                                                     TF &ensp;</a>
                                                                 <input type="radio" name="metode" value="Kredit">
-                                                                Credit &ensp;
-                                                                <input type="radio" readonly name="metode"
-                                                                    value="COD">
-                                                                <a data-toggle="tooltip" title="Chas On Delivery">
-                                                                    COD</a>
+                                                                Tempo &ensp;
                                                             </div>
 
                                                         </div>

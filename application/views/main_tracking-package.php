@@ -355,8 +355,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 								<ul>
 								    <li>
 									<div class="footer-sprite address">
-									    <a target='_blank'>
-											<?= $contact['alamat'] ?>
+										
+									    <a style="text-decoration: none;">
+											<?php
+											$alamat = isset($contact['alamat']) ? json_decode($contact['alamat'], true) : [''];
+											
+											if (!is_array($alamat)) {
+												$alamat = [''];
+											}
+
+											foreach ($alamat as $i => $no) {
+												echo '<span>' . htmlspecialchars(trim($no)) . '</span>';
+												if ($i < count($alamat) - 1) {
+													echo ' - ';
+												}
+											}
+											?>
 										</a>
 									</li>
 									<br>

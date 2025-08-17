@@ -22,13 +22,17 @@
                         style="z-index: 2; color:silver; font-size: 2.9em; font-style: italic; font-family: sans-serif;">
                         <b>Kirim Paket Trip Cargo aja!</b>
                     </div>
-                    <div class="tp-caption large_bold_darkblue skewfromleftshort customout" data-x="80"
+                   
+                    <div class="tp-caption large_bold_darkblue skewfromleftshort customout" 
+                        data-x="80"
                         data-hoffset="-90" data-y="350"
                         data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
                         data-speed="500" data-start="1600" data-easing="Back.easeOut" data-endspeed="500"
-                        data-endeasing="Power4.easeIn" data-captionhidden="off" style="z-index: 2; color:#ccc">
-                        0812-8989-7359
+                        data-endeasing="Power4.easeIn" data-captionhidden="off" 
+                        style="z-index: 2; color:#ccc">
+                        <?= trim(explode(',', $contact[0]['no_hp'])[0]) ?>
                     </div>
+
                     <div class="tp-caption medium_bg_darkblue skewfromleftshort customout" data-x="80"
                         data-hoffset="-90" data-y="410"
                         data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
@@ -120,7 +124,7 @@
                                             <div class="form-group">
                                                 <label class="control-label col-sm-5">
                                                     <h3 style='margin:0;color:#fff;'><b>LACAK KIRIMAN</b></h3>Lacak
-                                                    paket anda secara realtime
+                                                    paket anda secara realtime 
                                                 </label>
                                                 <div class="col-sm-6">
                                                     <input style="font-family: monospace; font-size: larger;"

@@ -63,25 +63,15 @@ if (!file_exists($barcodePath)) {
 }
 $pdf->Image($barcodePath, 14.0, 0.8, 5);
 
-// ===================================================================
-// QR Code -- MODIFIED SECTION
-// ===================================================================
-// Data for the QR code
+// QR Code
 $qrData = "https://tripcargoid.com/web/cari?k=" . $d->resi;
-
-// Construct the full API URL, ensuring the data is properly URL-encoded
 $qrApiUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" . urlencode($qrData);
-
-// Embed the QR code image directly from the URL into the PDF
-// The last parameter 'PNG' specifies the image type.
 $pdf->Image($qrApiUrl, 17.5, 9.0, 2, 0, 'PNG');
-// ===================================================================
-
 $pdf->Ln(0.8); // Added spacing below QR code
 
 // Header Table
 $pdf->SetFont('Helvetica', 'B', 8);
-$pdf->SetXY(1.0, 3.0); // Adjusted Y position for extra spacing below header (from 2.8 to 3.0)
+$pdf->SetXY(1.0, 3.0); // Adjusted Y position for extra spacing below header
 $pdf->Cell(6.5, 0.5, 'ASAL', 'LTR', 0, 'C');
 $pdf->Cell(6.5, 0.5, 'TUJUAN', 'LTR', 0, 'C');
 $pdf->Cell(3.0, 0.5, 'NO. TRANSAKSI', 'LTR', 0, 'C');
@@ -96,7 +86,7 @@ $pdf->Ln(0.5);
 
 // Informasi Asal
 $pdf->SetFont('Helvetica', '', 7);
-$asalText = 'Jl. Kp. Parung Serab No. 33 F Rt.5 / 3 Tirtajaya, Sukmajaya, Depok';
+$asalText = $d->alamat_pel;
 $asalTextWidth = $pdf->GetStringWidth($asalText);
 if ($asalTextWidth > 6.3) { // Check if text exceeds cell width
     $asalText = substr($asalText, 0, 40) . '...'; // Truncate to fit within 6.3cm
@@ -106,7 +96,7 @@ $pdf->Cell(6.5, 0.4, 'Jml (Colly)', 'LTR', 0, 'C');
 $pdf->Cell(3.0, 0.4, 'Ukuran (Kgs / m3)', 'LTR', 0, 'C');
 $pdf->Cell(3.0, 0.4, 'Biaya Kirim', 'LTR', 0, 'C');
 $pdf->Ln();
-$pdf->Cell(6.5, 0.4, 'CSO. 0881080899678 - tripcargo.test', 'LBR', 0, 'C');
+$pdf->Cell(6.5, 0.4, "CSO. $d->telp_p - tripcargo.test", 'LBR', 0, 'C');
 $pdf->Cell(6.5, 0.4, $d->koli . ' Pcs', 'LBR', 0, 'C');
 $pdf->Cell(3.0, 0.4, $d->berat . ' Kg', 'LBR', 0, 'C');
 $pdf->Cell(3.0, 0.4, 'Rp ' . number_format($d->harga2, 0), 'LBR', 0, 'C');
@@ -181,10 +171,20 @@ $pdf->Ln(0.7); // Extra spacing below Biaya Tambahan table
 
 // Catatan dan Deskripsi
 $pdf->SetFont('Helvetica', 'B', 8);
-$pdf->Cell(9.0, 0.5, 'CATATAN: ' . $d->catatan, 'LTR', 0, 'L');
-$pdf->Cell(9.0, 0.5, 'DESKRIPSI: ' . $d->deskripsi, 'LTR', 0, 'L');
+$pdf->Cell(9.0, 0.5, 'CATATAN:', 'LTR', 0, 'L');
+$pdf->Cell(9.0, 0.5, 'DESKRIPSI:', 'LTR', 0, 'L');
 $pdf->Ln();
 $pdf->SetFont('Helvetica', '', 8);
+$catatan = $d->catatan ? $d->catatan : 'Tidak ada catatan';
+$deskripsi = $d->deskripsi ? $d->deskripsi : 'Tidak ada deskripsi';
+$pdf->MultiCell(9.0, 0.4, $catatan, 'LBR', 'L');
+$y_catatan = $pdf->GetY(); // Store Y position after Catatan
+$pdf->SetXY(10.0, $pdf->GetY() - ($y_catatan - $pdf->GetY() + 0.5)); // Reset Y to align Deskripsi
+$pdf->MultiCell(9.0, 0.4, $deskripsi, 'LBR', 'L');
+$pdf->SetY(max($y_catatan, $pdf->GetY())); // Move to the bottom of the taller cell
+$pdf->Ln(0.5);
+
+// Volume dan Terbilang
 $vol = ($d->p) ? $d->p . 'x' . $d->l . 'x' . $d->t . '(cm)' : '';
 $pdf->Cell(9.0, 0.5, 'VOLUME: ' . $vol, 'LBR', 0, 'L');
 $pdf->Cell(9.0, 0.5, 'TERBILANG: ' . ucwords(strtolower($this->app_model->bilang($d->totalbayar) . ' rupiah')), 'LBR', 0, 'L');
@@ -217,7 +217,7 @@ $terms = [
     "Sistem pengiriman via darat, laut, dan udara (door to door).",
     "Pengirim maupun penerima bersama-sama bertanggung jawab terhadap semua biaya pengiriman sesuai perhitungan menurut tarif yang dikeluarkan perusahaan kami, dan bilamana tidak terpenuhi maka perusahaan berhak mengadakan penahanan.",
     "Isi barang tidak diperiksa, pengirim wajib mengasuransikan barang kirimannya terlebih dahulu. Bilamana terjadi kehilangan/kerusakan terhadap barang kiriman, perusahaan hanya mengganti rugi sesuai aturan pengiriman (Poin No. 16).",
-    "Keselamatan barang kiriman akibat pengepakan yang tidak sempurna atau faktor cuaca sehingga menimbulkan kerugian karena isi kiriman menjadi rusak, basah, dan hilang, sepenuhnya menjadi risiko pengirim dan penerima.",
+    "Keselamatan barang kiriman akibat pengepakan yang tidak sempurna atau faktor cuaca sehingga menimbulkan kerusakan karena isi kiriman menjadi rusak, basah, dan hilang, sepenuhnya menjadi risiko pengirim dan penerima.",
     "Barang-barang yang bersifat pecah belah dan mudah retak seperti kaca, gelas, keramik, monitor, TV, radio, barang elektronik, fiberglass, bibit tanaman, tumbuh-tumbuhan, binatang hidup serta sejumlah spare-part mesin maupun kendaraan, jika terjadi kerusakan/kematian sepenuhnya menjadi tanggung jawab pengirim/penerima.",
     "Dilarang keras mengirim barang-barang terlarang oleh Pemerintah seperti narkoba/obat-obatan terlarang, bahan peledak, cairan/kimia yang dapat membahayakan keselamatan umum (Dangerous Goods) dan barang-barang berharga.",
     "Perusahaan melarang keras dan tidak menerima barang-barang kiriman yang bersifat cairan apapun via pesawat.",

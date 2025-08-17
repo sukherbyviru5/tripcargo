@@ -83,3 +83,13 @@ DEBUG - 2025-08-16 18:45:36 --> Zend Class Initialized
 DEBUG - 2025-08-16 18:45:36 --> Zend class already loaded. Second attempt ignored.
 DEBUG - 2025-08-16 18:45:36 --> Zend class already loaded. Second attempt ignored.
 DEBUG - 2025-08-16 18:45:36 --> Total execution time: 0.0367
+DEBUG - 2025-08-16 19:00:22 --> UTF-8 Support Enabled
+DEBUG - 2025-08-16 19:00:22 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-08-16 19:00:22 --> Zend Class Initialized
+DEBUG - 2025-08-16 19:00:22 --> Zend class already loaded. Second attempt ignored.
+DEBUG - 2025-08-16 19:00:22 --> Zend class already loaded. Second attempt ignored.
+DEBUG - 2025-08-16 19:01:02 --> UTF-8 Support Enabled
+DEBUG - 2025-08-16 19:01:02 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-08-16 19:01:02 --> Zend Class Initialized
+DEBUG - 2025-08-16 19:01:02 --> Zend class already loaded. Second attempt ignored.
+DEBUG - 2025-08-16 19:01:02 --> Zend class already loaded. Second attempt ignored.

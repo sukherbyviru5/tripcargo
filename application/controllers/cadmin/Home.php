@@ -654,10 +654,10 @@ class Home extends CI_Controller {
 			//add html for action
 			$level = $this->session->userdata('level');
 			if($level=='superadmin'){
-			$row[] = '<div class="text-center">
-					<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('."'".$set_harga->id."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
-					<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="hapus('."'".$set_harga->id."'".')"><i class="glyphicon glyphicon-trash"></i></a>
-				  </div>';
+				$row[] = '<div class="text-center">
+						<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('."'".$set_harga->id."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
+						<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="hapus('."'".$set_harga->id."'".')"><i class="glyphicon glyphicon-trash"></i></a>
+					</div>';
 			}else{
 				$row[] = '<div class="text-center">
 						<span class="badge inbox-badge bg-color-redLight hidden-mobile">Disabled</span>
@@ -2188,10 +2188,25 @@ class Home extends CI_Controller {
 			return;
 		}
 
+		$alamat = $this->input->post('alamat', TRUE);
+		$maps_link = $this->input->post('maps_link', TRUE);
+		if (is_array($alamat)) {
+			$alamat = array_filter($alamat, 'trim');
+			$alamat = json_encode(array_values($alamat)); 
+		} else {
+			$alamat = json_encode([]);
+		}
+		if (is_array($maps_link)) {
+			$maps_link = array_filter($maps_link, 'trim');
+			$maps_link = json_encode(array_values($maps_link)); 
+		} else {
+			$maps_link = json_encode([]);
+		}
+
 		$data = [
-			'alamat'    => $this->input->post('alamat', TRUE),
+			'alamat'    => $alamat,
 			'jam_kerja' => $this->input->post('jam_kerja', TRUE),
-			'maps_link' => $this->input->post('maps_link', TRUE),
+			'maps_link' => $maps_link,
 			'no_hp'     => $this->input->post('no_hp', TRUE),
 			'email'     => $this->input->post('email', TRUE)
 		];

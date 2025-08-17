@@ -23,7 +23,7 @@ class Set_harga_model extends CI_Model {
 		$i = 0;
 		foreach ($this->column_search as $item) // loop column 
 		{
-			if($_POST['search']['value']) // if datatable send POST for search
+			if($_POST['search']['value']) 
 			{
 				
 				if($i===0) // first loop
@@ -53,6 +53,70 @@ class Set_harga_model extends CI_Model {
 		}
 	}
 
+	private function _get_datatables_query_filter()
+    {
+        $this->db->from('tarif');
+
+        $asal = isset($_POST['asal']) && !empty($_POST['asal']) ? $this->db->escape_str($_POST['asal']) : null;
+    	$tujuan = isset($_POST['tujuan']) && !empty($_POST['tujuan']) ? $this->db->escape_str($_POST['tujuan']) : null;	
+
+        if (!empty($asal)) {
+            $this->db->where('asal', $asal);
+        }
+        if (!empty($tujuan)) {
+            $this->db->where('tujuan', $tujuan);
+        }
+
+        // DataTables search functionality
+        $i = 0;
+        foreach ($this->column_search as $item) // Loop column
+        {
+            if ($this->input->post('search')['value']) 
+            {
+                if ($i === 0) // First loop
+                {
+                    $this->db->group_start(); // Open bracket for OR clause
+                    $this->db->like($item, $this->input->post('search')['value']);
+                }
+                else
+                {
+                    $this->db->or_like($item, $this->input->post('search')['value']);
+                }
+
+                if (count($this->column_search) - 1 == $i) // Last loop
+                    $this->db->group_end(); // Close bracket
+            }
+            $i++;
+        }
+
+        // DataTables order functionality
+        if (isset($_POST['order'])) // Order processing
+        {
+            $this->db->order_by($this->column_order[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
+        } 
+        else if (isset($this->order))
+        {
+            $order = $this->order;
+            $this->db->order_by(key($order), $order[key($order)]);
+        }
+    }
+
+	function get_datatables_filter()
+	{
+		$this->_get_datatables_query_filter();
+		if($_POST['length'] != -1)
+		$this->db->limit($_POST['length'], $_POST['start']);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	function count_filtered_filter()
+	{
+		$this->_get_datatables_query_filter();
+		$query = $this->db->get();
+		return $query->num_rows();
+	}
+
 	function get_datatables()
 	{
 		$this->_get_datatables_query();
@@ -73,6 +137,22 @@ class Set_harga_model extends CI_Model {
 	{
 		$this->db->from($this->table);
 		return $this->db->count_all_results();
+	}
+
+	public function getall($asal = null, $tujuan = null)
+	{
+		$this->db->select('*');
+		$this->db->from($this->table);
+		
+		if (!empty($asal)) {
+			$this->db->where('asal', $asal);
+		}
+		if (!empty($tujuan)) {
+			$this->db->where('tujuan', $tujuan);
+		}
+		
+		$query = $this->db->get();
+		return $query->result();
 	}
 
 	public function get_by_id($id)

@@ -11,23 +11,25 @@ class Web extends CI_Controller {
         $this->load->model('Customers_model');
         $this->load->model('Introduction_model');
         $this->load->model('Visi_misi_model');
+		$this->load->model('Setting_contact_model');
 	}
 
 	public function index()
 	{
 		$this->load->helper('url');
-		$d['judul'] 			= $this->config->item('judul');
-		$d['nama_perusahaan'] 	= $this->config->item('nama_perusahaan');
-		$d['alamat_perusahaan'] = $this->config->item('alamat_perusahaan');
-		$d['lisensi'] 			= $this->config->item('lisensi_app');
+		$d['judul'] 			 = $this->config->item('judul');
+		$d['nama_perusahaan'] 	 = $this->config->item('nama_perusahaan');
+		$d['alamat_perusahaan']  = $this->config->item('alamat_perusahaan');
+		$d['lisensi'] 			 = $this->config->item('lisensi_app');
 		$d['services']           = $this->Services_model->get_all();
         $d['customers']          = $this->Customers_model->get_all();
+		$d['contact']			 = $this->Setting_contact_model->get_all();
 		$introduction_data       = $this->Introduction_model->get_all();
         $d['introduction']       = !empty($introduction_data) ? $introduction_data[0] : null;
 		$visi_data               = $this->Visi_misi_model->get_by_type('Visi');
         $d['visi']               = !empty($visi_data) ? $visi_data[0] : null;
         $d['misi']               = $this->Visi_misi_model->get_by_type('Misi');
-		$d['isi'] 				= $this->load->view('main_home', $d, true);
+		$d['isi'] 				 = $this->load->view('main_home', $d, true);
 		$this->load->view('mainweb', $d);
 	}
 	

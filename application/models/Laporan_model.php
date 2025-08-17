@@ -229,6 +229,7 @@ class Laporan_model extends CI_Model {
 		$d['telp_perusahaan'] 	= $this->config->item('telp_perusahaan');
 		$d['lisensi']			= $this->config->item('lisensi_app');
 		if($f==1){
+			// print_r($d);
 		$this->load->view('vadmin/pdf_resi', $d);
 		}else{
 		$this->load->view('vadmin/pdf_resi2', $d);

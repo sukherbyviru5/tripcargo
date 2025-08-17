@@ -8,6 +8,7 @@ class Laporan extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->model('laporan_model','laporan');
 		$this->load->model('Pelanggan_model','pelanggan');
+		$this->load->model('set_harga_model','set_harga');
 		$this->load->model('Kab_model','area');
 		$this->load->model('app_model','model');
 		$this->load->library('fpdf'); // Load library	
@@ -41,7 +42,7 @@ class Laporan extends CI_Controller {
 		$cek = $this->session->userdata('logged_in');
 		$level = $this->session->userdata('level');
 		if(!empty($cek)){ //semua aktor bisa
-			$this->laporan->cetak_resi(1); //
+			$data = $this->laporan->cetak_resi(1); //
 		}else{
 			redirect('./cadmin/home/logout/','refresh');
 		}
@@ -172,7 +173,7 @@ class Laporan extends CI_Controller {
 			$d['tgl_now'] = $this->app_model->tgl_now_indo();
 			$id=$this->session->userdata('username');
 			$d['pelanggan'] = $this->pelanggan->get_all();
-			$d['area'] = $this->area->get_all();
+			$d['area'] = $this->app_model->get_area_by_paket();
 			$d['record'] = $this->model->get_users($id);
 			$d['isi'] = $this->load->view('vadmin/view_invoice', $d, true);
 			
@@ -240,7 +241,69 @@ class Laporan extends CI_Controller {
 	}
 	
 	
-	
+	public function tarif()
+	{
+		$cek = $this->session->userdata('logged_in');
+		$level = $this->session->userdata('level');
+		if(!empty($cek)){
+			$d['judul'] = $this->config->item('judul');
+			$d['nama_perusahaan'] = $this->config->item('nama_perusahaan');
+			$d['alamat_perusahaan'] = $this->config->item('alamat_perusahaan');
+			$d['lisensi'] = $this->config->item('lisensi_app');
+			
+			$d['jam_now'] = $this->app_model->Jam_Now(); 
+			$d['hari_now'] = $this->app_model->Hari_Bulan_Indo(); 
+			$d['tgl_now'] = $this->app_model->tgl_now_indo();
+			$d['asal'] = $this->app_model->asal_group();
+			$d['tujuan'] = $this->app_model->tujuan_group();
+			$id=$this->session->userdata('username');
+			$d['record'] = $this->model->get_users($id);
+			$d['isi'] = $this->load->view('vadmin/tarif', $d, true);
+			
+			$this->load->view('vadmin/media',$d);
+		}else{
+			$this->session->set_flashdata('result_login', '<font color="red">Sesi login habis atau terhapuskan.</font>');
+			redirect('./cadmin/home/logout/','refresh');
+		}
+	}
+	public function set_harga_ajax_list()
+    {
+        $list = $this->set_harga->get_datatables_filter();
+        $data = array();
+        $no = $this->input->post('start');
+
+        foreach ($list as $set_harga) {
+            $no++;
+            $row = array();
+            $row[] = '<div class="text-center">' . $no . '</div>';
+            $row[] = $set_harga->asal;
+            $row[] = $set_harga->tujuan;
+            $row[] = $set_harga->layanan;
+            $row[] = number_format($set_harga->harga, 0); // Tarif
+            $row[] = $set_harga->estimasi; // ETD
+            $data[] = $row;
+        }
+
+        $output = array(
+            "draw" => $this->input->post('draw'),
+            "recordsTotal" => $this->set_harga->count_all(),
+            "recordsFiltered" => $this->set_harga->count_filtered(),
+            "data" => $data,
+        );
+
+        echo json_encode($output);
+    }
+
+
+	public function cetak_tarif()
+	{
+		$asal = $this->input->post('asal', TRUE);
+		$tujuan = $this->input->post('tujuan', TRUE);
+		$list = $this->set_harga->getall($asal, $tujuan);
+		$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode($list));
+	}
 
 	
 }
