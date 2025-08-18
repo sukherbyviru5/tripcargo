@@ -1048,18 +1048,6 @@ public function money_format($format, $number)
 		return $query->result();
 	}
 
-	function get_tarif($limit = null)
-	{
-		$this->db->select('*'); 
-		$this->db->from('tarif');
-		$this->db->order_by('RAND()');
-		if ($limit !== null) {
-			$this->db->limit($limit);
-		}
-		$query = $this->db->get();
-		return $query->result();
-	}
-
 	function first_promo()
 	{
 		$this->db->select('*');
@@ -1069,6 +1057,35 @@ public function money_format($format, $number)
 		$query = $this->db->get();
 		return $query->row();
 	}
+
+	function get_tarif($limit = null, $promo = false)
+	{
+		if ($promo) {
+			$promos = $this->first_promo();
+
+			if ($promos && !empty($promos->tarif_id)) {
+				$tarif_ids = json_decode($promos->tarif_id, true);
+
+				if (is_array($tarif_ids) && count($tarif_ids) > 0) {
+					$this->db->where_in('id', $tarif_ids);
+				}
+			}
+		}
+
+		$this->db->select('*');
+		$this->db->from('tarif');
+		$this->db->order_by('RAND()');
+		
+		if ($limit !== null) {
+			$this->db->limit($limit);
+		}
+
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+
+	
 
 	function first_promo_is_active()
 	{
@@ -1087,9 +1104,16 @@ public function money_format($format, $number)
 
 	function get_tarif_grouped()
 	{
+		$promo = $this->first_promo();
+		$promo_ids = [];
+
+		if ($promo && !empty($promo->tarif_id)) {
+			$promo_ids = json_decode($promo->tarif_id, true);
+		}
+
 		$query = $this->db->order_by('asal', 'ASC')
-                      ->order_by('id', 'ASC')
-                      ->get('tarif');
+						->order_by('id', 'ASC')
+						->get('tarif');
 
 		$result = $query->result_array();
 
@@ -1100,12 +1124,14 @@ public function money_format($format, $number)
 				'tujuan'   => $row['tujuan'],
 				'asal'     => $row['asal'],
 				'estimasi' => $row['estimasi'],
-				'layanan'  => $row['layanan']
+				'layanan'  => $row['layanan'],
+				'promo'    => in_array($row['id'], $promo_ids) ? true : false
 			];
 		}
 
 		return $tarif;
 	}
+
 
 	
 

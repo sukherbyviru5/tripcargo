@@ -134,11 +134,11 @@
 		margin-top: -20px;
 	}
 	.PCOnlys {
-		margin-top: 20px; /* Jarak antara form dan peta pada mode HP */
+		margin-top: 20px;
 	}
 	.responsive-iframe {
 		width: 100%;
-		height: 150px; /* Ketinggian peta dikurangi untuk HP */
+		height: 150px; 
 	}
 	.pull-right {
 		float: left !important;
@@ -146,7 +146,7 @@
 		text-align: left;
 	}
 	.col-md-8, .col-md-4 {
-		width: 100%; /* Pastikan elemen mengambil lebar penuh pada HP */
+		width: 100%;
 	}
 }
 </style>

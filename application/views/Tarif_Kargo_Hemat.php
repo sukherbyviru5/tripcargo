@@ -116,18 +116,23 @@
                                     </thead>
 
                                     <tbody>
-                                        <?php
-                                      // Looping kedua: Menampilkan setiap rute dari kota asal saat ini
-                                      foreach ($daftar_rute as $rute) {
-                                      ?>
-                                        <tr>
+                                     <?php foreach ($daftar_rute as $rute) { ?>
+                                        <tr <?php echo $rute['promo'] ? 'style="background-color: #fff8dc;"' : ''; ?>>
                                             <td><?php echo htmlspecialchars($rute['tujuan']); ?></td>
-                                            <td class="w3-right-align"><?php echo number_format($rute['harga'], 0, ',', '.'); ?></td>
-                                            <td><?php echo htmlspecialchars($rute['estimasi']); ?></td>
+                                            <td class="w3-right-align">
+                                                <?php echo number_format($rute['harga'], 0, ',', '.'); ?>
+                                            </td>
+                                            <td style="position: relative;">
+                                                <?php echo htmlspecialchars($rute['estimasi']); ?>
+                                                <?php if ($rute['promo']) : ?>
+                                                    <span style="position: absolute; top: 50%; right: -0.2px; transform: translateY(-50%); color: gold; font-size: 14px;">
+                                                        &#9733;
+                                                    </span>
+                                                <?php endif; ?>
+                                            </td>
                                         </tr>
-                                        <?php
-                                      } 
-                                      ?>
+                                    <?php } ?>
+
                                     </tbody>
 
                                 </table>

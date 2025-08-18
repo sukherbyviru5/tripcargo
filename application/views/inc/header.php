@@ -44,8 +44,8 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url();?>assets/css/demo.min.css">
 
 		<!-- FAVICONS -->
-		<link rel="shortcut icon" href="<?php echo base_url();?>assets/img/favicon/sancargo1.png" type="image/x-icon">
-		<link rel="icon" href="<?php echo base_url();?>assets/img/favicon/sancargo1.png" type="image/x-icon">
+		<link rel="shortcut icon" href="<?php echo base_url();?>assets/img/icon-trip.png" type="image/x-icon"> <!---?php echo base_url();?>assets/img/Logo-Sancargo-white.png" type="image/x-icon"-->
+		<link rel="icon" href="<?php echo base_url();?>assets/img/icon-trip.png" type="image/x-icon">
 
 		<!-- GOOGLE FONT -->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">

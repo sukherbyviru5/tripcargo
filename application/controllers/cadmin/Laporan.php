@@ -267,32 +267,48 @@ class Laporan extends CI_Controller {
 		}
 	}
 	public function set_harga_ajax_list()
-    {
-        $list = $this->set_harga->get_datatables_filter();
-        $data = array();
-        $no = $this->input->post('start');
+	{
+		$is_action_enabled = $this->input->post('action');
 
-        foreach ($list as $set_harga) {
-            $no++;
-            $row = array();
-            $row[] = '<div class="text-center">' . $no . '</div>';
-            $row[] = $set_harga->asal;
-            $row[] = $set_harga->tujuan;
-            $row[] = $set_harga->layanan;
-            $row[] = number_format($set_harga->harga, 0); // Tarif
-            $row[] = $set_harga->estimasi; // ETD
-            $data[] = $row;
-        }
+		$list = $this->set_harga->get_datatables_filter();
+		$data = array();
+		$no = $this->input->post('start');
 
-        $output = array(
-            "draw" => $this->input->post('draw'),
-            "recordsTotal" => $this->set_harga->count_all(),
-            "recordsFiltered" => $this->set_harga->count_filtered(),
-            "data" => $data,
-        );
+		foreach ($list as $set_harga) {
+			$no++;
+			$row = array();
+			$row[] = '<div class="text-center">' . $no . '</div>';
+			$row[] = $set_harga->asal;
+			$row[] = $set_harga->tujuan;
+			$row[] = $set_harga->layanan;
+			$row[] = number_format($set_harga->harga, 0); // Tarif
+			$row[] = $set_harga->estimasi; // ETD
 
-        echo json_encode($output);
-    }
+			if ($is_action_enabled) {
+				$row[] = '<div class="text-center">
+							<button class="btn btn-success btn-xs" 
+									onclick="pilihTarif(' . $set_harga->id . ', \'' . $set_harga->harga . '\', \'' . $set_harga->layanan . '\')">
+								<i class="fa fa-plus"></i>
+							</button>
+						</div>';
+			} else {
+				$row[] = '-';
+			}
+
+			$data[] = $row;
+		}
+
+		$output = array(
+			"draw" => $this->input->post('draw'),
+			"recordsTotal" => $this->set_harga->count_all(),
+			"recordsFiltered" => $this->set_harga->count_filtered(),
+			"data" => $data,
+		);
+
+		// Set header ke application/json untuk memastikan output adalah JSON
+		header('Content-Type: application/json');
+		echo json_encode($output);
+	}
 
 
 	public function cetak_tarif()

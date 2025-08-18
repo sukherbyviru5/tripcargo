@@ -1866,11 +1866,35 @@ class Home extends CI_Controller {
 	// Halaman Setting Introduction (termasuk Visi Misi)
     public function introduction()
     {
-        $data['introduction'] = $this->Introduction_model->get_all();
-        $data['visi_misi'] = $this->Visi_misi_model->get_all();
-		$data['promo'] = $this->model->first_promo_is_active();
-        
-        $this->load->view('vadmin/setting_introduction', $data);
+
+		$cek = $this->session->userdata('logged_in');
+		if(!empty($cek)){
+			$d['judul'] = $this->config->item('judul');
+			$d['nama_perusahaan'] = $this->config->item('nama_perusahaan');
+			$d['alamat_perusahaan'] = $this->config->item('alamat_perusahaan');
+			$d['lisensi'] = $this->config->item('lisensi_app');
+			
+			$d['jam_now'] = $this->app_model->Jam_Now(); 
+			$d['hari_now'] = $this->app_model->Hari_Bulan_Indo(); 
+			$d['tgl_now'] = $this->app_model->tgl_now_indo();
+			$id=$this->session->userdata('username');
+			
+			$sesi=$this->session->userdata('session_id');
+			$d['sesi'] = $this->model->get_ci_sesi($sesi);
+			$d['record'] = $this->model->get_users($id);
+			$d['introduction'] = $this->Introduction_model->get_all();
+			$d['visi_misi'] = $this->Visi_misi_model->get_all();
+			$d['promo'] = $this->model->first_promo_is_active();
+			$d['tarif'] = $this->set_harga->getall();
+
+			$d['isi'] = $this->load->view('vadmin/setting_introduction', $d, true);
+			
+			$this->load->view('vadmin/media',$d);
+		}else{
+			$this->session->set_flashdata('result_login', '<font color="red">Sesi login habis atau terhapuskan.</font>');
+			redirect('./cadmin/home/logout/','refresh');
+		}
+
     }
 
     // Update: Memperbarui data introduction (hanya update, tidak ada store)
@@ -2220,10 +2244,13 @@ class Home extends CI_Controller {
 
 	public function update_promo($id)
     {
+		$tarif = $this->input->post('tarif_id', TRUE);
+		
         // Contoh data update
         $data_update = [
             'name'   => $this->input->post('name', TRUE),
-            'status' => $this->input->post('status', TRUE)
+            'status' => $this->input->post('status', TRUE),
+            'tarif_id' => $tarif
         ];
 
         if ($this->app_model->update_promo($id, $data_update)) {

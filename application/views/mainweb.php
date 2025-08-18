@@ -177,7 +177,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				<?php
 					$CI =& get_instance();
 					$CI->load->model('app_model');
-					$daftar_tarif = $CI->app_model->get_tarif(50);
+					$daftar_tarif = $CI->app_model->get_tarif(50, true);
 					$promo = $CI->app_model->first_promo();
 				?>
 

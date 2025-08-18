@@ -33,8 +33,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url('assets/css/demo.min.css'); ?>">
 
     <!-- Favicon and Apple Touch Icons -->
-    <link rel="shortcut icon" href="<?php echo base_url('assets/img/favicon/sancargo1.png'); ?>" type="image/x-icon">
-    <link rel="icon" href="<?php echo base_url('assets/img/favicon/sancargo1.png'); ?>" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo base_url();?>assets/img/icon-trip.png" type="image/x-icon"> <!---?php echo base_url();?>assets/img/Logo-Sancargo-white.png" type="image/x-icon"-->
+		<link rel="icon" href="<?php echo base_url();?>assets/img/icon-trip.png" type="image/x-icon">
     <link rel="apple-touch-icon" href="<?php echo base_url('assets/img/splash/sptouch-icon-iphone.png'); ?>">
     <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url('assets/img/splash/touch-icon-ipad.png'); ?>">
     <link rel="apple-touch-icon" sizes="120x120" href="<?php echo base_url('assets/img/splash/touch-icon-iphone-retina.png'); ?>">
@@ -279,15 +279,10 @@
                 </li>
                 <!-- Tarif -->
                 <li>
-                    <a href="#" title="Tarif"><i class="fa fa-money"></i> <span
-                            class="menu-item-parent">Tarif</span></a>
+                    <a href="#" title="Tarif"><i class="fa fa-money" aria-hidden="true"></i><span class="menu-item-parent">Tarif</span></a>
                     <ul>
-                        <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/tarif.pdf'); ?>" title="Daftar Tarif">Daftar Tarif</a></li>
-                        <li><a target="_blank" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"
-                                title="Tarif Hemat">IKLAN Tarif Hemat</a></li>
-                        <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/TARIF SANCARGO-A 2025.pdf'); ?>" title="TARIF A 2025">TARIF A 2025.pdf</a>
-                        </li>
-                        <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/TARIF SANCARGO-B 2025.pdf'); ?>" title="TARIF B 2025">TARIF B 2025.pdf</a>
+                        <li class="hidden-xs">
+                            <a  href="<?php echo base_url() . 'cadmin/laporan/'; ?>tarif" alt="" title="tarif.pdf">Cetak Tarif</a>
                         </li>
                     </ul>
                 </li>
@@ -491,14 +486,10 @@
                 </li>
                 <!-- Tarif -->
                 <li>
-                    <a href="#" title="Tarif"><i class="fa fa-money"></i> <span
-                            class="menu-item-parent">Tarif</span></a>
+                    <a href="#" title="Tarif"><i class="fa fa-money" aria-hidden="true"></i><span class="menu-item-parent">Tarif</span></a>
                     <ul>
-                        <li><a target="_blank" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"
-                                title="Tarif Hemat">Tarif Hemat</a></li>
-                        <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/TARIF SANCARGO-A 2025.pdf'); ?>" title="TARIF A 2025">TARIF A 2025.pdf</a>
-                        </li>
-                        <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/TARIF SANCARGO-B 2025.pdf'); ?>" title="TARIF B 2025">TARIF B 2025.pdf</a>
+                        <li class="hidden-xs">
+                            <a  href="<?php echo base_url() . 'cadmin/laporan/'; ?>tarif" alt="" title="tarif.pdf">Cetak Tarif</a>
                         </li>
                     </ul>
                 </li>
@@ -581,11 +572,11 @@
                     </ul>
                 </li>
                 <!-- Tarif -->
-                <li>
-                    <a href="#" title="Tarif"><i class="fa fa-money"></i> <span
-                            class="menu-item-parent">Tarif</span></a>
+               <li>
+                    <a href="#" title="Tarif"><i class="fa fa-money" aria-hidden="true"></i><span class="menu-item-parent">Tarif</span></a>
                     <ul>
-                        <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/tarif.jpg'); ?>" title="Tarif Hemat">Tarif Hemat jpg</a>
+                        <li class="hidden-xs">
+                            <a  href="<?php echo base_url() . 'cadmin/laporan/'; ?>tarif" alt="" title="tarif.pdf">Cetak Tarif</a>
                         </li>
                     </ul>
                 </li>
