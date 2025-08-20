@@ -2,7 +2,7 @@
 $this->load->view("inc/head_cetak.php");
 ?>
 <link href="<?php echo base_url().'assets/css/invoice.min.css';?>" rel="stylesheet">	
-	<span id="judul">MANIFAST &nbsp;</span><br/></br/></br/>
+	<span id="judul">MANIFEST &nbsp;</span><br/></br/></br/>
 	<?php foreach($head as $h){$hasil=$h;} ?>
 	<?php
 	echo "<div id='kanan'>";

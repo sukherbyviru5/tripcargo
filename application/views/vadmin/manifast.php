@@ -11,7 +11,7 @@
 <!-- RIBBON -->
 <div id="ribbon">
 	<ol class="breadcrumb">
-		<li>Home</li><li>Buat Manifast</li>
+		<li>Home</li><li>Buat Manifest</li>
 	</ol>
 </div>	
 <div id="content">
@@ -43,7 +43,7 @@
 					-->
 					<header>
 						<span class="widget-icon"> <i class="fa fa-edit"></i> </span>
-						<h2>Buat Manifast</h2>
+						<h2>Buat Manifest</h2>
 	
 					</header>
 	
@@ -63,7 +63,7 @@
 							<form id="smart-form-register" class="form-horizontal" >
 							
 								<fieldset>
-									<legend>Manifast (Data Barang yang dikirim)</legend>
+									<legend>Manifest (Data Barang yang dikirim)</legend>
 									<div class="form-group has-success col-md-12">
 										<label class="col-md-2 control-label">Tanggal</label>
 										<div class="col-md-3">
@@ -73,10 +73,10 @@
 												<span class="input-group-addon"><i class="glyphicon glyphicon-calendar" ></i></span>
 											</div>
 										</div>
-										<label class="col-md-2 control-label">No Manifast</label>
+										<label class="col-md-2 control-label">No Manifest</label>
 										<div class="col-md-3">
 											<div class="input-group">
-												<input class="form-control" placeholder="No Manifast (MFS 000000)" readonly type="text" name="nom" id="txNom"  maxlength="10" style="FONT-SIZE: large" onkeyup="this.value = this.value.toUpperCase()">
+												<input class="form-control" placeholder="No Manifest (MFS 000000)" readonly type="text" name="nom" id="txNom"  maxlength="10" style="FONT-SIZE: large" onkeyup="this.value = this.value.toUpperCase()">
 												<span class="input-group-addon"><i class="glyphicon glyphicon-th-list" aria-hidden="true"></i></span>
 											</div>
 										</div>
@@ -236,7 +236,7 @@
 					-->
 					<header>
 						<span class="widget-icon"> <i class="fa fa-columns"></i> </span>
-						<h2>Daftar Manifast <span id="loading2"></span></h2>
+						<h2>Daftar Manifest <span id="loading2"></span></h2>
 	
 					</header>
 	
@@ -258,7 +258,7 @@
 								<thead>			                
 									<tr>
 										<th data-hide="phone" style="width:10px;">No</th>
-										<th data-class="phone" style="width:auto;"><i class="fa fa-fw fa-list-alt text-muted hidden-md hidden-sm hidden-xs"></i> Manifast</th>
+										<th data-class="phone" style="width:auto;"><i class="fa fa-fw fa-list-alt text-muted hidden-md hidden-sm hidden-xs"></i> Manifest</th>
 										<th data-class="phone"style="width:auto;"><i class="fa fa-fw fa-calendar text-muted hidden-md hidden-sm hidden-xs"></i> Tanggal</th>
 										<th data-hide="phone" style="width:auto;"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> Driver</th>
 										<th data-hide="phone" style="width:auto;"><i class="fa fa-fw fa-phone text-muted hidden-md hidden-sm hidden-xs"></i> HP Driver</th>

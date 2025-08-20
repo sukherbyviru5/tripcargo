@@ -92,7 +92,7 @@
 				-->
 				<header>
 					<span class="widget-icon"> <i class="fa fa-list"></i> </span>
-					<h2>Laporan Manifast</h2>				
+					<h2>Laporan Manifest</h2>				
 					
 				</header>
 

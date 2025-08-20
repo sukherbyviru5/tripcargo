@@ -74,10 +74,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#" title="manifast"><i class="fa fa-list-alt"></i><span class="menu-item-parent">Manifast</span></a>
+                    <a href="#" title="manifast"><i class="fa fa-list-alt"></i><span class="menu-item-parent">Manifest</span></a>
                     <ul>
                         <li class="<?php echo $this->app_model->status_menu($akt, 'manifast'); ?>">
-                            <a href="<?php echo base_url() . 'cadmin/home/'; ?>manifast" title="manifast"><span class="menu-item-parent">Buat Manifast</span></a>
+                            <a href="<?php echo base_url() . 'cadmin/home/'; ?>manifast" title="manifast"><span class="menu-item-parent">Buat Manifest</span></a>
                         </li>
                     </ul>
                 </li>
@@ -213,10 +213,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#" title="manifast"><i class="fa fa-list-alt"></i><span class="menu-item-parent">Manifast</span></a>
+                    <a href="#" title="manifast"><i class="fa fa-list-alt"></i><span class="menu-item-parent">Manifest</span></a>
                     <ul>
                         <li class="<?php echo $this->app_model->status_menu($akt, 'manifast'); ?>">
-                            <a href="<?php echo base_url() . 'cadmin/home/'; ?>manifast" title="manifast">Buat Manifast</a>
+                            <a href="<?php echo base_url() . 'cadmin/home/'; ?>manifast" title="manifast">Buat Manifest</a>
                         </li>
                     </ul>
                 </li>
@@ -326,10 +326,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#" title="manifast"><i class="fa fa-list-alt"></i><span class="menu-item-parent">Manifast</span></a>
+                    <a href="#" title="manifast"><i class="fa fa-list-alt"></i><span class="menu-item-parent">Manifest</span></a>
                     <ul>
                         <li class="<?php echo $this->app_model->status_menu($akt, 'manifast'); ?>">
-                            <a href="<?php echo base_url() . 'cadmin/home/'; ?>manifast" title="Input Manifast">Input Manifast</a>
+                            <a href="<?php echo base_url() . 'cadmin/home/'; ?>manifast" title="Input Manifest">Input Manifest</a>
                         </li>
                     </ul>
                 </li>
@@ -390,10 +390,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#" title="manifast"><i class="fa fa-list-alt"></i><span class="menu-item-parent">Manifast</span></a>
+                    <a href="#" title="manifast"><i class="fa fa-list-alt"></i><span class="menu-item-parent">Manifest</span></a>
                     <ul>
                         <li class="<?php echo $this->app_model->status_menu($akt, 'manifast'); ?>">
-                            <a href="<?php echo base_url() . 'cadmin/home/'; ?>manifast" title="manifast">Buat Manifast</a>
+                            <a href="<?php echo base_url() . 'cadmin/home/'; ?>manifast" title="manifast">Buat Manifest</a>
                         </li>
                     </ul>    
                 </li>

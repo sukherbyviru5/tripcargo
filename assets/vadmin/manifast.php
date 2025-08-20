@@ -1,7 +1,7 @@
 <!-- RIBBON -->
 <div id="ribbon">
 	<ol class="breadcrumb">
-		<li>Home</li><li>Buat Manifast</li>
+		<li>Home</li><li>Buat Manifest</li>
 	</ol>
 </div>	
 <div id="content">
@@ -33,7 +33,7 @@
 					-->
 					<header>
 						<span class="widget-icon"> <i class="fa fa-edit"></i> </span>
-						<h2>Buat Manifast (dalam proses pengerjaan)</h2>
+						<h2>Buat Manifest (dalam proses pengerjaan)</h2>
 	
 					</header>
 	
@@ -53,7 +53,7 @@
 							<form id="smart-form-register" class="form-horizontal" >
 							
 								<fieldset>
-									<legend>Manifast</legend>
+									<legend>Manifest</legend>
 									<div class="form-group has-success col-md-12">
 										<label class="col-md-2 control-label">Tanggal</label>
 										<div class="col-md-3">
@@ -63,10 +63,10 @@
 												<span class="input-group-addon"><i class="glyphicon glyphicon-calendar" ></i></span>
 											</div>
 										</div>
-										<label class="col-md-2 control-label">No Manifast</label>
+										<label class="col-md-2 control-label">No Manifest</label>
 										<div class="col-md-3">
 											<div class="input-group">
-												<input class="form-control" placeholder="No Manifast (MFS 000000)" type="text" name="nom" id="txNom"  maxlength="10">
+												<input class="form-control" placeholder="No Manifest (MFS 000000)" type="text" name="nom" id="txNom"  maxlength="10">
 												<span class="input-group-addon"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i></span>
 											</div>
 										</div>
@@ -212,7 +212,7 @@
 								<thead>			                
 									<tr>
 										<th data-hide="phone" style="width:30px;">No</th>
-										<th data-hide="expand" style="width:auto;"></i> No Manifast</th>
+										<th data-hide="expand" style="width:auto;"></i> No Manifest</th>
 										<th data-class="phone"style="width:auto;"><i class="fa fa-fw fa-calendar text-muted hidden-md hidden-sm hidden-xs"></i> Tanggal</th>
 										<th data-hide="phone" style="width:auto;"><i class="fa fa-fw fa-car text-muted hidden-md hidden-sm hidden-xs"></i> Driver</th>
 										<th data-hide="phone" style="width:auto;"><i class="fa fa-phone fa-fw text-muted hidden-md hidden-sm hidden-xs"></i> HP Driver</th>

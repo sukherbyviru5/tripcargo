@@ -211,13 +211,13 @@
                         </li>
                     </ul>
                 </li>
-                <!-- Manifast -->
+                <!-- Manifest -->
                 <li>
-                    <a href="#" title="Manifast"><i class="fa fa-list-alt"></i> <span
-                            class="menu-item-parent">Manifast</span></a>
+                    <a href="#" title="Manifest"><i class="fa fa-list-alt"></i> <span
+                            class="menu-item-parent">Manifest</span></a>
                     <ul>
-                        <li class="<?php echo $this->app_model->status_menu($akt, 'manifast'); ?>">
-                            <a href="<?php echo base_url('cadmin/home/manifast'); ?>" title="Buat Manifast">Buat Manifast</a>
+                        <li class="<?php echo $this->app_model->status_menu($akt, 'manifest'); ?>">
+                            <a href="<?php echo base_url('cadmin/home/manifest'); ?>" title="Buat Manifest">Buat Manifest</a>
                         </li>
                     </ul>
                 </li>
@@ -239,8 +239,8 @@
                     <a href="#" title="Formulir"><i class="fa fa-lg fa-fw fa-newspaper-o"></i> <span
                             class="menu-item-parent">Formulir</span></a>
                     <ul>
-                        <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/Formulir_Manifast'); ?>" title="Formulir Manifast">Formulir
-                                Manifast</a></li>
+                        <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/Formulir_Manifest'); ?>" title="Formulir Manifest">Formulir
+                                Manifest</a></li>
                         <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/SURAT PEMBAYARAN VENDOR _1_.pdf'); ?>"
                                 title="Formulir Pembayaran Vendor">Formulir Pembayaran Vendor</a></li>
                         <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/Uang Jalan Oprasional.pdf'); ?>" title="Formulir Uang Jalan">Formulir Uang
@@ -370,13 +370,13 @@
                         </li>
                     </ul>
                 </li>
-                <!-- Manifast -->
+                <!-- Manifest -->
                 <li>
-                    <a href="#" title="Manifast"><i class="fa fa-list-alt"></i> <span
-                            class="menu-item-parent">Manifast</span></a>
+                    <a href="#" title="Manifest"><i class="fa fa-list-alt"></i> <span
+                            class="menu-item-parent">Manifest</span></a>
                     <ul>
-                        <li class="<?php echo $this->app_model->status_menu($akt, 'manifast'); ?>">
-                            <a href="<?php echo base_url('cadmin/home/manifast'); ?>" title="Buat Manifast">Buat Manifast</a>
+                        <li class="<?php echo $this->app_model->status_menu($akt, 'manifest'); ?>">
+                            <a href="<?php echo base_url('cadmin/home/manifest'); ?>" title="Buat Manifest">Buat Manifest</a>
                         </li>
                     </ul>
                 </li>
@@ -398,8 +398,8 @@
                     <a href="#" title="Formulir"><i class="fa fa-lg fa-fw fa-newspaper-o"></i> <span
                             class="menu-item-parent">Formulir</span></a>
                     <ul>
-                        <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/Formulir_Manifast'); ?>" title="Formulir Manifast">Formulir
-                                Manifast</a></li>
+                        <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/Formulir_Manifest'); ?>" title="Formulir Manifest">Formulir
+                                Manifest</a></li>
                         <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/SURAT PEMBAYARAN VENDOR _1_.pdf'); ?>"
                                 title="Formulir Pembayaran Vendor">Formulir Pembayaran Vendor</a></li>
                         <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/Uang Jalan Oprasional.pdf'); ?>" title="Formulir Uang Jalan">Formulir Uang
@@ -503,13 +503,13 @@
                         </li>
                     </ul>
                 </li>
-                <!-- Manifast -->
+                <!-- Manifest -->
                 <li>
-                    <a href="#" title="Manifast"><i class="fa fa-list-alt"></i> <span
-                            class="menu-item-parent">Manifast</span></a>
+                    <a href="#" title="Manifest"><i class="fa fa-list-alt"></i> <span
+                            class="menu-item-parent">Manifest</span></a>
                     <ul>
-                        <li class="<?php echo $this->app_model->status_menu($akt, 'manifast'); ?>">
-                            <a href="<?php echo base_url('cadmin/home/manifast'); ?>" title="Buat Manifast">Buat Manifast</a>
+                        <li class="<?php echo $this->app_model->status_menu($akt, 'manifest'); ?>">
+                            <a href="<?php echo base_url('cadmin/home/manifest'); ?>" title="Buat Manifest">Buat Manifest</a>
                         </li>
                     </ul>
                 </li>

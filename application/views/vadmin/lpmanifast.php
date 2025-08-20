@@ -11,7 +11,7 @@
 <!-- RIBBON -->
 <div id="ribbon">
 	<ol class="breadcrumb">
-		<li>Home</li><li>Cetak Manifast</li>
+		<li>Home</li><li>Cetak Manifest</li>
 	</ol>
 </div>	
 <div id="content">
@@ -45,7 +45,7 @@
 					-->
 					<header>
 						<span class="widget-icon"> <i class="fa fa-columns"></i> </span>
-						<h2>Daftar Manifast <span id="loading2"></span></h2>
+						<h2>Daftar Manifest <span id="loading2"></span></h2>
 	
 					</header>
 	
@@ -67,7 +67,7 @@
 								<thead>			                
 									<tr>
 										<th data-hide="phone" style="width:10px;">No</th>
-										<th data-class="phone" style="width:auto;"><i class="fa fa-fw fa-list-alt text-muted hidden-md hidden-sm hidden-xs"></i> Manifast</th>
+										<th data-class="phone" style="width:auto;"><i class="fa fa-fw fa-list-alt text-muted hidden-md hidden-sm hidden-xs"></i> Manifest</th>
 										<th data-class="phone"style="width:auto;"><i class="fa fa-fw fa-calendar text-muted hidden-md hidden-sm hidden-xs"></i> Tanggal</th>
 										<th data-hide="phone" style="width:auto;"><i class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> Driver</th>
 										<th data-hide="phone" style="width:auto;"><i class="fa fa-fw fa-phone text-muted hidden-md hidden-sm hidden-xs"></i> HP Driver</th>

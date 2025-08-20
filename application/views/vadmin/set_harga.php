@@ -1470,12 +1470,122 @@
 	
 </div>
 
+<!-- ui-dialog -->
+<div id="dialog_simple" title="Dialog Simple Title">
+	<p>
+		Apakah anda yakin akan menghapus data ini?
+	</p>
+</div>
+
 
 
 <script type="text/javascript">
 
 // DO NOT REMOVE : GLOBAL FUNCTIONS!
 
+	
+	var save_method; //for save method string
+	save_method="add";
+	$('#dialog_simple').dialog({
+			autoOpen : false,
+	});
+	
+	
+	function edit(id)
+	{
+		// save_method = 'update';
+		$('#smart-form-register')[0].reset(); // reset form on modals
+		// $('.form-group').removeClass('has-error'); // clear error class
+		// $('.help-block').empty(); // clear error string
+
+		//Ajax Load data from ajax
+		$.ajax({
+			url : "<?php echo base_url().'cadmin/home/set_harga_edit';?>/"+id,
+			type: "GET",
+			dataType: "JSON",
+			success: function(data)
+			{
+
+				$('[name="id"]').val(data.id);
+				$('[name="tujuan"]').val(data.tujuan);
+				$('[name="waktu"]').val(data.waktu);
+				$('[name="harga"]').val(data.harga);
+				$('[name="asal"]').val(data.asal);
+				$('[name="layanan"]').val(data.layanan);
+				$('[name="estimasi"]').val(data.estimasi);
+				
+				// $('[name="id"').attr('disabled',true);			
+				$('[name="simpan"]').val('update');
+				$('[name="simpan"]').text('Update'); 
+				$('#btnSave').text('Update');
+				save_method="update";
+				// $('.modal-title').text('Edit Dosen'); // Set title to Bootstrap modal title
+
+			},
+			error: function (jqXHR, textStatus, errorThrown)
+			{
+				alert('Error get data from ajax');
+			}
+		});
+	}
+
+	function hapus(id) {
+	
+			$('#dialog_simple').dialog({
+			autoOpen : false,
+			width : 400,
+			resizable : false,
+			modal : true,
+			title : "Hapus Data",
+			buttons : [{
+				html : "<i class='fa fa-trash-o'></i>&nbsp; Ya, Benar",
+				"class" : "btn btn-danger",
+				click : function() {
+					$(this).dialog("close");
+					
+					var kode = {id:id};
+					var table = $('#table').DataTable();
+					$('#loading2').html("<img src='<?php echo base_url().'assets/';?>img/loading.gif' />");
+					var loading = $("#loading2");
+					// alert('sukses'+id);
+					$.ajax({
+							type: "POST",
+							url : "<?php echo base_url().'cadmin/home/set_harga_hapus';?>/"+id,
+							data: kode,
+							// dataType: "JSON",
+							beforeSend: function(){
+							   // $("#loaderDiv").show();
+							   loading.fadeIn();						
+							},
+							success: function(status){
+								alert(status);
+								table.ajax.reload();
+								loading.fadeOut();
+								loading.hide();
+							},
+							error: function (jqXHR, textStatus, errorThrown)
+							{
+								alert('Error hapus data');
+								loading.fadeOut();
+								loading.hide();
+							}
+					});
+					//--------------------
+				}
+			}, {
+				html : "<i class='fa fa-times'></i>&nbsp; Batal",
+				"class" : "btn btn-default",
+				click : function() {
+					$(this).dialog("close");
+				}
+			}]
+		});
+		
+		$('#dialog_simple').dialog('open');
+			return false;
+			
+	}
+	
 	/*
 	* DIALOG SIMPLE
 	*/
@@ -1493,6 +1603,62 @@
 		table.ajax.reload();
 	}
 	
+	
+	function save()
+	{
+		$('#btnSave').text('Menyimpan...'); //change button text
+		$('#btnSave').attr('disabled',true); //set button disable 
+		
+		if(save_method=="add"){
+			$('[name="simpan"]').val('add');
+		}else{
+			$('[name="simpan"]').val('update');
+		}
+		var url;
+	   
+			url = "<?php echo base_url().'cadmin/home/set_harga_add';?>";
+			
+		
+	if($('[name="prov_id"]').val()=='' || $('[name="kab"]').val()==''){
+			alert('Data Kosong','Error');
+			// $('#smart-form-register')[0].checkValidity();
+			
+			$('#btnSave').text('Simpan'); //change button text
+			$('#btnSave').attr('disabled',false); //set button disable 
+		}else{
+		// ajax adding data to database
+
+			$.ajax({
+				url : url,
+				type: "POST",
+				data: $('#smart-form-register').serialize(),
+				dataType: "JSON",
+				success: function(data)
+				{
+
+					if(data.status) //if success close modal and reload ajax table
+					{
+						
+						$('#table').DataTable().ajax.reload();
+						$('#smart-form-register')[0].reset();
+						save_method="add";
+						alert('Posting/Update Sukses');
+					}
+					$('#btnSave').text('Simpan'); //change button text
+					$('#btnSave').attr('disabled',false); //set button enable 
+					$('[name="prov_id"').attr('disabled',false);	
+
+				},
+				error: function (jqXHR, textStatus, errorThrown)
+				{
+					alert('Error adding / update data');
+					$('#btnSave').text('Simpan'); //change button text
+					$('#btnSave').attr('disabled',false); //set button enable 
+
+				}
+			});
+		}
+	}
 	
 </script>
 
