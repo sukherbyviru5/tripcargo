@@ -227,38 +227,38 @@ s0.parentNode.insertBefore(s1,s0);
                     data-interval="3000"style=" padding: 0px 10px 0px 10px; font-family: monospace;">
                     <div class="carousel-inner" role="listbox">
                         <div class="item active"><a style="color: #000;"
-                                href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - LAMPUNG: 3.000 / kg
+                                href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - LAMPUNG: 3.000 / kg
                                 </b></a></div>
                         <div class="item "><a style="color: #000;"
-                                href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - PALEMBANG: 4.000 / kg
+                                href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - PALEMBANG: 4.000 / kg
                                 </b></a></div>
                         <div class="item "><a style="color: #000;"
-                                href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - JAMBI: 4.500 / kg
+                                href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - JAMBI: 4.500 / kg
                                 </b></a></div>
                         <div class="item "><a style="color: #000;"
-                                href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - PADANG: 5.000 / kg
+                                href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - PADANG: 5.000 / kg
                                 </b></a></div>
                         <div class="item "><a style="color: #000;"
-                                href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - BENGKULU: 6.000 / kg
+                                href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - BENGKULU: 6.000 / kg
                                 </b></a></div>
                         <div class="item "><a style="color: #000;"
-                                href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - PEKANBARU: 5.000 / kg
+                                href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - PEKANBARU: 5.000 / kg
                                 </b></a></div>
                         <div class="item "><a style="color: #000;"
-                                href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - MEDAN: 5.500 / kg
+                                href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - MEDAN: 5.500 / kg
                                 </b></a></div>
 
                         <div class="item "><a style="color: #000;"
-                                href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - PONTIANAK: 4.500 / kg
+                                href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - PONTIANAK: 4.500 / kg
                                 </b></a></div>
                         <div class="item "><a style="color: #000;"
-                                href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - MAKASSAR: 5.000 / kg
+                                href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - MAKASSAR: 5.000 / kg
                                 </b></a></div>
                         <div class="item "><a style="color: #000;"
-                                href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - BALIKPAPAN: 7.000 / kg
+                                href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - BALIKPAPAN: 7.000 / kg
                                 </b></a></div>
                         <div class="item "><a style="color: #000;"
-                                href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>DEPOK - SAMARINDA: 7.000 / kg
+                                href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>DEPOK - SAMARINDA: 7.000 / kg
                                 </b></a></div>
 
                     </div>
@@ -336,7 +336,7 @@ s0.parentNode.insertBefore(s1,s0);
 
             <!-- Logo text or image -->
             <a class="logo"href="<?php echo base_url(); ?>"><img
-                    src="https://tripcargoid.com/assets/atropos/images/Logo-Sancargo.png" alt="SANCARGO"
+                    src="https://tripcargo.test/assets/atropos/images/Logo-Sancargo.png" alt="SANCARGO"
                     style="width: 150px;"></a>
 
             <!-- Top Nav -->
@@ -508,7 +508,7 @@ s0.parentNode.insertBefore(s1,s0);
                                     </ul>
                             </div>
                             <!--div class="column col-sm-2 text-right" style="margin-left: 80px;">
-        <form method="get" action="https://tripcargoid.com/web/cari" class="input-group pull-right">
+        <form method="get" action="https://tripcargo.test/web/cari" class="input-group pull-right">
          <input type="text" value="" data-msg-required="Please enter your name." maxlength="11" class="form-control" name="k" id="k" value=" ">
          <span class="input-group-btn">
           <button class="btn btn-primary notransition"><i class="fa fa-search"></i></button>

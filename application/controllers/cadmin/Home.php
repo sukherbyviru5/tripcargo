@@ -2259,6 +2259,7 @@ class Home extends CI_Controller {
 			echo json_encode(['status' => true, 'message' => 'Gagal update promo.']);
         }
     }
+
 }
 
 /* End of file welcome.php */

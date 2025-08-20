@@ -131,7 +131,7 @@ body-taxt {
   list-style: none;
   /*background: #fff;*/
   background: linear-gradient(to left top, #f8f9f9 , #eae7e7);
-  /*background-image: url(https://tripcargoid.com//assets/upload/BG_Profil.jpg);*/
+  /*background-image: url(https://tripcargo.test//assets/upload/BG_Profil.jpg);*/
   cursor: pointer;
   padding-bottom: 10px;
   padding-top: 5px;
@@ -183,9 +183,9 @@ body-taxt {
                             <ul class="carousel">
                                 <li class="card">
                                 <div class="img">
-                                    <img src="https://tripcargoid.com/assets/atropos/images/deretan usaha masa depan.webp" alt="kemitraaan" style="max-width: 540px; height: auto; margin: 20.5px 0px; width: 300px;">
+                                    <img src="https://tripcargo.test/assets/atropos/images/deretan usaha masa depan.webp" alt="kemitraaan" style="max-width: 540px; height: auto; margin: 20.5px 0px; width: 300px;">
                                 </div>
-                                <p><a href="https://tripcargoid.com/join"><b>Ayo! bergabung bersama Trip Cargo</b></a>
+                                <p><a href="https://tripcargo.test/join"><b>Ayo! bergabung bersama Trip Cargo</b></a>
                                 <br><br>
                                 Kembangkan bisnismu sekarang juga<br>
                                 Bisnis logistik adalah bisnis cerdas

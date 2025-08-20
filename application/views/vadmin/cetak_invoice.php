@@ -25,7 +25,7 @@ $filtered_rows = 0;
             <b>Trip Cargo</b><br>
             <?php echo $contact[0]['alamat']; ?><br>
             Tlp. <?php echo $contact[0]['no_hp']; ?><br>
-            https://tripcargoid.com
+            https://tripcargo.test
         </p>
     </div>
     <div style="text-align: right;">

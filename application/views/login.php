@@ -98,7 +98,7 @@
     <div class="container">
         <div class="col-11 col-sm-10 col-md-4 mx-auto" style="margin-top: 50px;">
             <span id="logo" class="d-block text-center">
-                <img src="https://tripcargoid.com/assets/images/logo-sancargo.png" alt="Trip Cargo"
+                <img src="https://tripcargo.test/assets/images/logo-sancargo.png" alt="Trip Cargo"
                     style="width: 200px; display: block; margin: 10px auto;">
             </span>
             <div class="well no-padding">
@@ -150,10 +150,10 @@
 
                     <footer>
                         <div>
-                            <!--a href="https://tripcargoid.com/login" data-toggle="dropdown"> lupa kata sandi</a>
-    <br>
-   	 <a id="" href="https://tripcargoid.com/login" data-toggle="dropdown"><span class="hidden-xs"> Regristrasi</span></a-->
-                            <!-- <a class="btn btn-link"
+                            <!--a href="https://tripcargo.test/login" data-toggle="dropdown"> lupa kata sandi</a>
+				<br>
+				<a id="" href="https://tripcargo.test/login" data-toggle="dropdown"><span class="hidden-xs"> Regristrasi</span></a-->
+										<!-- <a class="btn btn-link"
                                 href="https://api.whatsapp.com/send/?phone=62881080899678&text=anda+lupa+kata+sandi+atau+password+(+ketik+user+id+)+&+nomor+hanpone+%3F+&type=phone_number&app_absent=0"
                                 role="button">Forgot password?</a> -->
                             <button type="submit" class="btn btn-primary" onclick="submit">Sign In</button>

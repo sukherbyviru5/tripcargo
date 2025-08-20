@@ -10,7 +10,7 @@
 <div align="left" style=" margin-top: -40px;">
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="https://tripcargoid.com/">Home</a></li>
+    <li class="breadcrumb-item"><a href="https://tripcargo.test/">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">Syarat dan ketentuan</li>
   </ol>
 </nav>
@@ -41,14 +41,14 @@
 <li>Perusahaan tidak menjamin ketepan waktu pengiriman atau penyerahan yang dikehendaki pengirim dan tidak menggantikan ganti rugi terhadap keterlambatan pengiriman yang disebabkan oleh kondisi lalu lintas pengangkutan.</li>
 <li>Perusahaan tidak memberi ganti rugi terhadap kerusakan / kehilangan akibat Bencana alam, huru-hara dan Force Majeure. Perusahaan akan mengganti rugi terhadap ketentuan-ketentuan yang berlaku.</li>
 <li>Trip Cargo tidak dapat menerima pengiriman logam mulia, perhiasan, perak, permata, wesel, cek dan surat-surat berharga lainnya yang dimasukkan kedalam kemasan kiriman, walaupun barang-barang tersebut diatas diminta untuk diasuransikan oleh pihak pengirim.</li>
-<li>Ganti rugi barang yang diasuransikan sesuai dengan perjanjian dalam <a class="news-link Midnight Blue" href="https://tripcargoid.com/web/Syarat_dan_ketentuan_Asuransi"target="_blank">polis asuransi</a> yang dibayar.</li>
+<li>Ganti rugi barang yang diasuransikan sesuai dengan perjanjian dalam <a class="news-link Midnight Blue" href="https://tripcargo.test/web/Syarat_dan_ketentuan_Asuransi"target="_blank">polis asuransi</a> yang dibayar.</li>
 <li>Pengajuan ganti rugi hanya pihak pengirim barang sendiri (bukan penerima atau wakilnya). Dan harus mengajukan ganti rugi selambat-lambatnya 1 (satu) bulan setelah tanggal kirim yang tertulis dalam tanda terima titipan dengan dilengkapi bukti-bukti yang sah.</li>
 <li>Trip Cargo tidak memberikan ganti rugi terhadap membusuknya barang kiriman berupa makanan atau kerugian lainnya yang timbul sebagai akibat dari sifat barang tersebut.</li>
 <li>Trip Cargo tidak memberikan ganti rugi atas barang kiriman yang cacat pada kemasannya, baik disebabkan oleh pihak ketiga maupun alat pengangkutan dan oleh tenaga manusia.</li>
 <li>Pengajuan Claim secara tertulis selambat-lambatnya dalam kurun waktu 1 (satu) bulan setelah tanggal pengiriman yang tertera pada surat Tanda Terima (WAB / Resi), dengan dilampirkan bukti-bukti yang diperlukan dan surat berita acara atau rekomendasi dari kantor cabang / perwakilan setempat.</li>
 <li>Ganti Rugi terhadap kehilangan barang kiriman secara total (lost Total) tidak bersifat Faktur / nota pembelian.</li></li>
 <li>Ketentuan yang di terapkan dalam setiap pengiriman barang, bilamana terjadi kehilangan / kekurangan dan kerusakan atas titipan, penggantian maxsimal hanya 10 (sepuluh) kali lipat biaya pengirim yang hilang atau kurang atau maksimal Rp. 1.000.000 (Satu Juta Rupiah).</li>
-<li><a class="news-link Midnight Blue" href="https://tripcargoid.com/contact"target="_blank">Pengajuan Claim</a> setelah lebih dari 1 (satu) bulan dari tanggal pengiriman yang tertera di (WAB / Resi) dianggap kedaluwarsa.</li>
+<li><a class="news-link Midnight Blue" href="https://tripcargo.test/contact"target="_blank">Pengajuan Claim</a> setelah lebih dari 1 (satu) bulan dari tanggal pengiriman yang tertera di (WAB / Resi) dianggap kedaluwarsa.</li>
 <li>Jadwal dan Waktu pemberangkatan armada / kapal / pesawat sewaktu-waktu dapat berubah tanpa pemberitahuan terlebih dahulu.</li>
 <li>Penghitungan berdasarkan Berat, Volume, Kubikasi dan Biaya tambahan sesuai dengan keadan barang kiriman.</li>
 <li>Berdasarkan dari besaran penghitungan Berat atau Volume, data yang lebih besar itu sebagai rumus kami yang akan di kali harga tujuan.</li>

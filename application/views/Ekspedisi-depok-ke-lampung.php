@@ -13,8 +13,8 @@
 <div align="left" style=" margin-top: -60px;">
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="https://tripcargoid.com/">Home</a></li>
-    <li class="breadcrumb-item"><a href="https://tripcargoid.com/ekspedisi">Ekspedisi</a></li>
+    <li class="breadcrumb-item"><a href="https://tripcargo.test/">Home</a></li>
+    <li class="breadcrumb-item"><a href="https://tripcargo.test/ekspedisi">Ekspedisi</a></li>
     <li class="breadcrumb-item active" aria-current="page">Ekspedisi Depok ke Lampung</li>
   </ol>
 </nav>
@@ -115,56 +115,56 @@ Juga melayani pengiriman motor dengan tarif bervariasi dari tarif 350.000 - 450.
 <div class="row">
 <!-- FORM -->
 <div class="col-md-4">            
-<hr style=" margin-top: 50px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/ekspedisi_depok_ke_lampung"><b> -  Ekspedisi Depok ke Lampung</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/ekspedisi"><b> -  Ekspedisi Depok ke Palembang</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/ekspedisi"><b> -  Ekspedisi Depok ke Jambi</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Bengkulu</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Padang</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Pekanbaru</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Medan</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Aceh</b></a></div>
+<hr style=" margin-top: 50px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/ekspedisi_depok_ke_lampung"><b> -  Ekspedisi Depok ke Lampung</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/ekspedisi"><b> -  Ekspedisi Depok ke Palembang</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/ekspedisi"><b> -  Ekspedisi Depok ke Jambi</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Bengkulu</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Padang</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Pekanbaru</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Medan</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Aceh</b></a></div>
 <br>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Batam</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Tanjung Pinang</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Pangkal Pianang</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Belitung</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Batam</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Tanjung Pinang</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Pangkal Pianang</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Belitung</b></a></div>
 <hr style=" margin-top: 3px;">            
 </div>
 <div class="col-md-4">            
-<hr style=" margin-top: 50px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/Jasa_kirim_motor_dari_Depok"><b> -  Kirim Motor Ke Lampung</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Serang</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Balaraja</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Cikupa</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Tanggerang</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Serpong</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Bintaro</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Ciputat</b></a></div>
+<hr style=" margin-top: 50px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/Jasa_kirim_motor_dari_Depok"><b> -  Kirim Motor Ke Lampung</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Serang</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Balaraja</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Cikupa</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Tanggerang</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Serpong</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Bintaro</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Ciputat</b></a></div>
 <br>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Jakarta</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Depok</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Bogor</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Bekasi</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Jakarta</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Depok</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Bogor</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Bekasi</b></a></div>
 <hr style=" margin-top: 3px;">            
 </div>
 <div class="col-md-4">
-<hr style=" margin-top: 50px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Cikarang</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Jababeka</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Karawang</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Purwakarta</b></a></div>
+<hr style=" margin-top: 50px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Cikarang</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Jababeka</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Karawang</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Purwakarta</b></a></div>
 <br>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Sukabumi</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Pelabuhanratu</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Cianjur</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Padalarang</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Sukabumi</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Pelabuhanratu</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Cianjur</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Padalarang</b></a></div>
 <br>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Cimahi</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Bandung</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Sumedang</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Garut</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Tasikmalaya</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Ciamis</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Banjar</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Ekspedisi Depok ke Pangandaran</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Cimahi</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Bandung</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Sumedang</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Garut</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Tasikmalaya</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Ciamis</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Banjar</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Ekspedisi Depok ke Pangandaran</b></a></div>
 
 </div>
 </div> 
@@ -287,7 +287,7 @@ body-taxt {
   list-style: none;
   /*background: #fff;*/
   background: linear-gradient(to left top, #007cbd ,  #21409A);
-  /*background-image: url(https://tripcargoid.com//assets/upload/BG_Profil.jpg);*/
+  /*background-image: url(https://tripcargo.test//assets/upload/BG_Profil.jpg);*/
   cursor: pointer;
   padding-bottom: 1px
   flex-direction: column;
@@ -333,7 +333,7 @@ body-taxt {
   list-style: none;
   background: linear-gradient(to left top, #007cbd, #21409A);
   /*background: #eae7e7);*/
-  /*background-image: url(https://tripcargoid.com//assets/upload/BG_Profil.jpg);*/
+  /*background-image: url(https://tripcargo.test//assets/upload/BG_Profil.jpg);*/
   cursor: pointer;
   padding-bottom: 10px
   flex-direction: column;
