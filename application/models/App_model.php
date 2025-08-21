@@ -1214,6 +1214,7 @@ public function money_format($format, $number)
         if ($id) {
             return $this->db->get_where('asal', ['id' => $id])->row_array();
         } else {
+			$this->db->order_by('nama', 'ASC'); 
             return $this->db->get('asal')->result_array();
         }
     }
@@ -1223,6 +1224,7 @@ public function money_format($format, $number)
         if ($id) {
             return $this->db->get_where('tujuan', ['id' => $id])->row_array();
         } else {
+			$this->db->order_by('nama', 'ASC'); 
             return $this->db->get('tujuan')->result_array();
         }
     }

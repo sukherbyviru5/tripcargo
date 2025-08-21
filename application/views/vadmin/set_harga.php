@@ -59,32 +59,37 @@
                                     <fieldset>
                                         <legend>Jarak Pengiriman</legend>
                                         <div class="form-group has-success">
-                                            <label class="col-md-4 control-label">Asal</label>
-                                            <div class="col-md-8">
-                                                <div class="input-group">
-                                                    <select class="form-control" name="asal">
-                                                        <?php foreach ($asal as $row): ?>
-                                                            <option value="<?= $row['nama']; ?>"><?= $row['nama']; ?></option>
-                                                        <?php endforeach; ?>
-                                                    </select>
-                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
+											<label class="col-md-4 control-label">Asal</label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<select class="form-control" name="asal">
+														<?php foreach ($asal as $row): ?>
+															<option value="<?= trim($row['nama']); ?>">
+																<?= trim($row['nama']); ?>
+															</option>
+														<?php endforeach; ?>
+													</select>
+													<span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+												</div>
+											</div>
+										</div>
 
-                                        <div class="form-group has-success">
-                                            <label class="col-md-4 control-label">Tujuan</label>
-                                            <div class="col-md-8">
-                                                <div class="input-group">
-                                                    <select class="form-control" name="tujuan">
-                                                        <?php foreach ($tujuan as $row): ?>
-                                                            <option value="<?= $row['nama']; ?>"><?= $row['nama']; ?></option>
-                                                        <?php endforeach; ?>
-                                                    </select>
-                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
+										<div class="form-group has-success">
+											<label class="col-md-4 control-label">Tujuan</label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<select class="form-control" name="tujuan">
+														<?php foreach ($tujuan as $row): ?>
+															<option value="<?= trim($row['nama']); ?>">
+																<?= trim($row['nama']); ?>
+															</option>
+														<?php endforeach; ?>
+													</select>
+													<span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
+												</div>
+											</div>
+										</div>
+
 
                                         <div class="form-group has-success">
                                             <label class="col-md-4 control-label">Layanan</label>
@@ -274,24 +279,19 @@
 			url : "<?php echo base_url().'cadmin/home/set_harga_edit';?>/"+id,
 			type: "GET",
 			dataType: "JSON",
-			success: function(data)
-			{
-
+			success: function(data) {
 				$('[name="id"]').val(data.id);
-				$('[name="tujuan"]').val(data.tujuan);
-				$('[name="waktu"]').val(data.waktu);
-				$('[name="harga"]').val(data.harga);
-				$('[name="asal"]').val(data.asal);
-				$('[name="layanan"]').val(data.layanan);
-				$('[name="estimasi"]').val(data.estimasi);
-				
-				// $('[name="id"').attr('disabled',true);			
+				$('[name="tujuan"]').val($.trim(data.tujuan));
+				$('[name="waktu"]').val($.trim(data.waktu));
+				$('[name="harga"]').val($.trim(data.harga));
+				$('[name="asal"]').val($.trim(data.asal));
+				$('[name="layanan"]').val($.trim(data.layanan));
+				$('[name="estimasi"]').val($.trim(data.estimasi));
+
 				$('[name="simpan"]').val('update');
 				$('[name="simpan"]').text('Update'); 
 				$('#btnSave').text('Update');
-				save_method="update";
-				// $('.modal-title').text('Edit Dosen'); // Set title to Bootstrap modal title
-
+				save_method = "update";
 			},
 			error: function (jqXHR, textStatus, errorThrown)
 			{
