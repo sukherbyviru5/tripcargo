@@ -72,7 +72,6 @@ class Pdf extends FPDF {
 /* Setting zona waktu */
 date_default_timezone_set('Asia/Jakarta');
 
-// UBAH DISINI: Ubah orientasi dari 'L' (default lama) menjadi 'P' untuk Potret
 $pdf = new Pdf('P'); 
 $pdf->SetMargins(0.8, 0.6, 0.8);
 $pdf->AliasNbPages();
@@ -82,7 +81,6 @@ $pdf->SetLineWidth(0.02);
 // Data preparation
 $d = $rs[0];
 
-// Lebar konten yang tersedia (A4 Potret: 21cm - 0.8cm margin kiri - 0.8cm margin kanan)
 $available_width = 19.4;
 
 // Logo
@@ -103,13 +101,18 @@ if (!is_dir($image_dir)) {
 imagejpeg($image_resource, $image_dir . $image_name);
 $barcodePath = $image_dir . $image_name;
 if (file_exists($barcodePath)) {
-    // UBAH DISINI: Pindahkan posisi X barcode ke dalam area halaman potret
     $pdf->Image($barcodePath, $available_width - 3.0, 0.6, 4.0); 
 }
 
 // QR Code URL Preparation
 $qrData = "https://tripcargoid.com/web/cari?k=" . $d->resi;
 $qrApiUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" . urlencode($qrData);
+
+// === Add $d->alamat_pel Above ASAL Box ===
+$pdf->SetFont('Helvetica', '', 6);
+$pdf->SetXY(1.0, 2.0);
+$pdf->MultiCell($available_width, 0.3, $d->alamat_pel ?: 'No address provided', 0, 'L');
+$pdf->Ln(0.2);
 
 // === Header Table ===
 $pdf->SetFont('Helvetica', 'B', 7);
@@ -134,11 +137,11 @@ $pdf->Ln(0.5);
 // === Informasi Asal & Biaya (Struktur diubah menjadi vertikal agar muat) ===
 $y_start_info = $pdf->GetY();
 
-// Alamat Asal (lebar penuh)
-$pdf->SetFont('Helvetica', '', 6);
-$asalText = $d->alamat_pel ?: 'Jl. Kp. Parung Serab No. 33 F Rt.5 / 3 Tirtajaya, Sukmajaya, Depok';
-$pdf->MultiCell($available_width, 0.3, $asalText, 'LTR', 'C');
-$pdf->Cell($available_width, 0.3, "CSO. " . ($d->telp_p ?: '0881080899678') . " - tripcargo.test", 'LBR', 1, 'C');
+// // Alamat Asal (lebar penuh)
+// $pdf->SetFont('Helvetica', '', 6);
+// $asalText = $alamat_pertama ?: 'Jl. Kp. Parung Serab No. 33 F Rt.5 / 3 Tirtajaya, Sukmajaya, Depok';
+// $pdf->MultiCell($available_width, 0.3, $asalText, 'LTR', 'C');
+// $pdf->Cell($available_width, 0.3, "CSO. " . ($d->telp_p ?: '0881080899678') . " - tripcargo.test", 'LBR', 1, 'C');
 
 // Detail Biaya (di bawahnya, lebar penuh)
 $pdf->SetFont('Helvetica', 'B', 6);

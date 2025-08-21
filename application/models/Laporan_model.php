@@ -8,6 +8,7 @@ class Laporan_model extends CI_Model {
 		parent::__construct();
 		$this->load->database();
 		$this->load->model('Setting_contact_model');
+		
 	}
 	public function cetak_manifast() 
 	{
@@ -158,7 +159,7 @@ class Laporan_model extends CI_Model {
 		$d['pengirim']				= $pengirim;
 		$d['payment_type']				= $payment_type;
 		$d['tujuan']				= $tujuan;
-		$d['contact'] = $this->Setting_contact_model->get_all();
+		$d['contact']		 = $this->Setting_contact_model->get_all();
 		$d['user_id']			= $user_id;
 
 				
@@ -205,7 +206,7 @@ class Laporan_model extends CI_Model {
 	
 	public function cetak_resi($f) 
 	{
-		$id = urldecode($this->uri->segment(4)  ?? '');		
+		$id = urldecode($this->uri->segment(4) ?? '');        
 		$q = $this->db->query("SELECT 
 			b.nama,
 			b.alamat as alamat_pel,
@@ -215,26 +216,31 @@ class Laporan_model extends CI_Model {
 			b.telp as telp_p,
 			b.dept,
 			a.* 
-			
-			
 			from paket as a 
 			inner join pelanggan as b 
 			on a.pel_id=b.pel_id
 			where a.id='$id'")->result();
 						
 		$d['rs'] = $q;
-		$d['judul'] 			= $this->config->item('judul');
-		$d['nama_perusahaan'] 	= $this->config->item('nama_perusahaan');
+		$d['judul'] = $this->config->item('judul');
+		$d['nama_perusahaan'] = $this->config->item('nama_perusahaan');
 		$d['alamat_perusahaan'] = $this->config->item('alamat_perusahaan');
-		$d['telp_perusahaan'] 	= $this->config->item('telp_perusahaan');
-		$d['lisensi']			= $this->config->item('lisensi_app');
-		if($f==1){
-			// print_r($d);
-		$this->load->view('vadmin/pdf_resi', $d);
-		}else{
-		$this->load->view('vadmin/pdf_resi2', $d);
+		$d['telp_perusahaan'] = $this->config->item('telp_perusahaan');
+		$d['lisensi'] = $this->config->item('lisensi_app');
+		$d['contact'] = $this->Setting_contact_model->get_all();
+
+		if (!empty($d['contact']) && isset($d['contact'][0]['alamat'])) {
+			$alamat_array = json_decode($d['contact'][0]['alamat'], true);
+			$d['alamat_pertama'] = !empty($alamat_array) ? $alamat_array[0] : ''; 
+		} else {
+			$d['alamat_pertama'] = ''; 
 		}
-		
+
+		if ($f == 1) {
+			$this->load->view('vadmin/pdf_resi', $d);
+		} else {
+			$this->load->view('vadmin/pdf_resi2', $d);
+		}
 	}
 	
 	public function cetak_penolakan_asuransi($f) //toso
