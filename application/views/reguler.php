@@ -81,8 +81,8 @@
                     <hr style="margin-top: -25px;">
                         <nav style="margin-top: -60px;" aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="https://tripcargo.test/">Home</a></li>
-                                <li class="breadcrumb-item"><a href="https://tripcargo.test/Produk_dan_Layanan">Layanan</a></li>
+                                <li class="breadcrumb-item"><a href="https://tripcargoid.com/">Home</a></li>
+                                <li class="breadcrumb-item"><a href="https://tripcargoid.com/Produk_dan_Layanan">Layanan</a></li>
                                 <li class="breadcrumb-item active" aria-current="">Reguler</li>
                             </ol>
                         </nav>
@@ -297,7 +297,7 @@ div.desc4 {
                         </div>
                         <div class="pesan">
                         <div class="container">
-                            <a href="https://tripcargo.test/web/Tarif_Kargo_Hemat">
+                            <a href="https://tripcargoid.com/web/Tarif_Kargo_Hemat">
                             <b style="color: RED; font-size: 1em; font-weight: 900;">Kota Bandung</b>
                             </a>
                         </div>    
@@ -344,7 +344,7 @@ div.desc4 {
                                     <b>Maxsimal berat 10 Kg</b>
                                 </div>
                                     <div class="pesan">
-                                        <a href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> 
+                                        <a href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> 
                                         <b style="color: RED; font-size: 1em; font-weight: 900;">Kota Bandar Lampung</b>
                                         </a>
                                     </div>
@@ -396,7 +396,7 @@ div.desc4 {
                                     <b>Maxsimal berat 10 Kg</b>
                                 </div>
                                     <div class="pesan">
-                                        <a href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> 
+                                        <a href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> 
                                         <b style="color: RED; font-size: 1em; font-weight: 900;">Kota Yogyakarta</b>
                                         </a>
                                     </div>
@@ -448,7 +448,7 @@ div.desc4 {
                                     <b>Maxsimal berat 10 Kg</b>
                                 </div>
                                     <div class="pesan">
-                                        <a href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> 
+                                        <a href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> 
                                         <b style="color: RED; font-size: 1em; font-weight: 900;">Kota Makassar</b>
                                         </a>
                                     </div>
@@ -661,7 +661,7 @@ div.desc4 {
 								data-endspeed="500"
 								style="z-index: 7; max-width: auto; max-height: auto; white-space: nowrap;"> MOVERS SERVISCE
 							</div>
-							<a target="_blank" href="https://tripcargo.test/web/movers">
+							<a target="_blank" href="https://tripcargoid.com/web/movers">
 							<div class="tp-caption sft modern_big_redbg" 
 								data-x="450" 
 								data-y="150" 
@@ -711,7 +711,7 @@ div.desc4 {
 						
 						<li data-transition="fade" data-slotamount="7" data-masterspeed="1000" data-delay="5000" >
 							<img src="https://1.bp.blogspot.com/-5QG3CjdBXOY/X5RNPgKb_HI/AAAAAAAAMmE/SG6Wwdzid8s6TGs1TKtnL-cWFdUyVesWwCLcBGAsYHQ/s0/BG-Forklif.jpg" alt="" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-							<a target="_blank" href="https://tripcargo.test">
+							<a target="_blank" href="https://tripcargoid.com">
 							<div class="tp-caption sft large_bold_grey customin customout tp-resizeme"
 								data-x="center" data-hoffset="0"
 								data-y="center" data-voffset="-40"

@@ -48,6 +48,12 @@
                         <li span class="hidden-xs" class="<?php echo $this->app_model->status_menu($akt, 'area_prov'); ?>">
                             <a href="<?php echo base_url() . 'cadmin/home/'; ?>area_prov" title="Area Provinsi"><span class="menu-item-parent">Area Provinsi</span></a>
                         </li>
+                        <li span class="hidden-xs" class="<?php echo $this->app_model->status_menu($akt, 'asal'); ?>">
+                            <a href="<?php echo base_url() . 'cadmin/home/'; ?>asal" title="Asal"><span class="menu-item-parent">Asal</span></a>
+                        </li>
+                        <li span class="hidden-xs" class="<?php echo $this->app_model->status_menu($akt, 'tujuan'); ?>">
+                            <a href="<?php echo base_url() . 'cadmin/home/'; ?>tujuan" title="Tujuan"><span class="menu-item-parent">Tujuan</span></a>
+                        </li>
                         <li class="<?php echo $this->app_model->status_menu($akt, 'set_harga'); ?>">
                             <a href="<?php echo base_url() . 'cadmin/home/'; ?>set_harga" title="Setting Harga"><span class="menu-item-parent">Setting Harga</span></a>
                         </li>
@@ -188,7 +194,7 @@
                             <a target="_blank" href="<?php echo base_url(); ?>assets/atropos/images/tarif.pdf" alt="" title="tarif.pdf">Tarif</a>
                         </li>
                         <li class="hidden-xs">
-                            <a target="_blank" href="https://tripcargo.test/web/Tarif_Kargo_Hemat" alt="" title="tarif hemat">Tarif Hemat</a>
+                            <a target="_blank" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat" alt="" title="tarif hemat">Tarif Hemat</a>
                         </li>
                         <li class="hidden-xs">
                             <a target="_blank" href="<?php echo base_url(); ?>assets/atropos/images/TARIF SANCARGO-A 2025.pdf" alt="" title="tarif hemat">TARIF A 2025.pdf</a>
@@ -371,7 +377,7 @@
                     <a href="#" title="Tarif"><i class="fa fa-money" aria-hidden="true"></i><span class="menu-item-parent">Tarif</span></a>
                     <ul>
                         <li>
-                            <a target="_blank" href="https://tripcargo.test/web/Tarif_Kargo_Hemat" alt="" title="tarif hemat">Tarif Hemat</a>
+                            <a target="_blank" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat" alt="" title="tarif hemat">Tarif Hemat</a>
                         </li>
                         <li>
                             <a target="_blank" href="<?php echo base_url(); ?>assets/atropos/images/TARIF SANCARGO-A 2025.pdf" alt="" title="tarif hemat">TARIF A 2025.pdf</a>

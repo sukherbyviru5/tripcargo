@@ -8,6 +8,8 @@ class Home extends CI_Controller {
 		$this->load->helper('url');	
 		$this->load->model('app_model','model');
 		$this->load->model('prov_model','prov');
+		$this->load->model('asal_model','asal');
+		$this->load->model('tujuan_model','tujuan');
 		$this->load->model('kab_model','kab');
 		$this->load->model('kec_model','kec');
 		$this->load->model('contact_model','contact');
@@ -612,6 +614,194 @@ class Home extends CI_Controller {
 		$data = $this->prov->get_by_id($id);
 		echo json_encode($data);
 	}
+
+
+	// -----------------------------------------------------------------
+	public function asal()
+	{
+		$cek = $this->session->userdata('logged_in');
+		$level = $this->session->userdata('level');
+		if(!empty($cek)){
+			$d['judul'] = $this->config->item('judul');
+			$d['nama_perusahaan'] = $this->config->item('nama_perusahaan');
+			$d['alamat_perusahaan'] = $this->config->item('alamat_perusahaan');
+			$d['lisensi'] = $this->config->item('lisensi_app');
+			
+			$d['jam_now'] = $this->app_model->Jam_Now(); 
+			$d['hari_now'] = $this->app_model->Hari_Bulan_Indo(); 
+			$d['tgl_now'] = $this->app_model->tgl_now_indo();
+			$id=$this->session->userdata('username');
+			$d['record'] = $this->model->get_users($id);
+			$d['isi'] = $this->load->view('vadmin/asal', $d, true);
+			
+			$this->load->view('vadmin/media',$d);
+		}else{
+			$this->session->set_flashdata('result_login', '<font color="red">Sesi login habis atau terhapuskan.</font>');
+			redirect('./cadmin/home/logout/','refresh');
+		}
+	}
+
+	public function asal_ajax_list()
+	{
+		$list = $this->asal->get_datatables();
+		$data = array();
+		$no = $_POST['start'];
+		foreach ($list as $l) {
+			$no++;
+			$row = array();
+			$row[] = '<div class="text-center">'.$no.'</div>';
+			$row[] = $l->nama;
+			//add html for action
+			$level = $this->session->userdata('level');
+			if($level=='superadmin'){
+			$row[] = '<div class="text-center">
+					<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('."'".$l->id."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
+					<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="hapus('."'".$l->id."'".')"><i class="glyphicon glyphicon-trash"></i></a>
+				  </div>';
+			}else{
+				$row[] = '<div class="text-center">
+						<span class="badge inbox-badge bg-color-redLight hidden-mobile">Disabled</span>
+				  </div>';
+			}
+			$data[] = $row;
+		}
+
+		$output = array(
+						"draw" => $_POST['draw'],
+						"recordsTotal" 		=> $this->asal->count_all(),
+						"recordsFiltered" 	=> $this->asal->count_filtered(),
+						"data" => $data,
+				);
+		//output to json format
+		echo json_encode($output);
+	}
+
+	public function asal_add() //fungsi create
+	{
+		$cek = $this->session->userdata('logged_in');
+		$level = $this->session->userdata('level');
+		
+		if(!empty($cek)){
+		if(!isset($_POST))
+			show_404();
+		
+		if($this->asal->asal_add())
+			echo json_encode(array('status'=>true));
+		else
+			echo json_encode(array('msg'=>'Gagal memasukan data'));
+		}else{
+				redirect('/cadmin/home/logout/','refresh');
+		}
+	}
+	public function asal_edit($id)
+	{
+		$data = $this->asal->get_by_id($id);
+		echo json_encode($data);
+	}
+
+	public function asal_hapus($id)
+	{
+		
+		if($this->asal->delete_by_id($id))
+			echo 'Sukses dihapus';
+		else
+			echo 'Gagal dihapus';
+		
+	}
+
+	// -----------------------------------------------------------------
+	public function tujuan()
+	{
+		$cek = $this->session->userdata('logged_in');
+		$level = $this->session->userdata('level');
+		if(!empty($cek)){
+			$d['judul'] = $this->config->item('judul');
+			$d['nama_perusahaan'] = $this->config->item('nama_perusahaan');
+			$d['alamat_perusahaan'] = $this->config->item('alamat_perusahaan');
+			$d['lisensi'] = $this->config->item('lisensi_app');
+			
+			$d['jam_now'] = $this->app_model->Jam_Now(); 
+			$d['hari_now'] = $this->app_model->Hari_Bulan_Indo(); 
+			$d['tgl_now'] = $this->app_model->tgl_now_indo();
+			$id=$this->session->userdata('username');
+			$d['record'] = $this->model->get_users($id);
+			$d['isi'] = $this->load->view('vadmin/tujuan', $d, true);
+			
+			$this->load->view('vadmin/media',$d);
+		}else{
+			$this->session->set_flashdata('result_login', '<font color="red">Sesi login habis atau terhapuskan.</font>');
+			redirect('./cadmin/home/logout/','refresh');
+		}
+	}
+
+	public function tujuan_ajax_list()
+	{
+		$list = $this->tujuan->get_datatables();
+		$data = array();
+		$no = $_POST['start'];
+		foreach ($list as $l) {
+			$no++;
+			$row = array();
+			$row[] = '<div class="text-center">'.$no.'</div>';
+			$row[] = $l->nama;
+			//add html for action
+			$level = $this->session->userdata('level');
+			if($level=='superadmin'){
+			$row[] = '<div class="text-center">
+					<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('."'".$l->id."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
+					<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="hapus('."'".$l->id."'".')"><i class="glyphicon glyphicon-trash"></i></a>
+				  </div>';
+			}else{
+				$row[] = '<div class="text-center">
+						<span class="badge inbox-badge bg-color-redLight hidden-mobile">Disabled</span>
+				  </div>';
+			}
+			$data[] = $row;
+		}
+
+		$output = array(
+						"draw" => $_POST['draw'],
+						"recordsTotal" 		=> $this->tujuan->count_all(),
+						"recordsFiltered" 	=> $this->tujuan->count_filtered(),
+						"data" => $data,
+				);
+		//output to json format
+		echo json_encode($output);
+	}
+
+	public function tujuan_add() //fungsi create
+	{
+		$cek = $this->session->userdata('logged_in');
+		$level = $this->session->userdata('level');
+		
+		if(!empty($cek)){
+		if(!isset($_POST))
+			show_404();
+		
+		if($this->tujuan->tujuan_add())
+			echo json_encode(array('status'=>true));
+		else
+			echo json_encode(array('msg'=>'Gagal memasukan data'));
+		}else{
+				redirect('/cadmin/home/logout/','refresh');
+		}
+	}
+	public function tujuan_edit($id)
+	{
+		$data = $this->tujuan->get_by_id($id);
+		echo json_encode($data);
+	}
+
+	public function tujuan_hapus($id)
+	{
+		
+		if($this->tujuan->delete_by_id($id))
+			echo 'Sukses dihapus';
+		else
+			echo 'Gagal dihapus';
+		
+	}
+
 	//------------------------------------------------------------------
 	public function set_harga()
 	{
@@ -626,6 +816,8 @@ class Home extends CI_Controller {
 			$d['jam_now'] = $this->app_model->Jam_Now(); 
 			$d['hari_now'] = $this->app_model->Hari_Bulan_Indo(); 
 			$d['tgl_now'] = $this->app_model->tgl_now_indo();
+			$d['tujuan'] = $this->app_model->get_tujuan();
+			$d['asal'] = $this->app_model->get_asal();
 			$id=$this->session->userdata('username');
 			$d['record'] = $this->model->get_users($id);
 			$d['isi'] = $this->load->view('vadmin/set_harga', $d, true);

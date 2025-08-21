@@ -50,7 +50,7 @@ class Users extends CI_Controller {
 					'<br><div style="display: none;"><span class="hidden-xs">' .
 					'<a href="tel://' . $users->nomor_hp . '" target="_blank"><i class="fa fa-phone" style="font-size:1.3em"> </i></a>&nbsp;&nbsp;&nbsp;&nbsp;' .
 					'<a href="https://api.whatsapp.com/send?phone=' . $users->nomor_hp . '" target="_blank"><i class="fa fa-whatsapp" style="font-size:1.3em"> </i></a>&nbsp;&nbsp;&nbsp;&nbsp;</span></div>';
-			$row[] = '<img src="https://tripcargo.test/assets/upload/' . $users->foto . '" class="img-thumbnail" alt="Cinque Terre" width="100" height="100" img-responsive title="' . $users->foto . '"><br>';
+			$row[] = '<img src="https://tripcargoid.com/assets/upload/' . $users->foto . '" class="img-thumbnail" alt="Cinque Terre" width="100" height="100" img-responsive title="' . $users->foto . '"><br>';
 			$row[] = '<div style="width:auto;">' . $users->area . ' ' . $users->kec_id . '<br><span class="hidden-xs"><a href="https://www.google.com/maps/place/' . $users->alamat_tinggal . '" target="_blank">' . $users->alamat_tinggal . '</a></span><br><a href="https://www.google.com/maps/place/' . $this->app_model->find_kec($users->kec_id) . '" target="_blank">' . $this->app_model->find_kec($users->kec_id) . '</a></div>' .
 					'<br><a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_users(\'' . $users->id . '\')"><i class="glyphicon glyphicon-pencil"></i></a>' .
 					'<span class="hidden-xs"> <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_users(\'' . $users->id . '\')"><i class="glyphicon glyphicon-trash"></i></a></span>';

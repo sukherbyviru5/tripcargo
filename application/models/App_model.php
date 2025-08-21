@@ -1134,7 +1134,6 @@ public function money_format($format, $number)
 
 
 	
-
 	function area_kec_list(){
 	
 		$q=$this->db->query("SELECT * from kec order by kec_id desc");
@@ -1207,7 +1206,27 @@ public function money_format($format, $number)
 		));
 		
 	}
-	
+
+
+	// Asal dann tujuan
+    public function get_asal($id = null)
+    {
+        if ($id) {
+            return $this->db->get_where('asal', ['id' => $id])->row_array();
+        } else {
+            return $this->db->get('asal')->result_array();
+        }
+    }
+
+    public function get_tujuan($id = null)
+    {
+        if ($id) {
+            return $this->db->get_where('tujuan', ['id' => $id])->row_array();
+        } else {
+            return $this->db->get('tujuan')->result_array();
+        }
+    }
+
 	
 }
 	

@@ -1,10 +1,7 @@
-<?php 
-    $level = $this->session->userdata('level');
-?>
-        <!-- RIBBON -->
+<!-- RIBBON -->
 <div id="ribbon">
 	<ol class="breadcrumb">
-		<li>Home</li><li>Setting Harga</li>
+		<li>Home</li><li>Tujuan Pengiriman</li>
 	</ol>
 </div>	
 <div id="content">
@@ -16,7 +13,6 @@
 		<!-- row -->
 		<div class="row">
 	
-         <?php if ($level != 'admin2'): ?>
 			<!-- NEW WIDGET START -->
 			<article class="col-sm-12 col-md-12 col-lg-4">
 	
@@ -37,7 +33,7 @@
 					-->
 					<header>
 						<span class="widget-icon"> <i class="fa fa-edit"></i> </span>
-						<h2>Setting Harga</h2>
+						<h2>Set Tujuan Pengiriman</h2>
 	
 					</header>
 	
@@ -53,98 +49,43 @@
 	
 						<!-- widget content -->
 						<div class="widget-body">
-                           
-                                <form id="smart-form-register" class="form-horizontal" >
-                                    
-                                    <fieldset>
-                                        <legend>Jarak Pengiriman</legend>
-                                        <div class="form-group has-success">
-                                            <label class="col-md-4 control-label">Asal</label>
-                                            <div class="col-md-8">
-                                                <div class="input-group">
-                                                    <select class="form-control" name="asal">
-                                                        <?php foreach ($asal as $row): ?>
-                                                            <option value="<?= $row['nama']; ?>"><?= $row['nama']; ?></option>
-                                                        <?php endforeach; ?>
-                                                    </select>
-                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group has-success">
-                                            <label class="col-md-4 control-label">Tujuan</label>
-                                            <div class="col-md-8">
-                                                <div class="input-group">
-                                                    <select class="form-control" name="tujuan">
-                                                        <?php foreach ($tujuan as $row): ?>
-                                                            <option value="<?= $row['nama']; ?>"><?= $row['nama']; ?></option>
-                                                        <?php endforeach; ?>
-                                                    </select>
-                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group has-success">
-                                            <label class="col-md-4 control-label">Layanan</label>
-                                            <div class="col-md-8">
-                                                <div class="input-group">
-                                                    <input type="hidden" name="id">
-                                                    <input class="form-control" type="text" name="layanan" maxlength="30">
-                                                   
-                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-tags"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group has-success">
-                                            <label class="col-md-4 control-label">Tarif</label>
-                                            <div class="col-md-8">
-                                                <div class="input-group">
-                                                    <input class="form-control" type="text" name="harga" maxlength="15" onkeypress="return isNumberKey(event)">
-                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group has-success">
-                                            <label class="col-md-4 control-label">Estimasi</label>
-                                            <div class="col-md-8">
-                                                <div class="input-group">
-                                                    <input class="form-control" type="text" name="estimasi" maxlength="20">
-                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                    <script type="text/javascript">
-                                    
-                                        function isNumberKey(evt)
-                                        {
-                                            var charCode = (evt.which) ? evt.which : evt.keyCode;
-                                            if (charCode != 46 && charCode > 31 
-                                            && (charCode < 48 || charCode > 57))
-                                            return false;
-                                            return true;
-                                        }  
-                                    
-                                    </script>
-            
-                                    <div class="form-actions">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <!--button type="reset" name="rest" value="reset" class="btn btn-danger">
-                                                    <i class="fa fa-refresh"></i> Reset
-                                                </button-->
-                                                <input type="hidden" name="simpan">
-                                                <button type="button" id="btnSave"  onclick="save()" class="btn btn-primary">
-                                                    <i class="fa fa-floppy-o"></i>  Simpan <span id="loading"></span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-        
-                                </form>
-                            
+	
+							<form id="smart-form-register" class="form-horizontal" >
+								
+								<fieldset>
+									<legend>Tujuan</legend>
+									<div class="form-group has-success">
+										<label class="col-md-4 control-label">Nama asal</label>
+										
+										<div class="col-md-8">
+											<div class="input-group">
+												<input type="hidden" name="id">
+												<input class="form-control" type="text" name="nama" >
+												<span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
+											</div>
+										</div>
+									</div>
+									
+								</fieldset>
+								
+								
+	
+							
+								<div class="form-actions">
+									<div class="row">
+										<div class="col-md-12">
+											<button type="reset" name="rest" value="reset" class="btn btn-danger">
+												<i class="fa fa-refresh"></i> Reset
+											</button>
+											<input type="hidden" name="simpan">
+											<button type="button" id="btnSave"  onclick="save()" class="btn btn-primary">
+												<i class="fa fa-paper-plane"></i> Simpan <span id="loading"></span>
+											</button>
+										</div>
+									</div>
+								</div>
+	
+							</form>
 	
 						</div>
 						<!-- end widget content -->
@@ -158,11 +99,10 @@
 				
 	
 			</article>
-            <?php endif; ?>
 			<!-- WIDGET END -->
 			<!-- NEW WIDGET START -->
-			<article class="col-sm-12 col-md-12 col-lg-<?php echo ($level == 'admin2') ? '12' : '8'; ?>">
-
+			<article class="col-sm-12 col-md-12 col-lg-8">
+	
 				<!-- Widget ID (each widget will need unique ID)-->
 				<div class="jarviswidget" id="wid-id-10" data-widget-colorbutton="false" data-widget-editbutton="false">
 					<!-- widget options:
@@ -180,7 +120,7 @@
 					-->
 					<header>
 						<span class="widget-icon"> <i class="fa fa-columns"></i> </span>
-						<h2>List Tarif<span id="loading2"></span></h2>
+						<h2>Daftar Tujuan Pengiriman (Pengirim) <span id="loading2"></span></h2>
 	
 					</header>
 	
@@ -202,11 +142,7 @@
 								<thead>			                
 									<tr>
 										<th data-hide="phone" style="width:30px;">No</th>
-										<th data-class="expand"><i class="fa fa fa-map-o text-muted hidden-md hidden-sm hidden-xs"></i> Asal</th>
-										<th data-class="expand" ><i class="fa fa fa-map text-muted hidden-md hidden-sm hidden-xs"></i> Tujuan</th>
-										<th data-hide="phone" ><i class="fa fa fa-tags text-muted hidden-md hidden-sm hidden-xs"></i> Layanan</th>
-										<th data-class="expand" ><i class="fa fa-fw fa-money text-muted hidden-md hidden-sm hidden-xs"></i> Tarif</th>
-										<th data-hide="phone" ><i class="fa fa fa-clock-o text-muted hidden-md hidden-sm hidden-xs"></i> Estimasi</th>
+										<th data-class="phone" ><i class="fa fa-fw fa-tag text-muted hidden-md hidden-sm hidden-xs"></i> Tujuan</th>
 										<th data-hide="phone,tablet" style="width:80px;"><i class="fa fa-fw fa-gear txt-color-blue hidden-md hidden-sm hidden-xs"></i> Aksi</th>
 										
 									</tr>
@@ -248,8 +184,6 @@
 	</p>
 </div>
 
-
-
 <script type="text/javascript">
 
 // DO NOT REMOVE : GLOBAL FUNCTIONS!
@@ -271,21 +205,14 @@
 
 		//Ajax Load data from ajax
 		$.ajax({
-			url : "<?php echo base_url().'cadmin/home/set_harga_edit';?>/"+id,
+			url : "<?php echo base_url().'cadmin/home/tujuan_edit';?>/"+id,
 			type: "GET",
 			dataType: "JSON",
 			success: function(data)
 			{
 
 				$('[name="id"]').val(data.id);
-				$('[name="tujuan"]').val(data.tujuan);
-				$('[name="waktu"]').val(data.waktu);
-				$('[name="harga"]').val(data.harga);
-				$('[name="asal"]').val(data.asal);
-				$('[name="layanan"]').val(data.layanan);
-				$('[name="estimasi"]').val(data.estimasi);
-				
-				// $('[name="id"').attr('disabled',true);			
+				$('[name="nama"]').val(data.nama);
 				$('[name="simpan"]').val('update');
 				$('[name="simpan"]').text('Update'); 
 				$('#btnSave').text('Update');
@@ -321,7 +248,7 @@
 					// alert('sukses'+id);
 					$.ajax({
 							type: "POST",
-							url : "<?php echo base_url().'cadmin/home/set_harga_hapus';?>/"+id,
+							url : "<?php echo base_url().'cadmin/home/tujuan_hapus';?>/"+id,
 							data: kode,
 							// dataType: "JSON",
 							beforeSend: function(){
@@ -387,10 +314,10 @@
 		}
 		var url;
 	   
-			url = "<?php echo base_url().'cadmin/home/set_harga_add';?>";
+			url = "<?php echo base_url().'cadmin/home/tujuan_add';?>";
 			
 		
-	if($('[name="prov_id"]').val()=='' || $('[name="kab"]').val()==''){
+	if($('[name="nama"]').val()==''){
 			alert('Data Kosong','Error');
 			// $('#smart-form-register')[0].checkValidity();
 			
@@ -466,7 +393,7 @@ $(document).ready(function() {
 
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('cadmin/home/set_harga_ajax_list')?>",
+            "url": "<?php echo site_url('cadmin/home/tujuan_ajax_list')?>",
             "type": "POST"
         },
 		"preDrawCallback" : function() {

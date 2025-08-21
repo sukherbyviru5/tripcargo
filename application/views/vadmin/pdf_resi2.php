@@ -108,7 +108,7 @@ if (file_exists($barcodePath)) {
 }
 
 // QR Code URL Preparation
-$qrData = "https://tripcargo.test/web/cari?k=" . $d->resi;
+$qrData = "https://tripcargoid.com/web/cari?k=" . $d->resi;
 $qrApiUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" . urlencode($qrData);
 
 // === Header Table ===
