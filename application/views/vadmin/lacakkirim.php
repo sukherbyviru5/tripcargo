@@ -59,7 +59,7 @@
 										<div class="col-md-8">
 											<div class="input-group">
 												<input type="hidden" name="id">
-												<input class="form-control" type="text" placeholder="XXX99999999" name="resi" id="resi" data-mask="***99999999" data-mask-placeholder= "X">
+												<input class="form-control" type="text" placeholder="XXX99999999" name="resi" id="resi"  data-mask-placeholder= "X">
 												<span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
 											</div>
 										</div>
