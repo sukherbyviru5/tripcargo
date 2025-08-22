@@ -423,32 +423,27 @@
                     </ul>    
                 </li>
             <?php } elseif ($level == "umum") { ?>
+                
                 <li>
-                    <a href="#"><i class="fa fa-lg fa-fw fa-home"></i><span class="menu-item-parent">Home</span></a>
+                    <a href="#" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i><span class="menu-item-parent">Home</span></a>
                     <ul>
-                        <li class="<?php echo $this->app_model->status_menu($akt, 'dashboard'); ?>">
-                            <a href="<?php echo base_url() . 'cadmin/'; ?>home/dashboard" title="Dashboard"><span class="menu-item-parent">Dashboard</span></a>
-                        </li>
                         <li class="<?php echo $this->app_model->status_menu($akt, 'dashboard-umum'); ?>">
-                            <a href="<?php echo base_url() . 'cadmin/'; ?>home/dashboard_umum" title="Dashboard"><span class="menu-item-parent">Dashboard Umum</span></a>
+                            <a href="<?php echo base_url() . 'cadmin/'; ?>home/dashboard_umum" title="Dashboard Umum"><span class="menu-item-parent">Dashboard Umum</span></a>
                         </li>
                     </ul>    
                 </li>
-                <li>
-                    <a href="#" title="Tarif"><i class="fa fa-money" aria-hidden="true"></i><span class="menu-item-parent">Tarif</span></a>
+                <!-- <li>
+                    <a href="#" title="Entry Shipment"><i class="fa fa-lg fa-fw fa-cube"></i><span class="menu-item-parent">Entry Shipment</span></a>
                     <ul>
-                        <li>
-                            <a target="_blank" href="https://tripcargoid.com/web/Tarif_Kargo_Hemat" alt="" title="tarif hemat">Tarif Hemat</a>
+                        <li class="<?php echo $this->app_model->status_menu($akt, 'cargo'); ?>">
+                            <a href="<?php echo base_url() . 'cadmin/home/'; ?>cargo" title="Isi Data Pengiriman"><span class="menu-item-parent">Entry Shipment</span></a>
                         </li>
-                        <li>
-                            <a target="_blank" href="<?php echo base_url(); ?>assets/atropos/images/TARIF SANCARGO-A 2025.pdf" alt="" title="tarif hemat">TARIF A 2025.pdf</a>
-                        </li>
-                        <li>
-                            <a target="_blank" href="<?php echo base_url(); ?>assets/atropos/images/TARIF SANCARGO-B 2025.pdf" alt="" title="tarif hemat">TARIF B 2025.pdf</a>
+                        <li class="<?php echo $this->app_model->status_menu($akt, 'pelanggan'); ?>">
+                            <a href="<?php echo base_url() . 'cadmin/home/'; ?>pelanggan" title="Pelanggan"><span class="menu-item-parent">Pelanggan</span></a>
                         </li>
                     </ul>
-                </li>
-                <li>
+                </li> -->
+                    <li>
                     <a href="#" title="Cargo"><i class="fa fa-lg fa fa-paper-plane"></i><span class="menu-item-parent">Update</span></a>
                     <ul>
                         <li class="<?php echo $this->app_model->status_menu($akt, 'updatecargo'); ?>">
@@ -456,25 +451,40 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#" title="manifast"><i class="fa fa-list-alt"></i><span class="menu-item-parent">Manifest</span></a>
+                <!-- <li>
                     <ul>
-                        <li class="<?php echo $this->app_model->status_menu($akt, 'manifast'); ?>">
-                            <a href="<?php echo base_url() . 'cadmin/home/'; ?>manifast" title="manifast">Buat Manifest</a>
+                        <li class="<?php echo $this->app_model->status_menu($akt, 'lacakkirim'); ?>">
+                            <a href="<?php echo base_url() . 'cadmin/home/'; ?>lacakkirim" title="Lacak Pengiriman">Lacak Pengiriman</a>
                         </li>
-                    </ul>    
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title="Tarif"><i class="fa fa-money" aria-hidden="true"></i><span class="menu-item-parent">Tarif</span></a>
+                    <ul>
+                        <li>
+                            <a target="_blank" href="<?php echo base_url(); ?>assets/atropos/images/tarif.jpg" alt="" title="tarif hemat">Tarif Hemat jpg</a>
+                        </li>
+                    </ul>
                 </li>
                 <li span class="hidden-xs">
                     <a title="QRIS"><i class="fa fa-lg fa-fw fa-qrcode" aria-hidden="true"></i><span class="menu-item-parent">QRIS</span></a>
                     <ul>
                         <li>
-                            <a target="_blank" href="<?php echo base_url(); ?>assets/atropos/images/ID2025372662440.jpeg" alt="" title="Qris Trip Cargo"><img alt="Berkas:QRIS logo.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/e1/QRIS_logo.svg/150px-QRIS_logo.svg.png" decoding="async" width="auto" height="20" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/e1/QRIS_logo.svg/576px-QRIS_logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/e1/QRIS_logo.svg/350px-QRIS_logo.svg.png 2x" data-file-width="auto" data-file-height="32"></a>
+                            <a target="_blank" href="<?php echo base_url(); ?>assets/atropos/images/ID2025372662440.jpeg" alt="" title="Qris Trip Cargo">QRIS</a>
                         </li>
                         <li>
                             <a target="_blank" href="https://qr.klikbca.com/QRMerchantService/v2.10/home?mid=002804257" alt="" title="Laporan Qiris">Laporan Qris Trip Cargo</a>
                         </li>
-                    </ul>    
+                    </ul>
                 </li>
+                <li>
+                    <a href="#" title="WA"><i class="fa fa-whatsapp" aria-hidden="true"></i><span class="menu-item-parent">WA</span></a>
+                    <ul>
+                        <li class="<?php echo $this->app_model->status_menu($akt, 'lpengiriman'); ?>">
+                            <a target="_blank" href="https://api.whatsapp.com/send?phone=62881080899678" title="Hubungi Admin">Hubungi Admin</a>
+                        </li>
+                    </ul>
+                </li> -->
                 <li>
                     <a href="#" title="Lacak Pengiriman"><i class="fa fa-search"></i><span class="menu-item-parent">Search</span></a>
                     <ul>

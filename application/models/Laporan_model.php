@@ -162,6 +162,12 @@ class Laporan_model extends CI_Model {
 		$d['contact']		 = $this->Setting_contact_model->get_all();
 		$d['user_id']			= $user_id;
 
+		if (!empty($d['contact']) && isset($d['contact'][0]['alamat'])) {
+			$alamat_array = json_decode($d['contact'][0]['alamat'], true);
+			$d['alamat_pertama'] = !empty($alamat_array) ? $alamat_array[0] : ''; 
+		} else {
+			$d['alamat_pertama'] = ''; 
+		}
 				
 		$this->load->view('vadmin/cetak_invoice', $d);
 	}

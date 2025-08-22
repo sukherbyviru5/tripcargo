@@ -155,7 +155,7 @@
 									
 										<div class="col-sm-3">
 											<div class="input-group">
-												<input class="form-control" placeholder="Masuk Resi, Enter" type="text" name="resi" maxlength="11" id="resi" onkeyup="this.value = this.value.toUpperCase()">
+												<input class="form-control" placeholder="Masuk Resi, Enter" type="text" name="resi" id="resi" onkeyup="this.value = this.value.toUpperCase()">
 												<span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i>  </span>
 											</div>
 										</div>

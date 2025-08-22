@@ -28,7 +28,7 @@ if ($paket->num_rows() > 0) {
                         <th style='data-class=\"expand\"; width=\"15%\"> Resi:</th>
                         <th style='data-class=\"expand\"'> <strong>" . $k->resi . "</strong></th>
                     </tr>
-                    <tr>
+                    <tr>    
                         <th style='vertical-align: text-top; data-class=\"expand\"'> Pengirim</th>
                         <th style='font-weight: normal; data-class=\"expand\"'>" . $dept . " <br> " . $nama . " <br> " . $kokab . "</th>
                     </tr>
@@ -82,7 +82,7 @@ if ($paket->num_rows() > 0) {
             echo "<tr>
                     <td style='display:none'>" . $no . "</td>
                     <td style='font-weight: normal'>" . date('d M Y H:i:s', strtotime($r->tgl)) . "</td>
-                    <td style='font-weight: normal'>" . $this->app_model->find_kec($r->kec_id) . " <br> " . 
+                    <td style='font-weight: normal'>Code : " . $r->code_id . " <br> " . 
                     $this->app_model->find_kokab(($r->kec_id ? substr($r->kec_id, 0, 4) : '')) . "</td>
                     <td style='font-weight: normal'>";
 

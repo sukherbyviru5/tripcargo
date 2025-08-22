@@ -23,7 +23,7 @@ $filtered_rows = 0;
     <div id="perusahaan" style="max-width: 60%;">
         <p>
             <b>Trip Cargo</b><br>
-            <?php echo $contact[0]['alamat']; ?><br>
+            <?php echo $alamat_pertama; ?><br>
             Tlp. <?php echo $contact[0]['no_hp']; ?><br>
             https://tripcargoid.com
         </p>

@@ -375,7 +375,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 											?>
 										</a>
 									</li>
-									<br>
+									<div class="jarak">
+										<br>
+										<br>
+										<br>
+										<br>
+									</div>
+									<style>
+										/* Default: Hide the .jarak div */
+										.jarak {
+											display: none;
+										}
+
+										/* Show the .jarak div only on mobile devices (max-width: 768px) */
+										@media screen and (max-width: 768px) {
+											.jarak {
+												display: block;
+											}
+										}
+									</style>
 									<li>
 									<div class="footer-sprite phone">
 										<?php
