@@ -1395,6 +1395,10 @@ class Home extends CI_Controller {
 					<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('."'".$updatecargo->id."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
 					<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="hapus('."'".$updatecargo->id."'".')"><i class="glyphicon glyphicon-trash"></i></a>
 				  </div>';
+			} elseif($level=='driver' || $level=='driver'){
+				$row[] = '<div class="text-center";view="dsible">
+					<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('."'".$updatecargo->id."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
+				  </div>';
 			} else{
 					$row[]='<div class="text-center">
 					<span class="badge inbox-badge bg-color-redLight hidden-mobile">Disabled</span>
