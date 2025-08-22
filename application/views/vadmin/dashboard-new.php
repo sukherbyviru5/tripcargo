@@ -6,135 +6,139 @@
 		<li>Dasboard</li>
 	</ol>
 </div>
-
-
+<?php 
+	$level = $this->session->userdata('level');
+?>
 <div id="content" style="padding:25px">
-	<div class="row">
-		<div class="col-md-9 col-xs-12">
-			<section id="widget-grid">
-				<div class="jarviswidget" id="wid-id-12" class="button-icon jarviswidget-toggle-btn" rel="tooltip"
+	<?php if($level == 'driver' || $level == 'umum' ) {?>
+		
+	<?php }else {?>
+		<div class="row">
+			<div class="col-md-9 col-xs-12">
+				<section id="widget-grid">
+					<div class="jarviswidget" id="wid-id-12" class="button-icon jarviswidget-toggle-btn" rel="tooltip"
+								title="" data-placement="bottom" style="display: block; ">
+						<header>
+							<span class="widget-icon"> <i class="fa fa-columns"></i> </span>
+							<h2>Annual Report  <span id="loading2"></span></h2>   
+						</header>
+						<div>
+							<div>   
+									Year:
+									<select name="txSalesYear" id="txSalesYear" >
+										<?php
+										for($i=date('Y');$i>=2022;$i--){
+											echo '<option>'.$i.'</option>';
+										}
+									?>
+									</select> 
+								
+							</div>
+							<div class="jarviswidget-editbox">
+							</div>
+							<div class="widget-body">
+						
+								<div id="salesYearStat" class=" margin-top20" style="width: 100%; min-height: 300px;"></div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+			<div class="col-md-3 col-xs-6">
+				<div class="jarviswidget" id="wid-id-12" class="button-icon" rel="tooltip"
 							title="" data-placement="bottom" style="display: block; ">
 					<header>
 						<span class="widget-icon"> <i class="fa fa-columns"></i> </span>
-						<h2>Annual Report  <span id="loading2"></span></h2>   
+						<h2>Year:  <span id="loading2"></span> </h2>
 					</header>
 					<div>
-						<div>   
-								Year:
-								<select name="txSalesYear" id="txSalesYear" >
-                                    <?php
-                                    for($i=date('Y');$i>=2022;$i--){
-                                        echo '<option>'.$i.'</option>';
-                                    }
-                                ?>
-                                </select> 
-							
-						</div>
 						<div class="jarviswidget-editbox">
 						</div>
-						<div class="widget-body">
-					
-							<div id="salesYearStat" class=" margin-top20" style="width: 100%; min-height: 300px;"></div>
+						<div>
+						<div class="widget-body text-center">
+							<div class="row">
+								<div class="col-md-6">
+									<div title="Saham yang dibagikan dari total profit"  class=" small_text">Dividen </div>
+									<div class=" font-bold font-md">12,9%</div>
+								</div>
+								<div class="col-md-6">
+									<div title="keuntungan dalam satu tahun" class=" small_text">Profit</div>
+									<div class=" font-bold font-md" id="">26,6%</div>
+								</div>
+								<div title="Total Resi dalam satu tahun" class="col-md-6 mt-3 margin-top-8">
+									<div class=" small_text">AWB</div>
+									<div class=" font-bold font-md" id="iResiYear">0</div>
+									<!--?=$this->session->userdata('level')?-->
+								</div>
+								<div title="Total seles dalam satu tahun" class="col-md-6 margin-top-8">
+									<div class=" small_text">Sales</div>
+									<div class=" font-bold font-md" id="iSalesYear">0</div>
+								</div>
+						
+							</div>
+							
 						</div>
+						
 					</div>
-				</div>
-			</section>
-		</div>
-		<div class="col-md-3 col-xs-6">
+						
+						
+						<!--div class="widget-body">
+							<!--div class="row">
+								<div class="col-md-8">
+									<div class=" small_text">No. ID</div>
+									<div class="pl-1 font-bold "><span class="badge badge-light" style=" background-color: blueviolet;"><?=$this->session->userdata('user_id')?> </span></div> 
+									<div class=" small_text">Nama</div>
+									<div class="pl-1 font-bold "><?=$this->session->userdata('nama_pengguna')?></div> 
+									<div class=" small_text margin-top-10">Area</div>
+									<div class="pl-1 font-bold "><?=$this->session->userdata('area')?> </div> 
+									<div class=" small_text margin-top-10">Level</div>
+									<div class="pl-1 font-bold "><?=$this->session->userdata('level')?></div>
+								</div>
+							</div-->
+						<!--/div--->
+						
+					</div>
+				</div>	
+				
+			</div>
+			<div class="col-md-3 col-xs-6">
 			<div class="jarviswidget" id="wid-id-12" class="button-icon" rel="tooltip"
-						title="" data-placement="bottom" style="display: block; ">
-				<header>
-					<span class="widget-icon"> <i class="fa fa-columns"></i> </span>
-					<h2>Year:  <span id="loading2"></span> </h2>
-				</header>
-				<div>
-					<div class="jarviswidget-editbox">
-					</div>
+							title="" data-placement="bottom" style="display: block; ">
+					<header>
+						<span class="widget-icon"> <i class="fa fa-columns"></i> </span>
+						<h2>Summary :  <span id="loading2"></span></h2>
+					</header>
 					<div>
-					<div class="widget-body text-center">
-						<div class="row">
-							<div class="col-md-6">
-								<div title="Saham yang dibagikan dari total profit"  class=" small_text">Dividen </div>
-								<div class=" font-bold font-md">12,9%</div>
+						<div class="jarviswidget-editbox">
+						</div>
+						<div class="widget-body text-center">
+							<div class="row">
+								<div class="col-md-6">
+									<div class=" small_text">T. AWB Today</div>
+									<div class=" font-bold font-md" id="iResiToday">0</div>
+								</div>
+								<div class="col-md-6">
+									<div class=" small_text">T. Resi Month</div>
+									<div class=" font-bold font-md" id="iResiMonth">0</div>
+								</div>
+								<div class="col-md-6 mt-3 margin-top-8">
+									<div class=" small_text">Income  Today</div>
+									<div class=" font-bold font-md" id="iSalesToday">0</div>
+								</div>
+								<div class="col-md-6 margin-top-8">
+									<div class=" small_text">Income Month</div>
+									<div class=" font-bold font-md" id="iSalesMonth">0</div>
+								</div>
+						
 							</div>
-							<div class="col-md-6">
-								<div title="keuntungan dalam satu tahun" class=" small_text">Profit</div>
-								<div class=" font-bold font-md" id="">26,6%</div>
-							</div>
-							<div title="Total Resi dalam satu tahun" class="col-md-6 mt-3 margin-top-8">
-								<div class=" small_text">AWB</div>
-								<div class=" font-bold font-md" id="iResiYear">0</div>
-								 <!--?=$this->session->userdata('level')?-->
-							</div>
-							<div title="Total seles dalam satu tahun" class="col-md-6 margin-top-8">
-								<div class=" small_text">Sales</div>
-								<div class=" font-bold font-md" id="iSalesYear">0</div>
-							</div>
-					
+							
 						</div>
 						
 					</div>
-					
-				</div>
-					
-					
-					<!--div class="widget-body">
-						<!--div class="row">
-							<div class="col-md-8">
-							    <div class=" small_text">No. ID</div>
-							    <div class="pl-1 font-bold "><span class="badge badge-light" style=" background-color: blueviolet;"><?=$this->session->userdata('user_id')?> </span></div> 
-								<div class=" small_text">Nama</div>
-								<div class="pl-1 font-bold "><?=$this->session->userdata('nama_pengguna')?></div> 
-								<div class=" small_text margin-top-10">Area</div>
-								<div class="pl-1 font-bold "><?=$this->session->userdata('area')?> </div> 
-								<div class=" small_text margin-top-10">Level</div>
-								<div class="pl-1 font-bold "><?=$this->session->userdata('level')?></div>
-							</div>
-						</div-->
-					<!--/div--->
-					
-				</div>
-			</div>	
-			
+				</div>						
+			</div>
 		</div>
-		<div class="col-md-3 col-xs-6">
-		<div class="jarviswidget" id="wid-id-12" class="button-icon" rel="tooltip"
-						title="" data-placement="bottom" style="display: block; ">
-				<header>
-					<span class="widget-icon"> <i class="fa fa-columns"></i> </span>
-					<h2>Summary :  <span id="loading2"></span></h2>
-				</header>
-				<div>
-					<div class="jarviswidget-editbox">
-					</div>
-					<div class="widget-body text-center">
-						<div class="row">
-							<div class="col-md-6">
-								<div class=" small_text">T. AWB Today</div>
-								<div class=" font-bold font-md" id="iResiToday">0</div>
-							</div>
-							<div class="col-md-6">
-								<div class=" small_text">T. Resi Month</div>
-								<div class=" font-bold font-md" id="iResiMonth">0</div>
-							</div>
-							<div class="col-md-6 mt-3 margin-top-8">
-								<div class=" small_text">Income  Today</div>
-								<div class=" font-bold font-md" id="iSalesToday">0</div>
-							</div>
-							<div class="col-md-6 margin-top-8">
-								<div class=" small_text">Income Month</div>
-								<div class=" font-bold font-md" id="iSalesMonth">0</div>
-							</div>
-					
-						</div>
-						
-					</div>
-					
-				</div>
-			</div>						
-		</div>
-	</div>
-	
+	<?php }?>
 	<span class="hidden-xs"> <!--tidak tampil di hp-->
 	<div class="row">
 		<div class="col-md-12">
