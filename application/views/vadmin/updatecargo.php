@@ -117,7 +117,7 @@
 											<div class="input-group">
 												<input type="hidden" name="id">
 												<!-- <input class="form-control" type="text" placeholder="XXX-9999999" name="resi" id="resi" data-mask="***-9999999" data-mask-placeholder= "X"> --->
-												<input class="form-control" type="text" maxlength="11" placeholder="XXX99999999" name="resi" id="resi" data-mask-placeholder="X" onkeyup="this.value = this.value.toUpperCase()">
+												<input class="form-control" type="text" name="resi" id="resi" data-mask-placeholder="X" onkeyup="this.value = this.value.toUpperCase()">
 												<span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
 											</div>
 											<div class="input-group" id="tgl">

@@ -111,7 +111,7 @@ $qrApiUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" . u
 // === Add $d->alamat_pel Above ASAL Box ===
 $pdf->SetFont('Helvetica', '', 6);
 $pdf->SetXY(1.0, 2.0);
-$pdf->MultiCell($available_width, 0.3, $d->alamat_pel ?: 'No address provided', 0, 'L');
+$pdf->MultiCell($available_width, 0.3, $alamat_pertama ?: 'No address provided', 0, 'L');
 $pdf->Ln(0.2);
 
 // === Header Table ===

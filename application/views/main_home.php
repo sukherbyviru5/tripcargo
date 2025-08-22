@@ -130,7 +130,7 @@
                                                     <input style="font-family: monospace; font-size: larger;"
                                                         class="form-control" type="text" name="resi"
                                                         id="resi" name="resi" id="resi"
-                                                        data-mask="***99999999" data-mask-placeholder= "X">
+                                                        data-mask-placeholder= "X">
                                                 </div>
                                             </div>
                                             <div class="form-group">
