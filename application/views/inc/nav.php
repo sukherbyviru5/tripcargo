@@ -442,6 +442,14 @@
                         </li>
                     </ul>
                 </li>
+                  <li>
+                    <a href="#" title="Cargo"><i class="fa fa-lg fa fa-paper-plane"></i><span class="menu-item-parent">Update</span></a>
+                    <ul>
+                        <li class="<?php echo $this->app_model->status_menu($akt, 'updatecargo'); ?>">
+                            <a href="<?php echo base_url() . 'cadmin/home/'; ?>updatecargo" title="Update Posisi Cargo">Update Posisi Cargo</a>
+                        </li>
+                    </ul>
+                </li>
                 <li>
                     <ul>
                         <li class="<?php echo $this->app_model->status_menu($akt, 'lacakkirim'); ?>">
