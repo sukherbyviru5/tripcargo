@@ -1382,7 +1382,8 @@ class Home extends CI_Controller {
 			$row[] = '<div class="text-center">'.$no.'</div>';
 			$row[] = $pelanggan->dept;
 			$row[] = $pelanggan->nama;
-			$row[] = $pelanggan->alamat;
+			$clean_alamat = preg_replace('/[\r\n]+/', ' ', trim($pelanggan->alamat));
+        	$row[] = $clean_alamat;
 			$row[] = $this->app_model->find_kec($pelanggan->kec_id).', '.$this->app_model->find_kokab(substr($pelanggan->kec_id,0,4));
 			$row[] = $pelanggan->telp;
 			$row[] = $pelanggan->email;
@@ -1421,7 +1422,8 @@ class Home extends CI_Controller {
 			$row[] = '<div class="text-center">'.$no.'</div>';
 			$row[] = $pelanggan->dept;
 			$row[] = $pelanggan->nama;
-			$row[] = $pelanggan->alamat;
+			$clean_alamat = preg_replace('/[\r\n]+/', ' ', trim($pelanggan->alamat));
+        	$row[] = $clean_alamat;
 			$row[] = $this->app_model->find_kokab($pelanggan->kokab_id);		
 			//add html for action
 			$row[] = '<div class="text-center">
