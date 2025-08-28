@@ -1431,7 +1431,7 @@ class Home extends CI_Controller {
 						'."'".$pelanggan->pel_id."'".',
 						'."'".$pelanggan->nama."'".',
 						'."'".$pelanggan->dept."'".',
-						'."'".$pelanggan->alamat."'".',
+						'."'".$clean_alamat."'".',
 						'."'".$pelanggan->prov_id."'".',
 						'."'".$pelanggan->kokab_id."'".',
 						'."'".$pelanggan->kec_id."'".',
@@ -1462,7 +1462,8 @@ class Home extends CI_Controller {
 			$row[] = '<div class="text-center">'.$no.'</div>';
 			$row[] = $cargo->penerima;
 			$row[] = $cargo->dept2;
-			$row[] = $cargo->alamat;
+			$clean_alamat = preg_replace('/[\r\n]+/', ' ', trim($cargo->alamat));
+        	$row[] = $clean_alamat;
 			$row[] = $this->app_model->find_kokab($cargo->kokab_id);
 			$row[] = $cargo->telp;
 			//add html for action
@@ -1470,7 +1471,7 @@ class Home extends CI_Controller {
 					<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Pilih" onclick="pilih_penerima(
 						'."'".$cargo->id."'".',
 						'."'".$cargo->penerima."'".',
-						'."'".$cargo->alamat."'".',
+						'."'".$clean_alamat."'".',
 						'."'".$cargo->prov_id."'".',
 						'."'".$cargo->kokab_id."'".',
 						'."'".$cargo->kec_id."'".',
