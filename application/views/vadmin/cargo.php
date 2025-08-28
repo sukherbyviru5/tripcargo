@@ -1999,12 +1999,11 @@
     }
 
     function pilih_pengirim(id, nama, dept, alamat, prov, kab, kec, telp, email) {
-        var cleanAlamat = alamat.replace(/[\r\n]+/g, ' ').replace(/\s\s+/g, ' ').trim();
-
+        // ajax delete data to database
         $('[name="regkirim"]').val(id);
         $('[name="nama"]').val(nama);
         $('[name="dept"]').val(dept);
-        $('[name="alamat"]').val(cleanAlamat);
+        $('[name="alamat"]').val(alamat);
         $('[name="prov"]').val(prov);
         $('[name="kab"]').val(kab);
         $('[name="kec"]').val(kec);
@@ -2020,19 +2019,19 @@
         $('#modal_form_penerima').modal('show'); // show bootstrap modal
         $('.modal-title').text('Cari Penerima'); // Set Title to Bootstrap modal title
     }
-   
-    function pilih_penerima(id, nama, alamat, prov, kab, kec, telp, dept2) {
-        var cleanAlamat = alamat.replace(/[\r\n]+/g, ' ').replace(/\s\s+/g, ' ').trim();
 
+    function pilih_penerima(id, nama, alamat, prov, kab, kec, telp, dept2, ) {
+        // ajax delete data to database
         $('[name="regterima"]').val(id);
         $('[name="penerima"]').val(nama);
         $('[name="dept2"]').val(dept2);
-        $('[name="alamat2"]').val(cleanAlamat);
+        $('[name="alamat2"]').val(alamat);
         $('[name="prov2"]').val(prov);
         $('[name="kab2"]').val(kab);
         $('[name="kec2"]').val(kec);
         $('[name="telp2"]').val(telp);
         $('#modal_form_penerima').modal('hide');
+
     }
 
     // function hitung() {
@@ -2204,14 +2203,6 @@
                 $('[name="catatan"]').val(data.catatan);
                 $('input:radio[name=layan]').val([data.layan]);
                 $('input:radio[name=metode]').val([data.metode]);
-
-                  // Set area_nama in the review table
-                $('#review_area').html(dt.area_nama); // Directly set area_nama to review table
-
-                // Trigger review updates
-                updateReviewBarang();
-                updateReviewPenerima();
-                updateReviewPengirim();
 
                 
                 $('[name="simpan"]').val('update');
