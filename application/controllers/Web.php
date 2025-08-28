@@ -7,6 +7,7 @@ class Web extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('app_model', 'web');
+		$this->load->model('slider_model', 'slider');
         $this->load->model('Services_model');
         $this->load->model('Customers_model');
         $this->load->model('Introduction_model');
@@ -22,6 +23,7 @@ class Web extends CI_Controller {
 		$d['alamat_perusahaan']  = $this->config->item('alamat_perusahaan');
 		$d['lisensi'] 			 = $this->config->item('lisensi_app');
 		$d['services']           = $this->Services_model->get_all();
+		$d['slider']             = $this->slider->get_all();
         $d['customers']          = $this->Customers_model->get_all();
 		$d['contact']			 = $this->Setting_contact_model->get_all();
 		$introduction_data       = $this->Introduction_model->get_all();

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Asal_model extends CI_Model {
+class Slider_model extends CI_Model {
 
     public function __construct()
     {
@@ -9,9 +9,9 @@ class Asal_model extends CI_Model {
         $this->load->database();
     }
     
-    var $table = 'asal';
-    var $column_order = array('id','nama', 'kode'); // kolom untuk order
-    var $column_search = array('id','nama', 'kode'); // kolom untuk search
+    var $table = 'slider';
+    var $column_order = array('id','image','info'); // kolom untuk order
+    var $column_search = array('id','image','info'); // kolom untuk search
     var $order = array('id' => 'asc'); // default order 
 
     private function _get_datatables_query()
@@ -74,6 +74,15 @@ class Asal_model extends CI_Model {
         return $this->db->count_all_results();
     }
 
+    public function get_all()
+    {
+        $this->db->from($this->table);
+        $this->db->order_by('id', 'ASC');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+
     public function get_by_id($id)
     {
         $this->db->from($this->table);
@@ -82,50 +91,20 @@ class Asal_model extends CI_Model {
         return $query->row();
     }
 
-    public function get_by_nama($nama)
-    {
-        $this->db->from($this->table);
-        $this->db->where('nama',$nama);
-        $query = $this->db->get();
-        return $query->row();
-    }
-
-    public function get_by_kode($kode)
-    {
-        $this->db->from($this->table);
-        $this->db->where('kode',$kode);
-        $query = $this->db->get();
-        return $query->row();
-    }
-
-    public function getall()
-    {
-        $this->db->from($this->table);
-        $this->db->order_by('kode', 'ASC');
-        $query = $this->db->get();
-        return $query->result();
-    }
-
-    function asal_add(){
+    function slider_add($data = null){
         $simpan=$this->input->post('simpan',true);
         $id=$this->input->post('id',true);
         if($simpan=="add"){
-            return $this->db->insert('asal',array(
-                'nama'=>$this->input->post('nama',true),
-                'kode'=>$this->input->post('kode',true),
-            ));
+            return $this->db->insert('slider', $data);
         }elseif($simpan=="update"){
             $this->db->where('id', $id);
-            return $this->db->update('asal',array(
-                'nama'=>$this->input->post('nama',true),
-                'kode'=>$this->input->post('kode',true),
-            ));
+            return $this->db->update('slider',$data);
         }
     }
 
     public function delete_by_id($id)
     {
         $this->db->where('id', $id);
-        return $this->db->delete('asal');
+        return $this->db->delete('slider');
     }
 }

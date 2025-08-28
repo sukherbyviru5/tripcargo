@@ -9,6 +9,7 @@ class Home extends CI_Controller {
 		$this->load->model('app_model','model');
 		$this->load->model('prov_model','prov');
 		$this->load->model('asal_model','asal');
+		$this->load->model('slider_model','slider');
 		$this->load->model('tujuan_model','tujuan');
 		$this->load->model('kab_model','kab');
 		$this->load->model('kec_model','kec');
@@ -650,6 +651,7 @@ class Home extends CI_Controller {
 			$no++;
 			$row = array();
 			$row[] = '<div class="text-center">'.$no.'</div>';
+			$row[] = $l->kode;
 			$row[] = $l->nama;
 			//add html for action
 			$level = $this->session->userdata('level');
@@ -900,6 +902,148 @@ class Home extends CI_Controller {
 		
 	}
 	
+
+	// -----------------------------------------------------------------
+	public function slider()
+	{
+		$cek = $this->session->userdata('logged_in');
+		$level = $this->session->userdata('level');
+		if (!empty($cek)) {
+			$d['judul'] = $this->config->item('judul');
+			$d['nama_perusahaan'] = $this->config->item('nama_perusahaan');
+			$d['alamat_perusahaan'] = $this->config->item('alamat_perusahaan');
+			$d['lisensi'] = $this->config->item('lisensi_app');
+			
+			$d['jam_now'] = $this->app_model->Jam_Now(); 
+			$d['hari_now'] = $this->app_model->Hari_Bulan_Indo(); 
+			$d['tgl_now'] = $this->app_model->tgl_now_indo();
+			$id = $this->session->userdata('username');
+			$d['record'] = $this->model->get_users($id);
+			$d['isi'] = $this->load->view('vadmin/slider', $d, true);
+			
+			$this->load->view('vadmin/media',$d);
+		} else {
+			$this->session->set_flashdata('result_login', '<font color="red">Sesi login habis atau terhapuskan.</font>');
+			redirect('./cadmin/home/logout/','refresh');
+		}
+	}
+
+	public function slider_ajax_list()
+	{
+		$list = $this->slider->get_datatables();
+		$data = array();
+		$no = $_POST['start'];
+		foreach ($list as $l) {
+			$no++;
+			$row = array();
+			$row[] = '<div class="text-center">'.$no.'</div>';
+			$row[] = '<img src="'.base_url($l->image).'" width="100">';
+			$row[] = $l->info;
+			
+			$level = $this->session->userdata('level');
+			if ($level == 'superadmin') {
+				$row[] = '<div class="text-center">
+						<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('."'".$l->id."'".')"><i class="glyphicon glyphicon-pencil"></i></a>
+						<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="hapus('."'".$l->id."'".')"><i class="glyphicon glyphicon-trash"></i></a>
+					</div>';
+			} else {
+				$row[] = '<div class="text-center">
+							<span class="badge inbox-badge bg-color-redLight hidden-mobile">Disabled</span>
+					</div>';
+			}
+			$data[] = $row;
+		}
+
+		$output = array(
+			"draw" => $_POST['draw'],
+			"recordsTotal"     => $this->slider->count_all(),
+			"recordsFiltered"  => $this->slider->count_filtered(),
+			"data" => $data,
+		);
+		echo json_encode($output);
+	}
+
+	public function slider_add()
+	{
+		$cek   = $this->session->userdata('logged_in');
+		$level = $this->session->userdata('level');
+
+		if (!empty($cek)) {
+			if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+				show_404();
+			}
+
+			$upload_path = FCPATH . 'assets/slider/';
+			if (!is_dir($upload_path)) {
+				mkdir($upload_path, 0755, true);
+			}
+
+			$config['upload_path']   = $upload_path;
+			$config['allowed_types'] = 'jpg|jpeg|png|gif';
+			$config['max_size']      = 3048; 
+			$this->load->library('upload', $config);
+
+			$simpan = $this->input->post('simpan', true);
+			$id     = $this->input->post('id', true);
+
+			// Default data
+			$data = array(
+				'image' => null,
+				'info'  => $this->input->post('info', true),
+			);
+
+			if ($simpan == "update") {
+				$oldData = $this->slider->get_by_id($id); 
+				if ($oldData) {
+					$data['image'] = $oldData->image; 
+				}
+			}
+
+			if (!empty($_FILES['image']['name'])) {
+				if ($this->upload->do_upload('image')) {
+					$uploadData   = $this->upload->data();
+					$data['image'] = 'assets/slider/' . $uploadData['file_name'];
+				} else {
+					$error = $this->upload->display_errors();
+					log_message('error', 'Upload failed: ' . $error);
+					echo json_encode(array('status' => false, 'msg' => 'Upload gagal: ' . strip_tags($error)));
+					return;
+				}
+			} else {
+				// Kalau add tapi tidak ada gambar → error
+				if ($simpan == "add") {
+					echo json_encode(array('status' => false, 'msg' => 'Gambar wajib diisi saat tambah slider'));
+					return;
+				}
+			}
+
+			// Simpan ke DB
+			if ($this->slider->slider_add($data)) {
+				echo json_encode(array('status' => true));
+			} else {
+				echo json_encode(array('status' => false, 'msg' => 'Gagal simpan ke database'));
+			}
+		} else {
+			redirect('/cadmin/home/logout/', 'refresh');
+		}
+	}
+
+
+	public function slider_edit($id)
+	{
+		$data = $this->slider->get_by_id($id);
+		echo json_encode($data);
+	}
+
+	public function slider_hapus($id)
+	{
+		if ($this->slider->delete_by_id($id))
+			echo 'Sukses dihapus';
+		else
+			echo 'Gagal dihapus';
+	}
+
+
 		//-----------------------------Data Barang----
 	public function databarang()
 	{
@@ -986,6 +1130,8 @@ class Home extends CI_Controller {
 			$d['kokab']= $this->model->get_kokab();
 			$d['kec']= $this->model->get_kec();
 			$d['asal']=$this->model->get_kotaasal();
+			$d['area']=$this->asal->getall();
+			$d['tujuanarea']=$this->tujuan->getall();
 			$d['tujuan']=$this->model->get_kotatujuan();
 			$d['kecamatan']= $this->model->get_kec();
 			$d['layanan']= $this->model->get_layanan();
@@ -1035,9 +1181,10 @@ class Home extends CI_Controller {
 				    
 				    <a class="btn btn-sm btn-success" href="javascript:void(0)" title="Resi Full" onclick="cetak('."'".$cargo->id."'".')"><i class="glyphicon glyphicon-print"></i></a>
 				    
-				    <a class="btn btn-sm btn-default" href="javascript:void(0)" title="Resi (F4/3)" onclick="cetak2('."'".$cargo->id."'".')"><i class="glyphicon glyphicon-print"></i></a>
+				<!-- <a class="btn btn-sm btn-default" href="javascript:void(0)" title="Resi (F4/3)" onclick="cetak2('."'".$cargo->id."'".')"><i class="glyphicon glyphicon-print"></i></a>  --->
 				<!--<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Penolakan Asuransi" onclick="penolakan_asuransi('."'".$cargo->id."'".')"><i class="glyphicon glyphicon-print"></i></a> --->
-					<a class="btn btn-sm btn-warning" href="javascript:void(0)" title="Edit" onclick="edit('."'".$cargo->id."'".')" ><i class="glyphicon glyphicon-eye-open"></i></a>
+					<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit('."'".$cargo->id."'".')" ><i class="glyphicon glyphicon-edit"></i></a>
+					<a class="btn btn-sm btn-warning" href="javascript:void(0)" title="Show" onclick="show('."'".$cargo->id."'".')" ><i class="glyphicon glyphicon-eye-open"></i></a>
 				<!--<a class="btn btn-sm btn-info" href="javascript:void(0)" title="Download pdf" onclick="cetak('."'".$cargo->id."'".')"><i class="glyphicon glyphicon-cloud-download"></i></a> --->
 					<div style="display:none">
 				<!--<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="hapus('."'".$cargo->id."'".')"><i class="glyphicon glyphicon-trash"></i></a> --->
@@ -1051,12 +1198,12 @@ class Home extends CI_Controller {
 					<a class="btn btn-sm btn-success" href="javascript:void(0)" title="Resi Full (Defull)" onclick="cetak('."'".$cargo->id."'".')"><i class="glyphicon glyphicon-print"></i></a>
 					<!---/div--->
 					
-					<a class="btn btn-sm btn-default" href="javascript:void(0)" title="Resi (F4/3)" onclick="cetak2('."'".$cargo->id."'".')"><i class="glyphicon glyphicon-print"></i></a>
+					<!---<a class="btn btn-sm btn-default" href="javascript:void(0)" title="Resi (F4/3)" onclick="cetak2('."'".$cargo->id."'".')"><i class="glyphicon glyphicon-print"></i></a> --->
 					<div style="display:none">
 					<a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Penolakan Asuransi" onclick="penolakan_asuransi('."'".$cargo->id."'".')"><i class="glyphicon glyphicon-print"></i></a>
 					</div>
 					<!---div style="display:none"-->
-					<a class="btn btn-sm btn-warning" href="javascript:void(0)" title="Edit" onclick="edit('."'".$cargo->id."'".')" ><i class="glyphicon glyphicon-pencil"></i></a>
+					<a class="btn btn-sm btn-warning" href="javascript:void(0)" title="Show" onclick="show('."'".$cargo->id."'".')" ><i class="glyphicon glyphicon-pencil"></i></a>
 					<!--/div-->
 					</div>';
 			}
@@ -1180,6 +1327,13 @@ class Home extends CI_Controller {
 		
 		
 		$data['barang'] = $c_barang;
+		$area = $this->asal->get_by_kode($cargo->area);
+		$data['area_nama'] = !empty($area) && isset($area->nama) ? $area->nama : null;
+
+		$tj = $this->tujuan->get_by_nama($cargo->tujuanarea);
+		$data['tujuanarea'] = !empty($tj) && isset($tj->id) ? $tj->id : null;
+
+
 		echo json_encode($data);
 	}
 	public function cargo_hapus($id)
@@ -2455,6 +2609,49 @@ class Home extends CI_Controller {
 			echo json_encode(['status' => true, 'message' => 'Gagal update promo.']);
         }
     }
+
+
+	public function cektarif()
+	{
+		$asal = $this->input->post('area', TRUE);
+		$tujuan = $this->input->post('tujuanarea', TRUE);
+
+		if (empty($asal) || empty($tujuan)) {
+			echo json_encode([
+				'status' => false,
+				'message' => 'Asal or Tujuan is missing.'
+			]);
+			return;
+		}
+
+		$tujuanData = $this->tujuan->get_by_id($tujuan);
+
+		if (empty($tujuanData) || !isset($tujuanData->nama)) {
+			echo json_encode([
+				'status' => false,
+				'message' => 'Invalid destination ID or destination not found.'
+			]);
+			return;
+		}
+
+		$tariffData = $this->set_harga->getall($asal, $tujuanData->nama);
+
+		if (!empty($tariffData)) {
+			$cleanData = array_map('trim', (array) $tariffData[0]);
+
+			echo json_encode([
+				'status' => true,
+				'message' => 'Tariff found successfully.',
+				'data' => $cleanData
+			]);
+		} else {
+			echo json_encode([
+				'status' => false,
+				'message' => 'No tariff found for the specified area and destination.'
+			]);
+		}
+
+	}
 
 }
 

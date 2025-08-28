@@ -328,6 +328,9 @@
                         <li class="<?php echo $this->app_model->status_menu($akt, 'setting_contact'); ?>">
                             <a href="<?php echo base_url('cadmin/home/setting_contact'); ?>" title="Contact">Contact</a>
                         </li>
+                        <li class="<?php echo $this->app_model->status_menu($akt, 'slider'); ?>">
+                            <a href="<?php echo base_url('cadmin/home/slider'); ?>" title="Slide Hero">Slide Hero</a>
+                        </li>
                     </ul>
                 </li>
                 <?php } elseif ($level == 'admin') { ?>

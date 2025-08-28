@@ -93,8 +93,11 @@
                         <li class="<?php echo $this->app_model->status_menu($akt, 'linvoice'); ?>">
                             <a href="<?php echo base_url() . 'cadmin/laporan/'; ?>linvoice" title="Invoice">Invoice</a>
                         </li>
-                        <li class="<?php echo $this->app_model->status_menu($akt, 'lpenerimaan'); ?>">
+                        <!-- <li class="<?php echo $this->app_model->status_menu($akt, 'lpenerimaan'); ?>">
                             <a href="<?php echo base_url() . 'cadmin/laporan/'; ?>lpenerimaan" title="Laporan Penerimaan">Packing List Harian</a>
+                        </li> -->
+                        <li class="<?php echo $this->app_model->status_menu($akt, 'lmanifast_area'); ?>">
+                            <a href="<?php echo base_url() . 'cadmin/laporan/'; ?>lmanifast_area" title="Laporan manifast">Laporan manifast</a>
                         </li>
                     </ul>
                 </li>
@@ -172,6 +175,9 @@
                         </li>
                         <li class="<?php echo $this->app_model->status_menu($akt, 'setting_contact'); ?>">
                             <a href="<?php echo base_url('cadmin/home/setting_contact'); ?>" title="Contact">Contact</a>
+                        </li>
+                        <li class="<?php echo $this->app_model->status_menu($akt, 'slider'); ?>">
+                            <a href="<?php echo base_url('cadmin/home/slider'); ?>" title="Slide Hero">Slide Hero</a>
                         </li>
                     </ul>
                 </li>

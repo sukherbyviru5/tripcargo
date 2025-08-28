@@ -210,6 +210,11 @@ class Cargo_model extends CI_Model {
             $harga5 = $this->input->post('harga5', true) ? str_replace('.', '', $this->input->post('harga5', true)) : null;
             $harga6 = $this->input->post('harga6', true) ? str_replace('.', '', $this->input->post('harga6', true)) : null;
 
+            $area = $this->input->post('area', TRUE);
+            $tujuanarea = $this->input->post('tujuanarea', TRUE);
+		    $code_area = $this->asal->get_by_nama($area);
+            $tujuanData = $this->tujuan->get_by_id($tujuanarea);
+
             // entri ke tujuan pengiriman
             $paket_data = array(
                 'resi' => $this->input->post('resi', true),
@@ -251,8 +256,11 @@ class Cargo_model extends CI_Model {
                 'metode' => $this->input->post('metode', true),
                 'catatan' => $this->input->post('catatan', true),
                 'user_id' => $this->session->userdata('username'),
-                'tglkirim' => date("Y-m-d H:i:s")
+                'tglkirim' => date("Y-m-d H:i:s"),
+                'area' => $code_area->kode,
+                'tujuanarea' => trim($tujuanData->nama), 
             );
+
             log_message('debug', 'Inserting paket: ' . json_encode($paket_data));
             return $this->db->insert('paket', $paket_data);
         } elseif ($simpan == "update") {

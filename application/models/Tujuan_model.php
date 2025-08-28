@@ -82,6 +82,22 @@ class Tujuan_model extends CI_Model {
         return $query->row();
     }
 
+    public function get_by_nama($nama)
+    {
+        $this->db->from($this->table);
+        $this->db->where('nama',$nama);
+        $query = $this->db->get();
+        return $query->row();
+    }
+
+    public function getall()
+    {
+        $this->db->from($this->table);
+        $this->db->order_by('nama', 'ASC');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     function tujuan_add(){
         $simpan=$this->input->post('simpan',true);
         $id=$this->input->post('id',true);

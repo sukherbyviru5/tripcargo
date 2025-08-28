@@ -1,109 +1,36 @@
+
 <div id="wrapper">
-    <div class="fullwidthbanner-container roundedcorners" style="margin-top:-30px; overflow: visible;">
+    <div class="fullwidthbanner-container roundedcorners" style="overflow: visible;">
         <div class="fullwidthbanner">
             <ul>
-                <li data-transition="fade" data-slotamount="7" data-masterspeed="500">
-                    <div class="tp-caption finewide_medium_white randomrotate customout tp-resizeme tp-caption large_bold_grey skewfromrightshort customout"
-                        data-x="center" data-y="0"
-                        data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:300;transformOrigin:50% 50%;"
-                        data-speed="0" data-start="0" data-easing="Back.easeOut" data-endspeed="500"
-                        data-endeasing="Power4.easeIn" data-captionhidden="off" style="z-index: 1">
-                        <img class="slide" src="<?php echo base_url(); ?>assets/images/slider.jpg" alt="">
-                    </div>
-                </li>
-                <li data-transition="fade" data-slotamount="7" data-masterspeed="500">
-                    <img src="<?php echo base_url(); ?>assets/images/IMG-20250807-WA0023.jpg" alt=""
-                        data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-                    <div class="tp-caption medium_bold_orange skewfromleftshort customout start font800" data-x="80"
-                        data-y="310"
-                        data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                        data-speed="300" data-start="1100" data-easing="Back.easeOut" data-endspeed="500"
-                        data-endeasing="Power4.easeIn" data-captionhidden="off"
-                        style="z-index: 2; color:silver; font-size: 2.9em; font-style: italic; font-family: sans-serif;">
-                        <b>Kirim Paket Trip Cargo aja!</b>
-                    </div>
-                   
-                    <div class="tp-caption large_bold_darkblue skewfromleftshort customout" 
-                        data-x="80"
-                        data-hoffset="-90" data-y="350"
-                        data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                        data-speed="500" data-start="1600" data-easing="Back.easeOut" data-endspeed="500"
-                        data-endeasing="Power4.easeIn" data-captionhidden="off" 
-                        style="z-index: 2; color:#ccc">
-                        <?= trim(explode(',', $contact[0]['no_hp'])[0]) ?>
-                    </div>
+               <?php if (!empty($slider)) : ?>
+                    <?php foreach ($slider as $s) : ?>
+                        <li data-transition="fade" data-slotamount="7" data-masterspeed="500">
+                            <img src="<?php echo base_url($s->image); ?>" alt="" class="slide"
+                                data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
 
-                    <div class="tp-caption medium_bg_darkblue skewfromleftshort customout" data-x="80"
-                        data-hoffset="-90" data-y="410"
-                        data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                        data-speed="500" data-start="1650" data-easing="Back.easeOut" data-endspeed="500"
-                        data-endeasing="Power4.easeIn" data-captionhidden="off" style="z-index: 2"> Service Cepat
-                    </div>
-                    <div class="tp-caption medium_bg_orange skewfromleftshort customout" data-x="240"
-                        data-hoffset="-90" data-y="410"
-                        data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                        data-speed="500" data-start="2300" data-easing="Back.easeOut" data-endspeed="500"
-                        data-endeasing="Power4.easeIn" data-captionhidden="off" style="z-index: 2">Tarif Murah
-                    </div>
-                    <div class="tp-caption medium_bg_red skewfromleftshort customout" data-x="379"
-                        data-hoffset="-90" data-y="410"
-                        data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                        data-speed="500" data-start="2300" data-easing="Back.easeOut" data-endspeed="500"
-                        data-endeasing="Power4.easeIn" data-captionhidden="off" style="z-index: 2">Gratis Pickup
-                    </div>
-                </li>
-                <li data-transition="fade" data-slotamount="7" data-masterspeed="1000" data-delay="3500">
-                    <img src="<?php echo base_url(); ?>assets/atropos/images/demo/revolution_slider/darkblurbg.jpg"
-                        alt="newslide2014_1" data-bgposition="center top" data-bgfit="cover"
-                        data-bgrepeat="no-repeat">
-                    <div class="tp-caption finewide_medium_white randomrotate customout tp-resizeme" data-x="center"
-                        data-hoffset="0" data-y="center" data-voffset="0"
-                        data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                        data-speed="500" data-start="500" data-easing="Power3.easeInOut" data-splitin="chars"
-                        data-splitout="chars" data-elementdelay="0.08" data-endelementdelay="0.08" data-end="6000"
-                        data-endspeed="400"
-                        style="z-index: 1; max-width: auto; max-height: auto; white-space: nowrap; font-size: 5em;">
-                        Paket Cepat & Moving Service
-                    </div>
-                </li>
-                <li data-transition="3dcurtain-vertical" data-slotamount="14" data-masterspeed="300"
-                    data-delay="10000">
-                    <div class="tp-caption customin customout" data-x="right" data-hoffset="-450" data-y="center"
-                        data-voffset="0"
-                        data-customin="x:50;y:150;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:0;transformOrigin:50% 50%;"
-                        data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                        data-speed="1500" data-start="0" data-easing="Elastic.easeInOut" data-endspeed="500"
-                        data-endeasing="Power1.easeIn" style="z-index: 1">
-                        <img src="<?php echo base_url(); ?>assets/atropos/images/mengirim barang.gif" alt="">
-                    </div>
-                    <div class="tp-caption lft boxshadow" data-x="70" data-y="70" data-speed="900"
-                        data-start="500" style="z-index: 1" data-easing="easeOutBack">
-                    </div>
-                    <div class="tp-caption sft large_bold_grey" data-x="750" data-y="70" data-speed="300"
-                        data-start="1200" data-easing="easeOutExpo">FEATURED
-                    </div>
-                    <div class="tp-caption sft modern_big_redbg" data-x="750" data-y="164" data-speed="300"
-                        data-start="1300" data-easing="easeOutExpo">Best Service
-                    </div>
-                    <div class="tp-caption lfb thinheadline_dark" data-x="750" data-y="210" data-speed="300"
-                        data-start="1400" data-easing="easeOutExpo">You can call me every time
-                    </div>
-                    <div class="tp-caption lfb thinheadline_dark" data-x="750" data-y="245" data-speed="300"
-                        data-start="1500" data-easing="easeOutExpo">Delivery door to door
-                    </div>
-                    <div class="tp-caption lfb thinheadline_dark" data-x="750" data-y="280" data-speed="300"
-                        data-start="1600" data-easing="easeOutExpo">Low Cost
-                    </div>
-                    <div class="tp-caption lfb thinheadline_dark" data-x="750" data-y="315" data-speed="300"
-                        data-start="1600" data-easing="easeOutExpo">Insurance Guarantee
-                    </div>
-                    <div class="tp-caption lfb medium_bg_darkblue" data-x="740" data-y="390" data-speed="300"
-                        data-start="1600" data-easing="easeOutExpo"><i class="fa fa-cog"></i> SAFETY
-                    </div>
-                    <div class="tp-caption lfb medium_bg_orange" data-x="850" data-y="390" data-speed="300"
-                        data-start="1600" data-easing="easeOutExpo"><i class="fa fa-clock-o"></i> SPEED
-                    </div>
-                </li>
+                            <div class="tp-caption medium_bold_orange skewfromleftshort customout start font800" data-x="80"
+                                data-y="310"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="300" data-start="1100" data-easing="Back.easeOut" data-endspeed="500"
+                                data-endeasing="Power4.easeIn" data-captionhidden="off"
+                                style="z-index: 2; color:silver; font-size: 2.9em; font-style: italic; font-family: sans-serif;">
+                            </div>
+                            
+                            <div class="tp-caption large_bold_darkblue skewfromleftshort customout" 
+                                data-x="80"
+                                data-hoffset="-90" data-y="350"
+                                data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                data-speed="500" data-start="1600" data-easing="Back.easeOut" data-endspeed="500"
+                                data-endeasing="Power4.easeIn" data-captionhidden="off" 
+                                style="z-index: 2; color:#ccc">
+                                <?= !empty($s->info) ? $s->info : '' ?>
+                            </div>
+                        </li>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+
+
             </ul>
         </div>
     </div>
@@ -126,17 +53,19 @@
                                                     <h3 style='margin:0;color:#fff;'><b>LACAK KIRIMAN</b></h3>Lacak
                                                     paket anda secara realtime 
                                                 </label>
-                                                <div class="col-sm-6">
+                                                <div class="col-sm-6" style="display: flex; margin: 2px;">
                                                     <input style="font-family: monospace; font-size: larger;"
                                                         class="form-control" type="text" name="resi"
                                                         id="resi" name="resi" id="resi"
                                                         data-mask-placeholder= "X">
+                                                        <button type="button" style="margin: 3px;" id="ScanQrCode"
+                                                                            onclick="openScanner()" class="btn btn-info">Scan QR</button>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-sm-offset-5 col-sm-10">
                                                     <button type="button" id="btnCari" onclick="cari()"
-                                                        class="btn btn-primary" class="button-search">TRAKING</button>
+                                                        class="btn btn-primary" class="button-search">Lacak</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -747,3 +676,74 @@
         </div>
     </section>
 </div>
+
+
+ <!-- Bootstrap Modal for QR Scanner -->
+<div class="modal fade" id="qrModal" tabindex="-1" role="dialog" aria-labelledby="qrModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="qrModalLabel">Scan QR Code</h4>
+            </div>
+            <div class="modal-body">
+                <div id="qr-reader"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+<style>
+    .modal-body {
+        text-align: center;
+    }
+    #qr-reader {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+</style>
+
+
+ <script>
+    function openScanner() {
+        // Show the modal
+        $('#qrModal').modal('show');
+
+        const html5QrCode = new Html5Qrcode("qr-reader");
+        const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+
+        $('#qrModal').on('shown.bs.modal', function () {
+            html5QrCode.start(
+                { facingMode: "environment" },
+                config,
+                (decodedText, decodedResult) => {
+                    document.getElementById('resi').value = decodedText;
+                    cari()
+                    html5QrCode.stop().then(() => {
+                        $('#qrModal').modal('hide');
+                    }).catch(err => {
+                        console.error("Error stopping scanner: ", err);
+                    });
+                },
+                (errorMessage) => {
+                    console.warn("QR Scan Error: ", errorMessage);
+                }
+            ).catch(err => {
+                console.error("Error starting scanner: ", err);
+            });
+        });
+
+        $('#qrModal').on('hidden.bs.modal', function () {
+            html5QrCode.stop().catch(err => {
+                console.error("Error stopping scanner: ", err);
+            });
+        });
+    }
+</script>

@@ -2,7 +2,7 @@
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Pdf extends FPDF {
-    function __construct($orientation='P', $unit='cm', $size=array(14.8, 21)) { // Half A4: 14.8 cm x 21 cm
+    function __construct($orientation='P', $unit='cm', $size=array(14.8, 20)) { // Custom size: 14.8 cm x 20 cm
         parent::__construct($orientation, $unit, $size);
     }
 
@@ -63,27 +63,27 @@ if (!file_exists($logoPath)) {
     exit;
 }
 
-$pdf->Image($logoPath, 0.7, 0.5, 2.0, 1.0); // Reduced logo size
+$pdf->Image($logoPath, 0.7, 0.5, 3.0, 1.0); // Restored logo size for wider width
 
 // Nama Perusahaan
-$pdf->SetXY(3.0, 0.5); // Adjusted X to account for smaller logo
-$pdf->SetFont('Arial', 'B', 18);
+$pdf->SetXY(6.0, 0.5); // Adjusted X for logo
+$pdf->SetFont('Arial', 'B', 18); // Restored font size
 $pdf->Cell(0, 0.6, 'Trip Cargo', 0, 1, 'L');
 
 // Tagline
-$pdf->SetXY(3.0, 1.0);
-$pdf->SetFont('Helvetica', 'I', 9);
+$pdf->SetXY(5.5, 1.1);
+$pdf->SetFont('Helvetica', 'I', 9); // Restored font size
 $pdf->Cell(0, 0.4, 'Paket Cepat, Cargo & Moving', 0, 1, 'L');
 $pdf->Ln(0.3);
 
 // Garis Pemisah Header
 $pdf->SetDrawColor(150, 150, 150);
 $pdf->SetLineWidth(0.03);
-$pdf->Line(0.7, 1.6, 14.1, 1.6);
+$pdf->Line(0.7, 1.6, 14.1, 1.6); // Adjusted for new width
 
 // Nomor Resi
 $pdf->SetXY(0.7, 2.0);
-$pdf->SetFont('Helvetica', 'B', 20);
+$pdf->SetFont('Helvetica', 'B', 20); // Restored font size
 $pdf->SetFillColor(245, 245, 245);
 $pdf->Cell(12.7, 0.9, $d->resi, 'LTRB', 1, 'C', true);
 
@@ -91,7 +91,7 @@ $pdf->Cell(12.7, 0.9, $d->resi, 'LTRB', 1, 'C', true);
 require_once FCPATH . 'application/libraries/qrcode/qrlib.php';
 $qrPath = FCPATH . 'assets/barcode/' . $d->resi . '.png';
 $dataToEncode = urlencode($d->resi);
-$apiUrl = "https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=" . $dataToEncode; // Reduced QR image size
+$apiUrl = "https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=" . $dataToEncode; // Restored QR image size
 
 $qrImageData = @file_get_contents($apiUrl);
 if ($qrImageData !== false) {
@@ -108,25 +108,25 @@ if (!file_exists($qrPath)) {
     exit;
 }
 
-$pdf->Image($qrPath, 11.6, 3.0, 2.0, 2.0); // Reduced QR size, adjusted X position
+$pdf->Image($qrPath, 11.5, 3.0, 2.0, 2.0); // Restored QR size, adjusted X position
 $pdf->Ln(0.3);
 
 // Service
 $pdf->SetXY(0.7, 3.2);
-$pdf->SetFont('Helvetica', 'B', 11);
+$pdf->SetFont('Helvetica', 'B', 11); // Restored font size
 $pdf->Cell(6.5, 0.6, 'SERVICE: ' . substr($d->layan ?? '', 0, 20), 'LTRB', 1, 'C');
 
 // Koli dan Berat
 $pdf->SetXY(0.7, 3.9);
-$pdf->SetFont('Helvetica', 'B', 11);
+$pdf->SetFont('Helvetica', 'B', 11); // Restored font size
 $pdf->Cell(3.2, 0.6, ($d->koli ?? 0) . ' Koli', 'LTRB', 0, 'C');
 $pdf->Cell(3.2, 0.6, ($d->berat ?? 0) . ' Kg', 'LTRB', 1, 'C');
 
 // Informasi Penerima
 $pdf->SetXY(0.7, 4.6);
-$pdf->SetFont('Helvetica', 'B', 11);
+$pdf->SetFont('Helvetica', 'B', 11); // Restored font size
 $pdf->Cell(0, 0.5, 'Penerima:', 0, 1, 'L');
-$pdf->SetFont('Helvetica', '', 9);
+$pdf->SetFont('Helvetica', '', 9); // Restored font size
 $pdf->SetXY(0.7, 5.0);
 $pdf->MultiCell(12.7, 0.4, substr($d->penerima ?? '', 0, 50), 0, 'L');
 $pdf->SetXY(0.7, 5.4);
@@ -137,20 +137,20 @@ $pdf->SetXY(0.7, 6.8);
 $pdf->Cell(0, 0.4, 'Telp: **********' . substr($d->telp ?? '', 8, 5), 0, 1, 'L');
 
 // Pembayaran
-$pdf->SetXY(11.6, 6.8); // Adjusted X for new QR position
-$pdf->SetFont('Helvetica', 'I', 9);
-$pdf->Cell(0, 0.4, substr($d->metode ?? '', 0, 20), 0, 1, 'R');
+$pdf->SetXY(11.6, 6.8); // Adjusted X for QR position
+$pdf->SetFont('Helvetica', 'I', 9); // Restored font size
+$pdf->Cell(1.7, 0.3, substr($d->metode ?? '', 0, 20), 0, 1, 'R');
 
 // Kota/Kabupaten
 $pdf->SetXY(0.7, 7.4);
-$pdf->SetFont('Helvetica', 'B', 13);
+$pdf->SetFont('Helvetica', 'B', 13); // Restored font size
 $pdf->Cell(12.7, 0.7, $this->app_model->find_kokab(substr($d->kec_id ?? '0000', 0, 4)), 'LTRB', 1, 'C', true);
 
 // Informasi Pengirim
 if ($d->p_nama == null) {
     $nama = $this->app_model->find_nama_pel($d->pel_id ?? '');
     $dept = $d->dept ?? '';
-    $telp = $this->app_model->find_telp_pel($d->pel_id ?? '');
+    $telp = $this->app_model->find_telp_pel($d->pel_id ?? ''); // Fixed typo: find_telp_pel
     $alamat = $d->alamat_pel ?? '';
     $kec = $this->app_model->find_kec($d->kec ?? '');
     $kokab = $this->app_model->find_kokab($d->kokab ?? '');
@@ -168,25 +168,13 @@ if ($d->p_nama == null) {
 }
 
 $pdf->SetXY(0.7, 8.2);
-$pdf->SetFont('Helvetica', 'B', 11);
+$pdf->SetFont('Helvetica', 'B', 11); // Restored font size
 $pdf->Cell(0, 0.5, 'Pengirim:', 0, 1, 'L');
-$pdf->SetFont('Helvetica', '', 9);
+$pdf->SetFont('Helvetica', '', 9); // Restored font size
 $pdf->SetXY(0.7, 8.6);
-$pdf->Cell(0, 0.4, substr($nama, 0, 50), 0, 1, 'L');
+$pdf->MultiCell(8.0, 0.4, substr($nama, 0, 40), 0, 'L'); // Adjusted width for sender info
 $pdf->SetXY(0.7, 9.0);
-$pdf->Cell(0, 0.4, substr($dept, 0, 50), 0, 1, 'L');
-
-// Deskripsi
-$pdf->SetXY(0.7, 9.5);
-$pdf->Cell(0, 0.4, 'Isi: ' . substr($d->deskripsi ?? '', 0, 70), 0, 1, 'L');
-
-// Tanggal Kirim
-$pdf->SetXY(0.7, 9.9);
-$pdf->Cell(0, 0.4, date('d M Y H:i:s', strtotime($d->tglkirim ?? 'now')), 0, 1, 'L');
-
-// Website
-$pdf->SetXY(0.7, 10.3);
-$pdf->SetFont('Helvetica', 'B', 12);
+$pdf->MultiCell(8.0, 0.4, substr($dept, 0, 40), 0, 'L'); // Adjusted width for sender info
 
 // Generate Barcode
 $this->zend->load('Zend/Barcode');
@@ -202,7 +190,15 @@ if (!file_exists($image_dir . $image_name)) {
     $pdf->Output('LEBEL_error.pdf', 'I');
     exit;
 }
-$pdf->Image($image_dir . $image_name, 4.1, 10.8, 5.0, 1.2); // Reduced barcode size, adjusted X position
+$pdf->Image($image_dir . $image_name, 9.1, 8.2, 4.5, 1.0); // Moved barcode to right of Pengirim, adjusted size and position
+
+// Deskripsi
+$pdf->SetXY(0.7, 9.5);
+$pdf->Cell(0, 0.4, 'Isi: ' . substr($d->deskripsi ?? '', 0, 60), 0, 1, 'L'); // Adjusted max length
+
+// Tanggal Kirim
+$pdf->SetXY(0.7, 9.9);
+$pdf->Cell(0, 0.4, date('d M Y H:i:s', strtotime($d->tglkirim ?? 'now')), 0, 1, 'L');
 
 // Bersihkan output buffer sebelum mengeluarkan PDF
 ob_end_clean();

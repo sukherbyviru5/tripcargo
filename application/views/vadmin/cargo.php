@@ -54,6 +54,41 @@
         height: 32px;
         width: 100%;
     }
+    
+
+    .wizard-container {
+        height: 100px;
+        max-width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        -ms-overflow-style: none; 
+        scrollbar-width: none;  
+    }
+
+    .wizard-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .form-wizard {
+        display: flex; 
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .form-wizard li {
+        flex: 0 0 auto; 
+        margin-right: 10px; 
+    }
+
+    .form-wizard li a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .form-wizard li.active a {
+        color: white;
+    }
 </style>
 <!-- RIBBON -->
 <div id="ribbon">
@@ -139,24 +174,30 @@
                                     enctype="multipart/form-data">
                                     <div id="bootstrap-wizard-1" class="col-sm-12">
                                         <div class="form-bootstrapWizard">
-                                            <ul class="bootstrapWizard form-wizard">
-                                                <li class="active" data-target="#step1">
-                                                    <a href="#tab1" data-toggle="tab"> <span class="step">1</span>
-                                                        <span class="title">Data Pengirim</span> </a>
-                                                </li>
-                                                <li data-target="#step2">
-                                                    <a href="#tab2" data-toggle="tab"> <span class="step">2</span>
-                                                        <span class="title">Data Penerima</span> </a>
-                                                </li>
-                                                <li data-target="#step3">
-                                                    <a href="#tab3" data-toggle="tab"> <span class="step">3</span>
-                                                        <span class="title">Data Barang</span> </a>
-                                                </li>
-                                                <li data-target="#step4">
-                                                    <a href="#tab4" data-toggle="tab"> <span class="step">4</span>
-                                                        <span class="title">Simpan</span> </a>
-                                                </li>
-                                            </ul>
+                                            <div class="wizard-container" >
+                                                <ul class="bootstrapWizard form-wizard" style="margin: 20px 0 0 0;">
+                                                    <li class="active" data-target="#step1">
+                                                        <a href="#tab1" data-toggle="tab"> <span class="step">1</span>
+                                                            <span class="title">Data Pengirim</span> </a>
+                                                    </li>
+                                                    <li data-target="#step2">
+                                                        <a href="#tab2" data-toggle="tab"> <span class="step">2</span>
+                                                            <span class="title">Data Penerima</span> </a>
+                                                    </li>
+                                                    <li data-target="#step3">
+                                                        <a href="#tab3" data-toggle="tab"> <span class="step">3</span>
+                                                            <span class="title">Data Barang</span> </a>
+                                                    </li>
+                                                    <li data-target="#step4">
+                                                        <a href="#tab4" data-toggle="tab"> <span class="step">4</span>
+                                                            <span class="title">Review Data</span> </a>
+                                                    </li>
+                                                    <li data-target="#step5">
+                                                        <a href="#tab5" data-toggle="tab"> <span class="step">5</span>
+                                                            <span class="title">Simpan</span> </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="tab-content">
@@ -209,7 +250,7 @@
 
                                                     </div>
                                                     <div class="form-group has-warning">
-                                                        <label class="col-md-2 control-label">Data Penerima</label>
+                                                        <label class="col-md-2 control-label">Data Pengirim</label>
                                                         <div class="col-md-9">
                                                             <div class="input-group">
                                                                 <input type="hidden" name="alamat">
@@ -218,12 +259,6 @@
                                                                 <span class="input-group-addon"><i
                                                                         class="glyphicon glyphicon-edit"></i></span>
                                                             </div>
-
-                                                            <!--div class="input-group">
-                 <span class="input-group-addon"><i class="fa fa-map-o fa-fw"></i></span>
-                 <input class="form-control" placeholder="Alamat Pengirim " type="text" name="alamat" id="alamat">
-                 <span class="input-group-addon"><i class="fa fa-check"></i></span>
-                </div-->
 
                                                         </div>
                                                     </div>
@@ -289,6 +324,29 @@
                                                         </div>
 
                                                     </div>
+                                                    <div class="form-group has-warning">
+                                                        <label class="col-md-2 control-label">Area</label>
+                                                        <div class="col-md-3" id="carea">
+                                                            <div class="input-group">
+                                                                <span id="loading2"></span>
+                                                                <span class="input-group-addon"><i
+                                                                        class="fa fa-map-marker fa-fw"></i></span>
+                                                                <select class="form-control" name="area"
+                                                                    id="area" required>
+                                                                    <option value="" selected="selected">Pilih
+                                                                        Area
+                                                                        <?php
+                                                                        foreach ($area as $kode) {
+                                                                            echo '<option value=' . $kode->nama . '>' . $kode->kode . '</option>';
+                                                                        }
+                                                                        ?>
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+
                                                     <div class="form-group has-warning">
                                                         <label class="col-md-2 control-label">Telp/HP</label>
                                                         <div class="col-md-3">
@@ -369,7 +427,7 @@
                                                             </div>
                                                         </div>
                                                         <br><br><label class="col-md-2 control-label">Nama
-                                                            Tujuan</label>
+                                                            Penerima</label>
                                                         <div class="col-md-4">
                                                             <div class="input-group">
                                                                 <span class="input-group-addon"><i
@@ -397,7 +455,7 @@
                                                     </div>
 
                                                     <div class="form-group has-warning">
-                                                        <label class="col-md-2 control-label">Alamat Tujuan</label>
+                                                        <label class="col-md-2 control-label">Alamat Penerima</label>
                                                         <div class="col-md-9">
                                                             <div class="input-group">
                                                                 <input type="hidden" name="alamat2">
@@ -470,6 +528,24 @@
 
                                                     </div>
                                                     <div class="form-group has-warning">
+                                                        <label class="col-md-2 control-label">Tujuan</label>
+                                                        <div class="col-md-3" id="ctujuan">
+                                                            <div class="input-group">
+                                                                <span id="loading20"></span>
+                                                                <span class="input-group-addon"><i
+                                                                        class="fa fa-map-marker fa-fw"></i></span>
+                                                                <select class="form-control" name="tujuanarea" id="tujuanarea" required>
+                                                                    <option value="" selected="selected">Pilih Tujuan</option>
+                                                                    <?php foreach ($tujuanarea as $row): ?>
+                                                                        <option value="<?= $row->id ?>"><?= $row->nama ?></option>
+                                                                    <?php endforeach; ?>
+                                                                </select>
+                                                            </div>
+                                                            <small style="color: green;" id="messagetarif"></small>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="form-group has-warning">
                                                         <label class="col-md-2 control-label">Telp/HP</label>
                                                         <div class="col-md-3">
                                                             <div class="input-group">
@@ -514,6 +590,66 @@
                                                             }
                                                         });
                                                     </script>
+
+                                                    <script>
+                                                        $(document).ready(function() {
+                                                            let areaValue = '';
+                                                            let tujuanValue = '';
+
+                                                            $('#area').on('change', function() {
+                                                                areaValue = $(this).val();
+                                                                getResi(areaValue);
+                                                                if (areaValue && tujuanValue) {
+                                                                    sendRequest(areaValue, tujuanValue);
+                                                                }
+                                                            });
+
+                                                            $('#tujuanarea').on('change', function() {
+                                                                tujuanValue = $(this).val();
+                                                                if (areaValue && tujuanValue) {
+                                                                    sendRequest(areaValue, tujuanValue);
+                                                                }
+                                                            });
+
+                                                            function getResi(area) {
+                                                                $.ajax({
+                                                                    url: "<?php echo base_url('cadmin/users/getResiByArea'); ?>",
+                                                                    type: "POST",
+                                                                    data: { area: areaValue }, 
+                                                                    success: function(data) {
+                                                                        $('#resi').val(data);
+                                                                    }
+                                                                });
+                                                            }
+
+                                                            function sendRequest(area, tujuan) {
+                                                                $('#loading20').html('<i class="fa fa-spinner fa-spin"></i>');
+
+                                                                $.ajax({
+                                                                    url: '<?php echo site_url('cadmin/home/cektarif'); ?>',
+                                                                    type: 'POST',
+                                                                    data: {
+                                                                        area: area,
+                                                                        tujuanarea: tujuan
+                                                                    },
+                                                                    dataType: 'json', 
+                                                                    success: function(response) {
+                                                                        $('#loading20').html(''); 
+                                                                        $('#messagetarif').html(response.message); 
+                                                                        $('#review_area').html(response.data.asal); 
+                                                                        $('#review_tujuanarea').html(response.data.tujuan); 
+                                                                        const hargaResponse = response.data.harga || 0;
+                                                                        tampilkanAngka('harga', hargaResponse);
+                                                                        hitungSemua();
+                                                                    },
+                                                                    error: function(xhr, status, error) {
+                                                                        $('#loading20').html('');
+                                                                        alert('Failed to fetch tariff. Please try again.');
+                                                                    }
+                                                                });
+                                                            }
+                                                        });
+                                                        </script>
 
                                                 </div>
                                             </div>
@@ -560,13 +696,13 @@
                                                         <div class="col-md-4">
                                                             <div class="input-group">
                                                                 <b>SERVICE </b>
-                                                                <input type="radio" name="layan"
+                                                                <!-- <input type="radio" name="layan"
                                                                     value="PRIORITAS">
-                                                                PRIORITAS
+                                                                PRIORITAS -->
                                                                 <input type="radio" name="layan" value="REGULER">
-                                                                REG
-                                                                <input type="radio" name="layan" value="CARGO">
-                                                                CARGO
+                                                                REGULER
+                                                                <input type="radio" name="layan" value="EXPRESS">
+                                                                EXPRESS
                                                             </div>
 
                                                         </div>
@@ -584,7 +720,7 @@
                                                     <div class="form-group has-warning koli-item">
                                                         <div class="row"
                                                             style="padding-left:13px; padding-right:13px">
-                                                            <label class="col-md-2 control-label">Data Barang </label>
+                                                            <label class="col-md-2 control-label">Dimensi </label>
                                                             <div class="col-md-4">
                                                                 <div class="input-group">
                                                                     <span class="input-group-addon"><i
@@ -716,38 +852,52 @@
                                                                             class="fa fa-dollar"></i></span>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-1">
+                                                            <!-- <div class="col-md-1">
                                                                 <button type="button" id="cek_harga"
                                                                     name="cek_harga" class="btn btn-success"
                                                                     onclick="load_harga()"><i
                                                                         class="fa fa-money fa-fw"></i> Tarif </button>
-                                                            </div>
+                                                            </div> -->
                                                         </div>
                                                     </span>
 
                                                     <hr />
+
+                                                    <?php 
+                                                        $level = $this->session->userdata('level');
+                                                        $isSuperadmin = ($level === 'superadmin'); 
+                                                    ?>
 
                                                     <span class="hidden-xs">
                                                         <div class="form-group has-warning">
                                                             <label class="col-md-2 control-label">Diskon</label>
                                                             <div class="col-md-2">
                                                                 <div class="input-group">
-                                                                    <span class="input-group-addon"><i
-                                                                            class="fa fa-tag"></i></span>
-                                                                    <input class="form-control" placeholder="Diskon %"
-                                                                        type="number" min="0" max="100"
-                                                                        name="diskon" id="diskon"
-                                                                        onkeyup="updateTotals()">
+                                                                    <span class="input-group-addon"><i class="fa fa-tag"></i></span>
+                                                                    <input 
+                                                                        class="form-control" 
+                                                                        placeholder="<?= $isSuperadmin ? 'Diskon %' : 'Tidak Aktif'; ?>"
+                                                                        type="number" 
+                                                                        min="0" max="100"
+                                                                        name="diskon" 
+                                                                        id="diskon"
+                                                                        <?= $isSuperadmin ? '' : 'disabled'; ?> 
+                                                                        onkeyup="<?= $isSuperadmin ? 'updateTotals()' : ''; ?>"
+                                                                    >
                                                                     <span class="input-group-addon">%</span>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-2">
                                                                 <div class="input-group">
                                                                     <span class="input-group-addon">Rp.</span>
-                                                                    <input class="form-control"
-                                                                        placeholder="Nilai Diskon" type="text"
-                                                                        name="nilai_diskon" id="nilai_diskon"
-                                                                        readonly>
+                                                                    <input 
+                                                                        class="form-control"
+                                                                        placeholder="<?= $isSuperadmin ? 'Nilai Diskon' : 'Tidak Aktif'; ?>" 
+                                                                        type="text"
+                                                                        name="nilai_diskon" 
+                                                                        id="nilai_diskon"
+                                                                        readonly
+                                                                    >
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -823,8 +973,8 @@
                                                                 <a data-toggle="tooltip"
                                                                     title="Gopay, Dana, Walet, OVO, Debit, Transfer">
                                                                     TF &ensp;</a>
-                                                                <input type="radio" name="metode" value="Kredit">
-                                                                Tempo &ensp;
+                                                                <input type="radio" name="metode" value="Invoice">
+                                                                Invoice &ensp;
                                                             </div>
 
                                                         </div>
@@ -909,8 +1059,321 @@
                                             </script>
 
                                             <div class="tab-pane" id="tab4">
+                                            <br>
+                                            <h3><strong>Step 4</strong> - Review Data</h3>
+                                            <br>
+                                            <div id="show-process">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <table class="table table-bordered table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th colspan="2" style="background-color: #f8f9fa; text-align: center;">Data Pengirim</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><strong>Nama Pengirim</strong></td>
+                                                                    <td id="review_nama"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Dept/Perusahaan</strong></td>
+                                                                    <td id="review_dept"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Alamat</strong></td>
+                                                                    <td id="review_alamat"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Provinsi</strong></td>
+                                                                    <td id="review_prov"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Kabupaten</strong></td>
+                                                                    <td id="review_kab"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Kecamatan</strong></td>
+                                                                    <td id="review_kec"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Area</strong></td>
+                                                                    <td id="review_area"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Telp/HP</strong></td>
+                                                                    <td id="review_telp"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Email</strong></td>
+                                                                    <td id="review_email"></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                        <script>
+                                                            function updateReviewPengirim() {
+                                                                let nama    = $('#nama').val();
+                                                                let dept    = $('#dept').val();
+                                                                let alamat  = $('#alamat').val();
+                                                                let prov    = $('#prov option:selected').text();
+                                                                let kab     = $('#kab option:selected').text();
+                                                                let kec     = $('#kec option:selected').text();
+                                                                let area    = $('#area option:selected').text();
+                                                                let telp    = $('#telp').val();
+                                                                let email   = $('#email').val();
+
+                                                                // isi ke tabel review
+                                                                $('#review_nama').html(nama);
+                                                                $('#review_dept').html(dept);
+                                                                $('#review_alamat').html(alamat);
+                                                                $('#review_prov').html(prov);
+                                                                $('#review_kab').html(kab);
+                                                                $('#review_kec').html(kec);
+                                                                $('#review_area').html(area);
+                                                                $('#review_telp').html(telp);
+                                                                $('#review_email').html(email);
+                                                            }
+
+                                                            // pasang listener untuk semua input/select
+                                                            $(document).ready(function() {
+                                                                $('#nama, #dept, #alamat, #telp, #email').on('keyup change', updateReviewPengirim);
+                                                                $('#prov, #kab, #kec, #area').on('change', updateReviewPengirim);
+                                                            });
+
+                                                        </script>
+
+                                                        <table class="table table-bordered table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th colspan="2" style="background-color: #f8f9fa; text-align: center;">Data Penerima</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><strong>Nama Penerima</strong></td>
+                                                                    <td id="review_penerima"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Dept/Bagian</strong></td>
+                                                                    <td id="review_dept2"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Alamat</strong></td>
+                                                                    <td id="review_alamat2"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Provinsi</strong></td>
+                                                                    <td id="review_prov2"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Kabupaten</strong></td>
+                                                                    <td id="review_kab2"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Kecamatan</strong></td>
+                                                                    <td id="review_kec2"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Tujuan</strong></td>
+                                                                    <td id="review_tujuanarea"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Telp/HP</strong></td>
+                                                                    <td id="review_telp2"></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                        <script>
+                                                            function updateReviewPenerima() {
+                                                                let penerima = $('#penerima').val();       // nama penerima
+                                                                let dept2    = $('#dept2').val();          // dept/bagian
+                                                                let alamat2  = $('#alamat2').val();        // alamat penerima
+                                                                let prov2    = $('#prov2 option:selected').text();
+                                                                let kab2     = $('#kab2 option:selected').text();
+                                                                let kec2     = $('#kec2 option:selected').text();
+                                                                let tujuan   = $('#tujuanarea option:selected').text();
+                                                                let telp2    = $('#telp2').val();
+
+                                                                // isi ke tabel review penerima
+                                                                $('#review_penerima').html(penerima);
+                                                                $('#review_dept2').html(dept2);
+                                                                $('#review_alamat2').html(alamat2);
+                                                                $('#review_prov2').html(prov2);
+                                                                $('#review_kab2').html(kab2);
+                                                                $('#review_kec2').html(kec2);
+                                                                $('#review_tujuanarea').html(tujuan);
+                                                                $('#review_telp2').html(telp2);
+                                                            }
+
+                                                            // pasang listener untuk semua input/select penerima
+                                                            $(document).ready(function() {
+                                                                $('#penerima, #dept2, #alamat2, #telp2').on('keyup change', updateReviewPenerima);
+                                                                $('#prov2, #kab2, #kec2, #tujuanarea').on('change', updateReviewPenerima);
+                                                            });
+
+                                                        </script>
+
+                                                        <table class="table table-bordered table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th colspan="2" style="background-color: #f8f9fa; text-align: center;">Data Barang</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><strong>Resi/No. STT</strong></td>
+                                                                    <td id="review_resi"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Keterangan Isi Paket</strong></td>
+                                                                    <td id="review_deskripsi"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Service</strong></td>
+                                                                    <td id="review_layan"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Dimensi (P x L x T)</strong></td>
+                                                                    <td id="review_dimensi"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Volume</strong></td>
+                                                                    <td id="review_vol"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Berat</strong></td>
+                                                                    <td id="review_berat"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Koli</strong></td>
+                                                                    <td id="review_koli"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Packing</strong></td>
+                                                                    <td id="review_note"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Tarif Tujuan</strong></td>
+                                                                    <td id="review_harga"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Diskon</strong></td>
+                                                                    <td id="review_diskon"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Nilai Diskon</strong></td>
+                                                                    <td id="review_nilai_diskon"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Total Tarif</strong></td>
+                                                                    <td id="review_total_tarif"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Nilai Barang</strong></td>
+                                                                    <td id="review_harga6"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Persen Asuransi</strong></td>
+                                                                    <td id="review_persen_asuransi"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Nilai Asuransi</strong></td>
+                                                                    <td id="review_harga4"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Total Biaya</strong></td>
+                                                                    <td id="review_total"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Metode Pembayaran</strong></td>
+                                                                    <td id="review_metode"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><strong>Catatan</strong></td>
+                                                                    <td id="review_catatan"></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                       <script>
+                                                            function formatRupiah(angka) {
+                                                                if (!angka) return 'Rp. 0';
+                                                                angka = angka.toString().replace(/[^,\d]/g, ''); 
+                                                                return 'Rp. ' + angka.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                                                            }
+
+                                                            function updateReviewBarang() {
+                                                                let resi       = $('#resi').val();
+                                                                let deskripsi  = $('#deskripsi').val();
+                                                                let layan      = $('input[name="layan"]:checked').val() || '';
+                                                                
+                                                                // dimensi
+                                                                let p = $('#p').val();
+                                                                let l = $('#l').val();
+                                                                let t = $('#t').val();
+                                                                let dimensi = (p && l && t) ? `${p} x ${l} x ${t}` : '';
+
+                                                                let vol        = $('#vol').val();
+                                                                let berat      = $('#berat').val();
+                                                                let koli       = $('#koli').val();
+                                                                let note       = $('#note0').val();
+                                                                let harga      = $('#harga').val();
+                                                                let diskon     = $('#diskon').val();
+                                                                let nilaiDiskon= $('#nilai_diskon').val();
+                                                                let totalTarif = $('#total_tarif').val();
+                                                                let harga6     = $('#harga6').val();
+                                                                let persenAsur = $('#persen_asuransi').val();
+                                                                let harga4     = $('#harga4').val();
+                                                                let total      = $('#total').val();
+                                                                let metode     = $('input[name="metode"]:checked').val() || '';
+                                                                let catatan    = $('#Catatan\\ tambahan').val(); 
+
+                                                                // masukkan ke tabel review
+                                                                $('#review_resi').html(resi);
+                                                                $('#review_deskripsi').html(deskripsi);
+                                                                $('#review_layan').html(layan);
+                                                                $('#review_dimensi').html(dimensi);
+                                                                $('#review_vol').html(vol);
+                                                                $('#review_berat').html(berat);
+                                                                $('#review_koli').html(koli);
+                                                                $('#review_note').html(note);
+
+                                                                // format rupiah
+                                                                $('#review_harga').html(formatRupiah(harga));
+                                                                $('#review_diskon').html(diskon ? diskon + '%' : '');
+                                                                $('#review_nilai_diskon').html(formatRupiah(nilaiDiskon));
+                                                                $('#review_total_tarif').html(formatRupiah(totalTarif));
+                                                                $('#review_harga6').html(formatRupiah(harga6));
+                                                                $('#review_persen_asuransi').html(persenAsur ? persenAsur + '%' : '');
+                                                                $('#review_harga4').html(formatRupiah(harga4));
+                                                                $('#review_total').html(formatRupiah(total));
+
+                                                                $('#review_metode').html(metode);
+                                                                $('#review_catatan').html(catatan);
+                                                            }
+
+                                                            // aktifkan listener
+                                                            $(document).ready(function() {
+                                                                $('#resi, #deskripsi, #p, #l, #t, #vol, #berat, #koli, #note0, #harga, #diskon, #nilai_diskon, #total_tarif, #harga6, #persen_asuransi, #harga4, #total, #Catatan\\ tambahan')
+                                                                    .on('keyup change', updateReviewBarang);
+                                                                
+                                                                $('input[name="layan"], input[name="metode"]').on('change', updateReviewBarang);
+                                                            });
+                                                        </script>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                        </div>
+
+                                       
+
+                                            <div class="tab-pane" id="tab5">
                                                 <br>
-                                                <h3><strong>Step 4</strong> - Simpan Formulir</h3>
+                                                <h3><strong>Step 5</strong> - Simpan Formulir</h3>
                                                 <br>
                                                 <h1 class="text-center text-success"><strong><i
                                                             class="fa fa-check fa-lg"></i> Complete</strong></h1>
@@ -953,16 +1416,10 @@
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <ul class="pager wizard no-margin">
-                                                            <!--<li class="previous first disabled">
-                <a href="javascript:void(0);" class="btn btn-lg btn-default"> First </a>
-                </li>-->
                                                             <li class="previous disabled">
                                                                 <a href="javascript:void(0);"
                                                                     class="btn btn-lg btn-default"> Previous </a>
                                                             </li>
-                                                            <!--<li class="next last">
-                <a href="javascript:void(0);" class="btn btn-lg btn-primary"> Last </a>
-                </li>-->
                                                             <li class="next">
                                                                 <a href="javascript:void(0);"
                                                                     class="btn btn-lg txt-color-darken"> Next </a>
@@ -1674,7 +2131,6 @@
         // $('.form-group').removeClass('has-error'); // clear error class
         // $('.help-block').empty(); // clear error string
         $('#col_koli').empty();
-        $('#update-process').hide();
         //Ajax Load data from ajax
         $.ajax({
             url: "<?php echo base_url() . 'cadmin/home/cargo_edit'; ?>/" + id,
@@ -1683,10 +2139,12 @@
             success: function(dt) {
 
                 var data = dt.data;
-                //console.log(dt.barang);		
+
                 $('#col_koli').append(dt.barang);
                 $('[name="id"]').val(data.id);
                 $('[name="resi"]').val(data.resi);
+                $('[name="area"]').val(dt.area_nama);
+                $('[name="tujuanarea"]').val(dt.tujuanarea);
 
                 if (data.p_nama == null) {
                     $('[name="nama"]').val(data.nama);
@@ -1745,6 +2203,116 @@
                 $('[name="catatan"]').val(data.catatan);
                 $('input:radio[name=layan]').val([data.layan]);
                 $('input:radio[name=metode]').val([data.metode]);
+
+                  // Set area_nama in the review table
+                $('#review_area').html(dt.area_nama); // Directly set area_nama to review table
+
+                // Trigger review updates
+                updateReviewBarang();
+                updateReviewPenerima();
+                updateReviewPengirim();
+
+                
+                $('[name="simpan"]').val('update');
+                $('[name="simpan"]').text('Update');
+                $('#btnSave').text('Update');
+                save_method = "update";
+                // $('.modal-title').text('Edit Dosen'); // Set title to Bootstrap modal title
+
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert('Error get data from ajax');
+            }
+        });
+    }
+
+    function show(id) {
+        // save_method = 'update';
+        $('#wizard-1')[0].reset(); // reset form on modals
+        // $('.form-group').removeClass('has-error'); // clear error class
+        // $('.help-block').empty(); // clear error string
+        $('#col_koli').empty();
+        $('#update-process').hide();
+        //Ajax Load data from ajax
+        $.ajax({
+            url: "<?php echo base_url() . 'cadmin/home/cargo_edit'; ?>/" + id,
+            type: "GET",
+            dataType: "JSON",
+            success: function(dt) {
+
+                var data = dt.data;
+                //console.log(dt.barang);		
+                $('#col_koli').append(dt.barang);
+                $('[name="id"]').val(data.id);
+                $('[name="resi"]').val(data.resi);
+                $('[name="area"]').val(dt.area_nama);
+                $('[name="tujuanarea"]').val(dt.tujuanarea);
+
+                if (data.p_nama == null) {
+                    $('[name="nama"]').val(data.nama);
+                    $('[name="dept"]').val(data.dept);
+                    $('[name="email"]').val(data.email);
+                    $('[name="alamat"]').val(data.alamat1);
+                    $('[name="telp"]').val(data.hp);
+                    $('[name="prov"]').val(data.prov_id);
+                    $('[name="kab"]').val(data.kokab_id);
+                    $('[name="kec"]').val(data.kec_id);
+                } else {
+                    $('[name="nama"]').val(data.p_nama);
+                    $('[name="dept"]').val(data.p_dept);
+                    $('[name="email"]').val(data.p_email);
+                    $('[name="alamat"]').val(data.p_alamat);
+                    $('[name="telp"]').val(data.p_telp);
+                    $('[name="prov"]').val(data.p_prov_id);
+                    $('[name="kab"]').val(data.p_kokab_id);
+                    $('[name="kec"]').val(data.p_kec_id);
+                }
+
+
+                //$('[name="kec"]').attr('disabled',true);
+                //$('[name="kec2"]').attr('disabled',true);
+                //$('[name="kab"]').attr('disabled',true);
+                //$('[name="kab2"]').attr('disabled',true);
+
+                $('[name="prov2"]').val(data.prov);
+                $('[name="kab2"]').val(data.kab);
+                $('[name="kec2"]').val(data.kec);
+
+                $('[name="penerima"]').val(data.penerima);
+                $('[name="dept2"]').val(data.dept2);
+                $('[name="alamat2"]').val(data.alamat2);
+                $('[name="telp2"]').val(data.telp);
+                $('[name="regkirim"]').val(data.regkirim);
+                $('[name="regterima"]').val(data.regterima);
+                $('[name="deskripsi"]').val(data.deskripsi);
+                $('[name="ukuran"]').val(data.ukuran);
+                $('[name="berat"]').val(data.berat);
+                $('[name="koli"]').val(data.koli);
+                $('[name="vol"]').val(data.vol);
+                $('[name="harga"]').val(data.harga);
+                $('[name="p"]').val("");
+                $('[name="l"]').val("");
+                $('[name="t"]').val("");
+                $('[name="diskon"]').val(data.diskon);
+
+                $('[name="harga1"]').val(data.harga1);
+                $('[name="harga2"]').val(data.harga2);
+                $('[name="harga3"]').val(data.harga3);
+                $('[name="harga4"]').val(data.harga4);
+                $('[name="harga5"]').val(data.harga5);
+                $('[name="harga6"]').val(data.harga6);
+                $('[name="total"]').val(data.totalbayar);
+                $('[name="catatan"]').val(data.catatan);
+                $('input:radio[name=layan]').val([data.layan]);
+                $('input:radio[name=metode]').val([data.metode]);
+
+                // Set area_nama in the review table
+                $('#review_area').html(dt.area_nama); // Directly set area_nama to review table
+
+                // Trigger review updates
+                updateReviewBarang();
+                updateReviewPenerima();
+                updateReviewPengirim();
 
                 $('[name="simpan"]').val('update');
                 $('[name="simpan"]').text('Update');
@@ -2193,11 +2761,6 @@
 
         });
 
-        $.ajax({
-            url: "<?php echo base_url('cadmin/users/getResi'); ?>",
-            success: function(data) {
-                $('#resi').val(data);
-            }
-        });
+        
     })
 </script>

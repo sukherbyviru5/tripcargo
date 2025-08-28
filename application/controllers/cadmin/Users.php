@@ -9,6 +9,7 @@ class Users extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->model('users_model','users');
 		$this->load->model('app_model','model');
+		$this->load->model('asal_model','asal');
 	}
 	
 	public function index()
@@ -191,6 +192,30 @@ class Users extends CI_Controller {
 		
 		// Construct resi number
 		$resi = $code_area . $year . $month . $day . $urut;
+		
+		echo $resi; /* Resi format: JKT2508140001 (JKT + 2 digit year + 2 digit month + 2 digit day + 4 digit sequence) */
+	}
+
+	public function getResiByArea(){
+		$this->load->model('m_db');
+		$dateymd = date("Y-m-d");
+		$area = $this->input->post('area', TRUE);
+		$code_area = $this->asal->get_by_nama($area);
+		
+		// Get count of transactions for this area code on current date
+		$data = $this->m_db->get_like('paket', 'tglkirim', $dateymd, ['area' => $code_area->kode]);
+		$totaldata = count($data) + 1;
+		
+		// Format sequence number to 4 digits
+		$urut = str_pad($totaldata, 4, '0', STR_PAD_LEFT);
+		
+		// Get date components
+		$year = date('y'); // Last 2 digits of year
+		$month = date('m'); // 2 digits month
+		$day = date('d'); // 2 digits day
+		
+		// Construct resi number
+		$resi = $code_area->kode . $year . $month . $day . $urut;
 		
 		echo $resi; /* Resi format: JKT2508140001 (JKT + 2 digit year + 2 digit month + 2 digit day + 4 digit sequence) */
 	}
