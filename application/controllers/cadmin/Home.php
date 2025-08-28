@@ -1410,7 +1410,6 @@ class Home extends CI_Controller {
 		//output to json format
 		echo json_encode($output);
 	}
-
 	public function pelanggan_ajax_list_2()
 	{
 		$list = $this->pelanggan->get_datatables();
@@ -1422,39 +1421,34 @@ class Home extends CI_Controller {
 			$row[] = '<div class="text-center">'.$no.'</div>';
 			$row[] = $pelanggan->dept;
 			$row[] = $pelanggan->nama;
-
-			$alamat = preg_replace('/\s+/', ' ', trim($pelanggan->alamat));
-
-			$row[] = $alamat;
-			$row[] = $this->app_model->find_kokab($pelanggan->kokab_id);
-
+			$row[] = $pelanggan->alamat;
+			$row[] = $this->app_model->find_kokab($pelanggan->kokab_id);		
+			//add html for action
 			$row[] = '<div class="text-center">
-				<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Pilih"
-					onclick="pilih_pengirim(
-						'.json_encode($pelanggan->pel_id).',
-						'.json_encode($pelanggan->nama).',
-						'.json_encode($pelanggan->dept).',
-						'.json_encode($alamat).',
-						'.json_encode($pelanggan->prov_id).',
-						'.json_encode($pelanggan->kokab_id).',
-						'.json_encode($pelanggan->kec_id).',
-						'.json_encode($pelanggan->telp).',
-						'.json_encode($pelanggan->email).'
-					)"><i class="glyphicon glyphicon-plus"></i></a>
-			</div>';
-
+					<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Pilih" onclick="pilih_pengirim(
+						'."'".$pelanggan->pel_id."'".',
+						'."'".$pelanggan->nama."'".',
+						'."'".$pelanggan->dept."'".',
+						'."'".$pelanggan->alamat."'".',
+						'."'".$pelanggan->prov_id."'".',
+						'."'".$pelanggan->kokab_id."'".',
+						'."'".$pelanggan->kec_id."'".',
+						'."'".$pelanggan->telp."'".',
+						'."'".$pelanggan->email."'".',
+						)"><i class="glyphicon glyphicon-plus"></i></a>
+				  </div>';
 			$data[] = $row;
 		}
 
 		$output = array(
-			"draw" => $_POST['draw'],
-			"recordsTotal"    => $this->pelanggan->count_all(),
-			"recordsFiltered" => $this->pelanggan->count_filtered(),
-			"data" => $data,
-		);
+						"draw" => $_POST['draw'],
+						"recordsTotal" 		=> $this->pelanggan->count_all(),
+						"recordsFiltered" 	=> $this->pelanggan->count_filtered(),
+						"data" => $data,
+				);
+		//output to json format
 		echo json_encode($output);
 	}
-
 	public function cargo_ajax_list_2()
 	{
 		$list = $this->cargo->get_datatables();
@@ -1466,40 +1460,34 @@ class Home extends CI_Controller {
 			$row[] = '<div class="text-center">'.$no.'</div>';
 			$row[] = $cargo->penerima;
 			$row[] = $cargo->dept2;
-
-			$alamat = preg_replace('/\s+/', ' ', trim($cargo->alamat));
-
-			$row[] = $alamat;
+			$row[] = $cargo->alamat;
 			$row[] = $this->app_model->find_kokab($cargo->kokab_id);
 			$row[] = $cargo->telp;
-
+			//add html for action
 			$row[] = '<div class="text-center">
-				<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Pilih"
-					onclick="pilih_penerima(
-						'.json_encode($cargo->id).',
-						'.json_encode($cargo->penerima).',
-						'.json_encode($alamat).',
-						'.json_encode($cargo->prov_id).',
-						'.json_encode($cargo->kokab_id).',
-						'.json_encode($cargo->kec_id).',
-						'.json_encode($cargo->telp).',
-						'.json_encode($cargo->dept2).'
-					)"><i class="glyphicon glyphicon-plus"></i></a>
-			</div>';
-
+					<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Pilih" onclick="pilih_penerima(
+						'."'".$cargo->id."'".',
+						'."'".$cargo->penerima."'".',
+						'."'".$cargo->alamat."'".',
+						'."'".$cargo->prov_id."'".',
+						'."'".$cargo->kokab_id."'".',
+						'."'".$cargo->kec_id."'".',
+						'."'".$cargo->telp."'".',
+						'."'".$cargo->dept2."'".',
+						)"><i class="glyphicon glyphicon-plus"></i></a>
+				  </div>';
 			$data[] = $row;
 		}
 
 		$output = array(
-			"draw" => $_POST['draw'],
-			"recordsTotal"    => $this->cargo->count_all(),
-			"recordsFiltered" => $this->cargo->count_filtered(),
-			"data" => $data,
-		);
+						"draw" => $_POST['draw'],
+						"recordsTotal" 		=> $this->cargo->count_all(),
+						"recordsFiltered" 	=> $this->cargo->count_filtered(),
+						"data" => $data,
+				);
+		//output to json format
 		echo json_encode($output);
 	}
-
-
 	//-----------------update cargo -------------------------------------------
 	public function updatecargo()
 	{
