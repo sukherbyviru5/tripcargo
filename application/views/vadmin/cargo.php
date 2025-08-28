@@ -1999,11 +1999,12 @@
     }
 
     function pilih_pengirim(id, nama, dept, alamat, prov, kab, kec, telp, email) {
-        // ajax delete data to database
+        var cleanAlamat = alamat.replace(/[\r\n]+/g, ' ').replace(/\s\s+/g, ' ').trim();
+
         $('[name="regkirim"]').val(id);
         $('[name="nama"]').val(nama);
         $('[name="dept"]').val(dept);
-        $('[name="alamat"]').val(alamat);
+        $('[name="alamat"]').val(cleanAlamat);
         $('[name="prov"]').val(prov);
         $('[name="kab"]').val(kab);
         $('[name="kec"]').val(kec);
@@ -2019,19 +2020,19 @@
         $('#modal_form_penerima').modal('show'); // show bootstrap modal
         $('.modal-title').text('Cari Penerima'); // Set Title to Bootstrap modal title
     }
+   
+    function pilih_penerima(id, nama, alamat, prov, kab, kec, telp, dept2) {
+        var cleanAlamat = alamat.replace(/[\r\n]+/g, ' ').replace(/\s\s+/g, ' ').trim();
 
-    function pilih_penerima(id, nama, alamat, prov, kab, kec, telp, dept2, ) {
-        // ajax delete data to database
         $('[name="regterima"]').val(id);
         $('[name="penerima"]').val(nama);
         $('[name="dept2"]').val(dept2);
-        $('[name="alamat2"]').val(alamat);
+        $('[name="alamat2"]').val(cleanAlamat);
         $('[name="prov2"]').val(prov);
         $('[name="kab2"]').val(kab);
         $('[name="kec2"]').val(kec);
         $('[name="telp2"]').val(telp);
         $('#modal_form_penerima').modal('hide');
-
     }
 
     // function hitung() {
