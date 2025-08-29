@@ -77,8 +77,8 @@
     }
 
     .form-wizard li {
-        flex: 0 0 auto; 
-        margin-right: 10px; 
+        /* flex: 0 0 auto; 
+        margin-right: 10px;  */
     }
 
     .form-wizard li a {
@@ -89,6 +89,7 @@
     .form-wizard li.active a {
         color: white;
     }
+    
 </style>
 <!-- RIBBON -->
 <div id="ribbon">
@@ -939,7 +940,7 @@
                                                                 <span class="input-group-addon">%</span>
                                                                 <span class="input-group-addon">Rp</span>
                                                                 <input class="form-control"
-                                                                    placeholder="Nilai Asuransi" type="text"
+                                                                    placeholder="Biaya Asuransi" type="text"
                                                                     name="harga4" id="harga4"
                                                                     readonly>
                                                             </div>
@@ -1279,7 +1280,7 @@
                                                                     <td id="review_persen_asuransi"></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><strong>Nilai Asuransi</strong></td>
+                                                                    <td><strong> Biaya Asuransi</strong></td>
                                                                     <td id="review_harga4"></td>
                                                                 </tr>
                                                                 <tr>
