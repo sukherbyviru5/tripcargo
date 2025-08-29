@@ -108,7 +108,7 @@ if (!file_exists($barcodePath)) {
 $pdf->Image($barcodePath, 14.5, 0.8, 4);
 
 // QR Code
-$qrData = "https://tripcargo.test/web/cari?k=" . $d->resi;
+$qrData = "https://tripcargoid.com/web/cari?k=" . $d->resi;
 $qrApiUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" . urlencode($qrData);
 $pdf->Image($qrApiUrl, 18.5, 0.8, 1.5, 0, 'PNG');
 $pdf->Ln(0.8); // Maintain spacing below for consistency

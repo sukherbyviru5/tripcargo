@@ -94,8 +94,8 @@
 					<div id="logo-group">
 
 						<!-- PLACE YOUR LOGO HERE -->
-						<!--img src="https://tripcargo.test/assets/upload/<?php foreach($record  as $row){?><?php echo $row->foto;?><?php }?> " width="165px" class="img-circle img-responsive" -->
-						<!--span id="logo" style="width: 27px;"> <img src="https://tripcargo.test/assets/upload/<?php foreach($record  as $row){?><?php echo $row->foto;?><?php }?>" width="5px" class="img-circle img-responsive" alt="<?php foreach($record  as $row){?><?php echo $row->namalengkap;?><?php }?>"> </span-->
+						<!--img src="https://tripcargoid.com/assets/upload/<?php foreach($record  as $row){?><?php echo $row->foto;?><?php }?> " width="165px" class="img-circle img-responsive" -->
+						<!--span id="logo" style="width: 27px;"> <img src="https://tripcargoid.com/assets/upload/<?php foreach($record  as $row){?><?php echo $row->foto;?><?php }?>" width="5px" class="img-circle img-responsive" alt="<?php foreach($record  as $row){?><?php echo $row->namalengkap;?><?php }?>"> </span-->
 						<!-- END LOGO PLACEHOLDER -->
 
 						<!-- Note: The activity badge color changes when clicked and resets the number to 0
@@ -166,7 +166,7 @@
 								<div href="#"  class="dropdown-toggle no-margin userdropdown " data-toggle="dropdown" aria-expanded="true" style="font-size: 0.7em;font-weight: bold;">  
 								    <!--img src="<?php echo base_url();?>assets/img/avatars/5.png" alt="John Doe" class="online" /-->
 									<!--img src="<?php echo base_url();?>/assets/images/avatar_2x.png" alt=" " class="online" /-->
-									<img src="https://tripcargo.test/assets/upload/<?php foreach($record  as $row){?><?php echo $row->foto;?><?php }?>" width="28px" class="img-circle img-responsive" alt="<?php foreach($record  as $row){?><?php echo $row->namalengkap;?><?php }?>">
+									<img src="https://tripcargoid.com/assets/upload/<?php foreach($record  as $row){?><?php echo $row->foto;?><?php }?>" width="28px" class="img-circle img-responsive" alt="<?php foreach($record  as $row){?><?php echo $row->namalengkap;?><?php }?>">
 									<!--?=$this->session->userdata('nama_pengguna')?-->
 									<!--br-->
 									<!--?=$this->session->userdata('user_id')?> | <!--?=$this->session->userdata('area')?-->

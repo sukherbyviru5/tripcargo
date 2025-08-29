@@ -245,8 +245,8 @@
                 <div align="left" style=" margin-top: 10px;">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="https://tripcargo.test/">Home</a></li>
-                            <li class="breadcrumb-item"><a href="https://tripcargo.test/Produk_dan_Layanan">Layanan</a></li>
+                            <li class="breadcrumb-item"><a href="https://tripcargoid.com/">Home</a></li>
+                            <li class="breadcrumb-item"><a href="https://tripcargoid.com/Produk_dan_Layanan">Layanan</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Moving</li>
                         </ol>
                     </nav>
@@ -316,7 +316,7 @@
 			            <th width="Auto" style="background-color:#dfc087;  border-radius: 50px 50px 0px 0px;"><div align="center"><img alt="" border="0" width="50" data-original-height="1312" data-original-width="1312" src="https://1.bp.blogspot.com/-3zdEozGJUGc/X5b7L_TVFgI/AAAAAAAAMpU/jRhyjUTrHzASEyUZMyirdhHt6VK7BMj1wCLcBGAsYHQ/s320/Frame%2BIcon%2BMuvers%2BApartemen.png"/> &nbsp; <strong> Apartemen Moving Service</strong></th>  
 			            <tr style="border-top: 10px solid #e50b0b;">
 			            <td style="border-top: 10px solid #e50b0b; background-color:#a7cdf5c7;">
-                        <div align="center"><div class="separator" style="clear: both;"><img src="https://tripcargo.test/assets/atropos/images/apartemen.jpg" alt="Apartemen" style="width: 100%; height=100%"></div>
+                        <div align="center"><div class="separator" style="clear: both;"><img src="https://tripcargoid.com/assets/atropos/images/apartemen.jpg" alt="Apartemen" style="width: 100%; height=100%"></div>
                         <strong style="font-size: 1.5em; font-family: sans-serif;">Pindahan <br> Apartemen</strong><br> 
                         - Balam Kota <br> 
                         - Jabodetabek<br> 
@@ -339,7 +339,7 @@
 			            <th width="Auto" style="background-color:#dfc087;  border-radius: 50px 50px 0px 0px;"><div align="center"><img alt="" border="0" width="50" data-original-height="1312" data-original-width="1312" src="https://1.bp.blogspot.com/-dD2bRKWtlV0/X5b7M1tWIjI/AAAAAAAAMpc/2rTsnzEyhhMKopGdy42P6pBTXTJ14DgegCLcBGAsYHQ/s320/Frame%2BIcon%2BMuvers%2BHome.png"/> &nbsp; <strong>Home Moving Service</strong></th>  
 			            <tr style="border-top: 10px solid #e50b0b;">
 			            <td style="border-top: 10px solid #e50b0b; background-color:#00CED1;">
-                        <div align="center"><div class="separator" style="clear: both;"><img src="https://tripcargo.test/assets/atropos/images/Rumah.jpg" alt="Rumah" style="width: 100%;; height=100%"></div>
+                        <div align="center"><div class="separator" style="clear: both;"><img src="https://tripcargoid.com/assets/atropos/images/Rumah.jpg" alt="Rumah" style="width: 100%;; height=100%"></div>
                         <strong style="font-size: 1.5em; font-family: sans-serif;">Pindahan <br> Rumah</strong><br> 
                         - Domestic <br> 
                         - Survey<br>
@@ -362,7 +362,7 @@
 			            <th width="Auto" style="background-color:#dfc087;  border-radius: 50px 50px 0px 0px;"><div align="center"><img alt="" border="0" width="50" data-original-height="1312" data-original-width="1312" src="https://1.bp.blogspot.com/-PnCE6DPR36E/X5b7Nd4y_aI/AAAAAAAAMpg/PU-hCi5sG1wL0w-9jtJ41OjbX-ine_hKQCLcBGAsYHQ/s320/Frame%2BIcon%2BMuvers%2BOfficial.png"/> &nbsp; <strong>Office Moving Service</strong></th>  
 			            <tr style="border-top: 10px solid #e50b0b;">
 			            <td style="border-top: 10px solid #e50b0b; background-color:#00BFFF;">
-                        <div align="center"><div class="separator" style="clear: both;"><img src="https://tripcargo.test/assets/atropos/images/Kantor.jpg" alt="Kantor" style="width: 100%;; height=100%"></div>
+                        <div align="center"><div class="separator" style="clear: both;"><img src="https://tripcargoid.com/assets/atropos/images/Kantor.jpg" alt="Kantor" style="width: 100%;; height=100%"></div>
                         <strong style="font-size: 1.5em; font-family: sans-serif;">Pindahan <br> Kantor</strong><br> 
                         - Domestic <br>
                         - Survey<br>
@@ -385,7 +385,7 @@
 			            <th width="Auto" style="background-color:#dfc087;  border-radius: 50px 50px 0px 0px;"><div align="center"><img alt="" border="0" width="50" data-original-height="1312" data-original-width="1312" src="https://1.bp.blogspot.com/-KMHaOfDkUCY/X5b7L_mUusI/AAAAAAAAMpY/XbZJCcMI7L48mxicgpfYc_W1wgj6V9x2ACLcBGAsYHQ/s320/Frame%2BIcon%2BMuvers%2BFactory.png"/> &nbsp; <strong>Factory Moving Service</strong></th>  
 			            <tr style="border-top: 10px solid #e50b0b;">
 			            <td style="border-top: 10px solid #e50b0b; background-color:#1E90FF;"> 
-                        <div align="center"><div class="separator" style="clear: both;"><img src="https://tripcargo.test/assets/atropos/images/Pabrik.jpg" alt="Pabrik" style="width: 100%;; height=100%"></div>
+                        <div align="center"><div class="separator" style="clear: both;"><img src="https://tripcargoid.com/assets/atropos/images/Pabrik.jpg" alt="Pabrik" style="width: 100%;; height=100%"></div>
                         <strong style="font-size: 1.5em; font-family: sans-serif;">Pindahan <br> Pabrik</strong><br> 
                         - International<br>
                         - Survey<br>
