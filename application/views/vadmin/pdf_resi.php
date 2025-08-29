@@ -64,7 +64,7 @@ if (!file_exists($barcodePath)) {
 $pdf->Image($barcodePath, 5, 0.5, 2);
 
 // QR Code
-$qrData = "https://tripcargoid.com/web/cari?k=" . $d->resi;
+$qrData = "https://tripcargo.test/web/cari?k=" . $d->resi;
 $qrApiUrl = "https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=" . urlencode($qrData);
 $pdf->Image($qrApiUrl, 7.0, 0.5, 0.8, 0, 'PNG');
 $pdf->Ln(0.5);
@@ -112,10 +112,10 @@ $pdf->Cell($col4Width, $asalTextHeight, 'Biaya Kirim', 'LTR', 0, 'C');
 $pdf->Ln($asalTextHeight); 
 
 $y = $pdf->GetY();
-$pdf->Cell(2.4, 0.4, "CSO. $d->telp_p - tripcargo.test", 'LBR', 0, 'C');
-$pdf->Cell(2.4, 0.4, $d->koli . ' Pcs', 'LBR', 0, 'C');
-$pdf->Cell($col3Width, 0.4, $d->berat . ' Kg', 'LBR', 0, 'C');
-$pdf->Cell($col4Width, 0.4, 'Rp ' . number_format($d->harga2, 0), 'LBR', 0, 'C');
+$pdf->Cell(2.4, 0.5, "CSO. $d->telp_p - tripcargo.test", 'LBR', 0, 'C');
+$pdf->Cell(2.4, 0.5, $d->koli . ' Pcs', 'LBR', 0, 'C');
+$pdf->Cell($col3Width, 0.5, $d->berat . ' Kg', 'LBR', 0, 'C');
+$pdf->Cell($col4Width, 0.5, 'Rp ' . number_format($d->harga2, 0), 'LBR', 0, 'C');
 $pdf->Ln(0.6);
 
 // Penerima dan Pengirim
