@@ -112,11 +112,11 @@ $pdf->Cell($col4Width, $asalTextHeight, 'Biaya Kirim', 'LTR', 0, 'C');
 $pdf->Ln($asalTextHeight); 
 
 $y = $pdf->GetY();
-$pdf->Cell(2.4, 0.2, "CSO. $d->telp_p - tripcargo.test", 'LBR', 0, 'C');
-$pdf->Cell(2.4, 0.2, $d->koli . ' Pcs', 'LBR', 0, 'C');
-$pdf->Cell($col3Width, 0.2, $d->berat . ' Kg', 'LBR', 0, 'C');
-$pdf->Cell($col4Width, 0.2, 'Rp ' . number_format($d->harga2, 0), 'LBR', 0, 'C');
-$pdf->Ln(0.4);
+$pdf->Cell(2.4, 0.4, "CSO. $d->telp_p - tripcargo.test", 'LBR', 0, 'C');
+$pdf->Cell(2.4, 0.4, $d->koli . ' Pcs', 'LBR', 0, 'C');
+$pdf->Cell($col3Width, 0.4, $d->berat . ' Kg', 'LBR', 0, 'C');
+$pdf->Cell($col4Width, 0.4, 'Rp ' . number_format($d->harga2, 0), 'LBR', 0, 'C');
+$pdf->Ln(0.6);
 
 // Penerima dan Pengirim
 $pageWidth = $pdf->GetPageWidth() - $pdf->GetX() * 2;
