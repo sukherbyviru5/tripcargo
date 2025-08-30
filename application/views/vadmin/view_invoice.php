@@ -51,10 +51,13 @@
                     <label>Area</label>
                     <label class="select noprint">
                         <select name="tujuan" class="select noprint">
-                            <option value="">- Pilih Area -</option>
-                            <?php foreach ($area as $row): ?>
-                                <option value="<?= htmlspecialchars($row); ?>"><?= htmlspecialchars($row); ?></option>
-                            <?php endforeach; ?>
+                            <option value="" selected="selected">Pilih Area
+                                <?php
+                                foreach ($asal as $kode) {
+                                    echo '<option value=' . $kode->kode . '>' . $kode->kode . '</option>';
+                                }
+                                ?>
+                            </option>
                         </select>
                     </label>
                 </section>
@@ -68,6 +71,7 @@
                         <option value="Cash">Cash</option>
                         <option value="Kredit">Tempo</option>
                         <option value="Payment">Payment</option>
+                        <option value="Invoice">Invoice</option>
                         <option value="DFOD">DFOD</option>
                     </select>
                 </label>

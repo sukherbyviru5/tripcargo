@@ -23,6 +23,7 @@ class Users extends CI_Controller {
 			$d['lisensi'] = $this->config->item('lisensi_app');
 			
 			$d['jam_now'] = $this->app_model->Jam_Now(); 
+			$d['asal'] = $this->asal->getall();
 			$d['hari_now'] = $this->app_model->Hari_Bulan_Indo(); 
 			$d['tgl_now'] = $this->app_model->tgl_now_indo();
 			$id=$this->session->userdata('username');

@@ -104,63 +104,65 @@ class Laporan_model extends CI_Model {
 	//------>edit Aldiyan@kotabiru.com-2020-12-10----//
     public function cetak_invoice() 
 	{
-		$pengirim	=$this->input->post('pengirim',true);
-		$tujuan	=$this->input->post('tujuan',true);
-		$payment_type	=$this->input->post('payment_type',true);
-		$id = urldecode($this->uri->segment(4)  ?? '');
-		$user	=$this->input->post('user_id',true);
-		$tgla	=$this->input->post('tgl1',true);
-		$tglb	=$this->input->post('tgl2',true);
-		$tgl1	=$this->app_model->tgl_sql($tgla);
-		$tgl2	=$this->app_model->tgl_sql($tglb);
-		$level 	=$this->session->userdata('level');
-		$area 	=$this->session->userdata('area');
-		$user_id 	=$this->session->userdata('user_id');
-		if($level=="superadmin" || $level == "admin"){
-			if($user != ""){
-				$q = $this->db->query("SELECT DATE_FORMAT(a.tglkirim, '%Y-%m-%d')  as tglkirim, a.* 
+		$pengirim = $this->input->post('pengirim', true);
+		$tujuan = $this->input->post('tujuan', true);
+		$payment_type = $this->input->post('payment_type', true);
+		$id = urldecode($this->uri->segment(4) ?? '');
+		$user = $this->input->post('user_id', true);
+		$tgla = $this->input->post('tgl1', true);
+		$tglb = $this->input->post('tgl2', true);
+		$tgl1 = $this->app_model->tgl_sql($tgla);
+		$tgl2 = $this->app_model->tgl_sql($tglb);
+		$level = $this->session->userdata('level');
+		$area = $this->session->userdata('area');
+		$user_id = $this->session->userdata('user_id');
+
+		if ($level == "superadmin" || $level == "admin") {
+			if ($user != "") {
+				$q = $this->db->query("SELECT DATE_FORMAT(a.tglkirim, '%Y-%m-%d') as tglkirim, a.* 
 					from paket as a
 					where a.users_id='$user'
-					and a.tglkirim between '$tgl1' and '$tgl2'
+					and DATE(a.tglkirim) >= '$tgl1'
+					and DATE(a.tglkirim) <= '$tgl2'
 					group by a.resi
 					order by a.tglkirim asc")->result();
-				
-			}else{
-				$q = $this->db->query("SELECT DATE_FORMAT(a.tglkirim, '%Y-%m-%d')  as tglkirim, a.* 
+			} else {
+				$q = $this->db->query("SELECT DATE_FORMAT(a.tglkirim, '%Y-%m-%d') as tglkirim, a.* 
+					from paket as a
+					where DATE(a.tglkirim) >= '$tgl1'
+					and DATE(a.tglkirim) <= '$tgl2'
+					group by a.resi
+					order by a.tglkirim asc")->result();
+			}
+		} else {
+			$q = $this->db->query("SELECT DATE_FORMAT(a.tglkirim, '%Y-%m-%d') as tglkirim, a.* 
 				from paket as a
-				where a.tglkirim between '$tgl1' and '$tgl2'
+				inner join lacak as b 
+				on a.resi = b.resi
+				inner join pelanggan as c 
+				on a.pel_id = c.pel_id
+				where DATE(a.tglkirim) >= '$tgl1'
+				and DATE(a.tglkirim) <= '$tgl2'
+				and left(b.resi, 3) = '$area'
+				and c.nama like '%$pengirim%'
 				group by a.resi
 				order by a.tglkirim asc")->result();
-			}
-		}else{
-			$q = $this->db->query("SELECT DATE_FORMAT(a.tglkirim, '%Y-%m-%d')  as tglkirim, a.* 
-			from paket as a
-			inner join lacak as b 
-			on a.resi=b.resi
-			inner join pelanggan as c 
-			on a.pel_id=c.pel_id
-			where a.tglkirim between '$tgl1' and '$tgl2'
-			and left(b.resi,3)='$area'
-			and c.nama like '%".$pengirim."%'
-			group by a.resi
-			order by a.tglkirim asc")->result();
 		}
 		
-						
-		$d['rs'] 				= $q;
-		$d['judul'] 			= $this->config->item('judul');
-		$d['alamat']	 		= $this->config->item('nama_perusahaan');
+		$d['rs'] = $q;
+		$d['judul'] = $this->config->item('judul');
+		$d['alamat'] = $this->config->item('nama_perusahaan');
 		$d['alamat_perusahaan'] = $this->config->item('alamat_perusahaan');
-		$d['telp_perusahaan'] 	= $this->config->item('telp_perusahaan');
-		$d['lisensi']			= $this->config->item('lisensi_app');
-		$d['tgl1']				= $tgla;
-		$d['tgl2']				= $tglb;
-		$d['area']				= $area;
-		$d['pengirim']				= $pengirim;
-		$d['payment_type']				= $payment_type;
-		$d['tujuan']				= $tujuan;
-		$d['contact']		 = $this->Setting_contact_model->get_all();
-		$d['user_id']			= $user_id;
+		$d['telp_perusahaan'] = $this->config->item('telp_perusahaan');
+		$d['lisensi'] = $this->config->item('lisensi_app');
+		$d['tgl1'] = $tgla;
+		$d['tgl2'] = $tglb;
+		$d['area'] = $area;
+		$d['pengirim'] = $pengirim;
+		$d['payment_type'] = $payment_type;
+		$d['tujuan'] = $tujuan;
+		$d['contact'] = $this->Setting_contact_model->get_all();
+		$d['user_id'] = $user_id;
 
 		if (!empty($d['contact']) && isset($d['contact'][0]['alamat'])) {
 			$alamat_array = json_decode($d['contact'][0]['alamat'], true);

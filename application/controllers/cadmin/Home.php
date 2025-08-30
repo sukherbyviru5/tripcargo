@@ -1620,6 +1620,7 @@ class Home extends CI_Controller {
 			$d['jam_now'] = $this->app_model->Jam_Now(); 
 			$d['hari_now'] = $this->app_model->Hari_Bulan_Indo(); 
 			$d['tgl_now'] = $this->app_model->tgl_now_indo();
+			$d['asal'] = $this->asal->getall();
 			$id=$this->session->userdata('username');
 			$d['record'] = $this->model->get_users($id);
 			$d['isi'] = $this->load->view('vadmin/users', $d, true);

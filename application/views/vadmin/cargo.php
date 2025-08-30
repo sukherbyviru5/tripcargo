@@ -1006,8 +1006,10 @@
                                                     const persenAsuransi = ambilAngka('persen_asuransi', true);
                                                     const nilaiDiskon = tarifTujuan * (diskonPersen / 100);
                                                     const totalTarif = tarifTujuan - nilaiDiskon;
+                                                    const finalcompare = compareVolAndBerat();
+                                                    const totalTarifKaliCompare = totalTarif * finalcompare;
                                                     const nilaiAsuransi = nilaiBarang * (persenAsuransi / 100);
-                                                    const totalBiaya = totalTarif + nilaiAsuransi;
+                                                    const totalBiaya = totalTarifKaliCompare + nilaiAsuransi;
 
                                                     tampilkanAngka('nilai_diskon', nilaiDiskon);
                                                     tampilkanAngka('total_tarif', totalTarif);
@@ -1019,12 +1021,10 @@
                                                     const elemen = document.getElementById(id);
                                                     if (!elemen || elemen.value === "") return 0;
 
-                                                    let nilaiBersih = elemen.value.replace(/[^0-9,.]/g, ''); // Keep digits, commas, and periods
+                                                    let nilaiBersih = elemen.value.replace(/[^0-9,.]/g, '');
                                                     if (isDecimal) {
-                                                        // Replace comma with period for decimal numbers (e.g., 2,50 -> 2.50)
                                                         nilaiBersih = nilaiBersih.replace(',', '.');
                                                     } else {
-                                                        // Remove all commas and periods for non-decimal numbers
                                                         nilaiBersih = nilaiBersih.replace(/[,.]/g, '');
                                                     }
                                                     return parseFloat(nilaiBersih) || 0;
@@ -1922,9 +1922,12 @@
             totalBerat += (arrayBerat[key] * arrayKoli[key]);
             totalKoli += arrayKoli[key];
         }
+        
         $('#koli').val(totalKoli);
         $('#vol').val(totalVolume);
         $('#berat').val(totalBerat);
+        compareVolAndBerat()
+
     }
 
     function updateBerat() {
@@ -1936,6 +1939,7 @@
         });
         $('#berat').val(berat);
     }
+
 
     function hitung_volume() {
         var p = $('#p').val();
@@ -1952,7 +1956,22 @@
         };
         var vol = parseInt(p) * parseInt(l) * parseInt(t) / 4000;
         $('[name="volx"]').val(vol);
+        
         updateTotal();
+        compareVolAndBerat()
+    }
+
+    function compareVolAndBerat() {
+        var volx = parseFloat($('[name="volx"]').val()) || 0;
+        var berat = parseFloat($('#berat').val()) || 0;
+
+        if (volx > berat) {
+            return volx; 
+        } else if (berat > volx) {
+            return berat;
+        } else {
+            return volx; 
+        }
     }
 
     function hitung_volumex(x) {

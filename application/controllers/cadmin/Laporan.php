@@ -10,6 +10,7 @@ class Laporan extends CI_Controller {
 		$this->load->model('Pelanggan_model','pelanggan');
 		$this->load->model('set_harga_model','set_harga');
 		$this->load->model('Kab_model','area');
+		$this->load->model('asal_model','asal');
 		$this->load->model('app_model','model');
 		$this->load->library('fpdf'); // Load library	
 		$this->load->library('zend');
@@ -168,6 +169,7 @@ class Laporan extends CI_Controller {
 			$d['alamat_perusahaan'] = $this->config->item('alamat_perusahaan');
 			$d['lisensi'] = $this->config->item('lisensi_app');
 			
+			$d['asal'] = $this->asal->getall();
 			$d['jam_now'] = $this->app_model->Jam_Now(); 
 			$d['hari_now'] = $this->app_model->Hari_Bulan_Indo(); 
 			$d['tgl_now'] = $this->app_model->tgl_now_indo();

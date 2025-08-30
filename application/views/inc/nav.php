@@ -97,7 +97,7 @@
                             <a href="<?php echo base_url() . 'cadmin/laporan/'; ?>lpenerimaan" title="Laporan Penerimaan">Packing List Harian</a>
                         </li> -->
                         <li class="<?php echo $this->app_model->status_menu($akt, 'lmanifast_area'); ?>">
-                            <a href="<?php echo base_url() . 'cadmin/laporan/'; ?>lmanifast_area" title="Laporan manifast">Laporan manifast</a>
+                            <a href="<?php echo base_url() . 'cadmin/laporan/'; ?>lmanifast_area" title="Laporan manifest">Laporan manifest</a>
                         </li>
                     </ul>
                 </li>
@@ -351,11 +351,11 @@
                         <li class="<?php echo $this->app_model->status_menu($akt, 'linvoice'); ?>">
                             <a href="<?php echo base_url() . 'cadmin/laporan/'; ?>linvoice" title="Laporan Pengiriman">Laporan Pengiriman</a>
                         </li>
-                        <li class="<?php echo $this->app_model->status_menu($akt, 'lpenerimaan'); ?>">
+                        <!-- <li class="<?php echo $this->app_model->status_menu($akt, 'lpenerimaan'); ?>">
                             <a href="<?php echo base_url() . 'cadmin/laporan/'; ?>lpenerimaan" title="Laporan Packing List">Laporan Packing List</a>
-                        </li>
+                        </li> -->
                         <li class="<?php echo $this->app_model->status_menu($akt, 'lmanifast_area'); ?>">
-                            <a href="<?php echo base_url() . 'cadmin/laporan/'; ?>lmanifast_area" title="Laporan manifast">Laporan manifast</a>
+                            <a href="<?php echo base_url() . 'cadmin/laporan/'; ?>lmanifast_area" title="Laporan manifest">Laporan manifest</a>
                         </li>
                     </ul>
                 </li>

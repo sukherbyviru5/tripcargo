@@ -267,16 +267,27 @@
                                     <span class="help-block"></span>
                                 </div>
                             </div>
+                            
                             <div class="form-group has-success">
-                                <label class="control-label col-md-3" title="Kode Area (3 Digit huruf capital)">Kode Area &#33;</label>
+                                <label class="control-label col-md-3">Kode Area &#33;</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
                                     <div class="input-group">
-                                        <input name="area" maxlength="3" placeholder="Kode Area (3 Digit)" class="form-control" type="text" onkeyup="this.value = this.value.toUpperCase()">
+                                        <select name="area" class="form-control" required>
+                                             <option value="" selected="selected">Pilih Area
+                                                <?php
+                                                foreach ($asal as $kode) {
+                                                    echo '<option value=' . $kode->nama . '>' . $kode->kode . '</option>';
+                                                }
+                                                ?>
+                                            </option>
+                                        </select>
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
-                                        <span class="help-block"></span>
                                     </div>
+                                    <span class="help-block"></span>
                                 </div>
                             </div>
+
+                            
                             <div class="form-group has-success">
                                 <label class="control-label col-md-3" title="6 digit nomor kode administrasi kecamatan">Kode Kecamatan &#33;</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">

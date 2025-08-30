@@ -2,37 +2,37 @@
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Pdf extends FPDF {
-    function __construct($orientation='P', $unit='cm', $size=array(8, 24)) { 
+    function __construct($orientation='P', $unit='cm', $size='A4') { 
         parent::__construct($orientation, $unit, $size);
     }
 
     function Header() {
         global $title;
         $this->SetTextColor(100, 100, 100);
-        $this->SetFont('Helvetica', 'B', 4);
-        $w = $this->GetStringWidth($title . 'Surat Tanda Terima Barang (e-STT)') + 0.4;
-        $this->SetX(2.3);
-        $this->Cell($w, 0.4, $title . 'Surat Tanda Terima Barang (e-STT)', 0, 1, 'C');
-        $this->Ln(0.5);
+        $this->SetFont('Helvetica', 'B', 6);
+        $w = $this->GetStringWidth($title . 'Surat Tanda Terima Barang (e-STT)') + 0.6;
+        $this->SetX((21 - $w) / 2);
+        $this->Cell($w, 0.6, $title . 'Surat Tanda Terima Barang (e-STT)', 0, 1, 'C');
+        $this->Ln(0.7);
     }
 
     function Footer() {
         $this->SetTextColor(100, 100, 100);
-        $this->SetY(-0.8);
-        $this->SetFont('Helvetica', '', 6);
-        $this->Cell(0, 0.3, 'Cetak (e-STT): ' . date('d/m/Y H:i'), 0, 0, 'L');
-        $this->Cell(0, 0.3, 'Page ' . $this->PageNo() . '/{nb}', 0, 0, 'R');
+        $this->SetY(-1.2);
+        $this->SetFont('Helvetica', '', 8.4);
+        $this->Cell(0, 0.5, 'Cetak (e-STT): ' . date('d/m/Y H:i'), 0, 0, 'L');
+        $this->Cell(0, 0.5, 'Page ' . $this->PageNo() . '/{nb}', 0, 0, 'R');
     }
 }
 
-$available_width = 7.6;
+$available_width = 20.5;
 date_default_timezone_set('Asia/Jakarta');
 
 $pdf = new Pdf();
-$pdf->SetMargins(0.2, 0.5, 0.2);
+$pdf->SetMargins(0.3, 0.6, 0.3);
 $pdf->AliasNbPages();
 $pdf->AddPage();
-$pdf->SetLineWidth(0.01);
+$pdf->SetLineWidth(0.015);
 
 // Data preparation
 $hasil = [];
@@ -45,7 +45,7 @@ $logoPath = FCPATH . 'assets/images/logo-sancargo.png';
 if (!file_exists($logoPath)) {
     die('File logo tidak ditemukan: ' . $logoPath);
 }
-$pdf->Image($logoPath, 0.4, 0.5, 2);
+$pdf->Image($logoPath, 0.5, 0.6, 3.0);
 
 // Barcode
 require_once APPPATH . 'libraries/Zend/Barcode.php';
@@ -61,50 +61,50 @@ $barcodePath = $image_dir . $image_name;
 if (!file_exists($barcodePath)) {
     die('File barcode tidak ditemukan: ' . $barcodePath);
 }
-$pdf->Image($barcodePath, 5, 0.5, 2);
+$pdf->Image($barcodePath, 15, 0.6, 3.0);
 
 // QR Code
 $qrData = "https://tripcargoid.com/web/cari?k=" . $d->resi;
-$qrApiUrl = "https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=" . urlencode($qrData);
-$pdf->Image($qrApiUrl, 7.0, 0.5, 0.8, 0, 'PNG');
-$pdf->Ln(0.5);
+$qrApiUrl = "https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=" . urlencode($qrData);
+$pdf->Image($qrApiUrl, 18.5, 0.6, 1.2, 0, 'PNG');
+$pdf->Ln(0.7);
 
 // Alamat Pelanggan
-$pdf->SetFont('Helvetica', '', 4);
-$pdf->SetXY(0.2, 1.5);
-$pdf->MultiCell($available_width, 0.2, $alamat_pertama ?: 'No address provided', 0, 'L');
-$pdf->Ln(0.2);
-
-// Header Table
-$pdf->SetFont('Helvetica', 'B', 5);
-$pdf->SetXY(0.2, 2.0);
-$pdf->Cell(2.4, 0.3, 'ASAL', 'LTR', 0, 'C');
-$pdf->Cell(2.4, 0.3, 'TUJUAN', 'LTR', 0, 'C');
-$pdf->Cell(1.4, 0.3, 'NO. TRANS', 'LTR', 0, 'C');
-$pdf->Cell(1.4, 0.3, 'SERVICE', 'LTR', 0, 'C');
-$pdf->Ln();
-$pdf->SetFont('Helvetica', '', 4);
-$pdf->Cell(2.4, 0.3, $d->area ?? substr($d->resi, 0, 3), 'LBR', 0, 'C');
-$pdf->Cell(2.4, 0.3, $this->app_model->find_kokab($d->kokab_id), 'LBR', 0, 'C');
-$pdf->Cell(1.4, 0.3, $this->app_model->find_id_admin($d->user_id) . "-$d->id", 'LBR', 0, 'C');
-$pdf->Cell(1.4, 0.3, $d->layan, 'LBR', 0, 'C');
+$pdf->SetFont('Helvetica', '', 6);
+$pdf->SetXY(0.3, 1.8);
+$pdf->MultiCell($available_width, 0.3, $alamat_pertama ?: 'No address provided', 0, 'L');
 $pdf->Ln(0.3);
 
-// Informasi Asal
-$pdf->SetFont('Helvetica', '', 3.4);
-$asalText = $d->alamat_pel;
-$fixedWidth = 2.4;
-$col2Width = 2.4;
-$col3Width = 1.4; 
-$col4Width = 1.4; 
+// Header Table
+$pdf->SetFont('Helvetica', 'B', 8.6);
+$pdf->SetXY(0.3, 2.4);
+$pdf->Cell(6.15, 0.6, 'ASAL', 'LTR', 0, 'C');
+$pdf->Cell(6.15, 0.6, 'TUJUAN', 'LTR', 0, 'C');
+$pdf->Cell(4.1, 0.6, 'NO. TRANS', 'LTR', 0, 'C');
+$pdf->Cell(4.1, 0.6, 'SERVICE', 'LTR', 0, 'C');
+$pdf->Ln();
+$pdf->SetFont('Helvetica', '', 7.2);
+$pdf->Cell(6.15, 0.6, $d->area ?? substr($d->resi, 0, 3), 'LBR', 0, 'C');
+$pdf->Cell(6.15, 0.6, $this->app_model->find_kokab($d->kokab_id), 'LBR', 0, 'C');
+$pdf->Cell(4.1, 0.6, $this->app_model->find_id_admin($d->user_id) . "-$d->id", 'LBR', 0, 'C');
+$pdf->Cell(4.1, 0.6, $d->layan, 'LBR', 0, 'C');
+$pdf->Ln(0.6);
 
-$lineHeight = 0.2; 
+// Informasi Asal
+$pdf->SetFont('Helvetica', '', 5.8);
+$asalText = $d->alamat_pel;
+$fixedWidth = 6.15;
+$col2Width = 6.15;
+$col3Width = 4.1; 
+$col4Width = 4.1; 
+
+$lineHeight = 0.36; 
 $textWidth = $pdf->GetStringWidth($asalText);
-$numLines = max(1, ceil(($textWidth + 0.3) / $fixedWidth)); 
+$numLines = max(1, ceil(($textWidth + 0.4) / $fixedWidth)); 
 $asalTextHeight = $numLines * $lineHeight;
 $y = $pdf->GetY();
 $pdf->MultiCell($fixedWidth, $lineHeight, $asalText, 'LTR', 'C');
-$pdf->SetXY(2.6, $y);
+$pdf->SetXY(6.45, $y);
 
 $pdf->Cell($col2Width, $asalTextHeight, 'Jml (Colly)', 'LTR', 0, 'C');
 $pdf->Cell($col3Width, $asalTextHeight, 'Ukuran', 'LTR', 0, 'C');
@@ -112,17 +112,17 @@ $pdf->Cell($col4Width, $asalTextHeight, 'Biaya Kirim', 'LTR', 0, 'C');
 $pdf->Ln($asalTextHeight); 
 
 $y = $pdf->GetY();
-$pdf->Cell(2.4, 0.5, "CSO. $d->telp_p - tripcargo.test", 'LBR', 0, 'C');
-$pdf->Cell(2.4, 0.5, $d->koli . ' Pcs', 'LBR', 0, 'C');
-$pdf->Cell($col3Width, 0.5, $d->berat . ' Kg', 'LBR', 0, 'C');
-$pdf->Cell($col4Width, 0.5, 'Rp ' . number_format($d->harga2, 0), 'LBR', 0, 'C');
-$pdf->Ln(0.6);
+$pdf->Cell(6.15, 0.84, "CSO. $d->telp_p - tripcargo.test", 'LBR', 0, 'C');
+$pdf->Cell(6.15, 0.84, $d->koli . ' Pcs', 'LBR', 0, 'C');
+$pdf->Cell($col3Width, 0.84, $d->berat . ' Kg', 'LBR', 0, 'C');
+$pdf->Cell($col4Width, 0.84, 'Rp ' . number_format($d->harga2, 0), 'LBR', 0, 'C');
+$pdf->Ln(0.99);
 
 // Penerima dan Pengirim
 $pageWidth = $pdf->GetPageWidth() - $pdf->GetX() * 2;
 $halfWidth = $pageWidth / 2;
-$headerHeight = 0.4;
-$lineHeight = 0.3;
+$headerHeight = 0.6;
+$lineHeight = 0.42;
 
 $startX = $pdf->GetX();
 $startY = $pdf->GetY();
@@ -151,19 +151,19 @@ if ($d->p_nama == null) {
 $pengirim = $nama . "\n" . $dept . "\n" . $alamat . "\n" . $kec . ", " . $kokab . ", " . $prov . "\nTlp. " . $telp;
 
 // Kolom Penerima
-$pdf->SetFont('Helvetica', 'B', 5);
+$pdf->SetFont('Helvetica', 'B', 7.2);
 $pdf->Cell($halfWidth, $headerHeight, 'PENERIMA:', 0, 0, 'L');
 $pdf->Ln();
-$pdf->SetFont('Helvetica', '', 5);
+$pdf->SetFont('Helvetica', '', 7.2);
 $pdf->MultiCell($halfWidth, $lineHeight, $penerima, 0, 'L');
 $yPenerima = $pdf->GetY();
 
 // Kolom Pengirim
 $pdf->SetXY($startX + $halfWidth, $startY);
-$pdf->SetFont('Helvetica', 'B', 5);
+$pdf->SetFont('Helvetica', 'B', 7.2);
 $pdf->Cell($halfWidth, $headerHeight, 'PENGIRIM:', 0, 0, 'L');
 $pdf->SetXY($startX + $halfWidth, $startY + $headerHeight);
-$pdf->SetFont('Helvetica', '', 5);
+$pdf->SetFont('Helvetica', '', 7.2);
 $pdf->MultiCell($halfWidth, $lineHeight, $pengirim, 0, 'L');
 $yPengirim = $pdf->GetY();
 
@@ -172,29 +172,29 @@ $boxHeight = $finalY - $startY;
 $pdf->Rect($startX, $startY, $halfWidth, $boxHeight);
 $pdf->Rect($startX + $halfWidth, $startY, $halfWidth, $boxHeight);
 $pdf->SetY($finalY);
-$pdf->Ln(0.2);
+$pdf->Ln(0.3);
 
 // Catatan dan Tabel Biaya
 $catatan = $d->catatan ? $d->catatan : 'Tidak ada catatan';
 $deskripsi = $d->deskripsi ? $d->deskripsi : 'Tidak ada deskripsi';
 $startY = $pdf->GetY();
-$pdf->SetFont('Helvetica', 'B', 5);
+$pdf->SetFont('Helvetica', 'B', 7.2);
 $pdf->Cell($halfWidth, $headerHeight, 'CATATAN:', 0, 0, 'L');
 $pdf->Ln();
-$pdf->SetFont('Helvetica', '', 5);
+$pdf->SetFont('Helvetica', '', 7.2);
 $pdf->MultiCell($halfWidth, $lineHeight, $catatan, 0, 'L');
-$pdf->SetFont('Helvetica', 'B', 5);
+$pdf->SetFont('Helvetica', 'B', 7.2);
 $pdf->Cell($halfWidth, $headerHeight, 'DESKRIPSI:', 0, 0, 'L');
 $pdf->Ln();
-$pdf->SetFont('Helvetica', '', 5);
+$pdf->SetFont('Helvetica', '', 7.2);
 $pdf->MultiCell($halfWidth, $lineHeight, $deskripsi, 0, 'L');
 $yPenerima = $pdf->GetY();
 
 $pdf->SetXY($startX + $halfWidth, $startY);
-$pdf->SetFont('Helvetica', 'B', 5);
+$pdf->SetFont('Helvetica', 'B', 7.2);
 $pdf->Cell($halfWidth, $headerHeight, 'BIAYA:', 0, 0, 'L');
 $pdf->SetXY($startX + $halfWidth, $startY + $headerHeight);
-$pdf->SetFont('Helvetica', '', 5);
+$pdf->SetFont('Helvetica', '', 7.2);
 $col1Width = $halfWidth * 0.6;
 $col2Width = $halfWidth * 0.4;
 $rowHeight = $lineHeight;
@@ -230,46 +230,46 @@ $boxHeight = $finalY - $startY;
 $pdf->Rect($startX, $startY, $halfWidth, $boxHeight);
 $pdf->Rect($startX + $halfWidth, $startY, $halfWidth, $boxHeight);
 $pdf->SetY($finalY);
-$pdf->Ln(0.2);
+$pdf->Ln(0.3);
 
 // Volume dan Terbilang
-$pdf->SetFont('Helvetica', '', 4);
+$pdf->SetFont('Helvetica', '', 6);
 $vol = ($d->p) ? $d->p . 'x' . $d->l . 'x' . $d->t . '(cm)' : '';
 $terbilangText = 'TERBILANG: ' . ucwords(strtolower($this->app_model->bilang($d->totalbayar) . ' rupiah'));
-$colWidth = 3.8; 
-$lineHeight = 0.3; 
+$colWidth = 10.25; 
+$lineHeight = 0.42; 
 
 $textWidth = $pdf->GetStringWidth($terbilangText);
-$numLines = max(1, ceil(($textWidth + 0.1) / $colWidth));
+$numLines = max(1, ceil(($textWidth + 0.15) / $colWidth));
 $terbilangHeight = $numLines * $lineHeight;
 
 $y = $pdf->GetY();
 $pdf->Cell($colWidth, $terbilangHeight, 'VOLUME: ' . $vol, 'TLBR', 0, 'L');
-$pdf->SetXY(4, $y);
+$pdf->SetXY(10.55, $y);
 $pdf->MultiCell($colWidth, $lineHeight, $terbilangText, 'TLBR', 'L');
-$pdf->Ln(0.2); 
+$pdf->Ln(0.3); 
 
 // Tanda Tangan
-$pdf->SetFont('Helvetica', 'B', 5);
-$pdf->Cell(2.53, 0.4, 'Pengirim', 'LTR', 0, 'C');
-$pdf->Cell(2.53, 0.4, 'Diterima Oleh', 'LTR', 0, 'C');
-$pdf->Cell(2.54, 0.4, 'Operator', 'LTR', 0, 'C');
+$pdf->SetFont('Helvetica', 'B', 7.2);
+$pdf->Cell(6.83, 0.6, 'Pengirim', 'LTR', 0, 'C');
+$pdf->Cell(6.83, 0.6, 'Diterima Oleh', 'LTR', 0, 'C');
+$pdf->Cell(6.84, 0.6, 'Operator', 'LTR', 0, 'C');
 $pdf->Ln();
-$pdf->SetFont('Helvetica', '', 5);
-$pdf->Cell(2.53, 0.4, '', 'LBR', 0, 'C');
-$pdf->Cell(2.53, 0.4, '', 'LBR', 0, 'C');
-$pdf->Cell(2.54, 0.4, $this->app_model->find_nama_admin($d->user_id), 'LBR', 0, 'C');
-$pdf->Ln(0.4);
+$pdf->SetFont('Helvetica', '', 7.2);
+$pdf->Cell(6.83, 0.6, '', 'LBR', 0, 'C');
+$pdf->Cell(6.83, 0.6, '', 'LBR', 0, 'C');
+$pdf->Cell(6.84, 0.6, $this->app_model->find_nama_admin($d->user_id), 'LBR', 0, 'C');
+$pdf->Ln(0.6);
 
 // Syarat dan Ketentuan
 $pdf->SetDrawColor(150, 150, 150);
-$pdf->Line(0.2, $pdf->GetY(), 7.8, $pdf->GetY());
-$pdf->Ln(0.3);
-$pdf->SetFont('Helvetica', 'B', 7);
+$pdf->Line(0.3, $pdf->GetY(), 20.7, $pdf->GetY());
+$pdf->Ln(0.5);
+$pdf->SetFont('Helvetica', 'B', 9.6);
 $pdf->SetTextColor(191, 0, 0);
-$pdf->Cell(0, 0.4, 'SYARAT DAN KETENTUAN PENGIRIMAN', 0, 1, 'C');
+$pdf->Cell(0, 0.6, 'SYARAT DAN KETENTUAN PENGIRIMAN', 0, 1, 'C');
 $pdf->SetTextColor(0, 0, 0);
-$pdf->SetFont('Helvetica', '', 5);
+$pdf->SetFont('Helvetica', '', 7.2);
 $terms = [
     "1. Umum\n" .
     "a. Pengirim wajib memberitahukan isi dan nilai barang saat penyerahan, serta memberi kuasa kepada Trip Cargo untuk memeriksa bila diperlukan.\n" .
@@ -300,7 +300,7 @@ $terms = [
     "c. Panjang barang > 5 meter harus dikonfirmasi terlebih dahulu."
 ];
 foreach ($terms as $i => $term) {
-    $pdf->MultiCell($available_width, 0.3, $term, '', 'L');
+    $pdf->MultiCell($available_width, 0.42, $term, '', 'L');
 }
 
 $pdf->Output($d->resi . '.pdf', 'I');
