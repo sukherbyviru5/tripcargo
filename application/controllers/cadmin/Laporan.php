@@ -133,7 +133,7 @@ class Laporan extends CI_Controller {
 			$d['nama_perusahaan'] = $this->config->item('nama_perusahaan');
 			$d['alamat_perusahaan'] = $this->config->item('alamat_perusahaan');
 			$d['lisensi'] = $this->config->item('lisensi_app');
-			
+			$d['area'] = $this->asal->getall();
 			$d['jam_now'] = $this->app_model->Jam_Now(); 
 			$d['hari_now'] = $this->app_model->Hari_Bulan_Indo(); 
 			$d['tgl_now'] = $this->app_model->tgl_now_indo();
@@ -226,6 +226,17 @@ class Laporan extends CI_Controller {
 		$level = $this->session->userdata('level');
 		if(!empty($cek)){ //semua aktor bisa
 			$this->laporan->cetak_manifast(); //
+		}else{
+			redirect('./cadmin/home/logout/','refresh');
+		}
+	}
+
+	public function cetak_pdf_manifast()
+	{
+		$cek = $this->session->userdata('logged_in');
+		$level = $this->session->userdata('level');
+		if(!empty($cek)){ //semua aktor bisa
+			$this->laporan->cetak_pdf_manifast(); //
 		}else{
 			redirect('./cadmin/home/logout/','refresh');
 		}
@@ -323,6 +334,16 @@ class Laporan extends CI_Controller {
 			->set_output(json_encode($list));
 	}
 
+	public function cetak_pdf_log()
+	{
+		$cek = $this->session->userdata('logged_in');
+		$level = $this->session->userdata('level');
+		if(!empty($cek)){ //semua aktor bisa
+			$this->laporan->cetak_pdf_log(); //
+		}else{
+			redirect('./cadmin/home/logout/','refresh');
+		}
+	}
 	
 }
 

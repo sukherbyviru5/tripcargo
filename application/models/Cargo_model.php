@@ -116,6 +116,8 @@ class Cargo_model extends CI_Model {
         $regkirim = $this->input->post('regkirim', true);
         date_default_timezone_set("Asia/Jakarta");
         $return = "";
+         
+        $this->load->model('Log_model');
         
         if ($simpan == "add") {
             $pelanggan_data = array(
@@ -262,6 +264,19 @@ class Cargo_model extends CI_Model {
             );
 
             log_message('debug', 'Inserting paket: ' . json_encode($paket_data));
+            $asal   = $area;
+            $tujuan = trim($tujuanData->nama);
+            $berat  = $this->input->post('berat', true);
+            $total  = $totalbayar;
+
+            $this->Log_model->log_resi(
+                'input',
+                $id,
+                $asal,
+                $tujuan,
+                $berat,
+                $total
+            );
             return $this->db->insert('paket', $paket_data);
         } elseif ($simpan == "update") {
             $id = $this->input->post('id', true);
@@ -359,7 +374,7 @@ class Cargo_model extends CI_Model {
             $harga6 = $this->input->post('harga6', true) ? str_replace('.', '', $this->input->post('harga6', true)) : null;
 
             $paket_data = array(
-                'resi' => $this->input->post('resi', true),
+                // 'resi' => $this->input->post('resi', true),
                 'deskripsi' => $this->input->post('deskripsi', true),
                 'vol' => $this->input->post('vol', true),
                 'p' => $this->input->post('p', true),
@@ -399,6 +414,19 @@ class Cargo_model extends CI_Model {
             );
             log_message('debug', 'Updating paket with id: ' . $id . ', data: ' . json_encode($paket_data));
             $this->db->where('id', $id);
+            $asal   = $this->input->post('area', true);
+            $tujuan = trim($this->input->post('tujuanarea', true));
+            $berat  = $this->input->post('berat', true);
+            $total  = str_replace('.', '', $this->input->post('total', true));
+
+            $this->Log_model->log_resi(
+                'edit',
+                $this->input->post('resi', true), 
+                $asal,
+                $tujuan,
+                $berat,
+                $total
+            );
             return $this->db->update('paket', $paket_data);
         }
         return $return;

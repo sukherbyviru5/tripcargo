@@ -99,6 +99,9 @@
                         <li class="<?php echo $this->app_model->status_menu($akt, 'lmanifast_area'); ?>">
                             <a href="<?php echo base_url() . 'cadmin/laporan/'; ?>lmanifast_area" title="Laporan manifest">Laporan manifest</a>
                         </li>
+                         <li class="<?php echo $this->app_model->status_menu($akt, 'log'); ?>">
+                            <a href="<?php echo base_url() . 'cadmin/home/'; ?>log" title="Laporan log">Laporan log</a>
+                        </li>
                     </ul>
                 </li>
                 <li span class="hidden-xs">
@@ -357,6 +360,7 @@
                         <li class="<?php echo $this->app_model->status_menu($akt, 'lmanifast_area'); ?>">
                             <a href="<?php echo base_url() . 'cadmin/laporan/'; ?>lmanifast_area" title="Laporan manifest">Laporan manifest</a>
                         </li>
+                       
                     </ul>
                 </li>
                 <li>

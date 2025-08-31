@@ -25,6 +25,7 @@ class Home extends CI_Controller {
         $this->load->model('Visi_misi_model');
         $this->load->model('Services_model');
         $this->load->model('Customers_model');
+        $this->load->model('log_model');
         $this->load->model('Setting_contact_model');
 		$this->load->library('session');
 	}
@@ -1707,60 +1708,60 @@ class Home extends CI_Controller {
 		}
 	}
 	public function manifast_ajax_list()
-{
-    $level = $this->session->userdata('level');
-    
-    // Get date range parameters from POST
-    $start_date = $this->input->post('start_date');
-    $end_date = $this->input->post('end_date');
+	{
+		$level = $this->session->userdata('level');
 
-    // Pass date range to the model
-    $list = $this->manifast->get_datatables($start_date, $end_date);
-    
-    $data = array();
-    $no = $this->input->post('start');
-    foreach ($list as $manifast) {
-        $no++;
-        $row = array();
-        $row[] = '<div class="text-center">' . $no . '</div>';
-        $row[] = $manifast->nom;
-        $row[] = date('d M Y', strtotime($manifast->tgl));
-        $row[] = $manifast->driver;
-        $row[] = $manifast->tlpdriver;
-        $row[] = $manifast->tujuan;
-        $row[] = $manifast->remake . ' ' . $manifast->sortir;
-        $row[] = $manifast->creator . ' [' . $manifast->users_id . ']';
-        
-        // Conditional action column based on user level
-        if ($level == "driver" || $level == "umum") {
-            $row[] = '<div class="text-center">
-                        <span class="badge inbox-badge bg-color-redLight hidden-mobile">Disabled</span>
-                      </div>';
-        } else {
-            $row[] = '<div class="text-center" ;view="dsible">
-                        <a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Cetak" onclick="cetak(\'' . $manifast->id . '\')">
-                            <i class="glyphicon glyphicon-print"></i>
-                        </a>
-                      </div>';
-        }
-        
-        $data[] = $row;
-    }
+		$area    = $this->input->post('area');
+		$start_date = $this->input->post('tgl1');
+		$end_date = $this->input->post('tgl2');
 
-    // Get total records for DataTable
-    $total_records = $this->manifast->count_all();
-    $filtered_records = $this->manifast->count_filtered($start_date, $end_date);
+		// Pass date range to the model
+		$list = $this->manifast->get_datatables($start_date, $end_date, $area);
+		
+		$data = array();
+		$no = $this->input->post('start');
+		foreach ($list as $manifast) {
+			$no++;
+			$row = array();
+			$row[] = '<div class="text-center">' . $no . '</div>';
+			$row[] = $manifast->nom;
+			$row[] = date('d M Y', strtotime($manifast->tgl));
+			$row[] = $manifast->driver;
+			$row[] = $manifast->tlpdriver;
+			$row[] = $manifast->tujuan;
+			$row[] = $manifast->remake . ' ' . $manifast->sortir;
+			$row[] = $manifast->creator . ' [' . $manifast->users_id . ']';
+			
+			// Conditional action column based on user level
+			if ($level == "driver" || $level == "umum") {
+				$row[] = '<div class="text-center">
+							<span class="badge inbox-badge bg-color-redLight hidden-mobile">Disabled</span>
+						</div>';
+			} else {
+				$row[] = '<div class="text-center" ;view="dsible">
+							<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Cetak" onclick="cetak(\'' . $manifast->id . '\')">
+								<i class="glyphicon glyphicon-print"></i>
+							</a>
+						</div>';
+			}
+			
+			$data[] = $row;
+		}
 
-    // Prepare response
-    $output = array(
-        "draw" => $this->input->post('draw'),
-        "recordsTotal" => $total_records,
-        "recordsFiltered" => $filtered_records,
-        "data" => $data
-    );
+		// Get total records for DataTable
+		$total_records = $this->manifast->count_all();
+		$filtered_records = $this->manifast->count_filtered($start_date, $end_date, $area);
 
-    echo json_encode($output);
-}
+		// Prepare response
+		$output = array(
+			"draw" => $this->input->post('draw'),
+			"recordsTotal" => $total_records,
+			"recordsFiltered" => $filtered_records,
+			"data" => $data
+		);
+
+		echo json_encode($output);
+	}
 	
 	public function manifast_add_temp_barcode() //fungsi create
 	{
@@ -2656,6 +2657,72 @@ class Home extends CI_Controller {
 		}
 
 	}
+
+
+
+	public function log()
+	{
+		$cek = $this->session->userdata('logged_in');
+		if (!empty($cek)) {
+			$d['judul']            = $this->config->item('judul');
+			$d['nama_perusahaan']  = $this->config->item('nama_perusahaan');
+			$d['alamat_perusahaan']= $this->config->item('alamat_perusahaan');
+			$d['lisensi']          = $this->config->item('lisensi_app');
+
+			$d['jam_now'] = $this->app_model->Jam_Now(); 
+			$d['hari_now'] = $this->app_model->Hari_Bulan_Indo(); 
+			$d['tgl_now'] = $this->app_model->tgl_now_indo();
+
+			$id = $this->session->userdata('username');
+			$d['record'] = $this->model->get_users($id);
+
+			// load view log
+			$d['isi'] = $this->load->view('vadmin/log', $d, true);
+			$this->load->view('vadmin/media', $d);
+		} else {
+			$this->session->set_flashdata(
+				'result_login',
+				'<font color="red">Sesi login habis atau terhapuskan.</font>'
+			);
+			redirect('./cadmin/home/logout/', 'refresh');
+		}
+	}
+
+	public function log_ajax_list()
+	{
+		$type       = $this->input->post('type');
+		$start_date = $this->input->post('tgl1');
+		$end_date   = $this->input->post('tgl2');
+
+		$list = $this->log_model->get_datatables($start_date, $end_date, $type);
+
+		$data = array();
+		$no = $this->input->post('start');
+		foreach ($list as $log) {
+			$no++;
+			$row = array();
+			$row[] = '<div class="text-center">' . $no . '</div>';
+			$row[] = date('d M Y H:i:s', strtotime($log->tanggal));
+			$row[] = $log->type;
+			$row[] = $log->catatan;
+
+			$data[] = $row;
+		}
+
+		// total record untuk DataTables
+		$total_records    = $this->log_model->count_all();
+		$filtered_records = $this->log_model->count_filtered($start_date, $end_date, $type);
+
+		$output = array(
+			"draw"            => $this->input->post('draw'),
+			"recordsTotal"    => $total_records,
+			"recordsFiltered" => $filtered_records,
+			"data"            => $data
+		);
+
+		echo json_encode($output);
+	}
+
 
 }
 

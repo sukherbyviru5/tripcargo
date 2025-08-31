@@ -216,7 +216,7 @@ $config['directory_trigger'] = 'd';
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 0;
+$config['log_threshold'] = 2;
 
 /*
 |--------------------------------------------------------------------------
@@ -516,9 +516,9 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] 		= '';
-$config['judul']	 		= 'Pt. Insan Cargo Depok';
-$config['nama_perusahaan'] 	= 'Trip Cargo ';
-$config['alamat_perusahaan'] = 'Kawasan ruko 1000, Jl. Taman Palem Lestari No.18 Blok V, Cengkareng Barat, Kec. Cengkareng, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11730';
-$config['telp_perusahaan'] 	= 'WA. 0881080899678 || 0812 810 7359 || 0816 88 7359';
+$config['judul']	 		= 'tripcargoid.com';
+$config['nama_perusahaan'] 	= 'Trip Cargo';
+$config['alamat_perusahaan'] = 'HO JAKARTA, Kawasan Ruko 1000 Jl. Taman Palem Lestari Blok V No.18 Cengkareng Jakarta Barat DKI Jakarta 11730 - BANDUNG KOTA, Cigereleng Regol Moch Toha Kota Bandung 40253 - BANDUNG KAB, Jl Bojongreungas No.62 Kab. Bandung Jawa Barat 40382';
+$config['telp_perusahaan'] 	= 'JKT 081329993298 - 081329993298 - 081329993298';
 $config['lisensi_app'] 		= 'cs.sancargo@gmail.com';
 $config['limit_data'] 		= '1000';

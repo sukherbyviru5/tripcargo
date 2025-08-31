@@ -10,6 +10,69 @@ class Laporan_model extends CI_Model {
 		$this->load->model('Setting_contact_model');
 		
 	}
+	
+	public function cetak_pdf_manifast() 
+	{
+		$start_date = $this->input->get('tgl1');
+		$end_date   = $this->input->get('tgl2');
+		$area       = $this->input->get('area');
+
+		// Query header dari tabel utama
+		$this->db->from('manifast_head');
+
+		if (!empty($start_date) && !empty($end_date)) {
+			$this->db->where('tgl >=', $start_date);
+			$this->db->where('tgl <=', $end_date);
+		}
+
+		$query = $this->db->get();
+		$result = $query->result();
+
+		$filtered_result = [];
+
+		foreach ($result as $row) {
+			$details = $this->db->get_where('manifast_detail', ['id_h' => $row->id])->result();
+			$valid_details = [];
+			$is_valid_row = true;
+
+			foreach ($details as $detail) {
+				$paket = $this->db->get_where('paket', ['resi' => $detail->resi])->row();
+
+				if (!$paket) {
+					$is_valid_row = false;
+					break;
+				}
+
+				if (!empty($area) && $paket->area !== $area) {
+					$is_valid_row = false;
+					break;
+				}
+
+				$detail->area_paket = $paket->area;
+				$valid_details[] = $detail;
+			}
+
+			if ($is_valid_row && !empty($valid_details)) {
+				$row->detail = $valid_details;
+				$filtered_result[] = $row;
+			}
+		}
+
+		$d['rs'] 				= $filtered_result;
+		$d['start_date'] 		= $start_date ?? 'semua';
+		$d['end_date'] 			= $end_date ?? 'semua';
+		$d['area'] 				= $area ?? '-';
+		$d['judul'] 			= $this->config->item('judul');
+		$d['nama_perusahaan'] = $this->config->item('nama_perusahaan');
+		$d['alamat_perusahaan'] = $this->config->item('alamat_perusahaan');
+		$d['telp_perusahaan'] 	= $this->config->item('telp_perusahaan');
+		$d['lisensi']			= $this->config->item('lisensi_app');
+
+		$this->load->view('vadmin/cetak_pdf_manifast', $d);
+
+	}
+
+
 	public function cetak_manifast() 
 	{
 		$id = urldecode($this->uri->segment(4)  ?? '');
@@ -346,4 +409,41 @@ class Laporan_model extends CI_Model {
 	
 	
 	
+	public function cetak_pdf_log() 
+	{
+		$start_date = $this->input->get('tgl1');
+		$end_date   = $this->input->get('tgl2');
+		$type       = $this->input->get('type');
+
+		// Query ke tabel log_activity
+		$this->db->from('log');
+
+		if (!empty($start_date) && !empty($end_date)) {
+			$this->db->where('DATE(tanggal) >=', $start_date);
+			$this->db->where('DATE(tanggal) <=', $end_date);
+		}
+
+		if (!empty($type)) {
+			$this->db->where('type', $type);
+		}
+
+		$this->db->order_by('tanggal', 'DESC');
+		$query = $this->db->get();
+		$result = $query->result();
+
+		// Data untuk view PDF
+		$d['rs']                 = $result;
+		$d['start_date']         = $start_date ?? 'semua';
+		$d['end_date']           = $end_date ?? 'semua';
+		$d['type']               = $type ?? '-';
+		$d['judul']              = $this->config->item('judul');
+		$d['nama_perusahaan']    = $this->config->item('nama_perusahaan');
+		$d['alamat_perusahaan']  = $this->config->item('alamat_perusahaan');
+		$d['telp_perusahaan']    = $this->config->item('telp_perusahaan');
+		$d['lisensi']            = $this->config->item('lisensi_app');
+
+		// Load view khusus PDF
+		$this->load->view('vadmin/cetak_pdf_log', $d);
+	}
+
 }

@@ -609,6 +609,7 @@
                                                                 tujuanValue = $(this).val();
                                                                 if (areaValue && tujuanValue) {
                                                                     sendRequest(areaValue, tujuanValue);
+                                                                    hitungSemua();
                                                                 }
                                                             });
 
@@ -853,12 +854,17 @@
                                                                             class="fa fa-dollar"></i></span>
                                                                 </div>
                                                             </div>
-                                                            <!-- <div class="col-md-1">
-                                                                <button type="button" id="cek_harga"
+                                                            <div class="col-md-1">
+                                                               <button type="button" id="calculate" name="calculate" class="btn btn-success">
+                                                                    <i class="fa fa-money fa-fw"></i>
+                                                                    Kalkulasikan 
+                                                                </button>
+
+                                                                <!-- <button type="button" id="cek_harga"
                                                                     name="cek_harga" class="btn btn-success"
                                                                     onclick="load_harga()"><i
-                                                                        class="fa fa-money fa-fw"></i> Tarif </button>
-                                                            </div> -->
+                                                                        class="fa fa-money fa-fw"></i> Tarif </button> -->
+                                                            </div>
                                                         </div>
                                                     </span>
 
@@ -999,6 +1005,19 @@
                                             </div>
 
                                             <script>
+                                                document.addEventListener("DOMContentLoaded", function() {
+                                                    const btn = document.getElementById("calculate");
+                                                    if (btn) {
+                                                        btn.addEventListener("click", function() {
+                                                            hitungSemua(); 
+                                                        });
+                                                    }
+                                                });
+                                                </script>
+
+
+                                            <script>
+
                                                 function hitungSemua() {
                                                     const tarifTujuan = ambilAngka('harga');
                                                     const diskonPersen = ambilAngka('diskon');
@@ -1007,9 +1026,10 @@
                                                     const nilaiDiskon = tarifTujuan * (diskonPersen / 100);
                                                     const totalTarif = tarifTujuan - nilaiDiskon;
                                                     const finalcompare = compareVolAndBerat();
-                                                    const totalTarifKaliCompare = totalTarif * finalcompare;
+                                                    const totalTarifKaliCompare = finalcompare ? totalTarif * finalcompare : totalTarif;
                                                     const nilaiAsuransi = nilaiBarang * (persenAsuransi / 100);
                                                     const totalBiaya = totalTarifKaliCompare + nilaiAsuransi;
+
 
                                                     tampilkanAngka('nilai_diskon', nilaiDiskon);
                                                     tampilkanAngka('total_tarif', totalTarif);
@@ -2160,6 +2180,9 @@
 
                 var data = dt.data;
 
+                console.log(data);
+                
+
                 $('#col_koli').append(dt.barang);
                 $('[name="id"]').val(data.id);
                 $('[name="resi"]').val(data.resi);
@@ -2208,9 +2231,9 @@
                 $('[name="koli"]').val(data.koli);
                 $('[name="vol"]').val(data.vol);
                 $('[name="harga"]').val(data.harga);
-                $('[name="p"]').val("");
-                $('[name="l"]').val("");
-                $('[name="t"]').val("");
+                $('[name="p"]').val(data.p);
+                $('[name="l"]').val(data.l);
+                $('[name="t"]').val(data.t);
                 $('[name="diskon"]').val(data.diskon);
 
                 $('[name="harga1"]').val(data.harga1);
@@ -2230,6 +2253,14 @@
                 $('#btnSave').text('Update');
                 save_method = "update";
                 // $('.modal-title').text('Edit Dosen'); // Set title to Bootstrap modal title
+                hitung_volume();
+                updateBerat();
+                updateTotal();
+                updateReviewBarang();
+                updateReviewPenerima();
+                updateReviewPengirim();
+                hitungSemua();
+                compareVolAndBerat();
 
             },
             error: function(jqXHR, textStatus, errorThrown) {
@@ -2302,9 +2333,9 @@
                 $('[name="koli"]').val(data.koli);
                 $('[name="vol"]').val(data.vol);
                 $('[name="harga"]').val(data.harga);
-                $('[name="p"]').val("");
-                $('[name="l"]').val("");
-                $('[name="t"]').val("");
+                $('[name="p"]').val(data.p);
+                $('[name="l"]').val(data.l);
+                $('[name="t"]').val(data.t);
                 $('[name="diskon"]').val(data.diskon);
 
                 $('[name="harga1"]').val(data.harga1);
@@ -2322,13 +2353,18 @@
                 $('#review_area').html(dt.area_nama); // Directly set area_nama to review table
 
                 // Trigger review updates
+                hitung_volume();
+                updateBerat();
+                updateTotal();
                 updateReviewBarang();
                 updateReviewPenerima();
                 updateReviewPengirim();
+                hitungSemua();
+                compareVolAndBerat();
 
                 $('[name="simpan"]').val('update');
-                $('[name="simpan"]').text('Update');
-                $('#btnSave').text('Update');
+                $('[name="simpan"]').text('Show');
+                $('#btnSave').text('Show');
                 save_method = "update";
                 // $('.modal-title').text('Edit Dosen'); // Set title to Bootstrap modal title
 
