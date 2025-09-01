@@ -78,45 +78,34 @@ $pdf->Ln(0.3);
 // Header Table
 $pdf->SetFont('Helvetica', 'B', 8.6);
 $pdf->SetXY(0.3, 2.4);
-$pdf->Cell(6.15, 0.6, 'ASAL', 'LTR', 0, 'C');
-$pdf->Cell(6.15, 0.6, 'TUJUAN', 'LTR', 0, 'C');
-$pdf->Cell(4.1, 0.6, 'NO. TRANS', 'LTR', 0, 'C');
-$pdf->Cell(4.1, 0.6, 'SERVICE', 'LTR', 0, 'C');
+$pdf->Cell(6.79, 0.6, 'TUJUAN', 'LTR', 0, 'C');
+$pdf->Cell(6.79, 0.6, 'NO. TRANS', 'LTR', 0, 'C');
+$pdf->Cell(6.79, 0.6, 'SERVICE', 'LTR', 0, 'C');
 $pdf->Ln();
 $pdf->SetFont('Helvetica', '', 7.2);
-$pdf->Cell(6.15, 0.6, $d->area ?? substr($d->resi, 0, 3), 'LBR', 0, 'C');
-$pdf->Cell(6.15, 0.6, $this->app_model->find_kokab($d->kokab_id), 'LBR', 0, 'C');
-$pdf->Cell(4.1, 0.6, $this->app_model->find_id_admin($d->user_id) . "-$d->id", 'LBR', 0, 'C');
-$pdf->Cell(4.1, 0.6, $d->layan, 'LBR', 0, 'C');
+$pdf->Cell(6.79, 0.6, $this->app_model->find_kokab($d->kokab_id), 'LBR', 0, 'C');
+$pdf->Cell(6.79, 0.6, $this->app_model->find_id_admin($d->user_id) . "-$d->id", 'LBR', 0, 'C');
+$pdf->Cell(6.79, 0.6, $d->layan, 'LBR', 0, 'C');
 $pdf->Ln(0.6);
 
 // Informasi Asal
 $pdf->SetFont('Helvetica', '', 5.8);
-$asalText = $d->alamat_pel;
-$fixedWidth = 6.15;
-$col2Width = 6.15;
-$col3Width = 4.1; 
-$col4Width = 4.1; 
+$col2Width = 6.79;
+$col3Width = 6.79; 
+$col4Width = 6.79; 
 
 $lineHeight = 0.36; 
-$textWidth = $pdf->GetStringWidth($asalText);
-$numLines = max(1, ceil(($textWidth + 0.4) / $fixedWidth)); 
-$asalTextHeight = $numLines * $lineHeight;
-$y = $pdf->GetY();
-$pdf->MultiCell($fixedWidth, $lineHeight, $asalText, 'LTR', 'C');
-$pdf->SetXY(6.45, $y);
 
-$pdf->Cell($col2Width, $asalTextHeight, 'Jml (Colly)', 'LTR', 0, 'C');
-$pdf->Cell($col3Width, $asalTextHeight, 'Ukuran', 'LTR', 0, 'C');
-$pdf->Cell($col4Width, $asalTextHeight, 'Biaya Kirim', 'LTR', 0, 'C');
-$pdf->Ln($asalTextHeight); 
+$pdf->Cell($col2Width, $lineHeight, 'Jml (Colly)', 'LTR', 0, 'C');
+$pdf->Cell($col3Width, $lineHeight, 'Ukuran', 'LTR', 0, 'C');
+$pdf->Cell($col4Width, $lineHeight, 'Biaya Kirim', 'LTR', 0, 'C');
+$pdf->Ln($lineHeight); 
 
 $y = $pdf->GetY();
-$pdf->Cell(6.15, 0.84, "CSO. $d->telp_p - tripcargo.test", 'LBR', 0, 'C');
-$pdf->Cell(6.15, 0.84, $d->koli . ' Pcs', 'LBR', 0, 'C');
+$pdf->Cell($col2Width, 0.84, $d->koli . ' Pcs', 'LBR', 0, 'C');
 $pdf->Cell($col3Width, 0.84, $d->berat . ' Kg', 'LBR', 0, 'C');
 $pdf->Cell($col4Width, 0.84, 'Rp ' . number_format($d->harga2, 0), 'LBR', 0, 'C');
-$pdf->Ln(0.99);
+$pdf->Ln(1.1);
 
 // Penerima dan Pengirim
 $pageWidth = $pdf->GetPageWidth() - $pdf->GetX() * 2;
