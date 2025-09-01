@@ -875,7 +875,23 @@
                                                         $isSuperadmin = ($level === 'superadmin'); 
                                                     ?>
 
+                                                   
+
                                                     <span class="hidden-xs">
+                                                        <div class="form-group has-warning">
+                                                            <label class="col-md-2 control-label">Total Tarif</label>
+                                                            <div class="col-md-4">
+                                                                <div class="input-group">
+                                                                    <span class="input-group-addon">Rp.</span>
+                                                                    <input class="form-control"
+                                                                        placeholder="Total Tarif" type="text"
+                                                                        name="total_tarif" id="total_tarif" readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </span>
+
+                                                     <span class="hidden-xs">
                                                         <div class="form-group has-warning">
                                                             <label class="col-md-2 control-label">Diskon</label>
                                                             <div class="col-md-2">
@@ -905,20 +921,6 @@
                                                                         id="nilai_diskon"
                                                                         readonly
                                                                     >
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </span>
-
-                                                    <span class="hidden-xs">
-                                                        <div class="form-group has-warning">
-                                                            <label class="col-md-2 control-label">Total Tarif</label>
-                                                            <div class="col-md-4">
-                                                                <div class="input-group">
-                                                                    <span class="input-group-addon">Rp.</span>
-                                                                    <input class="form-control"
-                                                                        placeholder="Total Tarif" type="text"
-                                                                        name="total_tarif" id="total_tarif" readonly>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1023,12 +1025,14 @@
                                                     const diskonPersen = ambilAngka('diskon');
                                                     const nilaiBarang = ambilAngka('harga6');
                                                     const persenAsuransi = ambilAngka('persen_asuransi', true);
+                                                    const finalcompareberat = compareVolAndBerat();
+                                                    
+                                                    const totalTarif = tarifTujuan * finalcompareberat;
                                                     const nilaiDiskon = tarifTujuan * (diskonPersen / 100);
-                                                    const totalTarif = tarifTujuan - nilaiDiskon;
-                                                    const finalcompare = compareVolAndBerat();
-                                                    const totalTarifKaliCompare = finalcompare ? totalTarif * finalcompare : totalTarif;
                                                     const nilaiAsuransi = nilaiBarang * (persenAsuransi / 100);
-                                                    const totalBiaya = totalTarifKaliCompare + nilaiAsuransi;
+                                                    // const totalTarifKaliCompare = finalcompareberat ? totalTarif * finalcompareberat : totalTarif;
+                                                    // const totalBiaya = totalTarifKaliCompare + nilaiAsuransi;
+                                                    const totalBiaya = (totalTarif - nilaiDiskon) + nilaiAsuransi;
 
 
                                                     tampilkanAngka('nilai_diskon', nilaiDiskon);
