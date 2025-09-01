@@ -1028,7 +1028,7 @@
                                                     const finalcompareberat = compareVolAndBerat();
                                                     
                                                     const totalTarif = tarifTujuan * finalcompareberat;
-                                                    const nilaiDiskon = tarifTujuan * (diskonPersen / 100);
+                                                    const nilaiDiskon = totalTarif * (diskonPersen / 100);
                                                     const nilaiAsuransi = nilaiBarang * (persenAsuransi / 100);
                                                     // const totalTarifKaliCompare = finalcompareberat ? totalTarif * finalcompareberat : totalTarif;
                                                     // const totalBiaya = totalTarifKaliCompare + nilaiAsuransi;
