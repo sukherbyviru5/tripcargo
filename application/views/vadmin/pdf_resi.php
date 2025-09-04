@@ -110,14 +110,14 @@ $pdf->SetXY(6.45, $y);
 
 $pdf->Cell($col2Width, $asalTextHeight, 'Jml (Colly)', 'LTR', 0, 'C');
 $pdf->Cell($col3Width, $asalTextHeight, 'Ukuran', 'LTR', 0, 'C');
-$pdf->Cell($col4Width, $asalTextHeight, 'Biaya Kirim', 'LTR', 0, 'C');
+$pdf->Cell($col4Width, $asalTextHeight, 'Tarif /Kg', 'LTR', 0, 'C');
 $pdf->Ln($asalTextHeight); 
 
 $y = $pdf->GetY();
 $pdf->Cell(6.15, 0.84, " ", 'LBR', 0, 'C');
 $pdf->Cell(6.15, 0.84, $d->koli . ' Pcs', 'LBR', 0, 'C');
 $pdf->Cell($col3Width, 0.84, $d->berat . ' Kg', 'LBR', 0, 'C');
-$pdf->Cell($col4Width, 0.84, 'Rp ' . number_format($d->harga2, 0), 'LBR', 0, 'C');
+$pdf->Cell($col4Width, 0.84, 'Rp ' . number_format($d->harga, 0), 'LBR', 0, 'C');
 $pdf->Ln(0.99);
 
 // Penerima dan Pengirim

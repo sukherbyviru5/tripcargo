@@ -203,6 +203,7 @@ class Cargo_model extends CI_Model {
             }
 
             $totalbayar = str_replace('.', '', $this->input->post('total', true));
+            $tarif_awal = str_replace('.', '', $this->input->post('harga', true));
             $harga = str_replace('.', '', $this->input->post('total_tarif', true));
             $diskon = str_replace('.', '', $this->input->post('diskon', true));
             $harga1 = $this->input->post('harga1', true) ? str_replace('.', '', $this->input->post('harga1', true)) : null;
@@ -247,6 +248,7 @@ class Cargo_model extends CI_Model {
                 'regkirim' => $this->input->post('regkirim', true),
                 'regterima' => $this->input->post('regterima', true),
                 'harga' => (int)$harga,
+                'tarif_awal' => (int)$tarif_awal,
                 'diskon' => (int)$diskon,
                 'harga1' => $harga1 ? (int)$harga1 : null,
                 'harga2' => $harga2 ? (int)$harga2 : null,
@@ -364,7 +366,8 @@ class Cargo_model extends CI_Model {
             }
 
             $totalbayar = str_replace('.', '', $this->input->post('total', true));
-            $harga = str_replace('.', '', $this->input->post('harga', true));
+            $tarif_awal = str_replace('.', '', $this->input->post('harga', true));
+            $harga = str_replace('.', '', $this->input->post('total_tarif', true));
             $diskon = str_replace('.', '', $this->input->post('diskon', true));
             $harga1 = $this->input->post('harga1', true) ? str_replace('.', '', $this->input->post('harga1', true)) : null;
             $harga2 = $this->input->post('harga2', true) ? str_replace('.', '', $this->input->post('harga2', true)) : null;
@@ -405,6 +408,7 @@ class Cargo_model extends CI_Model {
                 'regkirim' => $this->input->post('regkirim', true),
                 'regterima' => $this->input->post('regterima', true),
                 'harga' => (int)$harga,
+                'tarif_awal' => (int)$tarif_awal,
                 'diskon' => (int)$diskon,
                 'harga1' => $harga1 ? (int)$harga1 : null,
                 'harga2' => $harga2 ? (int)$harga2 : null,
