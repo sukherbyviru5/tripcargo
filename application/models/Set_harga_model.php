@@ -164,28 +164,54 @@ class Set_harga_model extends CI_Model {
 		return $query->row();
 	}
 
-	function set_harga_add(){
-		$simpan=$this->input->post('simpan',true);
-		$id=$this->input->post('id',true);
-		if($simpan=="add"){
-			return $this->db->insert('tarif',array(
-				'tujuan'=>$this->input->post('tujuan',true),
-				'asal'=>$this->input->post('asal',true),
-				'harga'=>$this->input->post('harga',true),
-				'estimasi'=>$this->input->post('estimasi',true),
-				'layanan'=>$this->input->post('layanan',true)
-			));
-		}elseif($simpan=="update"){
+	public function set_harga_add()
+	{
+		$this->load->model('Log_model');
+		$simpan = $this->input->post('simpan', true);
+		$id     = $this->input->post('id', true);
+
+		$asal     = $this->input->post('asal', true);
+		$tujuan   = $this->input->post('tujuan', true);
+		$harga    = $this->input->post('harga', true);
+		$estimasi = $this->input->post('estimasi', true);
+		$layanan  = $this->input->post('layanan', true);
+
+		if ($simpan == "add") {
+			$insert = $this->db->insert('tarif', [
+				'tujuan'   => $tujuan,
+				'asal'     => $asal,
+				'harga'    => $harga,
+				'estimasi' => $estimasi,
+				'layanan'  => $layanan
+			]);
+
+			if ($insert) {
+				$this->Log_model->log_tarif('tambah', $asal, $tujuan, null, $harga);
+			}
+
+			return $insert;
+
+		} elseif ($simpan == "update") {
+			$row = $this->db->get_where('tarif', ['id' => $id])->row();
+			$harga_lama = $row ? $row->harga : null;
+
 			$this->db->where('id', $id);
-			return $this->db->update('tarif',array(
-				'tujuan'=>$this->input->post('tujuan',true),
-				'asal'=>$this->input->post('asal',true),
-				'harga'=>$this->input->post('harga',true),
-				'estimasi'=>$this->input->post('estimasi',true),
-				'layanan'=>$this->input->post('layanan',true)
-			));
+			$update = $this->db->update('tarif', [
+				'tujuan'   => $tujuan,
+				'asal'     => $asal,
+				'harga'    => $harga,
+				'estimasi' => $estimasi,
+				'layanan'  => $layanan
+			]);
+
+			if ($update) {
+				$this->Log_model->log_tarif('edit', $asal, $tujuan, $harga_lama, $harga);
+			}
+
+			return $update;
 		}
 	}
+
 
 	public function delete_by_id($id)
 	{

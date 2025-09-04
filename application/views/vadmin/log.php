@@ -32,6 +32,7 @@
 									<label for="filter_type">Type</label>
 									<select class="form-control" name="type" id="filter_type">
 										<option value="">-- Semua Type --</option>
+										<option value="TARIF">TARIF</option>
 										<option value="RESI">RESI</option>
 										<option value="MANIFEST">MANIFEST</option>
 									</select>

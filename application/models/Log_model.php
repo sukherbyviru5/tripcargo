@@ -114,9 +114,9 @@ class Log_model extends CI_Model {
     {
         $user = $this->userInfo();
         if ($aksi == 'input') {
-            $catatan = "Tgl ".date('d-m-Y')." $user input resi $no_resi dari $asal ke $tujuan Total {$berat}kg Rp. ".number_format($total,0,',','.');
+            $catatan = "Tgl ".date('d-m-Y')." $user input resi $no_resi dari $asal ke $tujuan Total Berat {$berat}kg Rp. ".number_format($total,0,',','.');
         } elseif ($aksi == 'edit') {
-            $catatan = "Tgl ".date('d-m-Y')." $user edit resi $no_resi dari $asal ke $tujuan Total {$berat}kg Rp. ".number_format($total,0,',','.');
+            $catatan = "Tgl ".date('d-m-Y')." $user edit resi $no_resi dari $asal ke $tujuan Total Berat {$berat}kg Rp. ".number_format($total,0,',','.');
         }
         return $this->add_log('RESI', $catatan);
     }

@@ -278,7 +278,7 @@ class Cargo_model extends CI_Model {
                 $total
             );
             return $this->db->insert('paket', $paket_data);
-        } elseif ($simpan == "update") {
+       } elseif ($simpan == "update") {
             $id = $this->input->post('id', true);
             $kec = $this->input->post('kec', true);
             $kec2 = $this->input->post('kec2', true);
@@ -298,8 +298,8 @@ class Cargo_model extends CI_Model {
             if ($del_item) {
                 foreach ($del_item as $key => $row) {
                     log_message('debug', 'Deleting barang with id: ' . $del_item[$key]);
-                    $this->db->delete('barang', array('id' => $del_item[$key])); 
-                }	
+                    $this->db->delete('barang', array('id' => $del_item[$key]));
+                }
             }
 
             $ps = $this->input->post('ps');
@@ -312,7 +312,7 @@ class Cargo_model extends CI_Model {
             if ($ps) {
                 foreach ($ps as $key => $row) {
                     $filename = "";
-                    $upload_path = './Uploads/barang/'; 
+                    $upload_path = './Uploads/barang/';
                     if (!empty($_FILES['images']['name'][$key])) {
                         $now = date('YmdHis');
                         $_FILES['file']['name'] = $_FILES['images']['name'][$key];
@@ -320,7 +320,7 @@ class Cargo_model extends CI_Model {
                         $_FILES['file']['tmp_name'] = $_FILES['images']['tmp_name'][$key];
                         $_FILES['file']['error'] = $_FILES['images']['error'][$key];
                         $_FILES['file']['size'] = $_FILES['images']['size'][$key];
-                        $config['upload_path'] = $upload_path; 
+                        $config['upload_path'] = $upload_path;
                         $config['allowed_types'] = 'jpg|jpeg|png|gif';
                         $config['file_name'] = $now . '-' . $_FILES['images']['name'][$key];
                         $return = $now . '-' . $_FILES['images']['name'][$key];
@@ -331,7 +331,7 @@ class Cargo_model extends CI_Model {
                             $filename = $now . '-' . $_FILES['images']['name'][$key];
                             if ($uploadData['image_height'] > 500) {
                                 $this->load->library('image_lib');
-                                $config_resize['image_library'] = 'gd2';	
+                                $config_resize['image_library'] = 'gd2';
                                 $config_resize['create_thumb'] = FALSE;
                                 $config_resize['maintain_ratio'] = TRUE;
                                 $config_resize['master_dim'] = 'height';
@@ -346,7 +346,7 @@ class Cargo_model extends CI_Model {
                             log_message('error', 'Failed to upload image for barang: ' . $this->upload->display_errors());
                         }
                     }
-                    
+
                     $barang_data = array(
                         'resi' => $this->input->post('resi', true),
                         'notes' => $notes[$key],
@@ -360,7 +360,7 @@ class Cargo_model extends CI_Model {
                     log_message('debug', 'Inserting barang (update mode): ' . json_encode($barang_data));
                     $this->db->insert('barang', $barang_data);
                     $id_barang = $this->db->insert_id();
-                }	
+                }
             }
 
             $totalbayar = str_replace('.', '', $this->input->post('total', true));
@@ -373,8 +373,12 @@ class Cargo_model extends CI_Model {
             $harga5 = $this->input->post('harga5', true) ? str_replace('.', '', $this->input->post('harga5', true)) : null;
             $harga6 = $this->input->post('harga6', true) ? str_replace('.', '', $this->input->post('harga6', true)) : null;
 
+            $area = $this->input->post('area', TRUE);
+            $tujuanarea = $this->input->post('tujuanarea', TRUE);
+            $code_area = $this->asal->get_by_nama($area);
+            $tujuanData = $this->tujuan->get_by_id($tujuanarea);
+
             $paket_data = array(
-                // 'resi' => $this->input->post('resi', true),
                 'deskripsi' => $this->input->post('deskripsi', true),
                 'vol' => $this->input->post('vol', true),
                 'p' => $this->input->post('p', true),
@@ -410,24 +414,115 @@ class Cargo_model extends CI_Model {
                 'harga6' => $harga6 ? (int)$harga6 : null,
                 'layan' => $this->input->post('layan', true),
                 'metode' => $this->input->post('metode', true),
-                'catatan' => $this->input->post('catatan', true)
+                'catatan' => $this->input->post('catatan', true),
+                'area' => $code_area->kode,
+                'tujuanarea' => trim($tujuanData->nama),
             );
-            log_message('debug', 'Updating paket with id: ' . $id . ', data: ' . json_encode($paket_data));
-            $this->db->where('id', $id);
-            $asal   = $this->input->post('area', true);
-            $tujuan = trim($this->input->post('tujuanarea', true));
-            $berat  = $this->input->post('berat', true);
-            $total  = str_replace('.', '', $this->input->post('total', true));
 
+            log_message('debug', 'Updating paket with id: ' . $id . ', data: ' . json_encode($paket_data));
+            $asal = $this->input->post('area', true);
+            $tujuan = trim($tujuanData->nama);
+
+            // Manual update query
+            $query = "UPDATE paket SET 
+                deskripsi = ?, 
+                vol = ?, 
+                p = ?, 
+                l = ?, 
+                t = ?, 
+                berat = ?, 
+                koli = ?, 
+                totalbayar = ?, 
+                p_nama = ?, 
+                p_dept = ?, 
+                p_alamat = ?, 
+                p_kec_id = ?, 
+                p_kokab_id = ?, 
+                p_prov_id = ?, 
+                p_telp = ?, 
+                p_email = ?, 
+                penerima = ?, 
+                dept2 = ?, 
+                alamat = ?, 
+                kec_id = ?, 
+                kokab_id = ?, 
+                prov_id = ?, 
+                telp = ?, 
+                regkirim = ?, 
+                regterima = ?, 
+                harga = ?, 
+                diskon = ?, 
+                harga1 = ?, 
+                harga2 = ?, 
+                harga3 = ?, 
+                harga4 = ?, 
+                harga5 = ?, 
+                harga6 = ?, 
+                layan = ?, 
+                metode = ?, 
+                catatan = ?, 
+                area = ?, 
+                tujuanarea = ? 
+            WHERE id = ?";
+
+            $params = [
+                $paket_data['deskripsi'],
+                $paket_data['vol'],
+                $paket_data['p'],
+                $paket_data['l'],
+                $paket_data['t'],
+                $paket_data['berat'],
+                $paket_data['koli'],
+                $paket_data['totalbayar'],
+                $paket_data['p_nama'],
+                $paket_data['p_dept'],
+                $paket_data['p_alamat'],
+                $paket_data['p_kec_id'],
+                $paket_data['p_kokab_id'],
+                $paket_data['p_prov_id'],
+                $paket_data['p_telp'],
+                $paket_data['p_email'],
+                $paket_data['penerima'],
+                $paket_data['dept2'],
+                $paket_data['alamat'],
+                $paket_data['kec_id'],
+                $paket_data['kokab_id'],
+                $paket_data['prov_id'],
+                $paket_data['telp'],
+                $paket_data['regkirim'],
+                $paket_data['regterima'],
+                $paket_data['harga'],
+                $paket_data['diskon'],
+                $paket_data['harga1'],
+                $paket_data['harga2'],
+                $paket_data['harga3'],
+                $paket_data['harga4'],
+                $paket_data['harga5'],
+                $paket_data['harga6'],
+                $paket_data['layan'],
+                $paket_data['metode'],
+                $paket_data['catatan'],
+                $paket_data['area'],
+                $paket_data['tujuanarea'],
+                $id
+            ];
+
+             // Log the old and new data
+            $old = $this->db->get_where('paket', ['id' => $id])->row();
+
+            // Execute the query
+            $update_result = $this->db->query($query, $params);
+           
             $this->Log_model->log_resi(
                 'edit',
-                $this->input->post('resi', true), 
+                $this->input->post('resi', true),
                 $asal,
                 $tujuan,
-                $berat,
-                $total
+                $old ? $old->berat : null,
+                $old ? str_replace('.', '', $old->totalbayar) : null
             );
-            return $this->db->update('paket', $paket_data);
+
+            return $update_result;
         }
         return $return;
     }

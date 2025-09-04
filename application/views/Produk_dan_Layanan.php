@@ -106,7 +106,7 @@ div.responsive {
 <div align="left" style=" margin-top: -40px;">
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="https://tripcargoid.com/">Home</a></li>
+    <li class="breadcrumb-item"><a href="https://tripcargo.test/">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">Layanan</li>
   </ol>
 </nav>
@@ -146,7 +146,7 @@ div.responsive {
 
             <!-- WRAPPER -->
             <div class="style6" style=" margin-top: -60px;">
-                 <a class="news-link orange" href="https://tripcargoid.com/reguler" style="color: #1f1914 !important; ">
+                 <a class="news-link orange" href="https://tripcargo.test/reguler" style="color: #1f1914 !important; ">
                  <h2 style="font-size: 1.4em;margin: unset;"><b>#Service Reguler</b></h2></a>   
                  Pelayanan pengiriman barang dengan waktu pengiriman normal barang akan sampai ke tujuan dalam jangka waktu yang standar dan tidak dipercepat,
                  dengan estimasi waktu yang diberikan oleh Trip Cargo untuk rute tertentu. <br>
@@ -159,9 +159,9 @@ div.responsive {
                  Ppelayanan pengiriman barang ke seluruh wilayah Indonesia dengan tarif perkilo gram dan standar pengiriman (door to door).<br>
                  <b>Tarif reguler</b> disesuaikan dengan jarak pengiriman ke tujuan baik diperjaalanan darat, laut atau via udara dengan standar layanaan reguler.<br><br>
                  
-                 <a class="news-link orange" href="https://tripcargoid.com/cargo" style="color: #1f1914 !important; ">
+                 <a class="news-link orange" href="https://tripcargo.test/cargo" style="color: #1f1914 !important; ">
                  <h2 style="font-size: 1.4em;margin: unset;"><b>#Service Cargo</b></h2></a>   
-                 Dalam kebutuhan pengiriman barang konsumen kami bisa memilih berdasarkan tarif yang cocok dan murah yaitu " <i><a href="https://tripcargoid.com/web/Tarif_Kargo_Hemat"> <b>tarif cargo</b> </a></i>", lalu apa itu service cargo itu?.<br>
+                 Dalam kebutuhan pengiriman barang konsumen kami bisa memilih berdasarkan tarif yang cocok dan murah yaitu " <i><a href="https://tripcargo.test/web/Tarif_Kargo_Hemat"> <b>tarif cargo</b> </a></i>", lalu apa itu service cargo itu?.<br>
                  
                  Dari berbagi pilihan pelayanaan service cargo kami kelompokan ada beberapa kategori:<br> 
                  - Pertama dalam pengiriman dengan kapasitas banyak (barangnya ringan tapi besar) maka kami dihitung berdasarkan volume yang artinya (kubikasi).<br>
@@ -178,7 +178,7 @@ div.responsive {
                  Pelayanan ini paket cepat ini menjadi pilihan untuk kebutuhan urgent.
                  <br><br>
                  
-                 <a class="news-link orange" href="https://tripcargoid.com/Trucking" style="color: #1f1914 !important; "><h2 style="font-size: 1.4em;margin: unset;"><b>#Trucking</b></h2></a>   
+                 <a class="news-link orange" href="https://tripcargo.test/Trucking" style="color: #1f1914 !important; "><h2 style="font-size: 1.4em;margin: unset;"><b>#Trucking</b></h2></a>   
                  Service trucking adalah layanan pengiriman barang menggunakan kendaraan truk atau kendaraan roda empat lainnya melalui jalur darat. <br>
         Ini adalah bagian penting dalam sektor logistik, menghubungkan berbagai lokasi, baik dalam kota maupun antar kota dan bahkan antar pulau.<br> 
         <b>Pengertian Trucking:</b><br>
@@ -220,7 +220,7 @@ div.responsive {
                  Sanargo dan team atau (vendor) saling suport kami selalu bersinergi dan saling berbagai info dangan kapasitas barang yang dimuatnya.
                  <br><br>
                  
-                 <a class="news-link orange" href="https://tripcargoid.com/Moving_service" style="color: #1f1914 !important; ">
+                 <a class="news-link orange" href="https://tripcargo.test/Moving_service" style="color: #1f1914 !important; ">
                  <h2 style="font-size: 1.4em;margin: unset;"><b>#Moving Service</b></h2></a>   
                  <b>Moving Service</b> 
                  Perusahaan kami adalah spesial <b>perusahaan jasa pindahan</b> atau relokasi tempat kerja dan kami kerjanan dengan team yang ahli dibidangnya berkaitan jasa pindahan.<br>
@@ -245,7 +245,7 @@ div.responsive {
                  <b>Trip Cargo bisa juga membantu untuk informasai tambahan seperti: </b> <br>
                   Jasa Sewa Gudang (Warehouse Rent Services) gudang untuk keperluan penyimpanan barang dan Jasa Kirim Mobil (Transport Car Services)<br>
                     <br><br>
-                 <a class="news-link orange" href="https://tripcargoid.com/pakaging" style="color: #1f1914 !important; "><h2 style="font-size: 1.4em;margin: unset;"><b>#Pakaging</b></h2></a>   
+                 <a class="news-link orange" href="https://tripcargo.test/pakaging" style="color: #1f1914 !important; "><h2 style="font-size: 1.4em;margin: unset;"><b>#Pakaging</b></h2></a>   
                     <b>"Packaging" (atau dalam Bahasa Indonesia sering disebut Kemasan atau Pengemasan)</b><br>
                     Proses atau seni membungkus atau melindungi produk untuk distribusi, penyimpanan, penjualan, dan penggunaan.<br><br>
 
