@@ -104,7 +104,7 @@
                 $('[name="namalengkap"]').val(data.namalengkap);
                 $('[name="area"]').val(data.area);
                 $('[name="kec_id"]').val(data.kec_id);
-                $('[name="foto"]').val(data.foto);
+                // $('[name="foto"]').val(data.foto);
                 $('[name="nomor_hp"]').val(data.nomor_hp);
                 $('[name="jabatan"]').val(data.jabatan);
                 $('[name="tgl_regristrasi"]').val(data.tgl_regristrasi);
@@ -142,21 +142,28 @@
         } else {
             url = "<?php echo site_url('cadmin/users/ajax_update'); ?>";
         }
+
+        var formData = new FormData($('#form')[0]);
+
         $.ajax({
             url: url,
             type: "POST",
-            data: $('#form').serialize(),
+            data: formData,
             dataType: "JSON",
+            processData: false, 
+            contentType: false,
             success: function(data) {
                 if (data.status) {
                     $('#modal_form').modal('hide');
                     reload_table();
+                } else {
+                    alert('Error: ' + (data.error || 'Gagal menyimpan data'));
                 }
                 $('#btnSave').text('save');
                 $('#btnSave').attr('disabled', false);
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                alert('Error adding / update data');
+                alert('Error: ' + (jqXHR.responseJSON?.error || textStatus));
                 $('#btnSave').text('save');
                 $('#btnSave').attr('disabled', false);
             }
@@ -205,7 +212,7 @@
                 <h3 class="modal-title">Form User Baru</h3>
             </div>
             <div class="modal-body form">
-                <form action="#" id="form" class="form-horizontal">
+                <form action="#" id="form" class="form-horizontal" enctype="multipart/form-data" >
                     <input type="hidden" value="" name="id" />
                     <div class="form-body">
                         <div class="form-group has-success">
@@ -315,7 +322,7 @@
                                 <label class="control-label col-md-3">foto</label>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
                                     <div class="input-group">
-                                        <input name="foto" value="foto.png" placeholder="foto selfie" class="form-control" type="text">
+                                        <input name="foto" placeholder="foto selfie" class="form-control" type="file">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-edit"></i></span>
                                         <span class="help-block"></span>
                                     </div>

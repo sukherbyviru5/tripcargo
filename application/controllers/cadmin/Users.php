@@ -78,93 +78,111 @@ class Users extends CI_Controller {
 	public function ajax_add()
 	{
 		$data = array(
-				'user_id' => $this->input->post('user_id'),
-				'password' => md5($this->input->post('password')),
-				'level' => $this->input->post('level'),
-				'namalengkap' => $this->input->post('namalengkap'),
-				'area' => $this->input->post('area'),
-				'kec_id' => $this->input->post('kec_id'),
-				'foto' => $this->input->post('foto'),//foto
-				//identitas tambahan
-				'nomor_hp' => $this->input->post('nomor_hp'),
-				'jabatan' => $this->input->post('jabatan'),
-                'tgl_regristrasi' => $this->input->post('tgl_regristrasi'),
-                'kecamatan' => $this->input->post('kecamatan'),
-                'alamat_tinggal' => $this->input->post('alamat_tinggal'),
-                'nomor_ktp' => $this->input->post('nomor_ktp'),
-                'kontak_darurat' => $this->input->post('kontak_darurat'),
-                'account_bank' => $this->input->post('account_bank'),
-                'referensi_dari' => $this->input->post('referensi_dari'),
-                'tempat_tanggal_lahir' => $this->input->post('tempat_tanggal_lahir'),
-                'kendaraan' => $this->input->post('kendaraan'),
-                'nomor_polisi' => $this->input->post('nomor_polisi'),
-                'keterangan_tambahan' => $this->input->post('keterangan_tambahan'),
-                'performa' => $this->input->post('performa'),
-                'email' => $this->input->post('email'),
-			);
+			'user_id' => $this->input->post('user_id'),
+			'password' => md5($this->input->post('password')),
+			'level' => $this->input->post('level'),
+			'namalengkap' => $this->input->post('namalengkap'),
+			'area' => $this->input->post('area'),
+			'kec_id' => $this->input->post('kec_id'),
+			'nomor_hp' => $this->input->post('nomor_hp'),
+			'jabatan' => $this->input->post('jabatan'),
+			'tgl_regristrasi' => $this->input->post('tgl_regristrasi'),
+			'kecamatan' => $this->input->post('kecamatan'),
+			'alamat_tinggal' => $this->input->post('alamat_tinggal'),
+			'nomor_ktp' => $this->input->post('nomor_ktp'),
+			'kontak_darurat' => $this->input->post('kontak_darurat'),
+			'account_bank' => $this->input->post('account_bank'),
+			'referensi_dari' => $this->input->post('referensi_dari'),
+			'tempat_tanggal_lahir' => $this->input->post('tempat_tanggal_lahir'),
+			'kendaraan' => $this->input->post('kendaraan'),
+			'nomor_polisi' => $this->input->post('nomor_polisi'),
+			'keterangan_tambahan' => $this->input->post('keterangan_tambahan'),
+			'performa' => $this->input->post('performa'),
+			'email' => $this->input->post('email'),
+		);
+
+		if (!empty($_FILES['foto']['name'])) {
+			$config['upload_path'] = './assets/upload/';
+			$config['allowed_types'] = 'jpg|jpeg|png|gif';
+			$config['max_size'] = 2048;
+			$config['file_name'] = time() . '_' . $_FILES['foto']['name'];
+
+			log_message('debug', 'Upload config: ' . print_r($config, TRUE));
+
+			$this->load->library('upload', $config);
+
+			if ($this->upload->do_upload('foto')) {
+				$uploadData = $this->upload->data();
+				$data['foto'] = $uploadData['file_name'];
+			} else {
+				$error = $this->upload->display_errors();
+				echo json_encode([
+					"status" => FALSE,
+					"error" => $error
+				]);
+				return;
+			}
+		}
+
 		$insert = $this->users->save($data);
-		echo json_encode(array("status" => TRUE));
+
+		echo json_encode(["status" => TRUE]);
 	}
 
 	public function ajax_update()
 	{
-		$pass=$this->input->post('password');
-		if(!empty($pass)){
+		$pass = $this->input->post('password');
 		$data = array(
-				'user_id' => $this->input->post('user_id'),
-				'password' => md5($this->input->post('password')),
-				'level' => $this->input->post('level'),
-				'namalengkap' => $this->input->post('namalengkap'),
-				'area' => $this->input->post('area'),
-				'kec_id' => $this->input->post('kec_id'),
-				'foto' => $this->input->post('foto'),
-				//identitas tambahan
-				'nomor_hp' => $this->input->post('nomor_hp'),
-				'jabatan' => $this->input->post('jabatan'),
-                'tgl_regristrasi' => $this->input->post('tgl_regristrasi'),
-                'kecamatan' => $this->input->post('kecamatan'),
-                'alamat_tinggal' => $this->input->post('alamat_tinggal'),
-                'nomor_ktp' => $this->input->post('nomor_ktp'),
-                'kontak_darurat' => $this->input->post('kontak_darurat'),
-                'account_bank' => $this->input->post('account_bank'),
-                'referensi_dari' => $this->input->post('referensi_dari'),
-                'tempat_tanggal_lahir' => $this->input->post('tempat_tanggal_lahir'),
-                'kendaraan' => $this->input->post('kendaraan'),
-                'nomor_polisi' => $this->input->post('nomor_polisi'),
-                'keterangan_tambahan' => $this->input->post('keterangan_tambahan'),
-                'performa' => $this->input->post('performa'),
-                'email' => $this->input->post('email'),
-			);
-		}else{
-		$data = array(
-				'user_id' => $this->input->post('user_id'),
-				// 'password' => md5($this->input->post('password')),
-				'level' => $this->input->post('level'),
-				'namalengkap' => $this->input->post('namalengkap'),
-				'area' => $this->input->post('area'),
-				'kec_id' => $this->input->post('kec_id'),
-				'foto' => $this->input->post('foto'),
-				//identitas tambahan
-				'nomor_hp' => $this->input->post('nomor_hp'),
-				'jabatan' => $this->input->post('jabatan'),
-                'tgl_regristrasi' => $this->input->post('tgl_regristrasi'),
-                'kecamatan' => $this->input->post('kecamatan'),
-                'alamat_tinggal' => $this->input->post('alamat_tinggal'),
-                'nomor_ktp' => $this->input->post('nomor_ktp'),
-                'kontak_darurat' => $this->input->post('kontak_darurat'),
-                'account_bank' => $this->input->post('account_bank'),
-                'referensi_dari' => $this->input->post('referensi_dari'),
-                'tempat_tanggal_lahir' => $this->input->post('tempat_tanggal_lahir'),
-                'kendaraan' => $this->input->post('kendaraan'),
-                'nomor_polisi' => $this->input->post('nomor_polisi'),
-                'keterangan_tambahan' => $this->input->post('keterangan_tambahan'),
-                'performa' => $this->input->post('performa'),
-                //'email' => $this->input->post('email'),
-			);
+			'user_id'   => $this->input->post('user_id'),
+			'level'     => $this->input->post('level'),
+			'namalengkap' => $this->input->post('namalengkap'),
+			'area'      => $this->input->post('area'),
+			'kec_id'    => $this->input->post('kec_id'),
+			'nomor_hp'  => $this->input->post('nomor_hp'),
+			'jabatan'   => $this->input->post('jabatan'),
+			'tgl_regristrasi' => $this->input->post('tgl_regristrasi'),
+			'kecamatan' => $this->input->post('kecamatan'),
+			'alamat_tinggal' => $this->input->post('alamat_tinggal'),
+			'nomor_ktp' => $this->input->post('nomor_ktp'),
+			'kontak_darurat' => $this->input->post('kontak_darurat'),
+			'account_bank' => $this->input->post('account_bank'),
+			'referensi_dari' => $this->input->post('referensi_dari'),
+			'tempat_tanggal_lahir' => $this->input->post('tempat_tanggal_lahir'),
+			'kendaraan' => $this->input->post('kendaraan'),
+			'nomor_polisi' => $this->input->post('nomor_polisi'),
+			'keterangan_tambahan' => $this->input->post('keterangan_tambahan'),
+			'performa' => $this->input->post('performa'),
+			'email'    => $this->input->post('email'),
+		);
+
+		if (!empty($_FILES['foto']['name'])) {
+			$config['upload_path']   = './assets/upload/';
+			$config['allowed_types'] = 'jpg|jpeg|png|gif';
+			$config['max_size']      = 2048;
+			$config['file_name']     = time() . '_' . $_FILES['foto']['name'];
+
+			$this->load->library('upload', $config);
+
+			if ($this->upload->do_upload('foto')) {
+				$uploadData = $this->upload->data();
+				$data['foto'] = $uploadData['file_name'];
+			} else {
+				$error = $this->upload->display_errors();
+				echo json_encode([
+					"status" => FALSE,
+					"error"  => $error
+				]);
+				return;
+			}
 		}
-		$this->users->update(array('id' => $this->input->post('id')), $data);
-		echo json_encode(array("status" => TRUE));
+
+		if (!empty($pass)) {
+			$data['password'] = md5($pass);
+		}
+		$this->users->update(['id' => $this->input->post('id')], $data);
+		echo json_encode(["status" => TRUE]);
 	}
+
 
 	public function ajax_delete($id)
 	{
