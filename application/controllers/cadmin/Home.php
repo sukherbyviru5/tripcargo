@@ -1131,7 +1131,7 @@ class Home extends CI_Controller {
 			$d['kokab']= $this->model->get_kokab();
 			$d['kec']= $this->model->get_kec();
 			$d['asal']=$this->model->get_kotaasal();
-			$d['area']=$this->asal->getall();
+			$d['area']=$this->asal->getall($this->session->userdata('area'));
 			$d['tujuanarea']=$this->tujuan->getall();
 			$d['tujuan']=$this->model->get_kotatujuan();
 			$d['kecamatan']= $this->model->get_kec();

@@ -2234,7 +2234,10 @@
                 $('[name="berat"]').val(data.berat);
                 $('[name="koli"]').val(data.koli);
                 $('[name="vol"]').val(data.vol);
-                $('[name="harga"]').val(data.harga);
+                $('[name="harga"]').val(
+                    data.harga.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+                );
+                $('[name="harga"]').prop('readonly', true);
                 $('[name="p"]').val(data.p);
                 $('[name="l"]').val(data.l);
                 $('[name="t"]').val(data.t);

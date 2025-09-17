@@ -98,13 +98,23 @@ class Asal_model extends CI_Model {
         return $query->row();
     }
 
-    public function getall()
+    public function getall($area = null)
     {
         $this->db->from($this->table);
+
+        if (!empty($area)) {
+            $this->db->group_start()
+                    ->where('nama', $area)
+                    ->or_where('kode', $area)
+                    ->group_end();
+        }
+
         $this->db->order_by('kode', 'ASC');
         $query = $this->db->get();
         return $query->result();
     }
+
+
 
     function asal_add(){
         $simpan=$this->input->post('simpan',true);

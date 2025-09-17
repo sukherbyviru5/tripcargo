@@ -145,18 +145,19 @@
 								<fieldset>
 									<div class="form-group has-success col-md-12">
 									<label class="col-md-2 control-label">No.Resi</label>
-									<!---	<div class="col-md-2">
-											<div class="input-group">
-												<button type="button" id="btnForm"  onclick="add_resi()" class="btn btn-primary">
-												<i class="fa fa-plus"></i> Tambah Resi <span id="loadadd"></span>
-											</button>
-											</div>
-										</div> -->
+									 
 									
 										<div class="col-sm-3">
 											<div class="input-group">
 												<input class="form-control" placeholder="Masuk Resi, Enter" type="text" name="resi" id="resi" onkeyup="this.value = this.value.toUpperCase()">
 												<span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i>  </span>
+											</div>
+										</div>
+										  <div class="col-md-2">
+											<div class="input-group">
+												<button type="button" style="margin: 3px;" id="ScanQrCode"
+                                                                            onclick="openScanner()" class="btn btn-info">Scan QR</button>
+											</button>
 											</div>
 										</div>
 										<div class="col-md-5">
@@ -347,6 +348,117 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
+
+ <!-- Bootstrap Modal for QR Scanner -->
+<div class="modal fade" id="qrModal" tabindex="-1" role="dialog" aria-labelledby="qrModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="qrModalLabel">Scan QR Code</h4>
+            </div>
+            <div class="modal-body">
+                <div id="qr-reader"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+<style>
+    .modal-body {
+        text-align: center;
+    }
+    #qr-reader {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+</style>
+
+<script>
+    let html5QrCode; 
+
+	function openScanner() {
+		$('#qrModal').modal('show');
+
+		if (!html5QrCode) {
+			html5QrCode = new Html5Qrcode("qr-reader");
+		}
+
+		const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+
+		$('#qrModal').off('shown.bs.modal').on('shown.bs.modal', function () {
+			html5QrCode.start(
+				{ facingMode: "environment" },
+				config,
+				(decodedText, decodedResult) => {
+					$('#resi').val(decodedText);
+
+					$('#load').html("<img src='<?php echo base_url()."assets/img/loading.gif";?>' />");
+					var loading = $("#load");
+
+					if (decodedText.trim() === "") {
+						var msg = "&emsp; &emsp;<b>Resi tidak ditemukan</b>";  
+						$('#demo').html(msg);
+					} else {
+						$.ajax({
+							type: "POST",
+							url : "<?php echo site_url('cadmin/home/manifast_add_temp_barcode')?>",
+							data: { resi: decodedText },
+							beforeSend: function(){
+								loading.fadeIn();						
+							},
+							success: function(status){
+									loading.fadeOut();
+									loading.hide();
+									table.ajax.reload();
+									
+									data_json = JSON.stringify(status, replacer);
+									function replacer(json_key, json_value) {
+									if (json_key == 'pesan') {
+										json_value = json_value.toUpperCase();
+									}
+									var obj = JSON.parse(json_value);
+									document.getElementById("demo").innerHTML = obj.pesan ;
+									$('#resi').val('');
+								}
+							},
+						});
+					}
+
+					html5QrCode.stop().then(() => {
+						$('#qrModal').modal('hide');
+					}).catch(err => {
+						console.error("Error stopping scanner: ", err);
+					});
+				},
+				(errorMessage) => {
+					console.warn("QR Scan Error: ", errorMessage);
+				}
+			).catch(err => {
+				console.error("Error starting scanner: ", err);
+			});
+		});
+
+		$('#qrModal').off('hidden.bs.modal').on('hidden.bs.modal', function () {
+			if (html5QrCode) {
+				html5QrCode.stop().catch(err => {
+					console.error("Error stopping scanner: ", err);
+				});
+			}
+		});
+	}
+
+</script>
 
 <script type="text/javascript">
 

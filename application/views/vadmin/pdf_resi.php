@@ -117,7 +117,7 @@ $y = $pdf->GetY();
 $pdf->Cell(6.15, 0.84, " ", 'LBR', 0, 'C');
 $pdf->Cell(6.15, 0.84, $d->koli . ' Pcs', 'LBR', 0, 'C');
 $pdf->Cell($col3Width, 0.84, $d->berat . ' Kg', 'LBR', 0, 'C');
-$pdf->Cell($col4Width, 0.84, 'Rp ' . number_format($d->harga, 0), 'LBR', 0, 'C');
+$pdf->Cell($col4Width, 0.84, 'Rp ' . number_format($d->tarif_awal ?? $d->harga, 0), 'LBR', 0, 'C');
 $pdf->Ln(0.99);
 
 // Penerima dan Pengirim
