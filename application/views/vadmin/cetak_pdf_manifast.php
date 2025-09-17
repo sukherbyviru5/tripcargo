@@ -149,3 +149,7 @@ foreach ($rs as $k) {
 ?>
 </tbody>
 </table>
+
+<script>
+    window.print()
+</script>
