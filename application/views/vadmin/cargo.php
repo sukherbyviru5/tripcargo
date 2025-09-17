@@ -849,7 +849,7 @@
                                                                         placeholder="Estimasi Harga" type="text"
                                                                         name="harga" id="harga"
                                                                         onkeypress="return isNumberKey(event)"
-                                                                        onkeyup="updateTotals()">
+                                                                        onkeyup="updateTotals()" readonly>
                                                                     <span class="input-group-addon"><i
                                                                             class="fa fa-dollar"></i></span>
                                                                 </div>
