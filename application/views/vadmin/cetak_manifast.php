@@ -341,3 +341,7 @@ thead, th{
 	
 }
 </style>
+
+<script>
+	window.print()
+</script>
