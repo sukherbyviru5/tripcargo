@@ -2234,9 +2234,16 @@
                 $('[name="berat"]').val(data.berat);
                 $('[name="koli"]').val(data.koli);
                 $('[name="vol"]').val(data.vol);
-                $('[name="harga"]').val(
-                    data.harga.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
-                );
+                if (data.tarif_awal != 0) {
+                    $('[name="harga"]').val(
+                        data.tarif_awal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+                    );
+                } else {
+                    $('[name="harga"]').val(
+                        data.harga.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+                    );
+                }
+                
                 $('[name="harga"]').prop('readonly', true);
                 $('[name="p"]').val(data.p);
                 $('[name="l"]').val(data.l);
