@@ -885,7 +885,7 @@
                                                                     <span class="input-group-addon">Rp.</span>
                                                                     <input class="form-control"
                                                                         placeholder="Total Tarif" type="text"
-                                                                        name="total_tarif" id="total_tarif" readonly>
+                                                                        name="total_tarif" id="total_tarif" >
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -964,7 +964,7 @@
                                                                 <span class="input-group-addon"><i
                                                                         class="fa fa-money fa-fw"></i></span>
                                                                 <input class="form-control"
-                                                                    placeholder="Total Biaya (Rp)" readonly
+                                                                    placeholder="Total Biaya (Rp)" 
                                                                     type="text" name="total" id="total">
                                                                 <span class="input-group-addon"><i
                                                                         class="fa fa-dollar"></i></span>
@@ -1006,37 +1006,54 @@
                                                 </div>
                                             </div>
 
-                                            <script>
+                                           <script>
+                                                // BLOK INI YANG DIPERBAIKI
                                                 document.addEventListener("DOMContentLoaded", function() {
                                                     const btn = document.getElementById("calculate");
                                                     if (btn) {
                                                         btn.addEventListener("click", function() {
+                                                            // 1. Kembalikan ke mode perhitungan otomatis
+                                                            isTarifManual = false; 
+                                                            
+                                                            // 2. Jalankan perhitungan dari awal
                                                             hitungSemua(); 
                                                         });
                                                     }
                                                 });
-                                                </script>
+                                            </script>
 
 
                                             <script>
+                                                // Variabel penanda untuk mode manual
+                                                let isTarifManual = false;
 
                                                 function hitungSemua() {
-                                                    const tarifTujuan = ambilAngka('harga');
                                                     const diskonPersen = ambilAngka('diskon');
                                                     const nilaiBarang = ambilAngka('harga6');
                                                     const persenAsuransi = ambilAngka('persen_asuransi', true);
-                                                    const finalcompareberat = compareVolAndBerat();
+
+                                                    let totalTarif;
+                                                    if (isTarifManual) {
+                                                        // Jika mode manual, ambil nilai langsung dari input Total Tarif
+                                                        totalTarif = ambilAngka('total_tarif');
+                                                    } else {
+                                                        // Jika mode otomatis, hitung seperti biasa
+                                                        const tarifTujuan = ambilAngka('harga');
+                                                        const finalcompareberat = compareVolAndBerat(); // Pastikan fungsi ini ada
+                                                        totalTarif = tarifTujuan * finalcompareberat;
+                                                    }
                                                     
-                                                    const totalTarif = tarifTujuan * finalcompareberat;
+                                                    // Perhitungan sisa berjalan seperti biasa menggunakan `totalTarif` yang sudah benar
                                                     const nilaiDiskon = totalTarif * (diskonPersen / 100);
                                                     const nilaiAsuransi = nilaiBarang * (persenAsuransi / 100);
-                                                    // const totalTarifKaliCompare = finalcompareberat ? totalTarif * finalcompareberat : totalTarif;
-                                                    // const totalBiaya = totalTarifKaliCompare + nilaiAsuransi;
                                                     const totalBiaya = (totalTarif - nilaiDiskon) + nilaiAsuransi;
 
-
+                                                    // Tampilkan semua hasil
                                                     tampilkanAngka('nilai_diskon', nilaiDiskon);
-                                                    tampilkanAngka('total_tarif', totalTarif);
+                                                    // Jangan timpa input total_tarif jika dalam mode manual, kecuali pada perhitungan otomatis pertama
+                                                    if (!isTarifManual) {
+                                                        tampilkanAngka('total_tarif', totalTarif);
+                                                    }
                                                     tampilkanAngka('harga4', nilaiAsuransi);
                                                     tampilkanAngka('total', totalBiaya);
                                                 }
@@ -1044,7 +1061,6 @@
                                                 function ambilAngka(id, isDecimal = false) {
                                                     const elemen = document.getElementById(id);
                                                     if (!elemen || elemen.value === "") return 0;
-
                                                     let nilaiBersih = elemen.value.replace(/[^0-9,.]/g, '');
                                                     if (isDecimal) {
                                                         nilaiBersih = nilaiBersih.replace(',', '.');
@@ -1061,26 +1077,49 @@
                                                     elemen.value = nilaiBulat.toLocaleString('id-ID');
                                                 }
 
+                                                
+                                                
                                                 document.addEventListener('DOMContentLoaded', function() {
+                                                    // Event listener untuk input-input lainnya tetap sama
                                                     const inputPemicu = ['harga', 'diskon', 'harga6', 'persen_asuransi'];
                                                     inputPemicu.forEach(function(id) {
                                                         const elemen = document.getElementById(id);
                                                         if (elemen) {
                                                             elemen.addEventListener('keyup', function() {
+                                                                if (id === 'harga') {
+                                                                    isTarifManual = false;
+                                                                }
                                                                 if (id === 'harga' || id === 'harga6') {
-                                                                    const nilaiAngka = ambilAngka(id);
-                                                                    const pos = this.selectionStart;
-                                                                    const panjangAsli = this.value.length;
-                                                                    this.value = nilaiAngka.toLocaleString('id-ID');
-                                                                    const panjangBaru = this.value.length;
-                                                                    this.setSelectionRange(pos + (panjangBaru - panjangAsli), pos + (
-                                                                        panjangBaru - panjangAsli));
+                                                                    formatAngkaInput(this);
                                                                 }
                                                                 hitungSemua();
                                                             });
                                                         }
                                                     });
+
+                                                    const totalTarifInput = document.getElementById('total_tarif');
+                                                    if (totalTarifInput) {
+                                                        totalTarifInput.addEventListener('keyup', function() {
+                                                            isTarifManual = true;
+                                                            
+                                                            formatAngkaInput(this);
+                                                            const tarifManual = ambilAngka('total_tarif');
+                                                            const nilaiDiskon = ambilAngka('nilai_diskon');
+                                                            const nilaiAsuransi = ambilAngka('harga4');
+                                                            const totalBiayaBaru = (tarifManual - nilaiDiskon) + nilaiAsuransi;
+                                                            tampilkanAngka('total', totalBiayaBaru);
+                                                        });
+                                                    }
                                                 });
+
+                                                function formatAngkaInput(element) {
+                                                    const nilaiAngka = ambilAngka(element.id);
+                                                    const pos = element.selectionStart;
+                                                    const panjangAsli = element.value.length;
+                                                    element.value = nilaiAngka.toLocaleString('id-ID');
+                                                    const panjangBaru = element.value.length;
+                                                    element.setSelectionRange(pos + (panjangBaru - panjangAsli), pos + (panjangBaru - panjangAsli));
+                                                }
                                             </script>
 
                                             <div class="tab-pane" id="tab4">
@@ -2170,23 +2209,16 @@
     }
 
     function edit(id) {
-        // save_method = 'update';
-        $('#wizard-1')[0].reset(); // reset form on modals
-        // $('.form-group').removeClass('has-error'); // clear error class
-        // $('.help-block').empty(); // clear error string
+        $('#wizard-1')[0].reset(); 
         $('#col_koli').empty();
-        //Ajax Load data from ajax
         $.ajax({
             url: "<?php echo base_url() . 'cadmin/home/cargo_edit'; ?>/" + id,
             type: "GET",
             dataType: "JSON",
             success: function(dt) {
-
                 var data = dt.data;
-
                 console.log(data);
                 
-
                 $('#col_koli').append(dt.barang);
                 $('[name="id"]').val(data.id);
                 $('[name="resi"]').val(data.resi);
@@ -2213,16 +2245,9 @@
                     $('[name="kec"]').val(data.p_kec_id);
                 }
 
-
-                //$('[name="kec"]').attr('disabled',true);
-                //$('[name="kec2"]').attr('disabled',true);
-                //$('[name="kab"]').attr('disabled',true);
-                //$('[name="kab2"]').attr('disabled',true);
-
                 $('[name="prov2"]').val(data.prov);
                 $('[name="kab2"]').val(data.kab);
                 $('[name="kec2"]').val(data.kec);
-
                 $('[name="penerima"]').val(data.penerima);
                 $('[name="dept2"]').val(data.dept2);
                 $('[name="alamat2"]').val(data.alamat2);
@@ -2234,14 +2259,11 @@
                 $('[name="berat"]').val(data.berat);
                 $('[name="koli"]').val(data.koli);
                 $('[name="vol"]').val(data.vol);
+
                 if (data.tarif_awal != 0) {
-                    $('[name="harga"]').val(
-                        data.tarif_awal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
-                    );
+                    tampilkanAngka('harga', data.tarif_awal);
                 } else {
-                    $('[name="harga"]').val(
-                        data.harga.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
-                    );
+                    tampilkanAngka('harga', data.harga);
                 }
                 
                 $('[name="harga"]').prop('readonly', true);
@@ -2249,31 +2271,33 @@
                 $('[name="l"]').val(data.l);
                 $('[name="t"]').val(data.t);
                 $('[name="diskon"]').val(data.diskon);
+                
+                tampilkanAngka('harga1', data.harga1);
+                tampilkanAngka('harga2', data.harga2);
+                tampilkanAngka('harga3', data.harga3);
+                tampilkanAngka('harga4', data.harga4);
+                tampilkanAngka('harga5', data.harga5);
+                tampilkanAngka('harga6', data.harga6);
+                tampilkanAngka('total_tarif', data.harga); 
+                tampilkanAngka('total', data.totalbayar);
 
-                $('[name="harga1"]').val(data.harga1);
-                $('[name="harga2"]').val(data.harga2);
-                $('[name="harga3"]').val(data.harga3);
-                $('[name="harga4"]').val(data.harga4);
-                $('[name="harga5"]').val(data.harga5);
-                $('[name="harga6"]').val(data.harga6);
-                $('[name="total"]').val(data.totalbayar);
                 $('[name="catatan"]').val(data.catatan);
                 $('input:radio[name=layan]').val([data.layan]);
                 $('input:radio[name=metode]').val([data.metode]);
-
                 
                 $('[name="simpan"]').val('update');
-                $('[name="simpan"]').text('Update');
                 $('#btnSave').text('Update');
                 save_method = "update";
-                // $('.modal-title').text('Edit Dosen'); // Set title to Bootstrap modal title
+
+                isTarifManual = true;
+
                 hitung_volume();
                 updateBerat();
                 updateTotal();
                 updateReviewBarang();
                 updateReviewPenerima();
                 updateReviewPengirim();
-                hitungSemua();
+                hitungSemua(); 
                 compareVolAndBerat();
 
             },
@@ -2284,21 +2308,16 @@
     }
 
     function show(id) {
-        // save_method = 'update';
-        $('#wizard-1')[0].reset(); // reset form on modals
-        // $('.form-group').removeClass('has-error'); // clear error class
-        // $('.help-block').empty(); // clear error string
+        $('#wizard-1')[0].reset();
         $('#col_koli').empty();
         $('#update-process').hide();
-        //Ajax Load data from ajax
+        
         $.ajax({
             url: "<?php echo base_url() . 'cadmin/home/cargo_edit'; ?>/" + id,
             type: "GET",
             dataType: "JSON",
             success: function(dt) {
-
                 var data = dt.data;
-                //console.log(dt.barang);		
                 $('#col_koli').append(dt.barang);
                 $('[name="id"]').val(data.id);
                 $('[name="resi"]').val(data.resi);
@@ -2325,12 +2344,6 @@
                     $('[name="kec"]').val(data.p_kec_id);
                 }
 
-
-                //$('[name="kec"]').attr('disabled',true);
-                //$('[name="kec2"]').attr('disabled',true);
-                //$('[name="kab"]').attr('disabled',true);
-                //$('[name="kab2"]').attr('disabled',true);
-
                 $('[name="prov2"]').val(data.prov);
                 $('[name="kab2"]').val(data.kab);
                 $('[name="kec2"]').val(data.kec);
@@ -2346,42 +2359,44 @@
                 $('[name="berat"]').val(data.berat);
                 $('[name="koli"]').val(data.koli);
                 $('[name="vol"]').val(data.vol);
-                $('[name="harga"]').val(data.harga);
+                
+                tampilkanAngka('harga', data.harga); 
                 $('[name="p"]').val(data.p);
                 $('[name="l"]').val(data.l);
                 $('[name="t"]').val(data.t);
                 $('[name="diskon"]').val(data.diskon);
 
-                $('[name="harga1"]').val(data.harga1);
-                $('[name="harga2"]').val(data.harga2);
-                $('[name="harga3"]').val(data.harga3);
-                $('[name="harga4"]').val(data.harga4);
-                $('[name="harga5"]').val(data.harga5);
-                $('[name="harga6"]').val(data.harga6);
-                $('[name="total"]').val(data.totalbayar);
+                tampilkanAngka('harga1', data.harga1);
+                tampilkanAngka('harga2', data.harga2);
+                tampilkanAngka('harga3', data.harga3);
+                tampilkanAngka('harga4', data.harga4);
+                tampilkanAngka('harga5', data.harga5);
+                tampilkanAngka('harga6', data.harga6);
+                
+                tampilkanAngka('total_tarif', data.harga);
+                tampilkanAngka('total', data.totalbayar); 
+
                 $('[name="catatan"]').val(data.catatan);
                 $('input:radio[name=layan]').val([data.layan]);
                 $('input:radio[name=metode]').val([data.metode]);
+                
+                $('#review_area').html(dt.area_nama);
 
-                // Set area_nama in the review table
-                $('#review_area').html(dt.area_nama); // Directly set area_nama to review table
+                isTarifManual = true;
 
-                // Trigger review updates
                 hitung_volume();
                 updateBerat();
                 updateTotal();
                 updateReviewBarang();
                 updateReviewPenerima();
                 updateReviewPengirim();
-                hitungSemua();
+                hitungSemua(); 
                 compareVolAndBerat();
 
                 $('[name="simpan"]').val('update');
                 $('[name="simpan"]').text('Show');
                 $('#btnSave').text('Show');
                 save_method = "update";
-                // $('.modal-title').text('Edit Dosen'); // Set title to Bootstrap modal title
-
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 alert('Error get data from ajax');
@@ -2411,7 +2426,6 @@
                     var table = $('#dt_basic').DataTable();
                     $('#loading2').html("<img src='<?php echo base_url() . 'assets/'; ?>img/loading.gif' />");
                     var loading = $("#loading2");
-                    // alert('sukses'+id);
                     $.ajax({
                         type: "POST",
                         url: "<?php echo base_url() . 'cadmin/home/cargo_hapus'; ?>/" + id,
