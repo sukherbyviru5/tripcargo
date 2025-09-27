@@ -64,7 +64,7 @@ if (!file_exists($barcodePath)) {
 $pdf->Image($barcodePath, 15, 0.6, 3.0);
 
 // QR Code
-$qrData = "https://tripcargo.test/web/cari?k=" . $d->resi;
+$qrData = "https://tripcargoid.com/web/cari?k=" . $d->resi;
 $qrApiUrl = "https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=" . urlencode($qrData);
 $pdf->Image($qrApiUrl, 18.5, 0.6, 1.2, 0, 'PNG');
 $pdf->Ln(0.7);
