@@ -22,8 +22,13 @@ class Pelanggan_model extends CI_Model {
 		$this->db->from($this->table);
 		$level = $this->session->userdata('level');
 		$user_id = $this->session->userdata('username');
-		if($level != 'superadmin'){ // nanti dinyalakan pada saat upload
-		    $this->db->where('users_id', $this->session->userdata('user_id'));
+		$area = $this->session->userdata('area');
+
+		// if($level != 'superadmin'){ // nanti dinyalakan pada saat upload
+		//     $this->db->where('users_id', $this->session->userdata('user_id'));
+		// }
+		if($area) {
+			$this->db->where('area', $area);
 		}
 		$i = 0;
 		foreach ($this->column_search as $item) // loop column 
@@ -56,6 +61,7 @@ class Pelanggan_model extends CI_Model {
 			$order = $this->order;
 			$this->db->order_by(key($order), $order[key($order)]);
 		}
+
 	}
 
 	function get_datatables()

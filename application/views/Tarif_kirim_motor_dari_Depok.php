@@ -13,8 +13,8 @@
 <div align="left" style=" margin-top: -60px;">
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="https://tripcargoid.com/">Home</a></li>
-    <li class="breadcrumb-item"><a href="https://tripcargoid.com/ekspedisi">Ekspedisi</a></li>
+    <li class="breadcrumb-item"><a href="https://tripcargo.test/">Home</a></li>
+    <li class="breadcrumb-item"><a href="https://tripcargo.test/ekspedisi">Ekspedisi</a></li>
     <li class="breadcrumb-item active" aria-current="page">Jasa Kirim Motor dari Depok</li>
   </ol>
 </nav>
@@ -187,56 +187,56 @@ Berapa lama peroses waktu kitaim (Estimasi Waktu): Untuk Kota Jambi, sekitar 3-5
 <div class="row">
 <!-- FORM -->
 <div class="col-md-4">            
-<hr style=" margin-top: 50px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/Jasa_kirim_motor_dari_Depok"><b> -  Kirim Motor Depok Ke Lampung</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/ekspedisi"><b> -  Kirim Motor Depok ke Palembang</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/ekspedisi"><b> -  Kirim Motor Depok ke Jambi</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Bengkulu</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Padang</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Pekanbaru</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Medan</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Aceh</b></a></div>
+<hr style=" margin-top: 50px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/Jasa_kirim_motor_dari_Depok"><b> -  Kirim Motor Depok Ke Lampung</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/ekspedisi"><b> -  Kirim Motor Depok ke Palembang</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/ekspedisi"><b> -  Kirim Motor Depok ke Jambi</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Bengkulu</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Padang</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Pekanbaru</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Medan</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Aceh</b></a></div>
 <br>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Batam</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Tanjung Pinang</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Pangkal Pianang</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Belitung</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Batam</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Tanjung Pinang</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Pangkal Pianang</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Belitung</b></a></div>
 <hr style=" margin-top: 3px;">            
 </div>
 <div class="col-md-4">            
-<hr style=" margin-top: 50px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Cilegon</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Serang</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Balaraja</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Cikupa</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Tanggerang</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Serpong</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Bintaro</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Ciputat</b></a></div>
+<hr style=" margin-top: 50px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Cilegon</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Serang</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Balaraja</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Cikupa</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Tanggerang</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Serpong</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Bintaro</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Ciputat</b></a></div>
 <br>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Jakarta</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Depok</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Bogor</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Bekasi</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Jakarta</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Depok</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Bogor</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Bekasi</b></a></div>
 <hr style=" margin-top: 3px;">            
 </div>
 <div class="col-md-4">
-<hr style=" margin-top: 50px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Cikarang</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Jababeka</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Karawang</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Purwakarta</b></a></div>
+<hr style=" margin-top: 50px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Cikarang</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Jababeka</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Karawang</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Purwakarta</b></a></div>
 <br>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Sukabumi</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Pelabuhanratu</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Cianjur</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Padalarang</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Sukabumi</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Pelabuhanratu</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Cianjur</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Padalarang</b></a></div>
 <br>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Cimahi</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Bandung</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Sumedang</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Garut</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Tasikmalaya</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Ciamis</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Banjar</b></a></div>
-<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargoid.com/"><b> -  Kirim Motor Depok ke Pangandaran</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Cimahi</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Bandung</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Sumedang</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Garut</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Tasikmalaya</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Ciamis</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Banjar</b></a></div>
+<hr style=" margin-top: 3px;"><div style=" margin-top: -60px; font-size: 1.2em;"><a href="https://tripcargo.test/"><b> -  Kirim Motor Depok ke Pangandaran</b></a></div>
 
 </div>
 </div> 
@@ -359,7 +359,7 @@ body-taxt {
   list-style: none;
   /*background: #fff;*/
   background: linear-gradient(to left top, #007cbd ,  #21409A);
-  /*background-image: url(https://tripcargoid.com//assets/upload/BG_Profil.jpg);*/
+  /*background-image: url(https://tripcargo.test//assets/upload/BG_Profil.jpg);*/
   cursor: pointer;
   padding-bottom: 1px
   flex-direction: column;
@@ -405,7 +405,7 @@ body-taxt {
   list-style: none;
   background: linear-gradient(to left top, #007cbd, #21409A);
   /*background: #eae7e7);*/
-  /*background-image: url(https://tripcargoid.com//assets/upload/BG_Profil.jpg);*/
+  /*background-image: url(https://tripcargo.test//assets/upload/BG_Profil.jpg);*/
   cursor: pointer;
   padding-bottom: 10px
   flex-direction: column;

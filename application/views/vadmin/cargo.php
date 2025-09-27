@@ -251,7 +251,7 @@
 
                                                     </div>
                                                     <div class="form-group has-warning">
-                                                        <label class="col-md-2 control-label">Data Pengirim</label>
+                                                        <label class="col-md-2 control-label">Alamat Pengirim</label>
                                                         <div class="col-md-9">
                                                             <div class="input-group">
                                                                 <input type="hidden" name="alamat">
@@ -1006,7 +1006,7 @@
                                                 </div>
                                             </div>
 
-                                           <script>
+                                            <script>
                                                 // BLOK INI YANG DIPERBAIKI
                                                 document.addEventListener("DOMContentLoaded", function() {
                                                     const btn = document.getElementById("calculate");
@@ -1024,33 +1024,29 @@
 
 
                                             <script>
-                                                // Variabel penanda untuk mode manual
                                                 let isTarifManual = false;
 
                                                 function hitungSemua() {
                                                     const diskonPersen = ambilAngka('diskon');
                                                     const nilaiBarang = ambilAngka('harga6');
                                                     const persenAsuransi = ambilAngka('persen_asuransi', true);
+                                                    const finalcompareberat = compareVolAndBerat(); 
 
                                                     let totalTarif;
                                                     if (isTarifManual) {
-                                                        // Jika mode manual, ambil nilai langsung dari input Total Tarif
                                                         totalTarif = ambilAngka('total_tarif');
+                                                        const tarifTujuan = finalcompareberat > 0 ? totalTarif / finalcompareberat : 0;
+                                                        tampilkanAngka('harga', tarifTujuan);
                                                     } else {
-                                                        // Jika mode otomatis, hitung seperti biasa
                                                         const tarifTujuan = ambilAngka('harga');
-                                                        const finalcompareberat = compareVolAndBerat(); // Pastikan fungsi ini ada
                                                         totalTarif = tarifTujuan * finalcompareberat;
                                                     }
-                                                    
-                                                    // Perhitungan sisa berjalan seperti biasa menggunakan `totalTarif` yang sudah benar
+
                                                     const nilaiDiskon = totalTarif * (diskonPersen / 100);
                                                     const nilaiAsuransi = nilaiBarang * (persenAsuransi / 100);
                                                     const totalBiaya = (totalTarif - nilaiDiskon) + nilaiAsuransi;
 
-                                                    // Tampilkan semua hasil
                                                     tampilkanAngka('nilai_diskon', nilaiDiskon);
-                                                    // Jangan timpa input total_tarif jika dalam mode manual, kecuali pada perhitungan otomatis pertama
                                                     if (!isTarifManual) {
                                                         tampilkanAngka('total_tarif', totalTarif);
                                                     }
@@ -1077,17 +1073,23 @@
                                                     elemen.value = nilaiBulat.toLocaleString('id-ID');
                                                 }
 
-                                                
-                                                
                                                 document.addEventListener('DOMContentLoaded', function() {
-                                                    // Event listener untuk input-input lainnya tetap sama
+                                                    const btn = document.getElementById("calculate");
+                                                    if (btn) {
+                                                        btn.addEventListener("click", function() {
+                                                            isTarifManual = false; 
+                                                            hitungSemua();
+                                                        });
+                                                    }
+
+                                                    // Event listener untuk input lainnya
                                                     const inputPemicu = ['harga', 'diskon', 'harga6', 'persen_asuransi'];
                                                     inputPemicu.forEach(function(id) {
                                                         const elemen = document.getElementById(id);
                                                         if (elemen) {
                                                             elemen.addEventListener('keyup', function() {
                                                                 if (id === 'harga') {
-                                                                    isTarifManual = false;
+                                                                    isTarifManual = false; 
                                                                 }
                                                                 if (id === 'harga' || id === 'harga6') {
                                                                     formatAngkaInput(this);
@@ -1097,17 +1099,13 @@
                                                         }
                                                     });
 
+                                                    // Event listener untuk total_tarif
                                                     const totalTarifInput = document.getElementById('total_tarif');
                                                     if (totalTarifInput) {
                                                         totalTarifInput.addEventListener('keyup', function() {
-                                                            isTarifManual = true;
-                                                            
+                                                            isTarifManual = true; // Set ke mode manual
                                                             formatAngkaInput(this);
-                                                            const tarifManual = ambilAngka('total_tarif');
-                                                            const nilaiDiskon = ambilAngka('nilai_diskon');
-                                                            const nilaiAsuransi = ambilAngka('harga4');
-                                                            const totalBiayaBaru = (tarifManual - nilaiDiskon) + nilaiAsuransi;
-                                                            tampilkanAngka('total', totalBiayaBaru);
+                                                            hitungSemua(); 
                                                         });
                                                     }
                                                 });

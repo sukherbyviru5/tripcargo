@@ -120,6 +120,8 @@ class Cargo_model extends CI_Model {
         $this->load->model('Log_model');
         
         if ($simpan == "add") {
+            $area = $this->input->post('area', TRUE);
+		    $code_area = $this->asal->get_by_nama($area);
             $pelanggan_data = array(
                 'nama' => $this->input->post('nama', true),
                 'dept' => $this->input->post('dept', true),
@@ -130,7 +132,8 @@ class Cargo_model extends CI_Model {
                 'telp' => $this->input->post('telp', true),
                 'email' => $this->input->post('email', true),
                 'user_id' => $this->session->userdata('username'),
-                'users_id' => $this->session->userdata('user_id')
+                'users_id' => $this->session->userdata('user_id'),
+                'area' => $code_area->kode
             );
             
             $pel = $this->app_model->cek_pelanggan($regkirim);
@@ -260,8 +263,8 @@ class Cargo_model extends CI_Model {
                 'metode' => $this->input->post('metode', true),
                 'catatan' => $this->input->post('catatan', true),
                 'user_id' => $this->session->userdata('username'),
-                'tglkirim' => date("Y-m-d H:i:s"),
                 'area' => $code_area->kode,
+                'tglkirim' => date("Y-m-d H:i:s"),
                 'tujuanarea' => trim($tujuanData->nama), 
             );
 

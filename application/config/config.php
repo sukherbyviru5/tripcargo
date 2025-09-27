@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $root = "https://".$_SERVER['HTTP_HOST'];
 $root .= dirname($_SERVER['SCRIPT_NAME']);
 // $config['base_url'] = $root;
-$config['base_url'] = "https://tripcargoid.com";
+$config['base_url'] = "https://tripcargo.test";
 
 /*
 |--------------------------------------------------------------------------
@@ -216,7 +216,7 @@ $config['directory_trigger'] = 'd';
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 0;
+$config['log_threshold'] = 2;
 
 /*
 |--------------------------------------------------------------------------
