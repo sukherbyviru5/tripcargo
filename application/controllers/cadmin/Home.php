@@ -1414,7 +1414,12 @@ class Home extends CI_Controller {
 	}
 	public function pelanggan_ajax_list_2()
 	{
-		$list = $this->pelanggan->get_datatables();
+		$area = $this->session->userdata('area');
+		$code_area = $this->asal->get_by_nama($area);
+
+		$area_kode = $code_area ? $code_area->kode : null;
+
+		$list = $this->pelanggan->get_datatables($area_kode);
 		$data = array();
 		$no = $_POST['start'];
 		foreach ($list as $pelanggan) {

@@ -7,6 +7,7 @@ class Pelanggan_model extends CI_Model {
 	{
 		parent::__construct();
 		$this->load->database();
+		$this->load->model('Asal_model'); 
 	}
 		
 	var $table = 'pelanggan';
@@ -16,17 +17,17 @@ class Pelanggan_model extends CI_Model {
 
 
 	
-	private function _get_datatables_query()
+	private function _get_datatables_query($area = null)
 	{
 		
 		$this->db->from($this->table);
 		$level = $this->session->userdata('level');
 		$user_id = $this->session->userdata('username');
-		$area = $this->session->userdata('area');
 
 		// if($level != 'superadmin'){ // nanti dinyalakan pada saat upload
 		//     $this->db->where('users_id', $this->session->userdata('user_id'));
 		// }
+
 		if($area) {
 			$this->db->where('area', $area);
 		}
@@ -64,9 +65,9 @@ class Pelanggan_model extends CI_Model {
 
 	}
 
-	function get_datatables()
+	function get_datatables($area)
 	{
-		$this->_get_datatables_query();
+		$this->_get_datatables_query($area);
 		if($_POST['length'] != -1)
 		$this->db->limit($_POST['length'], $_POST['start']);
 		$query = $this->db->get();

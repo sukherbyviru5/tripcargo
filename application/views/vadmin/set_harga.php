@@ -37,8 +37,8 @@
 					-->
 					<header>
 						<span class="widget-icon"> <i class="fa fa-edit"></i> </span>
-						<h2>Setting Harga</h2>
-	
+						<h2>Setting Harga </h2>
+
 					</header>
 	
 					<!-- widget div-->
