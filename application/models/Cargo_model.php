@@ -22,9 +22,9 @@ class Cargo_model extends CI_Model {
 		$this->db->from($this->table);
 		$level = $this->session->userdata('level');
 		$user_id = $this->session->userdata('username');
-		if($level != 'superadmin'){
-			$this->db->where('user_id', $user_id);
-		}
+		// if($level != 'superadmin'){
+		// 	$this->db->where('user_id', $user_id);
+		// }
 		if(isset($_POST['resi']) && $_POST['resi'] != ""){
 			$this->db->like('resi',$_POST['resi']);
 		}
