@@ -214,8 +214,8 @@
                         <a href="#" title="Formulir"><i class="fa fa-lg fa-fw fa-newspaper-o"></i> <span class="menu-item-parent">Formulir</span></a>
                         <ul>
                             <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/Formulir_Manifast'); ?>" title="Formulir Manifest">Formulir Manifest</a></li>
-                            <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/SURAT PEMBAYARAN VENDOR _1_.pdf'); ?>" title="Formulir Pembayaran Vendor">Formulir Pembayaran Vendor</a></li>
-                            <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/Uang Jalan Oprasional.pdf'); ?>" title="Formulir Uang Jalan">Formulir Uang Jalan</a></li>
+                            <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/SURAT PEMBAYARAN VENDOR _1_new.pdf'); ?>" title="Formulir Pembayaran Vendor">Formulir Pembayaran Vendor</a></li>
+                            <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/Uang Jalan Oprasional new.pdf'); ?>" title="Formulir Uang Jalan">Formulir Uang Jalan</a></li>
                         </ul>
                     </li>
                     <!-- Asuransi -->
@@ -347,8 +347,8 @@
                         <a href="#" title="Formulir"><i class="fa fa-lg fa-fw fa-newspaper-o"></i> <span class="menu-item-parent">Formulir</span></a>
                         <ul>
                             <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/Formulir_Manifast'); ?>" title="Formulir Manifest">Formulir Manifest</a></li>
-                            <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/SURAT PEMBAYARAN VENDOR _1_.pdf'); ?>" title="Formulir Pembayaran Vendor">Formulir Pembayaran Vendor</a></li>
-                            <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/Uang Jalan Oprasional.pdf'); ?>" title="Formulir Uang Jalan">Formulir Uang Jalan</a></li>
+                            <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/SURAT PEMBAYARAN VENDOR _1_new.pdf'); ?>" title="Formulir Pembayaran Vendor">Formulir Pembayaran Vendor</a></li>
+                            <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/Uang Jalan Oprasional new.pdf'); ?>" title="Formulir Uang Jalan">Formulir Uang Jalan</a></li>
                         </ul>
                     </li>
                     <!-- Asuransi -->

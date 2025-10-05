@@ -144,21 +144,47 @@
 									</div>	
 									
 									<div class="form-group has-success">
-										<label class="col-md-4 control-label"><b>Update</b> pengiriman</label>
+										<label class="col-md-4 control-label">
+											<b>Update</b> Pengiriman
+										</label>
+
 										<div class="col-md-8">
 											<div class="input-group">
-											    <input type="radio" name="ket" value="Proses">
-											  <b> Proses </b>  
+											<label class="me-3">
+												<input type="radio" name="ket" value="Pickup">
+												<b>Pickup</b>
+											</label> <br>
+
+											<label class="me-3">
+												<input type="radio" name="ket" value="Proses">
+												<b>Proses</b>
+											</label> <br>
+
+											<label class="me-3">
 												<input type="radio" name="ket" value="On Delivery">
-												On Delivery  
-												<input type="radio" name="ket" value="Delivered">
-											  <b> Delivered </b>  
-											  <br>
+												<b>On Delivery</b>
+											</label> <br>
+
+											<label class="me-3">
+												<input type="radio" name="ket" value="Transit">
+												<b>Transit</b>
+											</label> <br>
+
+											<label class="me-3">
+												<input type="radio" name="ket" value="Receipted">
+												<b>Receipted</b>
+											</label>
+
+											<br>
+
+											<label class="mt-2">
 												<input type="radio" name="ket" value="Resend">
-												<font color="red"> Resend</font>
+												<b><font color="red">Resend</font></b>
+											</label>
 											</div>
 										</div>
-									</div>
+										</div>
+
 									<div class="form-group has-success">
 										<label class="col-md-4 control-label">Diterima Oleh</label>
 										<div class="col-md-8">

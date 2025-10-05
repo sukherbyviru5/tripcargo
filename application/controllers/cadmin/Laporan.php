@@ -241,6 +241,17 @@ class Laporan extends CI_Controller {
 			redirect('./cadmin/home/logout/','refresh');
 		}
 	}
+
+	public function cetak_excel_manifast()
+	{
+		$cek = $this->session->userdata('logged_in');
+		$level = $this->session->userdata('level');
+		if(!empty($cek)){ 
+			$data = $this->laporan->cetak_pdf_manifast(true); 
+		}else{
+			redirect('./cadmin/home/logout/','refresh');
+		}
+	}
 		
 	public function export_pemeriksaan()
 	{

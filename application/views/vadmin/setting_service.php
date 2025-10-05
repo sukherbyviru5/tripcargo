@@ -241,9 +241,9 @@
                     <ul>
                         <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/Formulir_Manifest'); ?>" title="Formulir Manifest">Formulir
                                 Manifest</a></li>
-                        <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/SURAT PEMBAYARAN VENDOR _1_.pdf'); ?>"
+                        <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/SURAT PEMBAYARAN VENDOR _1_new.pdf'); ?>"
                                 title="Formulir Pembayaran Vendor">Formulir Pembayaran Vendor</a></li>
-                        <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/Uang Jalan Oprasional.pdf'); ?>" title="Formulir Uang Jalan">Formulir Uang
+                        <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/Uang Jalan Oprasional new.pdf'); ?>" title="Formulir Uang Jalan">Formulir Uang
                                 Jalan</a></li>
                     </ul>
                 </li>
@@ -403,9 +403,9 @@
                     <ul>
                         <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/Formulir_Manifest'); ?>" title="Formulir Manifest">Formulir
                                 Manifest</a></li>
-                        <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/SURAT PEMBAYARAN VENDOR _1_.pdf'); ?>"
+                        <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/SURAT PEMBAYARAN VENDOR _1_new.pdf'); ?>"
                                 title="Formulir Pembayaran Vendor">Formulir Pembayaran Vendor</a></li>
-                        <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/Uang Jalan Oprasional.pdf'); ?>" title="Formulir Uang Jalan">Formulir Uang
+                        <li><a target="_blank" href="<?php echo base_url('assets/atropos/images/Uang Jalan Oprasional new.pdf'); ?>" title="Formulir Uang Jalan">Formulir Uang
                                 Jalan</a></li>
                     </ul>
                 </li>

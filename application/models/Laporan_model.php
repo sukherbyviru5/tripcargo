@@ -16,6 +16,7 @@ class Laporan_model extends CI_Model {
 		$start_date = $this->input->get('tgl1');
 		$end_date   = $this->input->get('tgl2');
 		$area       = $this->input->get('area');
+		$json       = $this->input->get('json'); 
 
 		// Query header dari tabel utama
 		$this->db->from('manifast_head');
@@ -58,15 +59,23 @@ class Laporan_model extends CI_Model {
 			}
 		}
 
-		$d['rs'] 				= $filtered_result;
-		$d['start_date'] 		= $start_date ?? 'semua';
-		$d['end_date'] 			= $end_date ?? 'semua';
-		$d['area'] 				= $area ?? '-';
-		$d['judul'] 			= $this->config->item('judul');
-		$d['nama_perusahaan'] = $this->config->item('nama_perusahaan');
-		$d['alamat_perusahaan'] = $this->config->item('alamat_perusahaan');
-		$d['telp_perusahaan'] 	= $this->config->item('telp_perusahaan');
-		$d['lisensi']			= $this->config->item('lisensi_app');
+		$d = [
+			'rs'                 => $filtered_result,
+			'start_date'         => $start_date ?? 'semua',
+			'end_date'           => $end_date ?? 'semua',
+			'area'               => $area ?? '-',
+			'judul'              => $this->config->item('judul'),
+			'nama_perusahaan'    => $this->config->item('nama_perusahaan'),
+			'alamat_perusahaan'  => $this->config->item('alamat_perusahaan'),
+			'telp_perusahaan'    => $this->config->item('telp_perusahaan'),
+			'lisensi'            => $this->config->item('lisensi_app')
+		];
+
+		if ($json && $json == 'true') {
+			header('Content-Type: application/json');
+        	echo json_encode($d);
+			return;
+		}
 
 		$this->load->view('vadmin/cetak_pdf_manifast', $d);
 

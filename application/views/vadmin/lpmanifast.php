@@ -88,11 +88,14 @@
 								<div>
 									<br> 
 								</div>
-								<button type="button" id="btnFilter" class="btn btn-success w-100">
+								<button type="button" id="btnFilter" class="btn btn-primary w-100">
 									<i class="fa fa-filter"></i> Filter
 								</button>
 								<button type="button" id="btnCetak" class="btn btn-info w-100">
 									<i class="fa fa-print"></i> Cetak PDF
+								</button>
+								<button type="button" id="btnCetakExcel" class="btn btn-success w-100">
+									<i class="fa fa-print"></i> Cetak Excel
 								</button>
 							</div>
 						</div>
@@ -148,6 +151,8 @@
 
 }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/exceljs/dist/exceljs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
 <script type="text/javascript">
 
@@ -243,7 +248,69 @@ $(document).ready(function() {
 		window.location.href = url;
 	});
 
+    $('#btnCetakExcel').click(async function() {
+		const tgl1 = $('[name="tgl1"]').val();
+		const tgl2 = $('[name="tgl2"]').val();
+		const area = $('[name="area"]').val();
 
-	
+		const url = `/cadmin/laporan/cetak_pdf_manifast?json=true&tgl1=${tgl1}&tgl2=${tgl2}&area=${area}`;
+
+		try {
+			const response = await fetch(url);
+			const data = await response.json();
+
+			if (!data.rs || data.rs.length === 0) {
+				alert('Tidak ada data untuk diekspor!');
+				return;
+			}
+
+			// Buat workbook baru
+			const workbook = new ExcelJS.Workbook();
+			const sheet = workbook.addWorksheet('Laporan Manifast');
+
+			// Header tabel
+			sheet.addRow(['No', 'Tanggal', 'Driver', 'Tujuan', 'No Manifast', 'Resi', 'Area Paket']);
+			const headerRow = sheet.getRow(1);
+			headerRow.font = { bold: true };
+			headerRow.eachCell(cell => {
+				cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFCCE5FF' } };
+				cell.border = {
+					top: { style: 'thin' },
+					left: { style: 'thin' },
+					bottom: { style: 'thin' },
+					right: { style: 'thin' }
+				};
+			});
+
+			let no = 1;
+			data.rs.forEach(row => {
+				row.detail.forEach(detail => {
+					sheet.addRow([
+						no++,
+						row.tgl,
+						row.driver,
+						row.tujuan,
+						row.nom,
+						detail.resi,
+						detail.area_paket
+					]);
+				});
+			});
+
+			sheet.columns.forEach(col => {
+				let max = 10;
+				col.eachCell({ includeEmpty: true }, cell => {
+					max = Math.max(max, cell.value ? cell.value.toString().length : 0);
+				});
+				col.width = max + 2;
+			});
+
+			const buffer = await workbook.xlsx.writeBuffer();
+			saveAs(new Blob([buffer]), `Laporan_Manifast_${new Date().toISOString().slice(0,10)}.xlsx`);
+		} catch (err) {
+			console.error(err);
+			alert('Gagal membuat file Excel!');
+		}
+	});
 });
 </script>

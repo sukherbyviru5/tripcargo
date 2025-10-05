@@ -58,15 +58,16 @@ if (!is_dir($image_dir)) {
 }
 imagejpeg($image_resource, $image_dir . $image_name);
 $barcodePath = $image_dir . $image_name;
+
 if (!file_exists($barcodePath)) {
     die('File barcode tidak ditemukan: ' . $barcodePath);
 }
-$pdf->Image($barcodePath, 15, 0.6, 3.0);
+$pdf->Image($barcodePath, 14.5, 0.6, 3.5);
 
 // QR Code
-$qrData = "https://tripcargoid.com/web/cari?k=" . $d->resi;
+$qrData = $d->resi;
 $qrApiUrl = "https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=" . urlencode($qrData);
-$pdf->Image($qrApiUrl, 18.5, 0.6, 1.2, 0, 'PNG');
+$pdf->Image($qrApiUrl, 19, 0.6, 1.5, 0, 'PNG');
 $pdf->Ln(0.7);
 
 // Alamat Pelanggan

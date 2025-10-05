@@ -111,10 +111,10 @@
                             <a target="_blank" href="<?php echo base_url(); ?>assets/atropos/images/Formulir_manifast" alt="" title="Formulir manifast">Formulir manifast</a>
                         </li>
                         <li>
-                            <a target="_blank" href="<?php echo base_url(); ?>assets/atropos/images/SURAT PEMBAYARAN VENDOR _1_.pdf" alt="" title="Formulir Pembayaran Vendor">Formulir Pembayaran Vendor</a>
+                            <a target="_blank" href="<?php echo base_url(); ?>assets/atropos/images/SURAT PEMBAYARAN VENDOR _1_new.pdf" alt="" title="Formulir Pembayaran Vendor">Formulir Pembayaran Vendor</a>
                         </li>
                         <li>
-                            <a target="_blank" href="<?php echo base_url(); ?>assets/atropos/images/Uang Jalan Oprasional.pdf" alt="" title="Formulir Uang Jalan">Formulir Uang Jalan</a>
+                            <a target="_blank" href="<?php echo base_url(); ?>assets/atropos/images/Uang Jalan Oprasional new.pdf" alt="" title="Formulir Uang Jalan">Formulir Uang Jalan</a>
                         </li>
                     </ul>
                 </li>
@@ -253,10 +253,10 @@
                             <a target="_blank" href="<?php echo base_url(); ?>assets/atropos/images/Formulir_manifast" alt="" title="Formulir manifast">Formulir manifast</a>
                         </li>
                         <li>
-                            <a target="_blank" href="<?php echo base_url(); ?>assets/atropos/images/SURAT PEMBAYARAN VENDOR _1_.pdf" alt="" title="Formulir Pembayaran Vendor">Formulir Pembayaran Vendor</a>
+                            <a target="_blank" href="<?php echo base_url(); ?>assets/atropos/images/SURAT PEMBAYARAN VENDOR _1_new.pdf" alt="" title="Formulir Pembayaran Vendor">Formulir Pembayaran Vendor</a>
                         </li>
                         <li>
-                            <a target="_blank" href="<?php echo base_url(); ?>assets/atropos/images/Uang Jalan Oprasional.pdf" alt="" title="Formulir Uang Jalan">Formulir Uang Jalan</a>
+                            <a target="_blank" href="<?php echo base_url(); ?>assets/atropos/images/Uang Jalan Oprasional new.pdf" alt="" title="Formulir Uang Jalan">Formulir Uang Jalan</a>
                         </li>
                     </ul>
                 </li>
