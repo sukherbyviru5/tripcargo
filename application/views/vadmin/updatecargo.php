@@ -171,8 +171,8 @@
 											</label> <br>
 
 											<label class="me-3">
-												<input type="radio" name="ket" value="Receipted">
-												<b>Receipted</b>
+												<input type="radio" name="ket" value="Recived">
+												<b>Recived</b>
 											</label>
 
 											<br>
@@ -181,6 +181,9 @@
 												<input type="radio" name="ket" value="Resend">
 												<b><font color="red">Resend</font></b>
 											</label>
+
+											<hr>
+											<span style="display: none;" id="status_latest_preview"><b>Status Terakhir : </b> <span style="color: green;" id="status_latest"></span> </span>
 											</div>
 										</div>
 										</div>
@@ -586,6 +589,10 @@
 				$('[name="tgl"]').val(data.tgl);
 				var str = data.ket;
 				var ket=str.substring(4,20);
+				if(ket) {
+					$('#status_latest_preview').show(); 
+				}
+				$('#status_latest').text(ket); 
 				$('input:radio[name=ket]').val([ket]);
 				$('#fileUpload').val(data.file);
 				$('[name="catatan"]').val(data.catatan);
