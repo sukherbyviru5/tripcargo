@@ -220,34 +220,29 @@ class Users extends CI_Controller {
 		$dateymd = date("Y-m-d");
 		$area = $this->input->post('area', TRUE);
 		$code_area = $this->asal->get_by_nama($area);
-		
-		// Start transaction to ensure atomicity
 		$this->db->trans_start();
-		
-		// Use a locking SELECT to get the current count atomically
-		$this->db->select('COUNT(*) as cnt');
+		$this->db->select_max('resi', 'max_resi');
 		$this->db->from('paket');
-		$this->db->where('tglkirim', $dateymd);
+		$this->db->where("DATE(tglkirim)", $dateymd);
 		$this->db->where('area', $code_area->kode);
-		$this->db->where('resi LIKE', $code_area->kode . date('ymd') . '%'); // Ensure resi prefix matches
 		$query = $this->db->get();
 		$row = $query->row();
-		$totaldata = ($row->cnt ?? 0) + 1;
+		$max_resi = $row->max_resi;
 		
-		// Format sequence number to 4 digits
+		if (empty($max_resi)) {
+			$totaldata = 1;
+		} else {
+			$last_four = substr($max_resi, -4);
+			$seq_num = (int)$last_four;
+			$totaldata = $seq_num + 1;
+		}
 		$urut = str_pad($totaldata, 4, '0', STR_PAD_LEFT);
-		
-		// Get date components
-		$year = date('y'); // Last 2 digits of year
-		$month = date('m'); // 2 digits month
-		$day = date('d'); // 2 digits day
-		
-		// Construct resi number
+		$year = date('y'); 
+		$month = date('m'); 
+		$day = date('d'); 
 		$resi = $code_area->kode . $year . $month . $day . $urut;
-		
-		// Complete transaction
 		$this->db->trans_complete();
-		
+
 		echo $resi; /* Resi format: JKT2510060016 (JKT + 2 digit year + 2 digit month + 2 digit day + 4 digit sequence) */
 	}
 	
