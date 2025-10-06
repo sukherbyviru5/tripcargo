@@ -160,7 +160,7 @@ class Manifast_model extends CI_Model {
 			));
 		    $id_manifast_head = $this->db->insert_id();
 		//entri ke detail manifast 
-		date_default_timezone_set('Asia/Jakarta'); // PHP 6 mengharuskan
+		date_default_timezone_set('Asia/Jakarta'); 
 		$q = $this->db->query("select * from manifast_temp
 			where user_id='$user_id'");
 			if($q->num_rows()>0){

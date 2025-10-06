@@ -235,7 +235,7 @@ class Laporan extends CI_Controller {
 	{
 		$cek = $this->session->userdata('logged_in');
 		$level = $this->session->userdata('level');
-		if(!empty($cek)){ //semua aktor bisa
+		if(!empty($cek)){ 
 			$this->laporan->cetak_pdf_manifast(); //
 		}else{
 			redirect('./cadmin/home/logout/','refresh');

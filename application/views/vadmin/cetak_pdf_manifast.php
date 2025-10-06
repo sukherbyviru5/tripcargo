@@ -124,6 +124,8 @@ thead, th {
         <th>SORTIR</th>
         <th>RESI</th>
         <th>AREA</th>
+        <th>BERAT</th>
+        <th>KOLI</th>
     </tr>
 </thead>
 <tbody>
@@ -142,6 +144,8 @@ foreach ($rs as $k) {
         echo "<td>".$k->sortir."</td>";
         echo "<td>".$detail->resi."</td>";
         echo "<td>".$detail->area_paket."</td>";
+        echo "<td>".$detail->berat."</td>";
+        echo "<td>".$detail->koli."</td>";
         echo "</tr>";
         $no++;
     }

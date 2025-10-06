@@ -269,7 +269,7 @@ $(document).ready(function() {
 			const sheet = workbook.addWorksheet('Laporan Manifast');
 
 			// Header tabel
-			sheet.addRow(['No', 'Tanggal', 'Driver', 'Tujuan', 'No Manifast', 'Resi', 'Area Paket']);
+			sheet.addRow(['No', 'Tanggal', 'Driver', 'Tujuan', 'No Manifast', 'Resi', 'Area Paket','Berat','Koli']);
 			const headerRow = sheet.getRow(1);
 			headerRow.font = { bold: true };
 			headerRow.eachCell(cell => {
@@ -292,7 +292,9 @@ $(document).ready(function() {
 						row.tujuan,
 						row.nom,
 						detail.resi,
-						detail.area_paket
+						detail.area_paket,
+						detail.berat,
+						detail.koli
 					]);
 				});
 			});

@@ -50,6 +50,8 @@ class Laporan_model extends CI_Model {
 				}
 
 				$detail->area_paket = $paket->area;
+				$detail->koli = $paket->koli;
+				$detail->berat = $paket->berat;
 				$valid_details[] = $detail;
 			}
 
