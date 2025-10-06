@@ -221,9 +221,18 @@ class Users extends CI_Controller {
 		$area = $this->input->post('area', TRUE);
 		$code_area = $this->asal->get_by_nama($area);
 		
-		// Get count of transactions for this area code on current date
-		$data = $this->m_db->get_like('paket', 'tglkirim', $dateymd, ['area' => $code_area->kode]);
-		$totaldata = count($data) + 1;
+		// Start transaction to ensure atomicity
+		$this->db->trans_start();
+		
+		// Use a locking SELECT to get the current count atomically
+		$this->db->select('COUNT(*) as cnt');
+		$this->db->from('paket');
+		$this->db->where('tglkirim', $dateymd);
+		$this->db->where('area', $code_area->kode);
+		$this->db->where('resi LIKE', $code_area->kode . date('ymd') . '%'); // Ensure resi prefix matches
+		$query = $this->db->get();
+		$row = $query->row();
+		$totaldata = ($row->cnt ?? 0) + 1;
 		
 		// Format sequence number to 4 digits
 		$urut = str_pad($totaldata, 4, '0', STR_PAD_LEFT);
@@ -236,7 +245,10 @@ class Users extends CI_Controller {
 		// Construct resi number
 		$resi = $code_area->kode . $year . $month . $day . $urut;
 		
-		echo $resi; /* Resi format: JKT2508140001 (JKT + 2 digit year + 2 digit month + 2 digit day + 4 digit sequence) */
+		// Complete transaction
+		$this->db->trans_complete();
+		
+		echo $resi; /* Resi format: JKT2510060016 (JKT + 2 digit year + 2 digit month + 2 digit day + 4 digit sequence) */
 	}
 	
 	
