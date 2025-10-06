@@ -290,9 +290,9 @@
                 <li span class="hidden-xs">
                     <a title="QRIS"><i class="fa fa-lg fa-fw fa-qrcode" aria-hidden="true"></i><span class="menu-item-parent">QRIS</span></a>
                     <ul>
-                        <li>
+                        <!-- <li>
                             <a target="_blank" href="<?php echo base_url(); ?>assets/atropos/images/ID2025372662440.jpeg" alt="" title="Qris Trip Cargo"><img alt="Berkas:QRIS logo.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/e1/QRIS_logo.svg/150px-QRIS_logo.svg.png" decoding="async" width="auto" height="20" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/e1/QRIS_logo.svg/576px-QRIS_logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/e1/QRIS_logo.svg/350px-QRIS_logo.svg.png 2x" data-file-width="auto" data-file-height="32"></a>
-                        </li>
+                        </li> -->
                         <li>
                             <a target="_blank" href="https://qr.klikbca.com/QRMerchantService/v2.10/home?mid=002804257" alt="" title="Laporan Qiris">Laporan Qris Trip Cargo</a>
                         </li>
@@ -416,9 +416,9 @@
                 <li span class="hidden-xs">
                     <a title="QRIS"><i class="fa fa-lg fa-fw fa-qrcode" aria-hidden="true"></i><span class="menu-item-parent">QRIS</span></a>
                     <ul>
-                        <li>
+                        <!-- <li>
                             <a target="_blank" href="<?php echo base_url(); ?>assets/atropos/images/ID2025372662440.jpeg" alt="" title="Qris Trip Cargo"><img alt="Berkas:QRIS logo.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/e/e1/QRIS_logo.svg/150px-QRIS_logo.svg.png" decoding="async" width="auto" height="20" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/e1/QRIS_logo.svg/576px-QRIS_logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/e1/QRIS_logo.svg/350px-QRIS_logo.svg.png 2x" data-file-width="auto" data-file-height="32"></a>
-                        </li>
+                        </li> -->
                         <li>
                             <a target="_blank" href="https://qr.klikbca.com/QRMerchantService/v2.10/home?mid=002804257" alt="" title="Laporan Qiris">Laporan Qris Trip Cargo</a>
                         </li>
